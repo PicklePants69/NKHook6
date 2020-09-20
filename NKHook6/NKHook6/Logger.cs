@@ -17,9 +17,9 @@ namespace NKHook6
 
         public string Sender { get; set; } = System.Reflection.Assembly.GetExecutingAssembly().FullName;
 
-        private Logger instance;
+        private static Logger instance;
 
-        public Logger Instance
+        public static Logger Instance
         {
             get 
             {
@@ -33,7 +33,7 @@ namespace NKHook6
 
         public void Log(string text, int color = (int)ConsoleColor.Red, Level level = Level.Normal) => Log(text, color, level, Sender);
 
-        public static void Log(string text, int color = (int)ConsoleColor.Red, Level level, string sender = "")
+        public static void Log(string text, int color = (int)ConsoleColor.Red, Level level = Level.Normal, string sender = "")
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("(" + DateTime.Now + ") ");

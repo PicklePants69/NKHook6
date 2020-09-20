@@ -26,7 +26,7 @@ namespace NKHook6.NKPython
             //Python shit
             pyEngine = Python.CreateEngine();
             pyScope = pyEngine.CreateScope();
-            pyScope.SetVariable("logger", Logger.instance);
+            pyScope.SetVariable("logger", Logger.Instance);
         }
         public static void ExecuteAllScripts()
         {
@@ -35,12 +35,12 @@ namespace NKHook6.NKPython
             {
                 if (file.EndsWith(".py"))
                 {
-                    Logger.instance.Log("Loading script: " + file);
+                    Logger.Instance.Log("Loading script: " + file);
                     Thread execThread = new Thread(() =>
                     {
                         if (!ExecuteFile(file))
                         {
-                            Logger.instance.Log("Failed to load script " + file);
+                            Logger.Instance.Log("Failed to load script " + file);
                         }
                     });
                     execThread.Start();
@@ -80,9 +80,9 @@ namespace NKHook6.NKPython
                 return true;
             }catch(Exception ex)
             {
-                Logger.instance.Log("Exception occoured when executing python code!");
-                Logger.instance.Log(ex.Message);
-                Logger.instance.Log(ex.StackTrace);
+                Logger.Instance.Log("Exception occoured when executing python code!");
+                Logger.Instance.Log(ex.Message);
+                Logger.Instance.Log(ex.StackTrace);
                 return false;
             }
         }
