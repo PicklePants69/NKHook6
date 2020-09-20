@@ -30,6 +30,9 @@ namespace NKHook6.NKPython
         }
         public static void ExecuteAllScripts()
         {
+            if (!Directory.Exists("Scripts"))
+                Directory.CreateDirectory("Scripts");
+
             string[] files = Directory.GetFiles("Scripts");
             foreach(string file in files)
             {

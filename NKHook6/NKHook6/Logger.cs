@@ -15,7 +15,7 @@ namespace NKHook6
             Error
         }
 
-        public string Sender { get; set; } = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+        public string Sender { get; set; } = System.Reflection.Assembly.GetCallingAssembly().GetName().Name;
 
         private static Logger instance;
 
@@ -31,9 +31,7 @@ namespace NKHook6
         }
 
 
-        public void Log(string text, int color = (int)ConsoleColor.Red, Level level = Level.Normal) => Log(text, color, level, Sender);
-
-        public static void Log(string text, int color = (int)ConsoleColor.Red, Level level = Level.Normal, string sender = "NKHook6")
+        public void Log(string text, int color = (int)ConsoleColor.Red, Level level = Level.Normal)
         {
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.Write("[");
@@ -45,10 +43,18 @@ namespace NKHook6
             Console.ResetColor();
             Console.Write("[");
             Console.ForegroundColor = (ConsoleColor)color;
-            Console.Write(sender);
+            Console.Write(Sender);
             Console.ResetColor();
             Console.Write("] ");
             Console.WriteLine(text);
+        }
+
+        public static void Log(string text, int color = (int)ConsoleColor.Red, Level level = Level.Normal, string sender = "")
+        {
+            if (!String.IsNullOrEmpty(sender))
+                Instance.Sender = sender;
+
+            Instance.Log(text, color, level);
         }
     }
 }
