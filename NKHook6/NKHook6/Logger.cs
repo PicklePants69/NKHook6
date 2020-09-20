@@ -35,8 +35,13 @@ namespace NKHook6
 
         public static void Log(string text, int color = (int)ConsoleColor.Red, Level level = Level.Normal, string sender = "")
         {
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.Write("[");
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write("(" + DateTime.Now + ") ");
+            String time = DateTime.Now.ToString("HH:mm:ss.fff");
+            Console.Write(time);
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.Write("] ");
             Console.ResetColor();
             Console.Write("[");
             Console.ForegroundColor = (ConsoleColor)color;
