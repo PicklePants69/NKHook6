@@ -13,14 +13,14 @@ namespace NKHook6
         {
             instance = this;
         }
-        public void Log(string text)
+        public void Log(string text, string messanger = "NKHook6")
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("(" + DateTime.Now + ") ");
             Console.ResetColor();
             Console.Write("[");
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("NKHook6");
+            Console.Write(messanger);
             Console.ResetColor();
             Console.Write("] ");
             Console.WriteLine(text);
