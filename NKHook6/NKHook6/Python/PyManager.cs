@@ -80,9 +80,9 @@ namespace NKHook6.NKPython
                 return true;
             }catch(Exception ex)
             {
-                Logger.Instance.Log("Exception occoured when executing python code!");
-                Logger.Instance.Log(ex.Message);
-                Logger.Instance.Log(ex.StackTrace);
+                Logger.Instance.Log("Exception occoured when executing python code!", level: Logger.Level.Error);
+                Logger.Instance.Log(ex.Message, level: Logger.Level.Error);
+                Logger.Instance.Log(ex.StackTrace, level: Logger.Level.Error);
                 return false;
             }
         }
