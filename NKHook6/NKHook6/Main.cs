@@ -17,9 +17,24 @@ namespace NKHook6
             logger.Log("NKHook6 is initializing...");
             logger.Log("CWD: " + Environment.CurrentDirectory);
 
-
+            logger.Log("Setting up python...");
+            PyMain.Setup();
+            logger.Log("Python set up!");
             string testScript = @"logger.Log('Hello from Python!');";
-            PyMain.Execute(testScript);
+            logger.Log("Running test script...");
+            if (PyMain.Execute(testScript))
+            {
+                logger.Log("Test success!");
+            }
+            else
+            {
+                logger.Log("Test failed!");
+                return;
+            }
+
+            logger.Log("Running all scripts...");
+            PyMain.ExecuteAllScripts();
+            logger.Log("Scripts executed!");
 
             logger.Log("NKHook6 initialized");
         }

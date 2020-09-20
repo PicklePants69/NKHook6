@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Il2CppSystem.Net;
+using System.IO;
 
 namespace NKHook6.NKPython
 {
@@ -23,7 +25,27 @@ namespace NKHook6.NKPython
             pyScope = pyEngine.CreateScope();
             pyScope.SetVariable("logger", Logger.instance);
         }
-        public static void Execute(string script)
+        public static void ExecuteAllScripts()
+        {
+            string[] files = Directory.GetFiles("Scripts");
+            foreach(string file in files)
+            {
+                if (file.EndsWith(".py"))
+                {
+                    Logger.instance.Log("Loading script: " + file);
+                    if (!ExecuteFile(file))
+                    {
+                        Logger.instance.Log("Failed to load script " + file);
+                    }
+                }
+            }
+        }
+        public static bool ExecuteFile(string filename)
+        {
+            string contents = File.ReadAllText(filename);
+            return Execute(contents);
+        }
+        public static bool Execute(string script)
         {
             try
             {
@@ -31,11 +53,13 @@ namespace NKHook6.NKPython
                 CompiledCode compiled = source.Compile();
                 // Executes in the scope of Python
                 compiled.Execute(pyScope);
+                return true;
             }catch(Exception ex)
             {
                 Logger.instance.Log("Exception occoured when executing python code!");
                 Logger.instance.Log(ex.Message);
                 Logger.instance.Log(ex.StackTrace);
+                return false;
             }
         }
     }
