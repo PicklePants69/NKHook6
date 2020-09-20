@@ -35,13 +35,6 @@ namespace NKHook6
                 return;
             }
 
-            string[] files = Directory.GetFiles("MelonLoader/Managed/");
-            foreach(string file in files)
-            {
-                string sanitized = file.Replace("MelonLoader/Managed/", "").Replace(".dll","");
-                Console.WriteLine("clr.AddReference('" + sanitized + "');");
-            }
-
             logger.Log("Running all scripts...");
             PyManager.ExecuteAllScripts();
             logger.Log("Scripts executed!");
