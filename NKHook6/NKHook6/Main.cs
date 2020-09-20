@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NKHook6.NKPython;
 using Assets.Scripts.Unity;
 using UnityEngine.Playables;
 using System.IO;
+using System.Threading;
+using NKHook6.Api;
+using NKHook6.NKPython;
 
 namespace NKHook6
 {
@@ -35,11 +37,24 @@ namespace NKHook6
                 return;
             }
 
+            new CommandManager();
+
             logger.Log("Running all scripts...");
             PyManager.ExecuteAllScripts();
             logger.Log("Scripts executed!");
 
             logger.Log("NKHook6 initialized");
+
+            new Thread(() =>
+            {
+                while (true)
+                {
+                    Console.Write("x>");
+                    string input = Console.ReadLine();
+                    if(CommandManager.instance.OnCommand != null)
+                        CommandManager.instance.OnCommand.Invoke(null, input);
+                }
+            }).Start();
         }
     }
 }

@@ -61,8 +61,8 @@ namespace NKHook6.NKPython
                  * Pre add all references for a python mod, as well as imports.
                  */
                 string scriptHead = @"import clr;" + Environment.NewLine;
-                string[] files = Directory.GetFiles("MelonLoader/Managed/");
-                foreach (string file in files)
+                string[] managedAssemblies = Directory.GetFiles("MelonLoader/Managed/");
+                foreach (string file in managedAssemblies)
                 {
                     string sanitized = file.Replace("MelonLoader/Managed/", "").Replace(".dll", "");
                     if (sanitized.EndsWith(".db"))
@@ -71,6 +71,7 @@ namespace NKHook6.NKPython
                     }
                     scriptHead += "clr.AddReference('" + sanitized + "');" + Environment.NewLine;
                 }
+                scriptHead += "clr.AddReference('NKHook6');" + Environment.NewLine;
                 script = scriptHead + script;
 
                 ScriptSource source = pyEngine.CreateScriptSourceFromString(script, SourceCodeKind.Statements);
