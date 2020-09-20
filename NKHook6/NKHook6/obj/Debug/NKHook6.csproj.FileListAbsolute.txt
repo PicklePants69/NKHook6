@@ -19,3 +19,5 @@ A:\GitHub\NKHook6\NKHook6\NKHook6\bin\Debug\IronPython.Wpf.xml
 A:\GitHub\NKHook6\NKHook6\NKHook6\bin\Debug\Microsoft.Dynamic.xml
 A:\GitHub\NKHook6\NKHook6\NKHook6\bin\Debug\Microsoft.Scripting.xml
 A:\GitHub\NKHook6\NKHook6\NKHook6\bin\Debug\Microsoft.Scripting.Metadata.xml
+E:\Users\Mrclone2\Documents\GitHub\NKHook6\NKHook6\NKHook6\obj\Debug\NKHook6.csprojAssemblyReference.cache
+E:\Users\Mrclone2\Documents\GitHub\NKHook6\NKHook6\NKHook6\obj\Debug\NKHook6.csproj.CoreCompileInputs.cache

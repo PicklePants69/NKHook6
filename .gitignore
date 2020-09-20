@@ -12,3 +12,4 @@ NKHook6/.vs/NKHook6/v16/.suo
 *.p7s
 packages/
 bin/
+*.force
