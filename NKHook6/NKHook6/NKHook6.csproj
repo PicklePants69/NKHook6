@@ -36,176 +36,253 @@
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Boo.Lang">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Boo.Lang.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Boo.Lang.Compiler">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Boo.Lang.Compiler.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Boo.Lang.Extensions">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Boo.Lang.Extensions.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Boo.Lang.Parser">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Boo.Lang.Parser.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Boo.Lang.PatternMatching">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Boo.Lang.PatternMatching.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Boo.Lang.Useful">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Boo.Lang.Useful.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Commons.Xml.Relaxng">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Commons.Xml.Relaxng.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="cscompmgd, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\cscompmgd.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="CustomMarshalers" />
     <Reference Include="Facebook.Unity.Settings">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Facebook.Unity.Settings.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Facepunch.Steamworks">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Facepunch.Steamworks.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Firebase.Analytics">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Firebase.Analytics.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Firebase.App">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Firebase.App.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Firebase.Crashlytics">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Firebase.Crashlytics.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Firebase.Platform">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Firebase.Platform.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="I18N">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\I18N.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="I18N.CJK">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\I18N.CJK.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="I18N.MidEast">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\I18N.MidEast.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="I18N.Other">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\I18N.Other.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="I18N.Rare">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\I18N.Rare.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="I18N.West">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\I18N.West.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="IBM.Data.DB2">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\IBM.Data.DB2.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Iced">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Iced.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppMono.Security">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Il2CppMono.Security.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2Cppmscorlib">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Il2Cppmscorlib.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Il2CppSystem.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Configuration">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Il2CppSystem.Configuration.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Core">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Il2CppSystem.Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Diagnostics.StackTrace">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Il2CppSystem.Diagnostics.StackTrace.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Globalization.Extensions">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Il2CppSystem.Globalization.Extensions.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.IO.Compression">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Il2CppSystem.IO.Compression.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Runtime.Serialization">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Il2CppSystem.Runtime.Serialization.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Xml">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Il2CppSystem.Xml.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Xml.Linq">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Il2CppSystem.Xml.Linq.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IronPython, Version=2.7.10.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronPython.2.7.10\lib\net45\IronPython.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython.Modules, Version=2.7.10.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronPython.2.7.10\lib\net45\IronPython.Modules.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython.SQLite, Version=2.7.10.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronPython.2.7.10\lib\net45\IronPython.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython.Wpf, Version=2.7.10.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronPython.2.7.10\lib\net45\IronPython.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="MelonLoader.ModHandler">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\MelonLoader.ModHandler.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Dynamic, Version=1.2.3.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicLanguageRuntime.1.2.3\lib\net45\Microsoft.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting, Version=1.2.3.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicLanguageRuntime.1.2.3\lib\net45\Microsoft.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting.Metadata, Version=1.2.3.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicLanguageRuntime.1.2.3\lib\net45\Microsoft.Scripting.Metadata.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Mono.CompilerServices.SymbolWriter">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Mono.CompilerServices.SymbolWriter.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Mono.CSharp">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Mono.CSharp.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Data.Sqlite">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Mono.Data.Sqlite.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Data.Tds">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Mono.Data.Tds.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Messaging">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Mono.Messaging.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Posix">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Mono.Posix.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Security">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Mono.Security.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Mono.WebBrowser">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Mono.WebBrowser.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="NCalc">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\NCalc.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\netstandard.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="NinjaKiwi.Common">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\NinjaKiwi.Common.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Ninjakiwi.LiNK">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Ninjakiwi.LiNK.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="NK-Unity-Libs">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\NK-Unity-Libs.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Novell.Directory.Ldap">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Novell.Directory.Ldap.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Purchasing.Common">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Purchasing.Common.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="SMDiagnostics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\SMDiagnostics.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Stores">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Stores.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -231,6 +308,7 @@
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Json">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\System.Json.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Management" />
     <Reference Include="System.Messaging" />
@@ -238,12 +316,14 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\System.Net.Http.Formatting.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\System.Numerics.Vectors.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Reflection.Context" />
     <Reference Include="System.Runtime.Caching" />
@@ -258,6 +338,7 @@
     <Reference Include="System.ServiceModel.Internals, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\System.ServiceModel.Internals.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.ServiceModel.Routing" />
     <Reference Include="System.ServiceModel.Web" />
@@ -271,30 +352,38 @@
     <Reference Include="System.Web.Extensions.Design" />
     <Reference Include="System.Web.Http">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\System.Web.Http.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Http.SelfHost">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\System.Web.Http.SelfHost.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Http.WebHost">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\System.Web.Http.WebHost.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Mvc">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\System.Web.Mvc.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Razor">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\System.Web.Razor.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.RegularExpressions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Web.WebPages">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\System.Web.WebPages.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.WebPages.Deployment">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.WebPages.Razor">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -303,147 +392,195 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="SystemWebTestShim">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\SystemWebTestShim.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnhollowerBaseLib">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnhollowerBaseLib.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnhollowerRuntimeLib">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnhollowerRuntimeLib.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Addressables">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Unity.Addressables.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Compat">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Unity.Compat.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Unity.ResourceManager">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Unity.ResourceManager.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Tasks">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Unity.Tasks.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Unity.TextMeshPro.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.AIModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AndroidJNIModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.AndroidJNIModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AnimationModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.AnimationModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AssetBundleModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AudioModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.AudioModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CrashReportingModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.CrashReportingModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.DirectorModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.DirectorModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.GameCenterModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.GameCenterModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.GridModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.GridModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.Il2CppAssetBundleManager">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.Il2CppAssetBundleManager.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ImageConversionModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.IMGUIModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.InputLegacyModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.InputModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.InputModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.JSONSerializeModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ParticleSystemModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.Physics2DModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.Purchasing.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.SharedInternalsModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.SharedInternalsModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.SubsystemsModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.SubsystemsModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TerrainModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.TerrainModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TextCoreModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.TextCoreModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TilemapModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.TilemapModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UIElementsModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.UIElementsModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UIModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.UIModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityAnalyticsModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestWWWModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.VFXModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.VFXModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.VideoModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.VideoModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.VRModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.VRModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.XRModule">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityEngine.XRModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityStore">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\UnityStore.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="ValueTupleBridge">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\ValueTupleBridge.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -459,7 +596,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>copy "$(TargetDir)NKHook6.dll" "L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\Mods" /y</PostBuildEvent>
   </PropertyGroup>
 </Project>
