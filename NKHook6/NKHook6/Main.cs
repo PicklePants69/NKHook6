@@ -10,6 +10,7 @@ using System.IO;
 using System.Threading;
 using NKHook6.Api;
 using NKHook6.NKPython;
+using static NKHook6.Logger;
 
 namespace NKHook6
 {
@@ -18,41 +19,46 @@ namespace NKHook6
         public override void OnApplicationStart()
         {
             base.OnApplicationStart();
-            Logger logger = new Logger();
-            logger.Log("NKHook6 is initializing...");
-            logger.Log("CWD: " + Environment.CurrentDirectory);
+            Log("NKHook6 is initializing...");
+            Log("CWD: " + Environment.CurrentDirectory);
 
-            logger.Log("Setting up python...");
+            InitializePython();
+            Log("NKHook6 initialized");
+            InitializeCommandMgr();
+        }
+
+        private void InitializePython()
+        {
+            Log("Setting up python...");
             PyManager.Setup();
-            logger.Log("Python set up!");
-            string testScript = @"logger.Log('Hello from Python!');";
-            logger.Log("Running test script...");
-            if (PyManager.Execute(testScript))
+            Log("Python set up!");
+
+            Log("Running test script...");
+            if (PyManager.Execute(@"Log('Hello from Python!');"))
             {
-                logger.Log("Test success!");
+                Log("Test success!");
             }
             else
             {
-                logger.Log("Test failed!");
+                Log("Test failed!");
                 return;
             }
 
-            new CommandManager();
-
-            logger.Log("Running all scripts...");
+            Log("Running all scripts...");
             PyManager.ExecuteAllScripts();
-            logger.Log("Scripts executed!");
+            Log("Scripts executed!");
+        }
 
-            logger.Log("NKHook6 initialized");
-
+        private void InitializeCommandMgr()
+        {
             new Thread(() =>
             {
                 while (true)
                 {
                     Console.Write("x>");
                     string input = Console.ReadLine();
-                    if(CommandManager.instance.OnCommand != null)
-                        CommandManager.instance.OnCommand.Invoke(null, input);
+                    if (CommandManager.Instance.OnCommand != null)
+                        CommandManager.Instance.OnCommand.Invoke(null, input);
                 }
             }).Start();
         }

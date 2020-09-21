@@ -8,13 +8,21 @@ namespace NKHook6.Api
 {
     class CommandManager
     {
-        public static CommandManager instance;
-        public CommandManager()
-        {
-            instance = this;
-        }
+		private static CommandManager instance;
+
+		public static CommandManager Instance
+		{
+			get 
+			{
+				if (instance == null)
+					instance = new CommandManager();
+				return instance;
+			}
+			set { instance = value; }
+		}
 
 
-        public EventHandler<string> OnCommand;
+
+		public EventHandler<string> OnCommand;
     }
 }
