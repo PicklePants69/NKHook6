@@ -10,8 +10,10 @@ using System.Threading.Tasks;
 using Il2CppSystem.Net;
 using System.IO;
 using System.Threading;
+using System.Reflection;
+using NKHook6.Api;
 
-namespace NKHook6.NKPython
+namespace NKHook6.Scripting
 {
     class PyManager
     {
@@ -25,8 +27,21 @@ namespace NKHook6.NKPython
         {
             //Python shit
             pyEngine = Python.CreateEngine();
+            pyEngine.Runtime.LoadAssembly(Assembly.GetExecutingAssembly());
+
+            string[] managedAssemblies = Directory.GetFiles("MelonLoader/Managed/");
+            foreach (string file in managedAssemblies)
+            {
+                string sanitized = file.Replace("MelonLoader/Managed/", "").Replace(".dll", "");
+                if (sanitized.EndsWith(".db"))
+                {
+                    continue;
+                }
+            }
+
             pyScope = pyEngine.CreateScope();
             pyScope.SetVariable("logger", Logger.Instance);
+            pyScope.SetVariable("commandManager", CommandManager.Instance);
         }
         public static void ExecuteAllScripts()
         {
@@ -74,7 +89,7 @@ namespace NKHook6.NKPython
                     }
                     scriptHead += "clr.AddReference('" + sanitized + "');" + Environment.NewLine;
                 }
-                scriptHead += "clr.AddReference('NKHook6');" + Environment.NewLine;
+                //scriptHead += "clr.AddReferenceToFile('Mods\\NKHook6.dll');" + Environment.NewLine;
                 script = scriptHead + script;
 
                 ScriptSource source = pyEngine.CreateScriptSourceFromString(script, SourceCodeKind.Statements);

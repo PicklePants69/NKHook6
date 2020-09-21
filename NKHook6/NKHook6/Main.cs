@@ -9,8 +9,8 @@ using UnityEngine.Playables;
 using System.IO;
 using System.Threading;
 using NKHook6.Api;
-using NKHook6.NKPython;
 using static NKHook6.Logger;
+using NKHook6.Scripting;
 
 namespace NKHook6
 {
@@ -34,7 +34,7 @@ namespace NKHook6
             Log("Python set up!");
 
             Log("Running test script...");
-            if (PyManager.Execute(@"Log('Hello from Python!');"))
+            if (PyManager.Execute(@"logger.Log('Hello from Python!');"))
             {
                 Log("Test success!");
             }
