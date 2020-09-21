@@ -480,14 +480,15 @@
   <ItemGroup>
     <Compile Include="Api\CommandManager.cs" />
     <Compile Include="Api\CustomTypes\DamageInfo.cs" />
-    <Compile Include="Api\Events\OnBloonDamaged.cs" />
-    <Compile Include="Api\Events\OnBloonLeaked.cs" />
-    <Compile Include="Api\Events\OnBloonMove.cs" />
-    <Compile Include="Api\Events\OnBloonSpawned.cs" />
-    <Compile Include="Api\Events\OnBloonPopped.cs" />
+    <Compile Include="Api\Events\Bloons\OnBloonDamaged.cs" />
+    <Compile Include="Api\Events\Bloons\OnBloonLeaked.cs" />
+    <Compile Include="Api\Events\Bloons\OnBloonMove.cs" />
+    <Compile Include="Api\Events\Bloons\OnBloonSpawned.cs" />
+    <Compile Include="Api\Events\Bloons\OnBloonPopped.cs" />
     <Compile Include="Api\Events\OnMainMenuShown.cs" />
     <Compile Include="Api\Events\OnRoundEnd.cs" />
     <Compile Include="Api\Events\OnRoundStart.cs" />
+    <Compile Include="Api\Events\Towers\OnTowerPlaced.cs" />
     <Compile Include="Api\Utilities\AssetUtils.cs" />
     <Compile Include="Api\Utilities\AudioUtils.cs" />
     <Compile Include="Api\Utilities\DefaultBloonIds.cs" />

@@ -5,7 +5,7 @@ using System;
 
 namespace NKHook6.Api.Events
 {
-    [HarmonyPatch(typeof(Bloon), "Move")]
+    [HarmonyPatch(typeof(Bloon), "Leaked")]
     public class OnBloonLeaked
     {
         private static bool sendPrefixEvent = true;
@@ -41,6 +41,7 @@ namespace NKHook6.Api.Events
         {
             var args = new OnBloonLeakedEventArgs();
             args.Instance = __instance;
+            args.LeakDamage = __instance.GetModifiedTotalLeakDamage();
             return args;
         }
 
@@ -51,6 +52,7 @@ namespace NKHook6.Api.Events
         public class OnBloonLeakedEventArgs : EventArgs
         {
             public Bloon Instance { get; set; }
+            public float LeakDamage { get; set; }
         }
 
         public void OnBloonLeakedPrefix(OnBloonLeakedEventArgs e)

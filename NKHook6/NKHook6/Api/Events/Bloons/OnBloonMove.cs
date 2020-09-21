@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Simulation;
+﻿/*using Assets.Scripts.Simulation;
 using Assets.Scripts.Simulation.Bloons;
 using Harmony;
 using System;
@@ -15,6 +15,7 @@ namespace NKHook6.Api.Events
         [HarmonyPrefix]
         internal static bool Prefix(ref Bloon __instance, ref float byAmount)
         {
+            Logger.Log("OnBloonMove Prefix");
             byAmount += 20;
             if (changeAmountToMove != -99999999)
             {
@@ -36,6 +37,7 @@ namespace NKHook6.Api.Events
         [HarmonyPostfix]
         internal static void Postfix(ref Bloon __instance, ref float byAmount)
         {
+            Logger.Log("OnBloonMove Postfix");
             if (sendPostfixEvent)
             {
                 var o = new OnBloonMove();
@@ -80,3 +82,4 @@ namespace NKHook6.Api.Events
         }
     }
 }
+*/
