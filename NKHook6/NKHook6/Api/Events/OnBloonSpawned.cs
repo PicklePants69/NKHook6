@@ -19,7 +19,7 @@ namespace NKHook6.Api.Events
         private static bool sendPostfixEvent = true;
 
         [HarmonyPrefix]
-        public static bool Prefix(Bloon __instance, ref Entity target, ref Model modelToUse)
+        internal static bool Prefix(Bloon __instance, ref Entity target, ref Model modelToUse)
         {
             if (changeBloonToThisModel != null)
             {
@@ -39,7 +39,7 @@ namespace NKHook6.Api.Events
         }
 
         [HarmonyPostfix]
-        public static void Postfix(Bloon __instance, Entity target, Model modelToUse)
+        internal static void Postfix(Bloon __instance, Entity target, Model modelToUse)
         {
             if (sendPostfixEvent)
             {

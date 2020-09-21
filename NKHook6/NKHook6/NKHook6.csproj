@@ -453,10 +453,13 @@
     <Compile Include="Api\CommandManager.cs" />
     <Compile Include="Api\CustomTypes\DamageInfo.cs" />
     <Compile Include="Api\Events\OnBloonDamaged.cs" />
+    <Compile Include="Api\Events\OnBloonLeaked.cs" />
+    <Compile Include="Api\Events\OnBloonMove.cs" />
     <Compile Include="Api\Events\OnBloonSpawned.cs" />
     <Compile Include="Api\Events\OnBloonPopped.cs" />
     <Compile Include="Api\Events\OnKeyHeld.cs" />
     <Compile Include="Api\Events\OnKeyPress.cs" />
+    <Compile Include="Api\Events\OnMainMenuShown.cs" />
     <Compile Include="Api\Events\OnRoundEnd.cs" />
     <Compile Include="Api\Events\OnRoundStart.cs" />
     <Compile Include="Api\Events\OnUpdate.cs" />

@@ -14,7 +14,7 @@ namespace NKHook6.Api.CustomTypes
         public bool DistributeToChildren { get; set; }
         public bool OverrideDistributeBlocker { get; set; }
         public bool CreateEffect { get; set; }
-        public Tower Tower { get; set; }
+        public Tower TowerInstance { get; set; }
         public bool CanDestroyProjectile { get; set; }
         public Il2CppStringArray IgnoreImmunityForBloonTypes { get; set; }
         public bool IgnoreNonTargetables { get; set; }
