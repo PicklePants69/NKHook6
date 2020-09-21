@@ -11,6 +11,7 @@ using System.Threading;
 using NKHook6.Api;
 using static NKHook6.Logger;
 using NKHook6.Scripting;
+using Harmony;
 
 namespace NKHook6
 {
@@ -22,9 +23,18 @@ namespace NKHook6
             Log("NKHook6 is initializing...");
             Log("CWD: " + Environment.CurrentDirectory);
 
+            InitializeHarmony();
             InitializePython();
-            Log("NKHook6 initialized");
             InitializeCommandMgr();
+            
+            Log("NKHook6 initialized");
+        }
+
+        private void InitializeHarmony()
+        {
+            Log("Initializing Harmony");
+            HarmonyInstance.Create("TD Toolbox.NKHook6").PatchAll();
+            Log("Finished Initializing Harmony. Hooks are patched");
         }
 
         private void InitializePython()
