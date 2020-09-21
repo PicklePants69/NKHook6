@@ -1,13 +1,14 @@
 ﻿using Assets.Scripts.Models.Bloons;
-using Assets.Scripts.Simulation.Bloons;
 using Assets.Scripts.Unity;
 using NKHook6.Api.Events;
+using NKHook6.Api.CustomTypes;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+using Assets.Scripts.Simulation.Bloons;
+using UnhollowerBaseLib;
+using Assets.Scripts.Simulation.Towers.Projectiles;
+using Assets.Scripts.Simulation.Towers;
+using System.Runtime.InteropServices;
+using Assets.Scripts.Simulation;
 
 namespace NKHook6.Api.Utilities
 {
@@ -48,5 +49,36 @@ namespace NKHook6.Api.Utilities
 
             return result;
         }
+
+        public static void ChangeBloonDamageTo(Bloon __instance, float damageAmount)
+        {
+            
+        }
+
+        public static void ChangeBloonDamageTo(Bloon __instance, float damageAmount, Il2CppStringArray damageTypes,
+            Projectile projectile, bool distributeToChildren, bool overrideDistributeBlocker, bool createEffect, [Optional]Tower tower,
+            [Optional]Il2CppStringArray ignoreImmunityForBloonTypes, bool canDestroyProjectile = true, bool ignoreNonTargetable = false, 
+            bool blockSpawnChildren = false)
+        {
+            ChangeNextBloonDamageTo(new DamageInfo()
+            {
+                BloonInstance = __instance,
+                DamageTaken = damageAmount,
+                DamageTypes = damageTypes,
+                Projectile = projectile,
+                DistributeToChildren = distributeToChildren,
+                OverrideDistributeBlocker = overrideDistributeBlocker,
+                CreateEffect = createEffect,
+                Tower = tower,
+                IgnoreImmunityForBloonTypes = ignoreImmunityForBloonTypes,
+                CanDestroyProjectile = canDestroyProjectile,
+                IgnoreNonTargetables = ignoreNonTargetable,
+                BlockSpawnChildren = blockSpawnChildren
+            });
+        }
+
+        public static void ChangeNextBloonDamageTo(DamageInfo damageInfo) => OnBloonDamaged.changeDamageInfoTo = damageInfo;
+
+        public static void ChangeNextBloonDamageTo(float damage) => OnBloonDamaged.changeDamageTo = damage;
     }
 }

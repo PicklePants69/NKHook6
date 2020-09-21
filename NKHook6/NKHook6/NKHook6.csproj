@@ -479,6 +479,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\CommandManager.cs" />
+    <Compile Include="Api\CustomTypes\DamageInfo.cs" />
     <Compile Include="Api\Events\OnBloonDamaged.cs" />
     <Compile Include="Api\Events\OnBloonSpawned.cs" />
     <Compile Include="Api\Events\OnBloonPopped.cs" />
@@ -488,6 +489,7 @@
     <Compile Include="Api\Utilities\AudioUtils.cs" />
     <Compile Include="Api\Utilities\DefaultBloonIds.cs" />
     <Compile Include="Api\Utilities\BloonUtils.cs" />
+    <Compile Include="Api\Utilities\EnumUtils.cs" />
     <Compile Include="Api\Utilities\ImageUtils.cs" />
     <Compile Include="Api\Utilities\ReflectionUtils.cs" />
     <Compile Include="Api\Utilities\SelfCheckingDictionary.cs" />

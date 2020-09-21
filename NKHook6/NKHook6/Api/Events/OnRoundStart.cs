@@ -12,7 +12,7 @@ namespace NKHook6.Api.Events
         private static bool sendPostfixEvent = true;
 
         [HarmonyPrefix]
-        public static bool Prefix(Simulation __instance, int roundArrayIndex)
+        public static bool Prefix(ref Simulation __instance, int roundArrayIndex)
         {
             if (sendPrefixEvent)
             {
