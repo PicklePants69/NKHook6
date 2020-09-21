@@ -10,6 +10,7 @@ namespace NKHook6.Api.Events
     {
         private static bool sendPrefixEvent = true;
         private static bool sendPostfixEvent = true;
+
         [HarmonyPrefix]
         public static bool Prefix(Simulation __instance, int roundArrayIndex)
         {
