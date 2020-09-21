@@ -479,7 +479,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\CommandManager.cs" />
-    <Compile Include="Api\Events\BloonSpawned.cs" />
+    <Compile Include="Api\Events\OnBloonDamaged.cs" />
+    <Compile Include="Api\Events\OnBloonSpawned.cs" />
     <Compile Include="Api\Events\OnBloonPopped.cs" />
     <Compile Include="Api\Events\OnRoundEnd.cs" />
     <Compile Include="Api\Events\OnRoundStart.cs" />

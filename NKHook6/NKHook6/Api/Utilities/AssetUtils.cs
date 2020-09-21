@@ -36,7 +36,21 @@ namespace NKHook6.Api.Utilities
         /// <returns></returns>
         public static GameObject CreatePrefab(AssetBundle assetBundle, string assetToLoad)
         {
-            assetBundle.LoadAsset(assetToLoad).Cast<GameObject>();
+            if (assetBundle == null)
+            {
+                Logger.Log("Error! AssetBundle is null: " + assetBundle.name);
+                return null;
+            }
+
+            var result = assetBundle.LoadAsset(assetToLoad).Cast<GameObject>();
+
+            if (result == null)
+            {
+                Logger.Log("Error! Failed to create GameObject prefab from AssetBundle. GameObject prefab is null: " + result.name);
+                return null;
+            }
+
+            return result;
         }
     }
 }
