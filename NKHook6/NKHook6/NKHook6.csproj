@@ -606,21 +606,17 @@
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Api\CommandManager.cs" />
-    <Compile Include="Api\Events\OnRoundStart.cs" />
-    <Compile Include="Logger.cs" />
-    <Compile Include="Main.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Python\PyManager.cs" />
-    <Compile Include="Win32.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetDir)NKHook6.dll" "L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\Mods" /y</PostBuildEvent>
+    <PostBuildEvent>mkdir "$(SolutionDir)out\Mods"
+copy "$(TargetDir)NKHook6.dll" "$(SolutionDir)out\Mods\NKHook6.dll" /y
+copy "$(TargetDir)IronPython.dll" "$(SolutionDir)out\IronPython.dll" /y
+copy "$(TargetDir)IronPython.Modules.dll" "$(SolutionDir)out\IronPython.Modules.dll" /y
+copy "$(TargetDir)IronPython.SQLite.dll" "$(SolutionDir)out\IronPython.SQLite.dll" /y
+copy "$(TargetDir)IronPython.Wpf.dll" "$(SolutionDir)out\IronPython.Wpf.dll" /y
+copy "$(TargetDir)Microsoft.Dynamic.dll" "$(SolutionDir)out\Microsoft.Dynamic.dll" /y
+copy "$(TargetDir)Microsoft.Scripting.dll" "$(SolutionDir)out\Microsoft.Scripting.dll" /y
+copy "$(TargetDir)Microsoft.Scripting.Metadata.dll" "$(SolutionDir)out\Microsoft.Scripting.Metadata.dll" /y</PostBuildEvent>
   </PropertyGroup>
 </Project>
