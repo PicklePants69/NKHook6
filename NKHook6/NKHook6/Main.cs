@@ -25,9 +25,9 @@ namespace NKHook6
 
             InitializeHarmony();
             InitializePython();
-            InitializeCommandMgr();
-            
             Log("NKHook6 initialized");
+
+            InitializeCommandMgr();            
         }
 
         private void InitializeHarmony()

@@ -586,6 +586,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\CommandManager.cs" />
+    <Compile Include="Api\Events\OnRoundEnd.cs" />
     <Compile Include="Api\Events\OnRoundStart.cs" />
     <Compile Include="Api\Utilities\AssetUtils.cs" />
     <Compile Include="Api\Utilities\AudioUtils.cs" />

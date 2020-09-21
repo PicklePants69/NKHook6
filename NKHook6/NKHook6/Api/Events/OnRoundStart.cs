@@ -1,16 +1,7 @@
 ﻿using Assets.Scripts.Simulation;
-using Assets.Scripts.Simulation.Bloons;
-using Assets.Scripts.Simulation.Factory;
-using Assets.Scripts.Simulation.Towers;
-using Assets.Scripts.Simulation.Track;
-using Assets.Scripts.Unity.Display;
-using Assets.Scripts.Utils;
 using Harmony;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace NKHook6.Api.Events
 {
@@ -18,25 +9,26 @@ namespace NKHook6.Api.Events
     public class OnRoundStart
     {
         [HarmonyPrefix]
-        public static bool Prefix(Simulation __instance)
+        public static bool Prefix(Simulation __instance, int roundArrayIndex)
         {
             var o = new OnRoundStart();
-            o.OnRoundStartPrefix(Prep(__instance));
+            o.OnRoundStartPrefix(Prep(__instance, roundArrayIndex));
             return true;
         }
 
         [HarmonyPostfix]
-        public static void Postfix(Simulation __instance)
+        public static void Postfix(Simulation __instance, int roundArrayIndex)
         {
             var o = new OnRoundStart();
-            o.OnRoundStartPostfix(Prep(__instance));
+            o.OnRoundStartPostfix(Prep(__instance, roundArrayIndex));
         }
 
 
-        private static OnRoundStartEventArgs Prep(Simulation __instance)
+        private static OnRoundStartEventArgs Prep(Simulation __instance, int roundArrayIndex)
         {
             var args = new OnRoundStartEventArgs();
             args.Instance = __instance;
+            args.RoundNumber = roundArrayIndex;
             return args;
         }
 
@@ -46,6 +38,7 @@ namespace NKHook6.Api.Events
         public class OnRoundStartEventArgs : EventArgs
         {
             public Simulation Instance { get; set; }
+            public int RoundNumber { get; internal set; }
         }
 
         public void OnRoundStartPrefix(OnRoundStartEventArgs e)
