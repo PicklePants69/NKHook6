@@ -6,24 +6,15 @@ using System.Threading.Tasks;
 
 namespace NKHook6.Api
 {
-    class CommandManager
+    public class CommandManager
     {
-		private static CommandManager instance;
+		public static event EventHandler<string> CommandEvent;
 
-		public static CommandManager Instance
-		{
-			get 
-			{
-				if (instance == null)
-					instance = new CommandManager();
-				return instance;
-			}
-			set { instance = value; }
-		}
-
-
-
-		public EventHandler<string> OnCommand;
-
+        public static void onCommand(string input)
+        {
+            EventHandler<string> onCommandHandler = CommandEvent;
+            if (onCommandHandler != null)
+                onCommandHandler.Invoke(null, input);
+        }
     }
 }
