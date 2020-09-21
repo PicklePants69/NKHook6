@@ -8,19 +8,31 @@ namespace NKHook6.Api.Events
     [HarmonyPatch(typeof(Simulation), "OnRoundStart")]
     public class OnRoundStart
     {
+        private static bool sendPrefixEvent = true;
+        private static bool sendPostfixEvent = true;
         [HarmonyPrefix]
         public static bool Prefix(Simulation __instance, int roundArrayIndex)
         {
-            var o = new OnRoundStart();
-            o.OnRoundStartPrefix(Prep(__instance, roundArrayIndex));
+            if (sendPrefixEvent)
+            {
+                var o = new OnRoundStart();
+                o.OnRoundStartPrefix(Prep(__instance, roundArrayIndex));
+            }
+            sendPrefixEvent = !sendPrefixEvent;
+
             return true;
         }
 
         [HarmonyPostfix]
         public static void Postfix(Simulation __instance, int roundArrayIndex)
         {
-            var o = new OnRoundStart();
-            o.OnRoundStartPostfix(Prep(__instance, roundArrayIndex));
+            if (sendPostfixEvent)
+            {
+                var o = new OnRoundStart();
+                o.OnRoundStartPostfix(Prep(__instance, roundArrayIndex));
+            }
+
+            sendPostfixEvent = !sendPostfixEvent;
         }
 
 

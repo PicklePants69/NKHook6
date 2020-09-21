@@ -1,30 +1,57 @@
 ﻿using Assets.Scripts.Models;
+using Assets.Scripts.Models.Bloons;
 using Assets.Scripts.Simulation;
 using Assets.Scripts.Simulation.Bloons;
 using Assets.Scripts.Simulation.Objects;
 using Harmony;
+using NKHook6.Api.Utilities;
 using System;
-
+using System.Security.Policy;
+using UnityEngine;
 
 namespace NKHook6.Api.Events
 {
     [HarmonyPatch(typeof(Bloon), "Initialise")]
     public class OnBloonSpawned
     {
+        internal static BloonModel changeBloonToThisModel;
+        private static bool sendPrefixEvent = true;
+        private static bool sendPostfixEvent = true;
+
         [HarmonyPrefix]
         public static bool Prefix(Bloon __instance, ref Entity target, ref Model modelToUse)
         {
-            var o = new OnBloonSpawned();
-            o.BloonSpawnedPrefix(Prep(__instance, target, modelToUse));
+            if (changeBloonToThisModel != null)
+            {
+                modelToUse = changeBloonToThisModel;
+                changeBloonToThisModel = null;
+            }
+
+            if (sendPrefixEvent)
+            {
+                var o = new OnBloonSpawned();
+                o.BloonSpawnedPrefix(Prep(__instance, target, modelToUse));
+            }
+
+            sendPrefixEvent = !sendPrefixEvent;
+
             return true;
         }
 
         [HarmonyPostfix]
         public static void Postfix(Bloon __instance, Entity target, Model modelToUse)
         {
-            var o = new OnBloonSpawned();
-            o.BloonSpawnedPostfix(Prep(__instance, target, modelToUse));
+            if (sendPostfixEvent)
+            {
+                var o = new OnBloonSpawned();
+                o.BloonSpawnedPostfix(Prep(__instance, target, modelToUse));
+            }
+
+            sendPostfixEvent = !sendPostfixEvent;
         }
+
+        
+        
 
 
         private static BloonSpawnedEventArgs Prep(Bloon __instance, Entity target, Model modelToUse)
