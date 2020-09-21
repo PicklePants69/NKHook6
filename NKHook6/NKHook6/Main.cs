@@ -20,7 +20,7 @@ namespace NKHook6
         public override void OnApplicationStart()
         {
             base.OnApplicationStart();
-            Log("NKHook6 is initializing...");
+            Logger.Log("NKHook6 is initializing...");
             Log("CWD: " + Environment.CurrentDirectory);
 
             InitializeHarmony();

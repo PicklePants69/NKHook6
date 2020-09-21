@@ -50,6 +50,8 @@ namespace NKHook6
             Console.WriteLine(text);
         }
 
+        public static void Log(string text) => Log(text, Level.Normal, "");
+
         public static void Log(string text, Level level = Level.Normal, string sender = "") =>
             Log(text, (int)ConsoleColor.Red, level, sender);
 
