@@ -36,19 +36,19 @@ namespace NKHook6.NKPython
             string[] files = Directory.GetFiles("Scripts");
             foreach(string file in files)
             {
-                if (file.EndsWith(".py"))
+                if (!file.EndsWith(".py"))
+                    continue;
+
+                Logger.Instance.Log("Loading script: " + file);
+
+                scriptThreads.Add(new Thread(() =>
                 {
-                    Logger.Instance.Log("Loading script: " + file);
-                    Thread execThread = new Thread(() =>
+                    if (!ExecuteFile(file))
                     {
-                        if (!ExecuteFile(file))
-                        {
-                            Logger.Instance.Log("Failed to load script " + file);
-                        }
-                    });
-                    execThread.Start();
-                    scriptThreads.Add(execThread);
-                }
+                        Logger.Instance.Log("Failed to load script " + file);
+                    }
+                }));
+                scriptThreads[scriptThreads.Count - 1].Start();
             }
         }
         public static bool ExecuteFile(string filename)
@@ -67,12 +67,15 @@ namespace NKHook6.NKPython
                 string[] managedAssemblies = Directory.GetFiles("MelonLoader/Managed/");
                 foreach (string file in managedAssemblies)
                 {
-                    string sanitized = file.Replace("MelonLoader/Managed/", "").Replace(".dll", "");
+                    /*string sanitized = file.Replace("MelonLoader/Managed/", "").Replace(".dll", "");
                     if (sanitized.EndsWith(".db"))
-                    {
+                        continue;*/
+
+                    var fInfo = new FileInfo(file);
+                    if (fInfo.Name.EndsWith(".db"))
                         continue;
-                    }
-                    scriptHead += "clr.AddReference('" + sanitized + "');" + Environment.NewLine;
+
+                    scriptHead += "clr.AddReference('" + fInfo.Name + "');" + Environment.NewLine;
                 }
                 scriptHead += "clr.AddReference('NKHook6');" + Environment.NewLine;
                 script = scriptHead + script;
