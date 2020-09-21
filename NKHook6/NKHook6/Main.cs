@@ -12,6 +12,7 @@ using NKHook6.Api;
 using static NKHook6.Logger;
 using NKHook6.Scripting;
 using Harmony;
+using NKHook6.Api.Events;
 
 namespace NKHook6
 {
@@ -25,38 +26,31 @@ namespace NKHook6
 
             InitializeHarmony();
             //InitializePython();
+            InitializeBoo();
             Log("NKHook6 initialized");
 
+            InitializeEvents();
             InitializeCommandMgr();            
+        }
+
+        private void InitializeEvents()
+        {
+            OnKeyPress.setupEvent();
+            OnKeyHeld.setupEvent();
+        }
+
+        private void InitializeBoo()
+        {
+            Log("Initializing Boo...");
+            BooManager.ExecuteAllScripts();
+            Log("Initialized Boo");
         }
 
         private void InitializeHarmony()
         {
-            Log("Initializing Harmony");
+            Log("Initializing Harmony...");
             HarmonyInstance.Create("TD Toolbox.NKHook6").PatchAll();
             Log("Finished Initializing Harmony. Hooks are patched");
-        }
-
-        private void InitializePython()
-        {
-            Log("Setting up python...");
-            PyManager.Setup();
-            Log("Python set up!");
-
-            Log("Running test script...");
-            if (PyManager.Execute(@"logger.Log('Hello from Python!');"))
-            {
-                Log("Test success!");
-            }
-            else
-            {
-                Log("Test failed!");
-                return;
-            }
-
-            Log("Running all scripts...");
-            PyManager.ExecuteAllScripts();
-            Log("Scripts executed!");
         }
 
         private void InitializeCommandMgr()
@@ -67,10 +61,15 @@ namespace NKHook6
                 {
                     Console.Write("x>");
                     string input = Console.ReadLine();
-                    if (CommandManager.Instance.OnCommand != null)
-                        CommandManager.Instance.OnCommand.Invoke(null, input);
+                    CommandManager.onCommand(input);
                 }
             }).Start();
+        }
+
+        public override void OnUpdate()
+        {
+            base.OnUpdate();
+            Api.Events.OnUpdate.InvokeOnUpdateEvent();
         }
     }
 }
