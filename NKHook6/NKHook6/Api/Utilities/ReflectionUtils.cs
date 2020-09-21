@@ -1,8 +1,9 @@
-﻿namespace NKHook6.Api.Utilities
+﻿using System.Diagnostics;
+using System.Reflection;
+
+namespace NKHook6.Api.Utilities
 {
     //Taken from: https://github.com/SubnauticaModding/SMLHelper/blob/master/SMLHelper/Utility/ReflectionHelper.cs
-    using System.Diagnostics;
-    using System.Reflection;
 
     /// <summary>
     /// An extension method class for simplifying reflection calls for improved readability.

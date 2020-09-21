@@ -1,10 +1,11 @@
-﻿//Taken from: https://github.com/SubnauticaModding/SMLHelper/blob/master/SMLHelper/Utility/ImageUtils.cs
-using System;
+﻿using System;
 using System.IO;
 using UnityEngine;
 
 namespace NKHook6.Api.Utilities
 {
+    //Taken from: https://github.com/SubnauticaModding/SMLHelper/blob/master/SMLHelper/Utility/ImageUtils.cs
+
     /// <summary>
     /// A collection of image loading utility methods that can create Unity objects from image files at runtime.
     /// </summary>

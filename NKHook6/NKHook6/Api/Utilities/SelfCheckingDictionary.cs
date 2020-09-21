@@ -1,10 +1,11 @@
-﻿namespace NKHook6.Api.Utilities
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+
+namespace NKHook6.Api.Utilities
 {
     //taken from: https://github.com/SubnauticaModding/SMLHelper/blob/master/SMLHelper/Utility/SelfCheckingDictionary.cs
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-
+   
     /// <summary>
     /// This dictionary strtucture automatically checks for duplicate keys as they are being added to the collection.
     /// Duplicate entires are logged and removed from the final collection.
