@@ -63,8 +63,8 @@ namespace NKHook6.Api.Events
             return args;
         }
 
-        public static event EventHandler<BloonSpawnedEventArgs> BloonSpawned_Prefix;
-        public static event EventHandler<BloonSpawnedEventArgs> BloonSpawned_Postfix;
+        public static event EventHandler<BloonSpawnedEventArgs> BloonSpawned_Pre;
+        public static event EventHandler<BloonSpawnedEventArgs> BloonSpawned_Post;
 
         public class BloonSpawnedEventArgs : EventArgs
         {
@@ -75,14 +75,14 @@ namespace NKHook6.Api.Events
 
         public void BloonSpawnedPrefix(BloonSpawnedEventArgs e)
         {
-            EventHandler<BloonSpawnedEventArgs> handler = BloonSpawned_Prefix;
+            EventHandler<BloonSpawnedEventArgs> handler = BloonSpawned_Pre;
             if (handler != null)
                 handler(this, e);
         }
 
         public void BloonSpawnedPostfix(BloonSpawnedEventArgs e)
         {
-            EventHandler<BloonSpawnedEventArgs> handler = BloonSpawned_Postfix;
+            EventHandler<BloonSpawnedEventArgs> handler = BloonSpawned_Post;
             if (handler != null)
                 handler(this, e);
         }

@@ -54,8 +54,8 @@ namespace NKHook6.Api.Events
             return args;
         }
 
-        public static event EventHandler<OnBloonDamagedEventArgs> OnBloonDamaged_Prefix;
-        public static event EventHandler<OnBloonDamagedEventArgs> OnBloonDamaged_Postfix;
+        public static event EventHandler<OnBloonDamagedEventArgs> OnBloonDamaged_Pre;
+        public static event EventHandler<OnBloonDamagedEventArgs> OnBloonDamaged_Post;
 
         public class OnBloonDamagedEventArgs : EventArgs
         {
@@ -66,14 +66,14 @@ namespace NKHook6.Api.Events
 
         public void OnBloonDamagedPrefix(OnBloonDamagedEventArgs e)
         {
-            EventHandler<OnBloonDamagedEventArgs> handler = OnBloonDamaged_Prefix;
+            EventHandler<OnBloonDamagedEventArgs> handler = OnBloonDamaged_Pre;
             if (handler != null)
                 handler(this, e);
         }
 
         public void OnBloonDamagedPostfix(OnBloonDamagedEventArgs e)
         {
-            EventHandler<OnBloonDamagedEventArgs> handler = OnBloonDamaged_Postfix;
+            EventHandler<OnBloonDamagedEventArgs> handler = OnBloonDamaged_Post;
             if (handler != null)
                 handler(this, e);
         }

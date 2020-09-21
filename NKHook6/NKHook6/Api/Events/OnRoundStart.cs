@@ -45,8 +45,8 @@ namespace NKHook6.Api.Events
             return args;
         }
 
-        public static event EventHandler<OnRoundStartEventArgs> RoundStarted_Prefix;
-        public static event EventHandler<OnRoundStartEventArgs> RoundStarted_Postfix;
+        public static event EventHandler<OnRoundStartEventArgs> RoundStarted_Pre;
+        public static event EventHandler<OnRoundStartEventArgs> RoundStarted_Post;
 
         public class OnRoundStartEventArgs : EventArgs
         {
@@ -56,14 +56,14 @@ namespace NKHook6.Api.Events
 
         public void OnRoundStartPrefix(OnRoundStartEventArgs e)
         {
-            EventHandler<OnRoundStartEventArgs> handler = RoundStarted_Prefix;
+            EventHandler<OnRoundStartEventArgs> handler = RoundStarted_Pre;
             if (handler != null)
                 handler(this, e);
         }
 
         public void OnRoundStartPostfix(OnRoundStartEventArgs e)
         {
-            EventHandler<OnRoundStartEventArgs> handler = RoundStarted_Postfix;
+            EventHandler<OnRoundStartEventArgs> handler = RoundStarted_Post;
             if (handler != null)
                 handler(this, e);
         }

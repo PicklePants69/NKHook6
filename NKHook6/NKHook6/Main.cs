@@ -24,7 +24,7 @@ namespace NKHook6
             Log("CWD: " + Environment.CurrentDirectory);
 
             InitializeHarmony();
-            InitializePython();
+            //InitializePython();
             Log("NKHook6 initialized");
 
             InitializeCommandMgr();            
