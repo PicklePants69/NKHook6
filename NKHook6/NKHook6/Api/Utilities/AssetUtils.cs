@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Il2CppSystem.IO;
+using UnityEngine;
 
 namespace NKHook6.Api.Utilities
 {
@@ -13,7 +14,16 @@ namespace NKHook6.Api.Utilities
         /// <param name="assetToLoad">The specific asset you want to load from the asset bundle.
         /// The GameObject prefab will be this part of the asset bundle</param>
         /// <returns>GameObject prefab</returns>
-        public static GameObject CreatePrefab(string assetBundlePath, string assetToLoad) => CreatePrefab(AssetBundle.LoadFromFile(assetBundlePath), assetToLoad);
+        public static GameObject CreatePrefab(string assetBundlePath, string assetToLoad)
+        {
+            if (!File.Exists(assetBundlePath))
+            {
+                Logger.Log("Error! Failed to create asset bundle because no file exists at: " + assetBundlePath);
+                return null;
+            }
+            
+            return CreatePrefab(AssetBundle.LoadFromFile(assetBundlePath), assetToLoad);
+        }
 
         /// <summary>
         /// Create a GameObject prefab from an asset bundle. Used to add assets to the game.
@@ -24,6 +34,9 @@ namespace NKHook6.Api.Utilities
         /// <param name="assetToLoad">The specific asset you want to load from the asset bundle.
         /// The GameObject prefab will be this part of the asset bundle</param>
         /// <returns></returns>
-        public static GameObject CreatePrefab(AssetBundle assetBundle, string assetToLoad) => assetBundle.LoadAsset(assetToLoad).Cast<GameObject>();
+        public static GameObject CreatePrefab(AssetBundle assetBundle, string assetToLoad)
+        {
+            assetBundle.LoadAsset(assetToLoad).Cast<GameObject>();
+        }
     }
 }

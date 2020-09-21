@@ -4,7 +4,10 @@ using UnityEngine;
 
 namespace NKHook6.Api.Utilities
 {
-    public class ImageLoading : MonoBehaviour
+    /// <summary>
+    /// A collection of image loading utility methods that can create Unity objects from image files at runtime.
+    /// </summary>
+    public static class ImageUtils
     {
         public static Sprite LoadNewSprite(string FilePath, float PixelsPerUnit = 100.0f, SpriteMeshType spriteType = SpriteMeshType.Tight)
         {
@@ -64,6 +67,7 @@ namespace NKHook6.Api.Utilities
         /// <returns>Will return a new <see cref="Texture2D"/> instance if the file exists; Otherwise returns null.</returns>
         /// <remarks>
         /// Ripped from: https://github.com/RandyKnapp/SubnauticaModSystem/blob/master/SubnauticaModSystem/Common/Utility/ImageUtils.cs
+        ///Taken from: https://github.com/SubnauticaModding/SMLHelper/blob/master/SMLHelper/Utility/ImageUtils.cs
         /// </remarks>
         public static Texture2D LoadTextureFromFile(string filePathToImage, TextureFormat format = TextureFormat.BC7)
         {
