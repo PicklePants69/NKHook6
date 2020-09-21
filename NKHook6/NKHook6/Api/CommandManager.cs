@@ -24,5 +24,6 @@ namespace NKHook6.Api
 
 
 		public EventHandler<string> OnCommand;
+
     }
 }

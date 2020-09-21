@@ -49,36 +49,5 @@ namespace NKHook6.Api.Utilities
 
             return result;
         }
-
-        public static void ChangeBloonDamageTo(Bloon __instance, float damageAmount)
-        {
-            
-        }
-
-        public static void ChangeBloonDamageTo(Bloon __instance, float damageAmount, Il2CppStringArray damageTypes,
-            Projectile projectile, bool distributeToChildren, bool overrideDistributeBlocker, bool createEffect, [Optional]Tower tower,
-            [Optional]Il2CppStringArray ignoreImmunityForBloonTypes, bool canDestroyProjectile = true, bool ignoreNonTargetable = false, 
-            bool blockSpawnChildren = false)
-        {
-            ChangeNextBloonDamageTo(new DamageInfo()
-            {
-                BloonInstance = __instance,
-                DamageTaken = damageAmount,
-                DamageTypes = damageTypes,
-                Projectile = projectile,
-                DistributeToChildren = distributeToChildren,
-                OverrideDistributeBlocker = overrideDistributeBlocker,
-                CreateEffect = createEffect,
-                Tower = tower,
-                IgnoreImmunityForBloonTypes = ignoreImmunityForBloonTypes,
-                CanDestroyProjectile = canDestroyProjectile,
-                IgnoreNonTargetables = ignoreNonTargetable,
-                BlockSpawnChildren = blockSpawnChildren
-            });
-        }
-
-        public static void ChangeNextBloonDamageTo(DamageInfo damageInfo) => OnBloonDamaged.changeDamageInfoTo = damageInfo;
-
-        public static void ChangeNextBloonDamageTo(float damage) => OnBloonDamaged.changeDamageTo = damage;
     }
 }
