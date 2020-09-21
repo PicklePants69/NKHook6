@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine.UI;
 
 namespace NKHook6
 {
@@ -48,6 +49,9 @@ namespace NKHook6
             Console.Write("] ");
             Console.WriteLine(text);
         }
+
+        public static void Log(string text, Level level = Level.Normal, string sender = "") =>
+            Log(text, (int)ConsoleColor.Red, level, sender);
 
         public static void Log(string text, int color = (int)ConsoleColor.Red, Level level = Level.Normal, string sender = "")
         {
