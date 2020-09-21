@@ -15,3 +15,5 @@ bin/
 *.force
 references/
 obj/
+NKHook6/NKHook6/obj/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs
+NKHook6/NKHook6/obj/Debug/NKHook6.csproj.FileListAbsolute.txt

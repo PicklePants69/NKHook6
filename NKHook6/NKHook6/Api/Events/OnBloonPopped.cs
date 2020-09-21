@@ -3,6 +3,7 @@ using Assets.Scripts.Models.Bloons;
 using Assets.Scripts.Simulation.Bloons;
 using Assets.Scripts.Simulation.Objects;
 using Harmony;
+using NKHook6.Api.CustomTypes;
 using System;
 
 namespace NKHook6.Api.Events

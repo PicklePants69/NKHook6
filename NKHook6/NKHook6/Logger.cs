@@ -62,5 +62,10 @@ namespace NKHook6
 
             Instance.Log(text, color, level);
         }
+
+        public static void ShowInGamePopup()
+        {
+            //Assets.Scripts.Unity.UI_New.InGame.InGame.ShowEventPopup();
+        }
     }
 }
