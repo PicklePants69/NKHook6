@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace NKHook6.Api.Utilities
 {
-
+    public class ImageLoading : MonoBehaviour
+    {
         public static Sprite LoadNewSprite(string FilePath, float PixelsPerUnit = 100.0f, SpriteMeshType spriteType = SpriteMeshType.Tight)
         {
 
@@ -88,4 +89,5 @@ namespace NKHook6.Api.Utilities
 
             return null;
         }
+    }
 }
