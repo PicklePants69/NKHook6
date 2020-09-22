@@ -37,6 +37,7 @@ namespace NKHook6
         {
             OnKeyPress.setupEvent();
             OnKeyHeld.setupEvent();
+            OnKeyRelease.setupEvent();
         }
 
         private void InitializeBoo()

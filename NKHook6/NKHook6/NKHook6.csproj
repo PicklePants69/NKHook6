@@ -572,6 +572,7 @@
     <Compile Include="Api\Events\InGame\OnRoundStart.cs" />
     <Compile Include="Api\Events\OnKeyHeld.cs" />
     <Compile Include="Api\Events\OnKeyPress.cs" />
+    <Compile Include="Api\Events\OnKeyRelease.cs" />
     <Compile Include="Api\Events\OnMainMenuShown.cs" />
     <Compile Include="Api\Events\OnUpdate.cs" />
     <Compile Include="Api\Events\Towers\OnTowerInitialized.cs" />
