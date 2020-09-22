@@ -17,6 +17,7 @@ using Assets.Scripts.Simulation.Bloons;
 using NKHook6.Api.Extensions;
 using NKHook6.Api.Utilities;
 using Assets.Scripts.Unity.UI_New.InGame;
+using NKHook6.Backend;
 
 namespace NKHook6
 {
@@ -30,6 +31,7 @@ namespace NKHook6
 
             InitializeHarmony();
             new EventRegistry();
+            new KeyListener();
             InitializeBoo();
             Log("NKHook6 initialized");
 

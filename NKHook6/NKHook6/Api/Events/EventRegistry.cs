@@ -15,10 +15,16 @@ namespace NKHook6.Api.Events
         {
             subscriber = this;
 
-            theRegistry.Add(new UpdateEvent(), new List<MethodInfo>());
+            theRegistry.Add("UpdateEvent", new List<MethodInfo>());
+            theRegistry.Add("KeyPressEvent", new List<MethodInfo>());
+            theRegistry.Add("KeyHeldEvent", new List<MethodInfo>());
+            theRegistry.Add("KeyReleaseEvent", new List<MethodInfo>());
         }
 
-        Dictionary<EventBase, List<MethodInfo>> theRegistry = new Dictionary<EventBase, List<MethodInfo>>();
+        /// <summary>
+        /// Dictionary of eventNames with their callbacks
+        /// </summary>
+        Dictionary<string, List<MethodInfo>> theRegistry = new Dictionary<string, List<MethodInfo>>();
 
         public void register(Type toSubscribe)
         {
@@ -31,12 +37,11 @@ namespace NKHook6.Api.Events
                         if(attrib is EventAttribute)
                         {
                             EventAttribute eventAttrib = (EventAttribute)attrib;
-                            foreach(EventBase eb in theRegistry.Keys)
+                            foreach(string currentEventName in theRegistry.Keys)
                             {
-                                string currentEventName = eb.eventName;
-                                if(currentEventName == eventAttrib.eventName)
+                                if (currentEventName == eventAttrib.eventName)
                                 {
-                                    theRegistry[eb].Add(method);
+                                    theRegistry[currentEventName].Add(method);
                                     Logger.Log("Registered event \"" + eventAttrib.eventName + "\"");
                                     return;
                                 }
@@ -53,16 +58,27 @@ namespace NKHook6.Api.Events
         }
         public void dispatchEvent<T>(ref T e) where T : EventBase
         {
-            foreach (EventBase eb in theRegistry.Keys)
+            foreach (string name in theRegistry.Keys)
             {
-                List<MethodInfo> callbacks = theRegistry[eb];
+                Logger.Log("name: " + name);
+                List<MethodInfo> callbacks = theRegistry[name];
                 if (callbacks == null)
                     return;
                 if (callbacks.Count == 0)
                     return;
                 foreach(MethodInfo callback in callbacks)
                 {
-                    callback.Invoke(null, new object[] { e });
+                    foreach (Attribute attrib in callback.GetCustomAttributes())
+                    {
+                        if (attrib is EventAttribute)
+                        {
+                            EventAttribute eventAttrib = (EventAttribute)attrib;
+                            if (eventAttrib.eventName == e.eventName)
+                            {
+                                callback.Invoke(null, new object[] { e });
+                            }
+                        }
+                    }
                 }
             }
         }

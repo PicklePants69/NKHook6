@@ -573,6 +573,7 @@
     <Compile Include="Api\Events\EventRegistry.cs" />
     <Compile Include="Api\Events\InGame\OnRoundEnd.cs" />
     <Compile Include="Api\Events\InGame\OnRoundStart.cs" />
+    <Compile Include="Api\Events\KeyEvent.cs" />
     <Compile Include="Api\Events\OnKeyHeld.cs" />
     <Compile Include="Api\Events\OnKeyPress.cs" />
     <Compile Include="Api\Events\OnKeyRelease.cs" />
@@ -592,6 +593,7 @@
     <Compile Include="Api\Utilities\ReflectionUtils.cs" />
     <Compile Include="Api\Utilities\SelfCheckingDictionary.cs" />
     <Compile Include="Api\Utilities\TowerUtils.cs" />
+    <Compile Include="Backend\KeyListener.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
