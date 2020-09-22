@@ -14,7 +14,6 @@ namespace NKHook6.Api.Events.Towers
     [HarmonyPatch(typeof(Tower), "Initialise")]
     public class OnTowerInitialized
     {
-        internal static Model changeTowerToThisModel;
         private static bool sendPrefixEvent = true;
         private static bool sendPostfixEvent = true;
 
@@ -45,26 +44,6 @@ namespace NKHook6.Api.Events.Towers
 
             sendPostfixEvent = !sendPostfixEvent;
         }
-
-
-        public static void SetTower(DefaultTowerIds baseId, [Optional]int tier1, [Optional]int tier2, [Optional]int tier3)
-            => SetTower(TowerUtils.GetTower(baseId.ToString(), tier1, tier2, tier3));
-
-        public static void SetTower(string baseId, [Optional]int tier1, [Optional]int tier2, [Optional]int tier3)
-            => SetTower(TowerUtils.GetTower(baseId, tier1, tier2, tier3));
-
-        public static void SetTower(TowerModel towerToUse)
-        {
-            if (towerToUse == null)
-            {
-                Logger.Log("Error! Failed to set tower because the new TowerModel was null!");
-                return;
-            }
-
-            changeTowerToThisModel = towerToUse;
-        }
-
-
 
         private static OnTowerInitializedEventArgs Prep(ref Tower __instance, ref Entity target, ref Model modelToUse)
         {

@@ -12,15 +12,13 @@ namespace NKHook6.Api.Utilities
 {
     public class JsonUtils
     {
-        //public string FilePath = "";// Environment.CurrentDirectory + "\\Settings.json";
-        public string FilePath = Environment.CurrentDirectory + "\\Mods\\" + Assembly.GetEntryAssembly().GetName().Name;
+        public string FilePath = "";
 
         private JsonUtils instance;
 
         public JsonUtils()
         {
-            instance = this;
-            
+            instance = this;       
         }
 
         public JsonUtils(string filePath) : this()

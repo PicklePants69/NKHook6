@@ -17,10 +17,7 @@ namespace NKHook6.Api.Events.Bloons
 
         [HarmonyPrefix]
         internal static bool Prefix(Bloon __instance)
-        {
-            if (BloonUtils.BloonsOnMap.Contains(__instance))
-                BloonUtils.BloonsOnMap.Remove(__instance);
-            
+        {            
             if (sendPrefixEvent)
             {
                 var o = new OnBloonPopped();
@@ -40,6 +37,9 @@ namespace NKHook6.Api.Events.Bloons
                 var o = new OnBloonPopped();
                 o.BloonPoppedPostfix(Prep(__instance));
             }
+
+            if (BloonUtils.BloonsOnMap.Contains(__instance))
+                BloonUtils.BloonsOnMap.Remove(__instance);
 
             sendPostfixEvent = !sendPostfixEvent;
         }

@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Assets.Scripts.Unity.Display.Animation;
+using NKHook6.Api.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine.UI;
+using Utils = NKHook6.Api.Utilities.Utils;
 
 namespace NKHook6
 {
@@ -16,24 +19,15 @@ namespace NKHook6
             Error
         }
 
-        public string Sender { get; set; } = System.Reflection.Assembly.GetCallingAssembly().GetName().Name;
+        public static void Log(string text) => Log(text, Level.Normal, "");
 
-        private static Logger instance;
+        public static void Log(string text, Level level = Level.Normal, string sender = "") =>
+            Log(text, (int)ConsoleColor.Red, level, sender);
 
-        public static Logger Instance
+        public static void Log(string text, int color = (int)ConsoleColor.Red, Level level = Level.Normal, string sender = "")
         {
-            get 
-            {
-                if (instance == null)
-                    instance = new Logger();
-                return instance; 
-            }
-            set { instance = value; }
-        }
+            string modName = (Utils.GetCallingModInfo() == null ? "NKHook6" : Utils.GetCallingModInfo().Name);
 
-
-        public void Log(string text, int color = (int)ConsoleColor.Red, Level level = Level.Normal)
-        {
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.Write("[");
             Console.ForegroundColor = ConsoleColor.Green;
@@ -44,23 +38,10 @@ namespace NKHook6
             Console.ResetColor();
             Console.Write("[");
             Console.ForegroundColor = (ConsoleColor)color;
-            Console.Write(Sender);
+            Console.Write(modName);
             Console.ResetColor();
             Console.Write("] ");
             Console.WriteLine(text);
-        }
-
-        public static void Log(string text) => Log(text, Level.Normal, "");
-
-        public static void Log(string text, Level level = Level.Normal, string sender = "") =>
-            Log(text, (int)ConsoleColor.Red, level, sender);
-
-        public static void Log(string text, int color = (int)ConsoleColor.Red, Level level = Level.Normal, string sender = "")
-        {
-            if (!String.IsNullOrEmpty(sender))
-                Instance.Sender = sender;
-
-            Instance.Log(text, color, level);
         }
 
         public static void ShowInGamePopup()
