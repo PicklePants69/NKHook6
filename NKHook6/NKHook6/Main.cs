@@ -16,6 +16,7 @@ using NKHook6.Api.Events;
 using Assets.Scripts.Simulation.Bloons;
 using NKHook6.Api.Extensions;
 using NKHook6.Api.Utilities;
+using Assets.Scripts.Unity.UI_New.InGame;
 
 namespace NKHook6
 {
@@ -28,7 +29,7 @@ namespace NKHook6
             Log("CWD: " + Environment.CurrentDirectory);
 
             InitializeHarmony();
-            //InitializePython();
+            new EventRegistry();
             InitializeBoo();
             Log("NKHook6 initialized");
 
@@ -73,7 +74,8 @@ namespace NKHook6
         public override void OnUpdate()
         {
             base.OnUpdate();
-            Api.Events.OnUpdate.InvokeOnUpdateEvent();
+            UpdateEvent update = new UpdateEvent();
+            EventRegistry.subscriber.dispatchEvent(ref update);
         }
     }
 }
