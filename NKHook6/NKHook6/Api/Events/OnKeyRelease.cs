@@ -7,34 +7,34 @@ using UnityEngine;
 
 namespace NKHook6.Api.Events
 {
-    public class OnKeyHeld
+    public class OnKeyRelease
     {
-        public static event EventHandler<KeyHeldEventArgs> KeyHeld;
+        public static event EventHandler<KeyReleaseEventArgs> KeyRelease;
 
-        public class KeyHeldEventArgs : EventArgs
+        public class KeyReleaseEventArgs : EventArgs
         {
             public KeyCode key;
-            public KeyHeldEventArgs(KeyCode key)
+            public KeyReleaseEventArgs(KeyCode key)
             {
                 this.key = key;
             }
         }
 
-        internal static void InvokeOnKeyHeldEvent(KeyCode key)
+        internal static void InvokeOnKeyReleaseEvent(KeyCode key)
         {
-            EventHandler<KeyHeldEventArgs> handler = KeyHeld;
+            EventHandler<KeyReleaseEventArgs> handler = KeyRelease;
             if (handler != null)
-                handler(null, new KeyHeldEventArgs(key));
+                handler(null, new KeyReleaseEventArgs(key));
         }
 
         private static void update(object sender, EventArgs none)
         {
-            if (KeyHeld == null)
+            if (KeyRelease == null)
                 return;
             foreach (KeyCode key in Enum.GetValues(typeof(KeyCode)))
             {
-                if (Input.GetKey(key))
-                    InvokeOnKeyHeldEvent(key);
+                if (Input.GetKeyUp(key))
+                    InvokeOnKeyReleaseEvent(key);
             }
         }
 

@@ -86,7 +86,7 @@ namespace NKHook6.Scripting
                 Logger.Log(ex.StackTrace);
                 return false;
             }
-            return true;
+            //return true;
         }
     }
 }

@@ -20,14 +20,13 @@ namespace NKHook6.Api.Events
             }
         }
 
-        internal static void InvokeOnKeyPressEvent()
+        internal static void InvokeOnKeyPressEvent(KeyCode key)
         {
             EventHandler<KeyPressEventArgs> handler = KeyPress;
             if (handler != null)
-                handler(null, null);
+                handler(null, new KeyPressEventArgs(key));
         }
 
-        private static Dictionary<KeyCode, bool> wasDown = new Dictionary<KeyCode, bool>();
         private static void update(object sender, EventArgs none)
         {
             if (KeyPress == null)
@@ -35,19 +34,13 @@ namespace NKHook6.Api.Events
             foreach (KeyCode key in Enum.GetValues(typeof(KeyCode)))
             {
                 if (Input.GetKeyDown(key))
-                    if (!wasDown[key])
-                        KeyPress.Invoke(null, new KeyPressEventArgs(key));
+                    InvokeOnKeyPressEvent(key);
             }
         }
 
         internal static void setupEvent()
         {
             OnUpdate.UpdateEvent += update;
-            foreach(KeyCode key in Enum.GetValues(typeof(KeyCode)))
-            {
-                if(!wasDown.ContainsKey(key))
-                    wasDown.Add(key, Input.GetKeyDown(key));
-            }
         }
     }
 }
