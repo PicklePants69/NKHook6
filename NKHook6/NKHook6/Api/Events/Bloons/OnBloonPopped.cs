@@ -4,6 +4,7 @@ using Assets.Scripts.Simulation.Bloons;
 using Assets.Scripts.Simulation.Objects;
 using Harmony;
 using NKHook6.Api.CustomTypes;
+using NKHook6.Api.Utilities;
 using System;
 
 namespace NKHook6.Api.Events.Bloons
@@ -17,6 +18,9 @@ namespace NKHook6.Api.Events.Bloons
         [HarmonyPrefix]
         internal static bool Prefix(Bloon __instance)
         {
+            if (BloonUtils.BloonsOnMap.Contains(__instance))
+                BloonUtils.BloonsOnMap.Remove(__instance);
+            
             if (sendPrefixEvent)
             {
                 var o = new OnBloonPopped();

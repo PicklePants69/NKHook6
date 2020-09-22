@@ -21,11 +21,7 @@ namespace NKHook6.Api.Events.Towers
         [HarmonyPrefix]
         internal static bool Prefix(ref Tower __instance, ref Entity target, ref Model modelToUse)
         {
-            if (changeTowerToThisModel != null)
-            {
-                modelToUse = changeTowerToThisModel;
-                changeTowerToThisModel = null;
-            }
+            TowerUtils.TowersOnMap.Add(__instance);
 
             if (sendPrefixEvent)
             {
@@ -56,6 +52,7 @@ namespace NKHook6.Api.Events.Towers
 
         public static void SetTower(string baseId, [Optional]int tier1, [Optional]int tier2, [Optional]int tier3)
             => SetTower(TowerUtils.GetTower(baseId, tier1, tier2, tier3));
+
         public static void SetTower(TowerModel towerToUse)
         {
             if (towerToUse == null)
