@@ -1,8 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using MelonLoader;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,36 +12,26 @@ namespace NKHook6.Api.Utilities
 {
     public class JsonUtils
     {
-        public string FilePath = null;
+        //public string FilePath = "";// Environment.CurrentDirectory + "\\Settings.json";
+        public string FilePath = Environment.CurrentDirectory + "\\Mods\\" + Assembly.GetEntryAssembly().GetName().Name;
 
-        
-        /*private JsonUtils instance;
-
-        public JsonUtils Instance
-        {
-            get
-            {
-                if (instance == null)
-                    instance = new JsonUtils();
-                return instance;
-            }
-            set { instance = value; }
-        }
+        private JsonUtils instance;
 
         public JsonUtils()
         {
-
+            instance = this;
+            
         }
 
-        public JsonUtils(string filePath)
+        public JsonUtils(string filePath) : this()
         {
             FilePath = filePath;
-
+            Logger.Log("JsonUtils Filepath = " + FilePath);
             var dir = new FileInfo(FilePath).Directory;
             if (!dir.Exists)
                 dir.Create();
 
-            //Load();
+            Load();
         }
 
 
@@ -60,7 +52,7 @@ namespace NKHook6.Api.Utilities
 
             var args = new JsonUtilsEventArgs();
             args.FilePath = FilePath;
-            args.Instance = Instance;
+            args.Instance = instance;
             OnJsonLoaded(args);
         }
 
@@ -69,7 +61,19 @@ namespace NKHook6.Api.Utilities
         /// </summary>
         public void Save()
         {
-            string output = JsonConvert.SerializeObject(this, Formatting.Indented);
+            if (instance == null)
+            {
+                Logger.Log("ERROR! Failed to Save Json! Instance is null");
+                return;
+            }
+
+            if (String.IsNullOrEmpty(FilePath))
+            {
+                Logger.Log("ERROR! Failed to Save Json! Filepath is null");
+                return;
+            }
+
+            string output = JsonConvert.SerializeObject(instance, Formatting.Indented);
 
             StreamWriter serialize = new StreamWriter(FilePath, false);
             serialize.Write(output);
@@ -77,7 +81,7 @@ namespace NKHook6.Api.Utilities
 
             var args = new JsonUtilsEventArgs();
             args.FilePath = FilePath;
-            args.Instance = Instance;
+            args.Instance = instance;
             OnJsonLoaded(args);
         }
 
@@ -170,6 +174,6 @@ namespace NKHook6.Api.Utilities
                 }
             }
         }
-        #endregion*/
+        #endregion
     }
 }
