@@ -3,11 +3,14 @@ using Assets.Scripts.Unity;
 using NKHook6.Api.Events.Bloons;
 using NKHook6.Api.Enums;
 using System;
+using Boo.Lang;
+using Assets.Scripts.Simulation.Bloons;
 
 namespace NKHook6.Api.Utilities
 {
     public class BloonUtils
     {
+        public static List<Bloon> BloonsOnMap = new List<Bloon>();
         /*public static void ChangeNextBloonTo(DefaultBloonIds bloonId) => ChangeNextBloonTo(bloonId.ToString());
         public static void ChangeNextBloonTo(string bloonId) => ChangeNextBloonTo(BloonUtils.GetBloon(bloonId));
         public static void ChangeNextBloonTo(BloonModel bloonModel) => OnBloonSpawned.changeBloonToThisModel = bloonModel;*/

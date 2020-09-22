@@ -21,11 +21,7 @@ namespace NKHook6.Api.Events.Towers
         [HarmonyPrefix]
         internal static bool Prefix(ref Tower __instance, ref Entity target, ref Model modelToUse)
         {
-            if (changeTowerToThisModel != null)
-            {
-                modelToUse = changeTowerToThisModel;
-                changeTowerToThisModel = null;
-            }
+            TowerUtils.TowersOnMap.Add(__instance);
 
             if (sendPrefixEvent)
             {

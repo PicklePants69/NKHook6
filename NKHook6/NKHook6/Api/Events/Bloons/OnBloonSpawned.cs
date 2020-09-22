@@ -21,11 +21,7 @@ namespace NKHook6.Api.Events.Bloons
         [HarmonyPrefix]
         internal static bool Prefix(Bloon __instance, ref Entity target, ref Model modelToUse)
         {
-            /*if (changeBloonToThisModel != null)
-            {
-                modelToUse = changeBloonToThisModel;
-                changeBloonToThisModel = null;
-            }*/
+            BloonUtils.BloonsOnMap.Add(__instance);
 
             if (sendPrefixEvent)
             {

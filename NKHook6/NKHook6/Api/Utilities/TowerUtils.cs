@@ -9,6 +9,7 @@ namespace NKHook6.Api.Utilities
 {
     public class TowerUtils
     {
+        public static List<Tower> TowersOnMap = new List<Tower>();
         /*public static string GetTowerName(DefaultTowerIds baseId, [Optional]int tier1, [Optional]int tier2, [Optional]int tier3)
             => GetTower(baseId, tier1, tier2, tier3).name;
 
