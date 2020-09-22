@@ -20,11 +20,11 @@ namespace NKHook6.Api.Events
             }
         }
 
-        internal static void InvokeOnKeyHeldEvent()
+        internal static void InvokeOnKeyHeldEvent(KeyCode key)
         {
             EventHandler<KeyHeldEventArgs> handler = KeyHeld;
             if (handler != null)
-                handler(null, null);
+                handler(null, new KeyHeldEventArgs(key));
         }
 
         private static void update(object sender, EventArgs none)
@@ -33,8 +33,8 @@ namespace NKHook6.Api.Events
                 return;
             foreach (KeyCode key in Enum.GetValues(typeof(KeyCode)))
             {
-                if (Input.GetKeyDown(key))
-                    KeyHeld.Invoke(null, new KeyHeldEventArgs(key));
+                if (Input.GetKey(key))
+                    InvokeOnKeyHeldEvent(key);
             }
         }
 

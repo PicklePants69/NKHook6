@@ -20,11 +20,11 @@ namespace NKHook6.Api.Events
             }
         }
 
-        internal static void InvokeOnKeyPressEvent()
+        internal static void InvokeOnKeyPressEvent(KeyCode key)
         {
             EventHandler<KeyPressEventArgs> handler = KeyPress;
             if (handler != null)
-                handler(null, null);
+                handler(null, new KeyPressEventArgs(key));
         }
 
         private static Dictionary<KeyCode, bool> wasDown = new Dictionary<KeyCode, bool>();
@@ -36,7 +36,7 @@ namespace NKHook6.Api.Events
             {
                 if (Input.GetKeyDown(key))
                     if (!wasDown[key])
-                        KeyPress.Invoke(null, new KeyPressEventArgs(key));
+                        InvokeOnKeyPressEvent(key);
             }
         }
 
