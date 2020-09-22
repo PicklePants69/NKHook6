@@ -8,9 +8,9 @@ namespace NKHook6.Api.Utilities
 {
     public class BloonUtils
     {
-        public static void ChangeNextBloonTo(DefaultBloonIds bloonId) => ChangeNextBloonTo(bloonId.ToString());
+        /*public static void ChangeNextBloonTo(DefaultBloonIds bloonId) => ChangeNextBloonTo(bloonId.ToString());
         public static void ChangeNextBloonTo(string bloonId) => ChangeNextBloonTo(BloonUtils.GetBloon(bloonId));
-        public static void ChangeNextBloonTo(BloonModel bloonModel) => OnBloonSpawned.changeBloonToThisModel = bloonModel;
+        public static void ChangeNextBloonTo(BloonModel bloonModel) => OnBloonSpawned.changeBloonToThisModel = bloonModel;*/
 
 
         public static BloonModel GetBloon(DefaultBloonIds bloonId) => GetBloon(bloonId.ToString());

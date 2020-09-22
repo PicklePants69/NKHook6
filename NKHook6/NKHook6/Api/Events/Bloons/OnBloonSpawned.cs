@@ -14,18 +14,18 @@ namespace NKHook6.Api.Events.Bloons
     [HarmonyPatch(typeof(Bloon), "Initialise")]
     public class OnBloonSpawned
     {
-        internal static BloonModel changeBloonToThisModel;
+        //internal static BloonModel changeBloonToThisModel;
         private static bool sendPrefixEvent = true;
         private static bool sendPostfixEvent = true;
 
         [HarmonyPrefix]
         internal static bool Prefix(Bloon __instance, ref Entity target, ref Model modelToUse)
         {
-            if (changeBloonToThisModel != null)
+            /*if (changeBloonToThisModel != null)
             {
                 modelToUse = changeBloonToThisModel;
                 changeBloonToThisModel = null;
-            }
+            }*/
 
             if (sendPrefixEvent)
             {

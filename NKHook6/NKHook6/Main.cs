@@ -13,6 +13,9 @@ using static NKHook6.Logger;
 using NKHook6.Scripting;
 using Harmony;
 using NKHook6.Api.Events;
+using Assets.Scripts.Simulation.Bloons;
+using NKHook6.Api.Extensions;
+using NKHook6.Api.Utilities;
 
 namespace NKHook6
 {

@@ -15,6 +15,7 @@ namespace NKHook6.Scripting
     //👻 boo
     class BooManager
     {
+        static string scriptPath = "Mods";
         private static List<Thread> scriptThreads = new List<Thread>();
 
         /// <summary>
@@ -22,13 +23,15 @@ namespace NKHook6.Scripting
         /// </summary>
         public static void ExecuteAllScripts()
         {
-            if (!Directory.Exists("Scripts"))
-                Directory.CreateDirectory("Scripts");
+            if (!Directory.Exists(scriptPath))
+                Directory.CreateDirectory(scriptPath);
 
-            string[] files = Directory.GetFiles("Scripts");
+            string[] files = Directory.GetFiles(scriptPath);
             Logger.Log("Script count: " + files.Length);
             foreach (string file in files)
             {
+                if (!file.EndsWith(".boo"))
+                    continue;
                 Logger.Instance.Log("Loading script: " + file);
 
                 scriptThreads.Add(new Thread(() =>

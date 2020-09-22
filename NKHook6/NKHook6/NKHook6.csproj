@@ -576,6 +576,8 @@
     <Compile Include="Api\Events\OnMainMenuShown.cs" />
     <Compile Include="Api\Events\OnUpdate.cs" />
     <Compile Include="Api\Events\Towers\OnTowerInitialized.cs" />
+    <Compile Include="Api\Extensions\BloonExt.cs" />
+    <Compile Include="Api\Extensions\TowerExt.cs" />
     <Compile Include="Api\ModSettings.cs" />
     <Compile Include="Api\Utilities\AssetUtils.cs" />
     <Compile Include="Api\Utilities\AudioUtils.cs" />
