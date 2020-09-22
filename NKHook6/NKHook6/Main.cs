@@ -1,12 +1,5 @@
 ﻿using MelonLoader;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Assets.Scripts.Unity;
-using UnityEngine.Playables;
-using System.IO;
 using System.Threading;
 using NKHook6.Api;
 using static NKHook6.Logger;
@@ -26,6 +19,7 @@ namespace NKHook6
         public override void OnApplicationStart()
         {
             base.OnApplicationStart();
+            
             Logger.Log("NKHook6 is initializing...");
             Log("CWD: " + Environment.CurrentDirectory);
 

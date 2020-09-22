@@ -14,7 +14,6 @@ namespace NKHook6.Api.Events.Bloons
     [HarmonyPatch(typeof(Bloon), "Initialise")]
     public class OnBloonSpawned
     {
-        //internal static BloonModel changeBloonToThisModel;
         private static bool sendPrefixEvent = true;
         private static bool sendPostfixEvent = true;
 
@@ -45,10 +44,6 @@ namespace NKHook6.Api.Events.Bloons
 
             sendPostfixEvent = !sendPostfixEvent;
         }
-
-        
-        
-
 
         private static BloonSpawnedEventArgs Prep(Bloon __instance, Entity target, Model modelToUse)
         {

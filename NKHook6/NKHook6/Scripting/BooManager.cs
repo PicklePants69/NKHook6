@@ -33,7 +33,7 @@ namespace NKHook6.Scripting
             {
                 if (!file.EndsWith(".boo"))
                     continue;
-                Logger.Instance.Log("Loading script: " + file);
+                Logger.Log("Loading script: " + file);
 
                 scriptThreads.Add(new Thread(() =>
                 {
@@ -77,7 +77,7 @@ namespace NKHook6.Scripting
                 if (context.GeneratedAssembly == null)
                 {
                     foreach (CompilerError error in context.Errors)
-                        Logger.Instance.Log(error.ToString());
+                        Logger.Log(error.ToString());
                     return false;
                 }
                 Type entryModule = context.GeneratedAssembly.GetType(name + "Module");
