@@ -602,6 +602,6 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>mkdir "$(SolutionDir)out\Mods"
-copy "$(TargetDir)NKHook6.dll" "$(SolutionDir)out\Mods\NKHook6.dll" /y</PostBuildEvent>
+copy "$(TargetDir)$(TargetFileName)" "$(SolutionDir)out\Mods\NKHook6.dll" /y</PostBuildEvent>
   </PropertyGroup>
 </Project>
