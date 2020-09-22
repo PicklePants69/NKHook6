@@ -1,14 +1,8 @@
 ﻿using Assets.Scripts.Models.Bloons;
 using Assets.Scripts.Unity;
-using NKHook6.Api.Events;
-using NKHook6.Api.CustomTypes;
+using NKHook6.Api.Events.Bloons;
+using NKHook6.Api.Enums;
 using System;
-using Assets.Scripts.Simulation.Bloons;
-using UnhollowerBaseLib;
-using Assets.Scripts.Simulation.Towers.Projectiles;
-using Assets.Scripts.Simulation.Towers;
-using System.Runtime.InteropServices;
-using Assets.Scripts.Simulation;
 
 namespace NKHook6.Api.Utilities
 {

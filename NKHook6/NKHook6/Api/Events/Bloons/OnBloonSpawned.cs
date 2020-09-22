@@ -9,7 +9,7 @@ using System;
 using System.Security.Policy;
 using UnityEngine;
 
-namespace NKHook6.Api.Events
+namespace NKHook6.Api.Events.Bloons
 {
     [HarmonyPatch(typeof(Bloon), "Initialise")]
     public class OnBloonSpawned

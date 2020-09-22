@@ -2,7 +2,7 @@
 using Harmony;
 using System;
 
-namespace NKHook6.Api.Events
+namespace NKHook6.Api.Events.InGame
 {
     [HarmonyPatch(typeof(Simulation), "OnRoundEnd")]
     public class OnRoundEnd

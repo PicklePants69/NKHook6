@@ -6,7 +6,7 @@ using Harmony;
 using NKHook6.Api.CustomTypes;
 using System;
 
-namespace NKHook6.Api.Events
+namespace NKHook6.Api.Events.Bloons
 {
     [HarmonyPatch(typeof(Bloon), "OnDestroy")]
     public class OnBloonPopped

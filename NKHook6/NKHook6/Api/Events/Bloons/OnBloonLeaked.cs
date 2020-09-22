@@ -3,7 +3,7 @@ using Assets.Scripts.Simulation.Bloons;
 using Harmony;
 using System;
 
-namespace NKHook6.Api.Events
+namespace NKHook6.Api.Events.Bloons
 {
     [HarmonyPatch(typeof(Bloon), "Leaked")]
     public class OnBloonLeaked

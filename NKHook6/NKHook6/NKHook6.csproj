@@ -41,173 +41,223 @@
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>..\references\Assembly-CSharp-firstpass.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Boo.Lang">
       <HintPath>..\references\Boo.Lang.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Boo.Lang.Compiler">
       <HintPath>..\references\Boo.Lang.Compiler.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Boo.Lang.Extensions">
       <HintPath>..\references\Boo.Lang.Extensions.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Boo.Lang.Parser">
       <HintPath>..\references\Boo.Lang.Parser.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Boo.Lang.PatternMatching">
       <HintPath>..\references\Boo.Lang.PatternMatching.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Boo.Lang.Useful">
       <HintPath>..\references\Boo.Lang.Useful.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Commons.Xml.Relaxng">
       <HintPath>..\references\Commons.Xml.Relaxng.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="cscompmgd, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\references\cscompmgd.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="CustomMarshalers" />
     <Reference Include="Facebook.Unity.Settings">
       <HintPath>..\references\Facebook.Unity.Settings.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Facepunch.Steamworks">
       <HintPath>..\references\Facepunch.Steamworks.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Firebase.Analytics">
       <HintPath>..\references\Firebase.Analytics.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Firebase.App">
       <HintPath>..\references\Firebase.App.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Firebase.Crashlytics">
       <HintPath>..\references\Firebase.Crashlytics.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Firebase.Platform">
       <HintPath>..\references\Firebase.Platform.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="I18N">
       <HintPath>..\references\I18N.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="I18N.CJK">
       <HintPath>..\references\I18N.CJK.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="I18N.MidEast">
       <HintPath>..\references\I18N.MidEast.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="I18N.Other">
       <HintPath>..\references\I18N.Other.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="I18N.Rare">
       <HintPath>..\references\I18N.Rare.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="I18N.West">
       <HintPath>..\references\I18N.West.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="IBM.Data.DB2">
       <HintPath>..\references\IBM.Data.DB2.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Iced">
       <HintPath>..\references\Iced.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\references\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppMono.Security">
       <HintPath>..\references\Il2CppMono.Security.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2Cppmscorlib">
       <HintPath>..\references\Il2Cppmscorlib.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem">
       <HintPath>..\references\Il2CppSystem.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Configuration">
       <HintPath>..\references\Il2CppSystem.Configuration.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Core">
       <HintPath>..\references\Il2CppSystem.Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Diagnostics.StackTrace">
       <HintPath>..\references\Il2CppSystem.Diagnostics.StackTrace.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Globalization.Extensions">
       <HintPath>..\references\Il2CppSystem.Globalization.Extensions.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.IO.Compression">
       <HintPath>..\references\Il2CppSystem.IO.Compression.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Runtime.Serialization">
       <HintPath>..\references\Il2CppSystem.Runtime.Serialization.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Xml">
       <HintPath>..\references\Il2CppSystem.Xml.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppSystem.Xml.Linq">
       <HintPath>..\references\Il2CppSystem.Xml.Linq.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MelonLoader.ModHandler">
       <HintPath>..\references\MelonLoader.ModHandler.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure">
       <HintPath>..\references\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Mono.CompilerServices.SymbolWriter">
       <HintPath>..\references\Mono.CompilerServices.SymbolWriter.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Mono.CSharp">
       <HintPath>..\references\Mono.CSharp.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Data.Sqlite">
       <HintPath>..\references\Mono.Data.Sqlite.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Data.Tds">
       <HintPath>..\references\Mono.Data.Tds.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Messaging">
       <HintPath>..\references\Mono.Messaging.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Posix">
       <HintPath>..\references\Mono.Posix.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Security">
       <HintPath>..\references\Mono.Security.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Mono.WebBrowser">
       <HintPath>..\references\Mono.WebBrowser.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="NCalc">
       <HintPath>..\references\NCalc.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>..\references\netstandard.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\references\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="NinjaKiwi.Common">
       <HintPath>..\references\NinjaKiwi.Common.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Ninjakiwi.LiNK">
       <HintPath>..\references\Ninjakiwi.LiNK.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="NK-Unity-Libs">
       <HintPath>..\references\NK-Unity-Libs.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Novell.Directory.Ldap">
       <HintPath>..\references\Novell.Directory.Ldap.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Purchasing.Common">
       <HintPath>..\references\Purchasing.Common.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="SMDiagnostics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\references\SMDiagnostics.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Stores">
       <HintPath>..\references\Stores.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -233,6 +283,7 @@
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Json">
       <HintPath>..\references\System.Json.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Management" />
     <Reference Include="System.Messaging" />
@@ -240,12 +291,14 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\references\System.Net.Http.Formatting.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\references\System.Numerics.Vectors.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Reflection.Context" />
     <Reference Include="System.Runtime.Caching" />
@@ -260,6 +313,7 @@
     <Reference Include="System.ServiceModel.Internals, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\references\System.ServiceModel.Internals.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.ServiceModel.Routing" />
     <Reference Include="System.ServiceModel.Web" />
@@ -273,30 +327,38 @@
     <Reference Include="System.Web.Extensions.Design" />
     <Reference Include="System.Web.Http">
       <HintPath>..\references\System.Web.Http.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Http.SelfHost">
       <HintPath>..\references\System.Web.Http.SelfHost.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Http.WebHost">
       <HintPath>..\references\System.Web.Http.WebHost.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Mvc">
       <HintPath>..\references\System.Web.Mvc.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Razor">
       <HintPath>..\references\System.Web.Razor.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.RegularExpressions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Web.WebPages">
       <HintPath>..\references\System.Web.WebPages.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.WebPages.Deployment">
       <HintPath>..\references\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.WebPages.Razor">
       <HintPath>..\references\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -305,170 +367,225 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="SystemWebTestShim">
       <HintPath>..\references\SystemWebTestShim.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnhollowerBaseLib">
       <HintPath>..\references\UnhollowerBaseLib.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnhollowerRuntimeLib">
       <HintPath>..\references\UnhollowerRuntimeLib.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Addressables">
       <HintPath>..\references\Unity.Addressables.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Compat">
       <HintPath>..\references\Unity.Compat.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Unity.ResourceManager">
       <HintPath>..\references\Unity.ResourceManager.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Tasks">
       <HintPath>..\references\Unity.Tasks.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>..\references\Unity.TextMeshPro.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>..\references\UnityEngine.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>..\references\UnityEngine.AIModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AndroidJNIModule">
       <HintPath>..\references\UnityEngine.AndroidJNIModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AnimationModule">
       <HintPath>..\references\UnityEngine.AnimationModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AssetBundleModule">
       <HintPath>..\references\UnityEngine.AssetBundleModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AudioModule">
       <HintPath>..\references\UnityEngine.AudioModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>..\references\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CrashReportingModule">
       <HintPath>..\references\UnityEngine.CrashReportingModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.DirectorModule">
       <HintPath>..\references\UnityEngine.DirectorModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.GameCenterModule">
       <HintPath>..\references\UnityEngine.GameCenterModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.GridModule">
       <HintPath>..\references\UnityEngine.GridModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.Il2CppAssetBundleManager">
       <HintPath>..\references\UnityEngine.Il2CppAssetBundleManager.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ImageConversionModule">
       <HintPath>..\references\UnityEngine.ImageConversionModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.IMGUIModule">
       <HintPath>..\references\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.InputLegacyModule">
       <HintPath>..\references\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.InputModule">
       <HintPath>..\references\UnityEngine.InputModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.JSONSerializeModule">
       <HintPath>..\references\UnityEngine.JSONSerializeModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ParticleSystemModule">
       <HintPath>..\references\UnityEngine.ParticleSystemModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.Physics2DModule">
       <HintPath>..\references\UnityEngine.Physics2DModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule">
       <HintPath>..\references\UnityEngine.PhysicsModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
       <HintPath>..\references\UnityEngine.Purchasing.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.SharedInternalsModule">
       <HintPath>..\references\UnityEngine.SharedInternalsModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.SubsystemsModule">
       <HintPath>..\references\UnityEngine.SubsystemsModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TerrainModule">
       <HintPath>..\references\UnityEngine.TerrainModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TextCoreModule">
       <HintPath>..\references\UnityEngine.TextCoreModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
       <HintPath>..\references\UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TilemapModule">
       <HintPath>..\references\UnityEngine.TilemapModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>..\references\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UIElementsModule">
       <HintPath>..\references\UnityEngine.UIElementsModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UIModule">
       <HintPath>..\references\UnityEngine.UIModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityAnalyticsModule">
       <HintPath>..\references\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
       <HintPath>..\references\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestModule">
       <HintPath>..\references\UnityEngine.UnityWebRequestModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestWWWModule">
       <HintPath>..\references\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.VFXModule">
       <HintPath>..\references\UnityEngine.VFXModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.VideoModule">
       <HintPath>..\references\UnityEngine.VideoModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.VRModule">
       <HintPath>..\references\UnityEngine.VRModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.XRModule">
       <HintPath>..\references\UnityEngine.XRModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityStore">
       <HintPath>..\references\UnityStore.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="ValueTupleBridge">
       <HintPath>..\references\ValueTupleBridge.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\CommandManager.cs" />
     <Compile Include="Api\CustomTypes\DamageInfo.cs" />
+    <Compile Include="Api\Enums\DefaultTowerIDs.cs" />
     <Compile Include="Api\Events\Bloons\OnBloonDamaged.cs" />
     <Compile Include="Api\Events\Bloons\OnBloonLeaked.cs" />
     <Compile Include="Api\Events\Bloons\OnBloonMove.cs" />
     <Compile Include="Api\Events\Bloons\OnBloonSpawned.cs" />
     <Compile Include="Api\Events\Bloons\OnBloonPopped.cs" />
+    <Compile Include="Api\Events\InGame\OnRoundEnd.cs" />
+    <Compile Include="Api\Events\InGame\OnRoundStart.cs" />
+    <Compile Include="Api\Events\OnKeyHeld.cs" />
+    <Compile Include="Api\Events\OnKeyPress.cs" />
     <Compile Include="Api\Events\OnMainMenuShown.cs" />
-    <Compile Include="Api\Events\OnRoundEnd.cs" />
-    <Compile Include="Api\Events\OnRoundStart.cs" />
-    <Compile Include="Api\Events\Towers\OnTowerPlaced.cs" />
+    <Compile Include="Api\Events\OnUpdate.cs" />
+    <Compile Include="Api\Events\Towers\OnTowerInitialized.cs" />
+    <Compile Include="Api\ModSettings.cs" />
     <Compile Include="Api\Utilities\AssetUtils.cs" />
     <Compile Include="Api\Utilities\AudioUtils.cs" />
-    <Compile Include="Api\Utilities\DefaultBloonIds.cs" />
+    <Compile Include="Api\Enums\DefaultBloonIds.cs" />
     <Compile Include="Api\Utilities\BloonUtils.cs" />
     <Compile Include="Api\Utilities\EnumUtils.cs" />
     <Compile Include="Api\Utilities\ImageUtils.cs" />
+    <Compile Include="Api\Utilities\JsonUtils.cs" />
     <Compile Include="Api\Utilities\ReflectionUtils.cs" />
     <Compile Include="Api\Utilities\SelfCheckingDictionary.cs" />
+    <Compile Include="Api\Utilities\TowerUtils.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

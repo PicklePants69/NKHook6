@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 using UnhollowerBaseLib;
 using UnhollowerBaseLib.Runtime;
 
-namespace NKHook6.Api.Events
+namespace NKHook6.Api.Events.Bloons
 {
     [HarmonyPatch(typeof(Bloon), "Damage", new Type[] { typeof(float), typeof(Il2CppStringArray), typeof(Projectile), typeof(bool), 
         typeof(bool), typeof(bool), typeof(Tower), typeof(bool), typeof(Il2CppStringArray), typeof(bool), typeof(bool) })]
