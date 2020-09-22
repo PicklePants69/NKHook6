@@ -19,7 +19,7 @@ namespace NKHook6
             Log("CWD: " + Environment.CurrentDirectory);
 
             InitializeHarmony();
-            //InitializePython();
+            new EventRegistry();
             InitializeBoo();
             Log("NKHook6 initialized");
 
@@ -64,7 +64,8 @@ namespace NKHook6
         public override void OnUpdate()
         {
             base.OnUpdate();
-            Api.Events.OnUpdate.InvokeOnUpdateEvent();
+            UpdateEvent update = new UpdateEvent();
+            EventRegistry.subscriber.dispatchEvent(ref update);
         }
     }
 }

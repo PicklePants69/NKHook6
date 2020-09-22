@@ -40,7 +40,7 @@ namespace NKHook6.Api.Events
 
         internal static void setupEvent()
         {
-            OnUpdate.UpdateEvent += update;
+            //OnUpdate.UpdateEvent += update;
         }
     }
 }

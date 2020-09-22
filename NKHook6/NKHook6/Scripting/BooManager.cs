@@ -1,6 +1,7 @@
 ﻿using Boo.Lang.Compiler;
 using Boo.Lang.Compiler.IO;
 using Boo.Lang.Compiler.Pipelines;
+using NKHook6.Api.Events;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -80,6 +81,7 @@ namespace NKHook6.Scripting
                     return false;
                 }
                 Type entryModule = context.GeneratedAssembly.GetType(name + "Module");
+                EventRegistry.subscriber.register(entryModule);
                 MethodInfo entryMethod = entryModule.GetMethod("Entry");
                 return (bool)entryMethod.Invoke(null, null);
             }
