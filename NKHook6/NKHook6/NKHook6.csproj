@@ -67,6 +67,9 @@
       <HintPath>..\references\Boo.Lang.Useful.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="BTD Backend">
+      <HintPath>..\references\BTD Backend.dll</HintPath>
+    </Reference>
     <Reference Include="Commons.Xml.Relaxng">
       <HintPath>..\references\Commons.Xml.Relaxng.dll</HintPath>
       <Private>False</Private>
