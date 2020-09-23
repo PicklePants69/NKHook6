@@ -60,12 +60,11 @@ namespace NKHook6.Api.Events
         {
             foreach (string name in theRegistry.Keys)
             {
-                Logger.Log("name: " + name);
                 List<MethodInfo> callbacks = theRegistry[name];
                 if (callbacks == null)
-                    return;
+                    continue;
                 if (callbacks.Count == 0)
-                    return;
+                    continue;
                 foreach(MethodInfo callback in callbacks)
                 {
                     foreach (Attribute attrib in callback.GetCustomAttributes())
