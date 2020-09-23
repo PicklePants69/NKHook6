@@ -590,7 +590,7 @@
     <Compile Include="Api\Enums\DefaultBloonIds.cs" />
     <Compile Include="Api\Utilities\BloonUtils.cs" />
     <Compile Include="Api\Utilities\EnumUtils.cs" />
-    <Compile Include="Api\Utilities\FilieUtils.cs" />
+    <Compile Include="Api\Utilities\FileUtils.cs" />
     <Compile Include="Api\Utilities\ImageUtils.cs" />
     <Compile Include="Api\Utilities\JsonUtils.cs" />
     <Compile Include="Api\Utilities\ReflectionUtils.cs" />
