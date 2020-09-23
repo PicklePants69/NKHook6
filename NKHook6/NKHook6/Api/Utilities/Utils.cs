@@ -46,15 +46,23 @@ namespace NKHook6.Api.Utilities
         public static MelonInfoAttribute GetModInfo(int index) => GetModInfo(GetMod(index));
 
         /// <summary>
+        /// Get the MelonInfo for the mod located at "index" in the StackTrace
+        /// </summary>
+        /// <param name="filePath">FilePath to the file you want to get MelonModInfo from</param>
+        /// <returns></returns>
+        public static MelonInfoAttribute GetModInfo(string filePath) => 
+            GetModInfo(System.Reflection.Assembly.LoadFrom(filePath));
+
+        /// <summary>
         /// Get the MelonInfo of the mod with the provided Assembly
         /// </summary>
-        /// <param name="mod">Assembly of the mod you want to get MelonInfo for</param>
+        /// <param name="modAssembly">Assembly of the mod you want to get MelonInfo for</param>
         /// <returns></returns>
-        public static MelonInfoAttribute GetModInfo(System.Reflection.Assembly mod)
+        public static MelonInfoAttribute GetModInfo(System.Reflection.Assembly modAssembly)
         {
             MelonInfoAttribute callingMod = null;
 
-            var cust = MelonInfoAttribute.GetCustomAttributes(mod);
+            var cust = MelonInfoAttribute.GetCustomAttributes(modAssembly);
             foreach (var item in cust)
             {
                 if (item is MelonInfoAttribute)
@@ -63,5 +71,27 @@ namespace NKHook6.Api.Utilities
 
             return callingMod;
         }
+
+        /// <summary>
+        /// Return whether or not the mod at stacktrace "index" is a valid melon mod
+        /// </summary>
+        /// <param name="index">Stacktrace index of mod.</param>
+        /// <returns></returns>
+        public static bool IsValidMelonMod(int index) => GetModInfo(index) == null;
+
+        /// <summary>
+        /// Return whether or not the mod at "filePath" is a valid melon mod
+        /// </summary>
+        /// <param name="filePath">filePath of mod you want MelonMod info for</param>
+        /// <returns></returns>
+        public static bool IsValidMelonMod(string filePath) => 
+            GetModInfo(System.Reflection.Assembly.LoadFrom(filePath)) == null;
+
+        /// <summary>
+        /// Return whether or not the mod Assembly for your mod is a valid melon mod
+        /// </summary>
+        /// <param name="modAssembly">Assembly of the mod you want MelonModInfo for</param>
+        /// <returns></returns>
+        public static bool IsValidMelonMod(System.Reflection.Assembly modAssembly) => GetModInfo(modAssembly) == null;
     }
 }
