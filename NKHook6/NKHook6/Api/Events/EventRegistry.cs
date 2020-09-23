@@ -19,6 +19,8 @@ namespace NKHook6.Api.Events
             theRegistry.Add("KeyPressEvent", new List<MethodInfo>());
             theRegistry.Add("KeyHeldEvent", new List<MethodInfo>());
             theRegistry.Add("KeyReleaseEvent", new List<MethodInfo>());
+            theRegistry.Add("MainMenuShownEvent.Pre", new List<MethodInfo>());
+            theRegistry.Add("MainMenuShownEvent.Post", new List<MethodInfo>());
         }
 
         /// <summary>

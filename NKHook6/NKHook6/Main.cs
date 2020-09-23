@@ -29,15 +29,7 @@ namespace NKHook6
             InitializeBoo();
             Log("NKHook6 initialized");
 
-            InitializeEvents();
             InitializeCommandMgr();            
-        }
-
-        private void InitializeEvents()
-        {
-            OnKeyPress.setupEvent();
-            OnKeyHeld.setupEvent();
-            OnKeyRelease.setupEvent();
         }
 
         private void InitializeBoo()
@@ -60,7 +52,6 @@ namespace NKHook6
             {
                 while (true)
                 {
-                    Console.Write("x>");
                     string input = Console.ReadLine();
                     CommandManager.onCommand(input);
                 }

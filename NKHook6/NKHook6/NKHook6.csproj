@@ -574,9 +574,7 @@
     <Compile Include="Api\Events\InGame\OnRoundEnd.cs" />
     <Compile Include="Api\Events\InGame\OnRoundStart.cs" />
     <Compile Include="Api\Events\KeyEvent.cs" />
-    <Compile Include="Api\Events\OnKeyHeld.cs" />
-    <Compile Include="Api\Events\OnKeyPress.cs" />
-    <Compile Include="Api\Events\OnKeyRelease.cs" />
+    <Compile Include="Api\Events\MainMenuShownEvent.cs" />
     <Compile Include="Api\Events\OnMainMenuShown.cs" />
     <Compile Include="Api\Events\Towers\OnTowerInitialized.cs" />
     <Compile Include="Api\Events\UpdateEvent.cs" />
@@ -599,6 +597,7 @@
     <Compile Include="Api\Web\GitApi.cs" />
     <Compile Include="Api\Web\UpdateHandler.cs" />
     <Compile Include="Api\Web\WebHandler.cs" />
+    <Compile Include="Backend\Patches\MainMenuShownHook.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
