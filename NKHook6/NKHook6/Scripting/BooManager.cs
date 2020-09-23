@@ -20,6 +20,7 @@ namespace NKHook6.Scripting
     {
         static string scriptPath = "Mods";
         private static List<Thread> scriptThreads = new List<Thread>();
+        private static List<string> acceptedExtensions = new List<string>() { ".boo", ".wbp", ".jet", ".zip", ".rar", ".7z" };
 
         /// <summary>
         /// Executes all boo scripts
@@ -33,19 +34,28 @@ namespace NKHook6.Scripting
             Logger.Log("Script count: " + files.Length);
             foreach (string file in files)
             {
-                if (!file.EndsWith(".boo") && !file.EndsWith(".wbp") && !file.EndsWith(".zip"))
+                string[] split = file.Split('.');
+                string fileExt = "." + split[split.Length - 1];
+                //Logger.Log(fileExt);
+                if (!acceptedExtensions.Contains(fileExt))
                     continue;
 
                 if (file.EndsWith(".boo"))
                 {
-                    Logger.Log("Found Boo: " + file);
                     AddToScriptThreads(file);
                     continue;
                 }
-                else if (file.EndsWith(".wbp") || file.EndsWith(".zip"))
+                else
                 {
                     foreach (var item in GetBooFilesFromZip(file))
+                    {
+                        if (String.IsNullOrEmpty(item.Value))
+                        {
+                            Logger.Log("Found a Boo script in " + item.Key + " but failed to read the code...");
+                            continue;
+                        }
                         AddToScriptThreads(item.Key, item.Value);
+                    }
                 }
             }
         }
@@ -58,9 +68,18 @@ namespace NKHook6.Scripting
             var entries = z.Archive.Entries;
             foreach (var entry in entries)
             {
-                if (!entry.FileName.ToLower().EndsWith(".boo") && !entry.FileName.ToLower().EndsWith(".boo.disabled"))
+                if (entry.FileName.ToLower().EndsWith(".boo.disabled"))
+                {
+                    Logger.Log("Unable to load the script mod \"" + entry.FileName.Replace("ZipEntry::", "") + 
+                        "\" from \"" + zipPath + "\" because it ends in  \".boo.disabled\".  For it to work" +
+                        " you'll need to rename it so it ends in  \".boo\" instead");
+                    continue;
+                }
+
+                if (!entry.FileName.ToLower().EndsWith(".boo"))
                     continue;
 
+                
                 string name = Thread.CurrentThread.CurrentCulture.TextInfo.
                     ToTitleCase(Path.GetFileNameWithoutExtension(entry.FileName));
 
