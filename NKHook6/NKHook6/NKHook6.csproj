@@ -77,6 +77,9 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="CustomMarshalers" />
+    <Reference Include="DotNetZip, Version=1.13.8.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.13.8\lib\net40\DotNetZip.dll</HintPath>
+    </Reference>
     <Reference Include="Facebook.Unity.Settings">
       <HintPath>..\references\Facebook.Unity.Settings.dll</HintPath>
       <Private>False</Private>
@@ -587,6 +590,7 @@
     <Compile Include="Api\Enums\DefaultBloonIds.cs" />
     <Compile Include="Api\Utilities\BloonUtils.cs" />
     <Compile Include="Api\Utilities\EnumUtils.cs" />
+    <Compile Include="Api\Utilities\FilieUtils.cs" />
     <Compile Include="Api\Utilities\ImageUtils.cs" />
     <Compile Include="Api\Utilities\JsonUtils.cs" />
     <Compile Include="Api\Utilities\ReflectionUtils.cs" />
