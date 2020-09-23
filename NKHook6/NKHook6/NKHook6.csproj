@@ -67,8 +67,8 @@
       <HintPath>..\references\Boo.Lang.Useful.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="BTD Backend">
-      <HintPath>..\references\BTD Backend.dll</HintPath>
+    <Reference Include="BTD_Backend">
+      <HintPath>..\references\BTD_Backend.dll</HintPath>
     </Reference>
     <Reference Include="Commons.Xml.Relaxng">
       <HintPath>..\references\Commons.Xml.Relaxng.dll</HintPath>
@@ -581,7 +581,6 @@
     <Compile Include="Api\Events\InGame\OnRoundStart.cs" />
     <Compile Include="Api\Events\KeyEvent.cs" />
     <Compile Include="Api\Events\MainMenuShownEvent.cs" />
-    <Compile Include="Api\Events\OnMainMenuShown.cs" />
     <Compile Include="Api\Events\Towers\OnTowerInitialized.cs" />
     <Compile Include="Api\Events\UpdateEvent.cs" />
     <Compile Include="Api\Extensions\BloonExt.cs" />

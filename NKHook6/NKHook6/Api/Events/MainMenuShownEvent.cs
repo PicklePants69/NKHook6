@@ -11,18 +11,18 @@ namespace NKHook6.Api.Events
     {
         public class Prefix : EventBase
         {
-            MainMenu __instance;
+            MainMenu menu;
             public Prefix(MainMenu __instance) : base("MainMenuShownEvent.Pre")
             {
-                this.__instance = __instance;
+                this.menu = __instance;
             }
         }
         public class Postfix : EventBase
         {
-            MainMenu __instance;
+            MainMenu menu;
             public Postfix(MainMenu __instance) : base("MainMenuShownEvent.Post")
             {
-                this.__instance = __instance;
+                this.menu = __instance;
             }
         }
     }

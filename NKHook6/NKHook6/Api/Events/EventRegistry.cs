@@ -15,12 +15,18 @@ namespace NKHook6.Api.Events
         {
             subscriber = this;
 
-            theRegistry.Add("UpdateEvent", new List<MethodInfo>());
-            theRegistry.Add("KeyPressEvent", new List<MethodInfo>());
-            theRegistry.Add("KeyHeldEvent", new List<MethodInfo>());
-            theRegistry.Add("KeyReleaseEvent", new List<MethodInfo>());
-            theRegistry.Add("MainMenuShownEvent.Pre", new List<MethodInfo>());
-            theRegistry.Add("MainMenuShownEvent.Post", new List<MethodInfo>());
+            createEvent("UpdateEvent");
+            createEvent("KeyPressEvent");
+            createEvent("KeyHeldEvent");
+            createEvent("KeyReleaseEvent");
+            createEvent("MainMenuShownEvent.Pre");
+            createEvent("MainMenuShownEvent.Post");
+        }
+
+        void createEvent(string eventName)
+        {
+            Logger.Log("Created event: " + eventName);
+            theRegistry.Add(eventName, new List<MethodInfo>());
         }
 
         /// <summary>
