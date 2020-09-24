@@ -36,7 +36,6 @@ namespace NKHook6.Scripting
             {
                 string[] split = file.Split('.');
                 string fileExt = "." + split[split.Length - 1];
-                //Logger.Log(fileExt);
                 if (!acceptedExtensions.Contains(fileExt))
                     continue;
 

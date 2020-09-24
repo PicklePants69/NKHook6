@@ -32,7 +32,10 @@ namespace NKHook6
             InitializeCommandMgr();            
         }
 
-        private void Log_MessageLogged(object sender, BTD_Backend.Log.LogEvents e) => Logger.Log(e.Message);
+        private void Log_MessageLogged(object sender, BTD_Backend.Log.LogEvents e)
+        {
+            Logger.Log(e.Message);
+        }
 
         private void InitializeBoo()
         {

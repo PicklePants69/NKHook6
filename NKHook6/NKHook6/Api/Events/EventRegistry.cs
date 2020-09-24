@@ -1,10 +1,6 @@
-﻿using NKHook6.Api.Utilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NKHook6.Api.Events
 {
@@ -19,8 +15,40 @@ namespace NKHook6.Api.Events
             theRegistry.Add("KeyPressEvent", new List<MethodInfo>());
             theRegistry.Add("KeyHeldEvent", new List<MethodInfo>());
             theRegistry.Add("KeyReleaseEvent", new List<MethodInfo>());
-            theRegistry.Add("MainMenuShownEvent.Pre", new List<MethodInfo>());
-            theRegistry.Add("MainMenuShownEvent.Post", new List<MethodInfo>());
+
+
+            string preName = ".Pre";
+            string postName = ".Post";
+            List<string> HarmonyEvents = new List<string>()
+            {
+                "MainMenuShownEvent",
+                "BloonSpawnedEvent",
+                "BloonDamagedEvent",
+                "BloonLeakedEvent",
+                "BloonPoppedEvent",
+                "BloonSetRotationEvent",
+                "BloonUpdatedModelEvent",
+
+                "TowerUpdatedModelEvent",
+                "TowerDestroyedEvent",
+                "TowerSoldEvent",
+                "TowerInitializedEvent",
+                "TowerAddPoppedCashEvent",
+                "TowerGetUpgradeEvent",
+
+                "InGameUpdateEvent",
+                "RoundStartEvent",
+                "RoundEndEvent",               
+            };
+
+            foreach (var item in HarmonyEvents)
+            {
+                if (theRegistry.ContainsKey(item + preName) && theRegistry.ContainsKey(item + postName))
+                    continue;
+
+                theRegistry.Add(item + preName, new List<MethodInfo>());
+                theRegistry.Add(item + postName, new List<MethodInfo>());
+            }
         }
 
         /// <summary>

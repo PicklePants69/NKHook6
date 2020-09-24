@@ -2,10 +2,6 @@
 using Harmony;
 using NKHook6.Api.Events;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NKHook6.Backend.Patches
 {
@@ -28,15 +24,18 @@ namespace NKHook6.Backend.Patches
             if (prefixFireCount <= skipPrefixCount)
                 return true;
 
+            bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
                 var o = new MainMenuShownEvent.Prefix(__instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
+                __instance = o.mainMenu;
+                allowOriginalMethod = !o.replaceMethod;
             }
 
             sendPrefixEvent = !sendPrefixEvent;
 
-            return true;
+            return allowOriginalMethod;
         }
 
         [HarmonyPostfix]
@@ -50,21 +49,10 @@ namespace NKHook6.Backend.Patches
             {
                 var o = new MainMenuShownEvent.Postfix(__instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
+                __instance = o.mainMenu;
             }
 
             sendPostfixEvent = !sendPostfixEvent;
-        }
-
-        private static OnMainMenuShownEventArgs Prep(MainMenu __instance)
-        {
-            var args = new OnMainMenuShownEventArgs();
-            args.Instance = __instance;
-            return args;
-        }
-
-        public class OnMainMenuShownEventArgs : EventArgs
-        {
-            public MainMenu Instance { get; set; }
         }
     }
 }
