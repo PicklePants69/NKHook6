@@ -42,7 +42,8 @@ namespace NKHook6.Scripting
 
                 if (file.EndsWith(".boo"))
                 {
-                    AddToScriptThreads(file);
+                    //AddToScriptThreads(file);
+                    ExecuteFile(file);
                     continue;
                 }
                 else
@@ -148,6 +149,7 @@ namespace NKHook6.Scripting
             {
                 compiler.Parameters.Input.Add(new StringInput(name, code));
                 compiler.Parameters.Pipeline = new CompileToMemory();
+                compiler.Parameters.Debug = false;
                 compiler.Parameters.Ducky = true;
 
                 CompilerContext context = compiler.Run();
@@ -160,7 +162,8 @@ namespace NKHook6.Scripting
                 Type entryModule = context.GeneratedAssembly.GetType(name + "Module");
                 EventRegistry.subscriber.register(entryModule);
                 MethodInfo entryMethod = entryModule.GetMethod("Entry");
-                return (bool)entryMethod.Invoke(null, null);
+                bool result = (bool)entryMethod.Invoke(null, null);
+                return result;
             }
             catch (Exception ex)
             {

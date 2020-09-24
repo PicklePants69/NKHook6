@@ -36,5 +36,5 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: MelonInfo(typeof(NKHook6.Main), "NKHook6", "0.0.1", "DisabledMallis")]
+[assembly: MelonInfo(typeof(NKHook6.Main), "NKHook6", "0.0.1", "DisabledMallis & Gurrenm4")]
 [assembly: MelonGame("Ninja Kiwi", "BloonsTD6")]
