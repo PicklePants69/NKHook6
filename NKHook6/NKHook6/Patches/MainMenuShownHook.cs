@@ -30,7 +30,7 @@ namespace NKHook6.Backend.Patches
                 var o = new MainMenuShownEvent.Prefix(__instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.mainMenu;
-                allowOriginalMethod = !o.replaceMethod;
+                allowOriginalMethod = !o.isCancelled();
             }
 
             sendPrefixEvent = !sendPrefixEvent;

@@ -18,6 +18,7 @@ namespace NKHook6.Scripting
     //👻 boo
     class BooManager
     {
+        static BooCompiler compiler = new BooCompiler();
         static string scriptPath = "Mods";
         private static List<Thread> scriptThreads = new List<Thread>();
         private static List<string> acceptedExtensions = new List<string>() { ".boo", ".wbp", ".jet", ".zip", ".rar", ".7z" };
@@ -145,7 +146,6 @@ namespace NKHook6.Scripting
         {
             try
             {
-                var compiler = new BooCompiler();
                 compiler.Parameters.Input.Add(new StringInput(name, code));
                 compiler.Parameters.Pipeline = new CompileToMemory();
                 compiler.Parameters.Ducky = true;

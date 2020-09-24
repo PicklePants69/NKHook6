@@ -9,10 +9,9 @@ namespace NKHook6.Api.Events
 {
     public class MainMenuShownEvent
     {
-        public class Prefix : EventBase
+        public class Prefix : EventBaseCancellable
         {
             public MainMenu mainMenu;
-            public bool replaceMethod { get; set; }
 
             public Prefix(MainMenu __instance) : base("MainMenuShownEvent.Pre")
             {
