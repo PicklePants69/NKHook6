@@ -24,7 +24,7 @@ namespace NKHook6.Patches.Bloons
                 __instance = o.bloon;
                 target = o.target;
                 modelToUse = o.model;
-                allowOriginalMethod = !o.replaceMethod;
+                allowOriginalMethod = !o.isCancelled();
             }
 
             sendPrefixEvent = !sendPrefixEvent;

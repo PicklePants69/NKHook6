@@ -7,7 +7,7 @@ namespace NKHook6.Api.Events.Bloons
 {
     public class BloonDamagedEvent
     {
-        public class Prefix : EventBase
+        public class Prefix : EventBaseCancellable
         {
             public Bloon bloon;
             public float damageTaken { get; set; }
@@ -21,7 +21,6 @@ namespace NKHook6.Api.Events.Bloons
             public Il2CppStringArray ignoreImmunityForBloonTypes { get; set; }
             public bool ignoreNonTargetables { get; set; }
             public bool blockSpawnChildren { get; set; }
-            public bool replaceMethod { get; set; }
 
             public Prefix(ref Bloon __instance, ref float totalAmount, ref Il2CppStringArray types, ref Projectile projectile,
             ref bool distributeToChildren, ref bool overrideDistributeBlocker, ref bool createEffect, ref Tower tower,

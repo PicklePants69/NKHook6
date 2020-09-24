@@ -4,11 +4,10 @@ namespace NKHook6.Api.Events.Bloons
 {
     public class BloonSetRotationEvent
     {
-        public class Prefix : EventBase
+        public class Prefix : EventBaseCancellable
         {
             public Bloon bloon;
             public float rotation;
-            public bool replaceMethod { get; set; }
 
             public Prefix(ref Bloon __instance, ref float rotation) : base("BloonSetRotationEvent.Pre")
             {
