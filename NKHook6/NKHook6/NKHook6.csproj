@@ -580,6 +580,7 @@
     <Compile Include="Api\Events\Bloons\BloonUpdatedModelEvent.cs" />
     <Compile Include="Api\Events\Event.cs" />
     <Compile Include="Api\Events\EventAttribute.cs" />
+    <Compile Include="Api\Events\EventBaseCancellable.cs" />
     <Compile Include="Api\Events\EventRegistry.cs" />
     <Compile Include="Api\Events\Simulate\RoundEndEvent.cs" />
     <Compile Include="Api\Events\Simulate\RoundStartEvent.cs" />
