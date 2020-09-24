@@ -5,11 +5,10 @@ namespace NKHook6.Api.Events.Towers
 {
     public class TowerUpdatedModelEvent
     {
-        public class Prefix : EventBase
+        public class Prefix : EventBaseCancellable
         {
             public Tower tower;
             public Model model;
-            public bool replaceMethod { get; set; }
 
             public Prefix(ref Tower __instance, ref Model modelToUse) : base("TowerUpdatedModelEvent.Pre")
             {

@@ -4,11 +4,10 @@ namespace NKHook6.Api.Events.Simulate
 {
     public class RoundStartEvent
     {
-        public class Prefix : EventBase
+        public class Prefix : EventBaseCancellable
         {
             public Simulation round;
             public int roundArrayIndex;
-            public bool replaceMethod { get; set; }
 
             public Prefix(ref Simulation __instance, ref int roundArrayIndex) : base("RoundStartEvent.Pre")
             {

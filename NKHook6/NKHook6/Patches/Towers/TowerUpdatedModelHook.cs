@@ -22,7 +22,7 @@ namespace NKHook6.Patches.Towers
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.tower;
                 modelToUse = o.model;
-                allowOriginalMethod = !o.replaceMethod;
+                allowOriginalMethod = !o.isCancelled();
             }
 
             sendPrefixEvent = !sendPrefixEvent;

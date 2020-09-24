@@ -25,7 +25,7 @@ namespace NKHook6.Patches.Towers
                 var o = new TowerIsSelectableEvent.Prefix(ref __instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.tower;
-                allowOriginalMethod = !o.replaceMethod;
+                allowOriginalMethod = !o.isCancelled();
             }
 
             sendPrefixEvent = !sendPrefixEvent;

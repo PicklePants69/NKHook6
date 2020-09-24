@@ -4,11 +4,10 @@ namespace NKHook6.Api.Events.Towers
 {
     public class TowerSoldEvent
     {
-        public class Prefix : EventBase
+        public class Prefix : EventBaseCancellable
         {
             public Tower tower;
             public float sellAmount;
-            public bool replaceMethod { get; set; }
 
             public Prefix(ref Tower __instance, ref float sellAmount) : base("TowerSoldEvent.Pre")
             {

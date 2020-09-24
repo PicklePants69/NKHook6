@@ -21,7 +21,7 @@ namespace NKHook6.Patches.Simulate
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.round;
                 round = o.roundArrayIndex;
-                allowOriginalMethod = !o.replaceMethod;
+                allowOriginalMethod = !o.isCancelled();
             }
 
             sendPrefixEvent = !sendPrefixEvent;

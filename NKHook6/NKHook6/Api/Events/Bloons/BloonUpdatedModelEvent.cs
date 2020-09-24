@@ -5,11 +5,10 @@ namespace NKHook6.Api.Events.Bloons
 {
     public class BloonUpdatedModelEvent
     {
-        public class Prefix : EventBase
+        public class Prefix : EventBaseCancellable
         {
             public Bloon bloon;
             public Model model;
-            public bool replaceMethod { get; set; }
 
             public Prefix(ref Bloon __instance, ref Model modelToUse) : base("BloonUpdatedModelEvent.Pre")
             {

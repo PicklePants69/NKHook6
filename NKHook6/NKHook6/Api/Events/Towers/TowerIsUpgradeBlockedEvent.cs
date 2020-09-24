@@ -4,13 +4,12 @@ namespace NKHook6.Api.Events.Towers
 {
     public class TowerIsUpgradeBlockedEvent
     {
-        public class Prefix : EventBase
+        public class Prefix : EventBaseCancellable
         {
             public Tower tower;
             public int path;
             public int tier;
             
-            public bool replaceMethod { get; set; }
 
             public Prefix(ref Tower __instance, ref int path, ref int tier) : base("TowerIsUpgradeBlockedEvent.Pre")
             {

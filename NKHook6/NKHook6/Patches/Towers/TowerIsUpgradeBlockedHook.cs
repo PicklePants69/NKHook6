@@ -27,7 +27,7 @@ namespace NKHook6.Patches.Towers
                 __instance = o.tower;
                 path = o.path;
                 tier = o.tier;
-                allowOriginalMethod = !o.replaceMethod;
+                allowOriginalMethod = !o.isCancelled();
             }
 
             sendPrefixEvent = !sendPrefixEvent;

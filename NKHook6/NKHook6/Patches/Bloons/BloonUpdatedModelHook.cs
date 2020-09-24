@@ -23,7 +23,7 @@ namespace NKHook6.Patches.Bloons
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.bloon;
                 modelToUse = o.model;
-                allowOriginalMethod = !o.replaceMethod;
+                allowOriginalMethod = !o.isCancelled();
             }
 
             sendPrefixEvent = !sendPrefixEvent;

@@ -5,12 +5,11 @@ namespace NKHook6.Api.Events.Towers
 {
     public class TowerPositionTowerEvent
     {
-        public class Prefix : EventBase
+        public class Prefix : EventBaseCancellable
         {
             public Tower tower;
             public Vector2 newPosition;
             public bool updateThrowCache;
-            public bool replaceMethod { get; set; }
 
             public Prefix(ref Tower __instance, ref Vector2 newPosition, ref bool updateThrowCache)
                 : base("TowerPositionTower.Pre")

@@ -21,7 +21,7 @@ namespace NKHook6.Patches.Towers
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.tower;
                 cash = o.cash;
-                allowOriginalMethod = !o.replaceMethod;
+                allowOriginalMethod = !o.isCancelled();
             }
 
             sendPrefixEvent = !sendPrefixEvent;
