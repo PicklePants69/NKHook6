@@ -70,6 +70,7 @@
     <Reference Include="BTD Backend, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\references\BTD Backend.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="BTD_Backend">
       <HintPath>..\references\BTD_Backend.dll</HintPath>
@@ -587,7 +588,10 @@
     <Compile Include="Api\Events\MainMenuShownEvent.cs" />
     <Compile Include="Api\Events\Bloons\BloonSetRotationEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerAddPoppedCashEvent.cs" />
-    <Compile Include="Api\Events\Towers\TowerGetUpgradeEvent.cs" />
+    <Compile Include="Api\Events\Towers\TowerIsUpgradeBlockedEvent.cs" />
+    <Compile Include="Api\Events\Towers\TowerIsSelectableEvent.cs" />
+    <Compile Include="Api\Events\Towers\TowerGetSaveDataEvent.cs" />
+    <Compile Include="Api\Events\Towers\TowerPositionTowerEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerUpdatedModelEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerSoldEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerDestroyedEvent.cs" />
@@ -625,8 +629,11 @@
     <Compile Include="Logger.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Patches\Bloons\BloonSetRotationHook.cs" />
+    <Compile Include="Patches\Towers\TowerPositionTowerHook.cs" />
     <Compile Include="Patches\Towers\TowerAddPoppedCashHook.cs" />
-    <Compile Include="Patches\Towers\TowerGetUpgradeHook.cs" />
+    <Compile Include="Patches\Towers\TowerIsUpgradeBlockedHook.cs" />
+    <Compile Include="Patches\Towers\TowerIsSelectableHook.cs" />
+    <Compile Include="Patches\Towers\TowerGetSaveDataHook.cs" />
     <Compile Include="Patches\Towers\TowerUpdatedModelHook.cs" />
     <Compile Include="Patches\Towers\TowerSoldHook.cs" />
     <Compile Include="Patches\Towers\TowerDestroyedHook.cs" />

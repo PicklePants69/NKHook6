@@ -34,7 +34,9 @@ namespace NKHook6.Api.Events
                 "TowerSoldEvent",
                 "TowerInitializedEvent",
                 "TowerAddPoppedCashEvent",
-                "TowerGetUpgradeEvent",
+                "TowerGetSaveDataEvent",
+                "TowerIsSelectableEvent",
+                "TowerIsUpgradeBlockedEvent",
 
                 "InGameUpdateEvent",
                 "RoundStartEvent",
