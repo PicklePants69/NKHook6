@@ -19,7 +19,7 @@ namespace NKHook6
         public override void OnApplicationStart()
         {
             base.OnApplicationStart();
-            BTD_Backend.Log.MessageLogged += Log_MessageLogged;
+            //BTD_Backend.Log.MessageLogged += Log_MessageLogged;
             Logger.Log("NKHook6 is initializing...");
             Log("CWD: " + Environment.CurrentDirectory);
 

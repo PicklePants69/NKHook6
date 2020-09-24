@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NKHook6</RootNamespace>
     <AssemblyName>NKHook6</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -589,15 +591,19 @@
     <Compile Include="Api\Events\MainMenuShownEvent.cs" />
     <Compile Include="Api\Events\Bloons\BloonSetRotationEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerAddPoppedCashEvent.cs" />
+    <Compile Include="Api\Events\Towers\TowerHilightEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerIsUpgradeBlockedEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerIsSelectableEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerGetSaveDataEvent.cs" />
+    <Compile Include="Api\Events\Towers\TowerOnUpgradeEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerPositionTowerEvent.cs" />
+    <Compile Include="Api\Events\Towers\TowerUnHighlightEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerUpdatedModelEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerSoldEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerDestroyedEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerInitializedEvent.cs" />
     <Compile Include="Api\Events\UpdateEvent.cs" />
+    <Compile Include="Api\Events\Weapons\WeaponInitialiseEvent.cs" />
     <Compile Include="Api\Extensions\BloonExt.cs" />
     <Compile Include="Api\Extensions\GameExt.cs" />
     <Compile Include="Api\Extensions\TowerExt.cs" />
@@ -614,6 +620,7 @@
     <Compile Include="Api\Utilities\ReflectionUtils.cs" />
     <Compile Include="Api\Utilities\SelfCheckingDictionary.cs" />
     <Compile Include="Api\Utilities\TowerUtils.cs" />
+    <Compile Include="ASMPatcher.cs" />
     <Compile Include="KeyListener.cs" />
     <Compile Include="Api\Utilities\Utils.cs" />
     <Compile Include="Api\Web\GitApi.cs" />
@@ -630,15 +637,19 @@
     <Compile Include="Logger.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Patches\Bloons\BloonSetRotationHook.cs" />
+    <Compile Include="Patches\Towers\TowerHilightHook.cs" />
+    <Compile Include="Patches\Towers\TowerOnUpgradeHook.cs" />
     <Compile Include="Patches\Towers\TowerPositionTowerHook.cs" />
     <Compile Include="Patches\Towers\TowerAddPoppedCashHook.cs" />
     <Compile Include="Patches\Towers\TowerIsUpgradeBlockedHook.cs" />
     <Compile Include="Patches\Towers\TowerIsSelectableHook.cs" />
     <Compile Include="Patches\Towers\TowerGetSaveDataHook.cs" />
+    <Compile Include="Patches\Towers\TowerUnHighlightHook.cs" />
     <Compile Include="Patches\Towers\TowerUpdatedModelHook.cs" />
     <Compile Include="Patches\Towers\TowerSoldHook.cs" />
     <Compile Include="Patches\Towers\TowerDestroyedHook.cs" />
     <Compile Include="Patches\Towers\TowerInitializedHook.cs" />
+    <Compile Include="Patches\Weapons\WeaponInitialiseHook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripting\BooManager.cs" />
     <Compile Include="Win32.cs" />
