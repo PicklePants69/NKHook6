@@ -49,13 +49,6 @@ namespace NKHook6.Api.Events
                 theRegistry.Add(item + preName, new List<MethodInfo>());
                 theRegistry.Add(item + postName, new List<MethodInfo>());
             }
-			
-            createEvent("UpdateEvent");
-            createEvent("KeyPressEvent");
-            createEvent("KeyHeldEvent");
-            createEvent("KeyReleaseEvent");
-            createEvent("MainMenuShownEvent.Pre");
-            createEvent("MainMenuShownEvent.Post");
         }
 
         void createEvent(string eventName)
