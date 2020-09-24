@@ -67,6 +67,10 @@
       <HintPath>..\references\Boo.Lang.Useful.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="BTD Backend, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\references\BTD Backend.dll</HintPath>
+    </Reference>
     <Reference Include="BTD_Backend">
       <HintPath>..\references\BTD_Backend.dll</HintPath>
     </Reference>
@@ -569,19 +573,25 @@
     <Compile Include="Api\CommandManager.cs" />
     <Compile Include="Api\CustomTypes\DamageInfo.cs" />
     <Compile Include="Api\Enums\DefaultTowerIDs.cs" />
-    <Compile Include="Api\Events\Bloons\OnBloonDamaged.cs" />
-    <Compile Include="Api\Events\Bloons\OnBloonLeaked.cs" />
-    <Compile Include="Api\Events\Bloons\OnBloonMove.cs" />
-    <Compile Include="Api\Events\Bloons\OnBloonSpawned.cs" />
-    <Compile Include="Api\Events\Bloons\OnBloonPopped.cs" />
+    <Compile Include="Api\Events\Bloons\BloonSpawnedEvent.cs" />
+    <Compile Include="Api\Events\Bloons\BloonPoppedEvent.cs" />
+    <Compile Include="Api\Events\Bloons\BloonDamagedEvent.cs" />
+    <Compile Include="Api\Events\Bloons\BloonLeakedEvent.cs" />
+    <Compile Include="Api\Events\Bloons\BloonUpdatedModelEvent.cs" />
     <Compile Include="Api\Events\Event.cs" />
     <Compile Include="Api\Events\EventAttribute.cs" />
     <Compile Include="Api\Events\EventRegistry.cs" />
-    <Compile Include="Api\Events\InGame\OnRoundEnd.cs" />
-    <Compile Include="Api\Events\InGame\OnRoundStart.cs" />
+    <Compile Include="Api\Events\Simulate\RoundEndEvent.cs" />
+    <Compile Include="Api\Events\Simulate\RoundStartEvent.cs" />
     <Compile Include="Api\Events\KeyEvent.cs" />
     <Compile Include="Api\Events\MainMenuShownEvent.cs" />
-    <Compile Include="Api\Events\Towers\OnTowerInitialized.cs" />
+    <Compile Include="Api\Events\Bloons\BloonSetRotationEvent.cs" />
+    <Compile Include="Api\Events\Towers\TowerAddPoppedCashEvent.cs" />
+    <Compile Include="Api\Events\Towers\TowerGetUpgradeEvent.cs" />
+    <Compile Include="Api\Events\Towers\TowerUpdatedModelEvent.cs" />
+    <Compile Include="Api\Events\Towers\TowerSoldEvent.cs" />
+    <Compile Include="Api\Events\Towers\TowerDestroyedEvent.cs" />
+    <Compile Include="Api\Events\Towers\TowerInitializedEvent.cs" />
     <Compile Include="Api\Events\UpdateEvent.cs" />
     <Compile Include="Api\Extensions\BloonExt.cs" />
     <Compile Include="Api\Extensions\GameExt.cs" />
@@ -591,6 +601,7 @@
     <Compile Include="Api\Utilities\AudioUtils.cs" />
     <Compile Include="Api\Enums\DefaultBloonIds.cs" />
     <Compile Include="Api\Utilities\BloonUtils.cs" />
+    <Compile Include="Api\Utilities\CameraUtils.cs" />
     <Compile Include="Api\Utilities\EnumUtils.cs" />
     <Compile Include="Api\Utilities\FileUtils.cs" />
     <Compile Include="Api\Utilities\ImageUtils.cs" />
@@ -598,14 +609,28 @@
     <Compile Include="Api\Utilities\ReflectionUtils.cs" />
     <Compile Include="Api\Utilities\SelfCheckingDictionary.cs" />
     <Compile Include="Api\Utilities\TowerUtils.cs" />
-    <Compile Include="Backend\KeyListener.cs" />
+    <Compile Include="KeyListener.cs" />
     <Compile Include="Api\Utilities\Utils.cs" />
     <Compile Include="Api\Web\GitApi.cs" />
     <Compile Include="Api\Web\UpdateHandler.cs" />
     <Compile Include="Api\Web\WebHandler.cs" />
-    <Compile Include="Backend\Patches\MainMenuShownHook.cs" />
+    <Compile Include="Patches\Bloons\BloonDamagedHook.cs" />
+    <Compile Include="Patches\Bloons\BloonUpdatedModelHook.cs" />
+    <Compile Include="Patches\Bloons\BloonSpawnedHook.cs" />
+    <Compile Include="Patches\Bloons\BloonPoppedHook.cs" />
+    <Compile Include="Patches\Bloons\BloonLeakedHook.cs" />
+    <Compile Include="Patches\Simulate\RoundEndHook.cs" />
+    <Compile Include="Patches\Simulate\RoundStartHook.cs" />
+    <Compile Include="Patches\MainMenuShownHook.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Main.cs" />
+    <Compile Include="Patches\Bloons\BloonSetRotationHook.cs" />
+    <Compile Include="Patches\Towers\TowerAddPoppedCashHook.cs" />
+    <Compile Include="Patches\Towers\TowerGetUpgradeHook.cs" />
+    <Compile Include="Patches\Towers\TowerUpdatedModelHook.cs" />
+    <Compile Include="Patches\Towers\TowerSoldHook.cs" />
+    <Compile Include="Patches\Towers\TowerDestroyedHook.cs" />
+    <Compile Include="Patches\Towers\TowerInitializedHook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripting\BooManager.cs" />
     <Compile Include="Win32.cs" />
