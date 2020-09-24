@@ -67,6 +67,10 @@
       <HintPath>..\references\Boo.Lang.Useful.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="BTD Backend, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\references\BTD Backend.dll</HintPath>
+    </Reference>
     <Reference Include="BTD_Backend">
       <HintPath>..\references\BTD_Backend.dll</HintPath>
     </Reference>
@@ -581,7 +585,6 @@
     <Compile Include="Api\Events\Simulate\RoundStartEvent.cs" />
     <Compile Include="Api\Events\KeyEvent.cs" />
     <Compile Include="Api\Events\MainMenuShownEvent.cs" />
-    <Compile Include="Api\Events\OnMainMenuShown.cs" />
     <Compile Include="Api\Events\Bloons\BloonSetRotationEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerAddPoppedCashEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerGetUpgradeEvent.cs" />
