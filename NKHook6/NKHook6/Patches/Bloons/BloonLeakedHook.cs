@@ -20,7 +20,7 @@ namespace NKHook6.Patches.Bloons
                 var o = new BloonLeakedEvent.Prefix(ref __instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.bloon;
-                allowOriginalMethod = !o.replaceMethod;
+                allowOriginalMethod = !o.isCancelled();
             }
 
             sendPrefixEvent = !sendPrefixEvent;

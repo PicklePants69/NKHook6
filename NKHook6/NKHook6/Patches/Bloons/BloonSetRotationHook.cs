@@ -21,7 +21,7 @@ namespace NKHook6.Patches.Bloons
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.bloon;
                 rotation = o.rotation;
-                allowOriginalMethod = !o.replaceMethod;
+                allowOriginalMethod = !o.isCancelled();
             }
 
             sendPrefixEvent = !sendPrefixEvent;

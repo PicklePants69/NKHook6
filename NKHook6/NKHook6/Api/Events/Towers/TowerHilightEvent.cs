@@ -4,9 +4,8 @@ namespace NKHook6.Api.Events.Towers
 {
 	public class TowerHilightEvent
 	{
-		public class Prefix : EventBase
+		public class Prefix : EventBaseCancellable
 		{
-			public bool replaceMethod = false;
 			public Tower tower;
 
 			public Prefix(ref Tower __instance) : base("TowerHilightEvent.Pre")

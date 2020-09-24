@@ -1,4 +1,6 @@
-﻿using Assets.Scripts.Unity.Display.Animation;
+﻿using Assets.Scripts.Unity;
+using Assets.Scripts.Unity.Display.Animation;
+using Assets.Scripts.Unity.UI_New.InGame;
 using NKHook6.Api.Utilities;
 using System;
 using System.Collections.Generic;
@@ -46,7 +48,10 @@ namespace NKHook6
 
         public static void ShowInGamePopup()
         {
-            //Assets.Scripts.Unity.UI_New.InGame.InGame.ShowEventPopup();
+            var a = new InGame();
+            a.ShowEventPopup("AAAAA", 1);
+            //InGame.instance.ShowEventPopup("EventTest", 0);
+            ///Assets.Scripts.Unity.UI_New.InGame.InGame.ShowEventPopup("TestEvent", 0);
         }
     }
 }

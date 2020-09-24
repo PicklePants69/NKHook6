@@ -69,6 +69,9 @@
       <HintPath>..\references\Boo.Lang.Useful.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="BTD Backend">
+      <HintPath>..\references\BTD Backend.dll</HintPath>
+    </Reference>
     <Reference Include="BTD_Backend">
       <HintPath>..\references\BTD_Backend.dll</HintPath>
     </Reference>
@@ -591,14 +594,16 @@
     <Compile Include="Api\Events\Towers\TowerIsSelectableEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerGetSaveDataEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerOnUpgradeEvent.cs" />
-    <Compile Include="Api\Events\Towers\TowerPositionTowerEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerUnHighlightEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerUpdatedModelEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerSoldEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerDestroyedEvent.cs" />
     <Compile Include="Api\Events\Towers\TowerInitializedEvent.cs" />
     <Compile Include="Api\Events\UpdateEvent.cs" />
+    <Compile Include="Api\Events\WeaponBehaviors\WeaponBehaviorCanFireEvent.cs" />
     <Compile Include="Api\Events\Weapons\WeaponInitialiseEvent.cs" />
+    <Compile Include="Api\Events\Weapons\WeaponOnDestroyEvent.cs" />
+    <Compile Include="Api\Events\Weapons\WeaponUpdatedModelEvent.cs" />
     <Compile Include="Api\Extensions\BloonExt.cs" />
     <Compile Include="Api\Extensions\GameExt.cs" />
     <Compile Include="Api\Extensions\TowerExt.cs" />
@@ -607,7 +612,6 @@
     <Compile Include="Api\Utilities\AudioUtils.cs" />
     <Compile Include="Api\Enums\DefaultBloonIds.cs" />
     <Compile Include="Api\Utilities\BloonUtils.cs" />
-    <Compile Include="Api\Utilities\CameraUtils.cs" />
     <Compile Include="Api\Utilities\EnumUtils.cs" />
     <Compile Include="Api\Utilities\FileUtils.cs" />
     <Compile Include="Api\Utilities\ImageUtils.cs" />
@@ -615,7 +619,6 @@
     <Compile Include="Api\Utilities\ReflectionUtils.cs" />
     <Compile Include="Api\Utilities\SelfCheckingDictionary.cs" />
     <Compile Include="Api\Utilities\TowerUtils.cs" />
-    <Compile Include="ASMPatcher.cs" />
     <Compile Include="KeyListener.cs" />
     <Compile Include="Api\Utilities\Utils.cs" />
     <Compile Include="Api\Web\GitApi.cs" />
@@ -634,7 +637,6 @@
     <Compile Include="Patches\Bloons\BloonSetRotationHook.cs" />
     <Compile Include="Patches\Towers\TowerHilightHook.cs" />
     <Compile Include="Patches\Towers\TowerOnUpgradeHook.cs" />
-    <Compile Include="Patches\Towers\TowerPositionTowerHook.cs" />
     <Compile Include="Patches\Towers\TowerAddPoppedCashHook.cs" />
     <Compile Include="Patches\Towers\TowerIsUpgradeBlockedHook.cs" />
     <Compile Include="Patches\Towers\TowerIsSelectableHook.cs" />
@@ -644,7 +646,10 @@
     <Compile Include="Patches\Towers\TowerSoldHook.cs" />
     <Compile Include="Patches\Towers\TowerDestroyedHook.cs" />
     <Compile Include="Patches\Towers\TowerInitializedHook.cs" />
+    <Compile Include="Patches\WeaponBehaviors\WeaponBehaviorCanFireHook.cs" />
     <Compile Include="Patches\Weapons\WeaponInitialiseHook.cs" />
+    <Compile Include="Patches\Weapons\WeaponOnDestroyHook.cs" />
+    <Compile Include="Patches\Weapons\WeaponUpgradeModelHook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripting\BooManager.cs" />
     <Compile Include="Win32.cs" />

@@ -4,10 +4,9 @@ namespace NKHook6.Api.Events.Bloons
 {
     public class BloonLeakedEvent
     {
-        public class Prefix : EventBase
+        public class Prefix : EventBaseCancellable
         {
             public Bloon bloon;
-            public bool replaceMethod { get; set; }
 
             public Prefix(ref Bloon __instance) : base("BloonLeakedEvent.Pre")
             {

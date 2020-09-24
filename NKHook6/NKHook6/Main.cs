@@ -29,7 +29,7 @@ namespace NKHook6
             InitializeBoo();
             Log("NKHook6 initialized");
 
-            InitializeCommandMgr();            
+            InitializeCommandMgr();
         }
 
         private void Log_MessageLogged(object sender, BTD_Backend.Log.LogEvents e)

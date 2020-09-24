@@ -43,7 +43,7 @@ namespace NKHook6.Patches.Bloons
                 ignoreImmunityForBloonTypes = o.ignoreImmunityForBloonTypes;
                 ignoreNonTargetable = o.ignoreNonTargetables;
                 blockSpawnChildren = o.blockSpawnChildren;
-                allowOriginalMethod = !o.replaceMethod;
+                allowOriginalMethod = !o.isCancelled();
             }
 
             sendPrefixEvent = !sendPrefixEvent;
