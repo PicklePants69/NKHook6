@@ -1,7 +1,4 @@
 ﻿using Assets.Scripts.Simulation.Bloons;
-using Assets.Scripts.Simulation.Towers;
-using Assets.Scripts.Simulation.Towers.Projectiles;
-using UnhollowerBaseLib;
 
 namespace NKHook6.Api.Events.Bloons
 {
