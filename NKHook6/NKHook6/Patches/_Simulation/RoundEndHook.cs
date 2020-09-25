@@ -1,7 +1,7 @@
 ﻿using Assets.Scripts.Simulation;
 using Harmony;
 using NKHook6.Api.Events;
-using NKHook6.Api.Events.Simulate;
+using NKHook6.Api.Events._Simulation;
 
 namespace NKHook6.Patches.Simulate
 {

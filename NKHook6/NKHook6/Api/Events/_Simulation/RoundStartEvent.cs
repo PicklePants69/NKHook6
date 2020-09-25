@@ -1,18 +1,18 @@
 ﻿using Assets.Scripts.Simulation;
 
-namespace NKHook6.Api.Events.Simulate
+namespace NKHook6.Api.Events._Simulation
 {
-    public class RoundEndEvent
+    public class RoundStartEvent
     {
         public class Prefix : EventBaseCancellable
         {
             public Simulation round;
             public int roundArrayIndex;
 
-            public Prefix(ref Simulation __instance, ref int round) : base("RoundEndEvent.Pre")
+            public Prefix(ref Simulation __instance, ref int roundArrayIndex) : base("RoundStartEvent.Pre")
             {
                 this.round = __instance;
-                this.roundArrayIndex = round;
+                this.roundArrayIndex = roundArrayIndex;
             }
         }
 
@@ -21,10 +21,10 @@ namespace NKHook6.Api.Events.Simulate
             public Simulation round;
             public int roundArrayIndex;
 
-            public Postfix(ref Simulation __instance, ref int round) : base("RoundEndEvent.Post")
+            public Postfix(ref Simulation __instance, ref int roundArrayIndex) : base("RoundStartEvent.Post")
             {
                 this.round = __instance;
-                this.roundArrayIndex = round;
+                this.roundArrayIndex = roundArrayIndex;
             }
         }
     }
