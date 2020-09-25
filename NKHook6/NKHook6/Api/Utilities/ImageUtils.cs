@@ -11,6 +11,28 @@ namespace NKHook6.Api.Utilities
     /// </summary>
     public static class ImageUtils
     {
+        /// <summary>
+        /// Not sure on how well this works in all cases
+        /// </summary>
+        public static void writeTextoPNG(Texture2D tex)
+        {
+            byte[] bytes = ImageConversion.EncodeToPNG(tex);
+
+            File.WriteAllBytes("/Image.png", bytes);
+        }
+
+        /// <summary>
+        /// Not sure on how well this works in all cases
+        /// </summary>
+        public static void writeImagetoPNG(Image image)
+        {
+            Texture2D tex = image.activeSprite.texture;
+
+            byte[] bytes = ImageConversion.EncodeToPNG(tex);
+
+            File.WriteAllBytes("/Image.png", bytes);
+        }
+        
         public static Sprite LoadNewSprite(string FilePath, float PixelsPerUnit = 100.0f, SpriteMeshType spriteType = SpriteMeshType.Tight)
         {
 
