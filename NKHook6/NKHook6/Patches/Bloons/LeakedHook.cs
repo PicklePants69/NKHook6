@@ -1,26 +1,25 @@
-﻿using Assets.Scripts.Simulation;
+﻿using Assets.Scripts.Simulation.Bloons;
 using Harmony;
 using NKHook6.Api.Events;
-using NKHook6.Api.Events._Simulation;
+using NKHook6.Api.Events.Bloons;
 
-namespace NKHook6.Patches.Simulate
+namespace NKHook6.Patches.Bloons
 {
-    [HarmonyPatch(typeof(Simulation), "OnRoundEnd")]
-    class RoundEndHook
+    [HarmonyPatch(typeof(Bloon), "Leaked")]
+    class LeakedHook
     {
         private static bool sendPrefixEvent = true;
         private static bool sendPostfixEvent = true;
 
         [HarmonyPrefix]
-        internal static bool Prefix(ref Simulation __instance, ref int round)
+        internal static bool Prefix(ref Bloon __instance)
         {
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new RoundEndEvent.Pre(ref __instance, ref round);
+                var o = new LeakedEvent.Pre(ref __instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.round;
-                round = o.roundArrayIndex;
+                __instance = o.bloon;
                 allowOriginalMethod = !o.isCancelled();
             }
 
@@ -30,14 +29,13 @@ namespace NKHook6.Patches.Simulate
         }
 
         [HarmonyPostfix]
-        internal static void Postfix(ref Simulation __instance, ref int round)
+        internal static void Postfix(ref Bloon __instance)
         {
             if (sendPostfixEvent)
             {
-                var o = new RoundEndEvent.Post(ref __instance, ref round);
+                var o = new LeakedEvent.Post(ref __instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.round;
-                round = o.roundArrayIndex;
+                __instance = o.bloon;
             }
 
             sendPostfixEvent = !sendPostfixEvent;

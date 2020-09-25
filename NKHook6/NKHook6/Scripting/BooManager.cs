@@ -1,12 +1,11 @@
 ﻿using Boo.Lang.Compiler;
 using Boo.Lang.Compiler.IO;
 using Boo.Lang.Compiler.Pipelines;
-using BTD_Backend.IO;
-using Ionic.Zip;
 using NKHook6.Api.Events;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -64,26 +63,34 @@ namespace NKHook6.Scripting
         {
             var result = new Dictionary<string, string>();
 
-            Zip z = new Zip(zipPath);
-            var entries = z.Archive.Entries;
-            foreach (var entry in entries)
+            /*Zip z = new Zip(zipPath);
+            var entries = z.Archive.Entries;*/
+
+
+        using (ZipArchive zip = ZipFile.Open(zipPath, ZipArchiveMode.Read))
+            foreach (ZipArchiveEntry entry in zip.Entries)
             {
-                if (entry.FileName.ToLower().EndsWith(".boo.disabled"))
+                if (entry.FullName.ToLower().EndsWith(".boo.disabled"))
                 {
-                    Logger.Log("Unable to load the script mod \"" + entry.FileName.Replace("ZipEntry::", "") + 
+                    Logger.Log("Unable to load the script mod \"" + entry.FullName.Replace("ZipEntry::", "") + 
                         "\" from \"" + zipPath + "\" because it ends in  \".boo.disabled\".  For it to work" +
                         " you'll need to rename it so it ends in  \".boo\" instead");
                     continue;
                 }
 
-                if (!entry.FileName.ToLower().EndsWith(".boo"))
+                if (!entry.FullName.ToLower().EndsWith(".boo"))
                     continue;
 
                 
                 string name = Thread.CurrentThread.CurrentCulture.TextInfo.
-                    ToTitleCase(Path.GetFileNameWithoutExtension(entry.FileName));
+                    ToTitleCase(Path.GetFileNameWithoutExtension(entry.FullName));
 
-                string code = z.ReadFileInZip(entry.FileName);
+                    //string code = z.ReadFileInZip(entry.FullName);
+                    string tempPath = Environment.CurrentDirectory + "\\Mods\\NKHook6Temp\tempBoo.txt";
+                    
+                    entry.ExtractToFile(tempPath);
+                    string code = File.ReadAllText(tempPath);
+                    File.Delete(tempPath);
                 result.Add(name, code);
             }
 

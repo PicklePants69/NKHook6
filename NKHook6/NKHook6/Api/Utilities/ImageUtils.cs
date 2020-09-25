@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace NKHook6.Api.Utilities
 {
+    //Taken from: https://github.com/SubnauticaModding/SMLHelper/blob/master/SMLHelper/Utility/ImageUtils.cs
+
     /// <summary>
     /// A collection of image loading utility methods that can create Unity objects from image files at runtime.
     /// </summary>
@@ -48,9 +50,6 @@ namespace NKHook6.Api.Utilities
             }
             return null;                     // Return null if load failed
         }
-
-
-        //Taken from: https://github.com/SubnauticaModding/SMLHelper/blob/master/SMLHelper/Utility/ImageUtils.cs
 
         /// <summary>
         /// A collection of image loading utility methods that can create Unity objects from image files at runtime.

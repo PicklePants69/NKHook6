@@ -1,25 +1,25 @@
-﻿namespace NKHook6.Patches.Simulate
+﻿namespace NKHook6.Patches._TimeManager
 {
-    using Assets.Scripts.Simulation;
+    using Assets.Scripts.Utils;
     using Harmony;
 	using NKHook6.Api.Events;
-    using NKHook6.Api.Events._Simulation;
+    using NKHook6.Api.Events._TimeManager;
 
-    [HarmonyPatch(typeof(Simulation), "OnDefeat")]
-	class OnDefeatHook
+	[HarmonyPatch(typeof(TimeManager), "SetFastForward")]
+	class SetFastForwardHook
 	{
 		private static bool sendPrefixEvent = true;
 		private static bool sendPostfixEvent = true;
 
 		[HarmonyPrefix]
-		internal static bool Prefix(ref Simulation __instance)
+		internal static bool Prefix(ref bool value)
 		{
 			bool allowOriginalMethod = true;
 			if (sendPrefixEvent)
 			{
-				var o = new OnDefeatEvent.Pre(ref __instance);
+				var o = new SetFastForwardEvent.Pre(ref value);
 				EventRegistry.subscriber.dispatchEvent(ref o);
-				__instance = o.simulation;
+				value = o.value;
 				allowOriginalMethod = !o.isCancelled();
 			}
 
@@ -29,17 +29,16 @@
 		}
 
 		[HarmonyPostfix]
-		internal static void Postfix(ref Simulation __instance)
+		internal static void Postfix(ref bool value)
 		{
 			if (sendPostfixEvent)
 			{
-				var o = new OnDefeatEvent.Post(ref __instance);
+				var o = new SetFastForwardEvent.Post(ref value);
 				EventRegistry.subscriber.dispatchEvent(ref o);
-				__instance = o.simulation;
+				value = o.value;
 			}
 
 			sendPostfixEvent = !sendPostfixEvent;
 		}
 	}
-
 }
