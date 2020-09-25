@@ -19,7 +19,7 @@ You'll need to do a few things before you can make your first mod for BTD6/BTDAT
 
 
 ## Making your first mod in C#
-After following our [guide](https://github.com/TDToolbox/BTD-Docs/blob/master/md/NK-Unity/btd6/NKHook6/How%20to%20create%20Visual%20Studio%20project.md) on getting started you're ready to make your first mod!
+After following our getting started [Wiki Page](https://github.com/TDToolbox/BTD-Docs/blob/master/md/NK-Unity/btd6/NKHook6/How%20to%20create%20Visual%20Studio%20project.md) mentioned above, you're ready to make your first mod!
 
 
 ## How do Harmonny Patches work?
