@@ -14,8 +14,8 @@ Before getting started, you need to download the latest version of [.Net Framewo
 After doing the steps above you'll need to download [Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16). We'll be using this program to make our mods. After it's finished installing you are ready to make your first mod.
 
 
-## Making your first mod
-To make your first mod you'll need to start visual studio.
+## Making your first mod in C#
+To make your first mod you'll need to start visual studio. Once it's opened click on "Create a new project" ![Create new proj image.png](https://cdn.discordapp.com/attachments/619054151967703061/759094470809223228/unknown.png)
 
 
 
