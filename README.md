@@ -15,7 +15,9 @@ After doing the steps above you'll need to download [Visual Studio](https://visu
 
 
 ## Making your first mod in C#
-To make your first mod you'll need to start visual studio. Once it's opened click on "Create a new project" ![Create new proj image.png](https://cdn.discordapp.com/attachments/619054151967703061/759096827281932358/unknown.png)
+To make your first mod you'll need to start visual studio. Once it's opened click on 
+
+"Create a new project" ![Create new proj image.png](https://cdn.discordapp.com/attachments/619054151967703061/759096827281932358/unknown.png)
 
 
 
