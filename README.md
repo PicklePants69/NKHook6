@@ -23,3 +23,4 @@ After following our getting started [Wiki Page](https://github.com/TDToolbox/BTD
 
 
 ## How do Harmonny Patches work?
+I honestly don't know. Low key black magic.
