@@ -21,7 +21,7 @@ namespace NKHook6.Patches.Towers
 			{
 				var o = new OnUpgradeEvent.Pre(ref __instance);
 				EventRegistry.subscriber.dispatchEvent(ref o);
-				__instance = o.tower;
+				__instance = o.instance;
 				allowOriginalMethod = !o.isCancelled();
 			}
 
@@ -37,7 +37,7 @@ namespace NKHook6.Patches.Towers
 			{
 				var o = new OnUpgradeEvent.Post(ref __instance);
 				EventRegistry.subscriber.dispatchEvent(ref o);
-				__instance = o.tower;
+				__instance = o.instance;
 			}
 
 			sendPostfixEvent = !sendPostfixEvent;

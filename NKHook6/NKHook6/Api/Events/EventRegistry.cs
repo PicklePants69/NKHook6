@@ -22,10 +22,10 @@ namespace NKHook6.Api.Events
             List<string> HarmonyEvents = new List<string>()
             {
                 "MainMenu.OnEnableEvent",
-                "Bloon.SpawnedEvent",
+                "Bloon.InitialiseEvent",
                 "Bloon.DamagedEvent",
                 "Bloon.LeakedEvent",
-                "Bloon.PoppedEvent",
+                "Bloon.OnDestroyEvent",
                 "Bloon.SetRotationEvent",
                 "Bloon.UpdatedModelEvent",
 
@@ -58,6 +58,9 @@ namespace NKHook6.Api.Events
 
                 "TimeManager.SetFastForwardEvent",
                 "InGame.GetContinueCostEvent",
+                
+                "Projectile.InitialiseEvent",
+                "Projectile.OnDestroyEvent",
             };
 
             foreach (var item in HarmonyEvents)

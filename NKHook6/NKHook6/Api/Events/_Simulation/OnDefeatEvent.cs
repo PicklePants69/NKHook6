@@ -5,21 +5,21 @@ namespace NKHook6.Api.Events._Simulation
 	{
 		public class Pre : EventBaseCancellable
 		{
-			public Simulation simulation;
+			public Simulation instance;
 
 			public Pre(ref Simulation __instance) : base("Simulation.OnDefeatEvent.Pre")
 			{
-				this.simulation = __instance;
+				this.instance = __instance;
 			}
 		}
 
 		public class Post : EventBase
 		{
-			public Simulation simulation;
+			public Simulation instance;
 
 			public Post(ref Simulation __instance) : base("Simulation.OnDefeatEvent.Post")
 			{
-				this.simulation = __instance;
+				this.instance = __instance;
 			}
 		}
 	}

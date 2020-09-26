@@ -20,7 +20,7 @@
 			{
 				var o = new UpdatedModelEvent.Pre(ref __instance, ref modelToUse);
 				EventRegistry.subscriber.dispatchEvent(ref o);
-				__instance = o.weapon;
+				__instance = o.instance;
 				modelToUse = o.model;
 				allowOriginalMethod = !o.isCancelled();
 			}
@@ -37,7 +37,7 @@
 			{
 				var o = new UpdatedModelEvent.Post(ref __instance, ref modelToUse);
 				EventRegistry.subscriber.dispatchEvent(ref o);
-				__instance = o.weapon;
+				__instance = o.instance;
 				modelToUse = o.model;
 			}
 

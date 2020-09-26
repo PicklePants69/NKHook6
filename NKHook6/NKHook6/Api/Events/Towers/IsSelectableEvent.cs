@@ -6,21 +6,21 @@ namespace NKHook6.Api.Events.Towers
     {
         public class Pre : EventBaseCancellable
         {
-            public Tower tower;
+            public Tower instance;
 
             public Pre(ref Tower __instance) : base("Tower.IsSelectableEvent.Pre")
             {
-                this.tower = __instance;
+                this.instance = __instance;
             }
         }
 
         public class Post : EventBase
         {
-            public Tower tower;
+            public Tower instance;
             public bool result;
             public Post(ref Tower __instance, ref bool __result) : base("Tower.IsSelectableEvent.Post")
             {
-                this.tower = __instance;
+                this.instance = __instance;
                 this.result = __result;
             }
         }

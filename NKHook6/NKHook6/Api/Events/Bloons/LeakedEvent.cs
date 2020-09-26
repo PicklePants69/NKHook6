@@ -6,21 +6,21 @@ namespace NKHook6.Api.Events.Bloons
     {
         public class Pre : EventBaseCancellable
         {
-            public Bloon bloon;
+            public Bloon instance;
 
             public Pre(ref Bloon __instance) : base("Bloon.LeakedEvent.Pre")
             {
-                this.bloon = __instance;
+                this.instance = __instance;
             }
         }
 
         public class Post : EventBase
         {
-            public Bloon bloon;
+            public Bloon instance;
 
             public Post(ref Bloon __instance) : base("Bloon.LeakedEvent.Post")
             {
-                this.bloon = __instance;
+                this.instance = __instance;
             }
         }
     }

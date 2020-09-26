@@ -19,7 +19,7 @@ namespace NKHook6.Patches.Simulate
             {
                 var o = new RoundEndEvent.Pre(ref __instance, ref round);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.round;
+                __instance = o.instance;
                 round = o.roundArrayIndex;
                 allowOriginalMethod = !o.isCancelled();
             }
@@ -36,7 +36,7 @@ namespace NKHook6.Patches.Simulate
             {
                 var o = new RoundEndEvent.Post(ref __instance, ref round);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.round;
+                __instance = o.instance;
                 round = o.roundArrayIndex;
             }
 

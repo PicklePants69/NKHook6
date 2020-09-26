@@ -1,28 +1,26 @@
-﻿namespace NKHook6.Patches.Weapons
+﻿namespace NKHook6.Patches._Projectile
 {
     using Assets.Scripts.Models;
-    using Assets.Scripts.Simulation.Objects;
-    using Assets.Scripts.Simulation.Towers.Weapons;
+    using Assets.Scripts.Simulation.Towers.Projectiles;
     using Harmony;
 	using NKHook6.Api.Events;
-    using NKHook6.Api.Events.Weapons;
+    using NKHook6.Api.Events._Projectile;
 
-    [HarmonyPatch(typeof(Weapon), "Initialise")]
-	class InitialiseHook
+    [HarmonyPatch(typeof(Projectile), "UpdatedModel")]
+	class UpdatedModelHook
 	{
 		private static bool sendPrefixEvent = true;
 		private static bool sendPostfixEvent = true;
 
 		[HarmonyPrefix]
-		internal static bool Prefix(ref Weapon __instance, ref Entity target, ref Model modelToUse)
+		internal static bool Prefix(ref Projectile __instance, ref Model modelToUse)
 		{
 			bool allowOriginalMethod = true;
 			if (sendPrefixEvent)
 			{
-				var o = new InitialiseEvent.Pre(ref __instance, ref target, ref modelToUse);
+				var o = new UpdatedModelEvent.Pre(ref __instance, ref modelToUse);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				__instance = o.instance;
-				target = o.entity;
 				modelToUse = o.model;
 				allowOriginalMethod = !o.isCancelled();
 			}
@@ -33,14 +31,13 @@
 		}
 
 		[HarmonyPostfix]
-		internal static void Postfix(ref Weapon __instance, ref Entity target, ref Model modelToUse)
+		internal static void Postfix(ref Projectile __instance, ref Model modelToUse)
 		{
 			if (sendPostfixEvent)
 			{
-				var o = new InitialiseEvent.Post(ref __instance, ref target, ref modelToUse);
+				var o = new UpdatedModelEvent.Post(ref __instance, ref modelToUse);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				__instance = o.instance;
-				target = o.entity;
 				modelToUse = o.model;
 			}
 

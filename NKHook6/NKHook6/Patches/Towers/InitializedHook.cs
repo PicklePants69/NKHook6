@@ -21,8 +21,8 @@ namespace NKHook6.Patches.Towers
             {
                 var o = new InitializedEvent.Pre(ref __instance, ref target, ref modelToUse);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.tower;
-                target = o.target;
+                __instance = o.instance;
+                target = o.entity;
                 modelToUse = o.model;
                 allowOriginalMethod = !o.isCancelled();
             }
@@ -39,8 +39,8 @@ namespace NKHook6.Patches.Towers
             {
                 var o = new InitializedEvent.Post(ref __instance, ref target, ref modelToUse);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.tower;
-                target = o.target;
+                __instance = o.instance;
+                target = o.entity;
                 modelToUse = o.model;
             }
 

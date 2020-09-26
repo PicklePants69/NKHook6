@@ -31,7 +31,7 @@ namespace NKHook6.Patches.Bloons
                     ref blockSpawnChildren);
                 EventRegistry.subscriber.dispatchEvent(ref o);
 
-                __instance = o.bloon;
+                __instance = o.instance;
                 totalAmount = o.damageTaken;
                 types = o.damageTypes;
                 projectile = o.projectile;
@@ -65,7 +65,7 @@ namespace NKHook6.Patches.Bloons
                     ref blockSpawnChildren);
                 EventRegistry.subscriber.dispatchEvent(ref o);
 
-                __instance = o.bloon;
+                __instance = o.instance;
                 totalAmount = o.damageTaken;
                 types = o.damageTypes;
                 projectile = o.projectile;

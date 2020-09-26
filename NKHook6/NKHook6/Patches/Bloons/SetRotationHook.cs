@@ -19,7 +19,7 @@ namespace NKHook6.Patches.Bloons
             {
                 var o = new SetRotationEvent.Pre(ref __instance, ref rotation);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.bloon;
+                __instance = o.instance;
                 rotation = o.rotation;
                 allowOriginalMethod = !o.isCancelled();
             }
@@ -36,7 +36,7 @@ namespace NKHook6.Patches.Bloons
             {
                 var o = new SetRotationEvent.Post(ref __instance, ref rotation);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.bloon;
+                __instance = o.instance;
                 rotation = o.rotation;
             }
 

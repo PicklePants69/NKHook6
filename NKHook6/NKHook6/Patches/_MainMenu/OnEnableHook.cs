@@ -29,7 +29,7 @@ namespace NKHook6.Backend.Patches._MainMenu
             {
                 var o = new OnEnableEvent.Pre(__instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.mainMenu;
+                __instance = o.instance;
                 allowOriginalMethod = !o.isCancelled();
             }
 
@@ -49,7 +49,7 @@ namespace NKHook6.Backend.Patches._MainMenu
             {
                 var o = new OnEnableEvent.Post(__instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.mainMenu;
+                __instance = o.instance;
             }
 
             sendPostfixEvent = !sendPostfixEvent;

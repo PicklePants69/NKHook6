@@ -6,21 +6,21 @@ namespace NKHook6.Api.Events.Weapons
 	{
 		public class Pre : EventBaseCancellable
 		{
-			public Weapon weapon;
+			public Weapon instance;
 
 			public Pre(ref Weapon __instance) : base("Weapon.OnDestroyEvent.Pre")
 			{
-				this.weapon = __instance;
+				this.instance = __instance;
 			}
 		}
 
 		public class Post : EventBase
 		{
-			public Weapon weapon;
+			public Weapon instance;
 
 			public Post(ref Weapon __instance) : base("Weapon.OnDestroyEvent.Post")
 			{
-				this.weapon = __instance;
+				this.instance = __instance;
 			}
 		}
 	}

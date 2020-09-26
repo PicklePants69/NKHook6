@@ -19,7 +19,7 @@ namespace NKHook6.Patches.Towers
             {
                 var o = new AddPoppedCashEvent.Pre(ref __instance, ref cash);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.tower;
+                __instance = o.instance;
                 cash = o.cash;
                 allowOriginalMethod = !o.isCancelled();
             }
@@ -36,7 +36,7 @@ namespace NKHook6.Patches.Towers
             {
                 var o = new AddPoppedCashEvent.Post(ref __instance, ref cash); ;
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.tower;
+                __instance = o.instance;
                 cash = o.cash;
             }
 

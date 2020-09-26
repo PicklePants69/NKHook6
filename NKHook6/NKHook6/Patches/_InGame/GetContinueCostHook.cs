@@ -20,7 +20,7 @@
 			{
 				var o = new GetContinueCostEvent.Pre(ref __instance);
 				EventRegistry.subscriber.dispatchEvent(ref o);
-				__instance = o.inGame;
+				__instance = o.instance;
 				allowOriginalMethod = !o.isCancelled();
 			}
 
@@ -36,7 +36,7 @@
 			{
 				var o = new GetContinueCostEvent.Post(ref __instance, ref __result);
 				EventRegistry.subscriber.dispatchEvent(ref o);
-				__instance = o.inGame;
+				__instance = o.instance;
 				__result = o.konFuze;
 			}
 

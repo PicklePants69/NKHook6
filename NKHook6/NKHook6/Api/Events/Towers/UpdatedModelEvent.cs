@@ -7,24 +7,24 @@ namespace NKHook6.Api.Events.Towers
     {
         public class Pre : EventBaseCancellable
         {
-            public Tower tower;
+            public Tower instance;
             public Model model;
 
             public Pre(ref Tower __instance, ref Model modelToUse) : base("Tower.UpdatedModelEvent.Pre")
             {
-                this.tower = __instance;
+                this.instance = __instance;
                 this.model = modelToUse;
             }
         }
 
         public class Post : EventBase
         {
-            public Tower tower;
+            public Tower instance;
             public Model model;
 
             public Post(ref Tower __instance, ref Model modelToUse) : base("Tower.UpdatedModelEvent.Post")
             {
-                this.tower = __instance;
+                this.instance = __instance;
                 this.model = modelToUse;
             }
         }

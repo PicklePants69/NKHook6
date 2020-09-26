@@ -6,14 +6,14 @@ namespace NKHook6.Api.Events.Towers
     {
         public class Pre : EventBaseCancellable
         {
-            public Tower tower;
+            public Tower instance;
             public int path;
             public int tier;
             
 
             public Pre(ref Tower __instance, ref int path, ref int tier) : base("Tower.IsUpgradeBlockedEvent.Pre")
             {
-                this.tower = __instance;
+                this.instance = __instance;
                 this.path = path;
                 this.tier = tier;
             }
@@ -21,7 +21,7 @@ namespace NKHook6.Api.Events.Towers
 
         public class Post : EventBase
         {
-            public Tower tower;
+            public Tower instance;
             public int path;
             public int tier;
             public string reason;
@@ -30,7 +30,7 @@ namespace NKHook6.Api.Events.Towers
             public Post(ref Tower __instance, ref int path, ref int tier, ref string reason, ref bool __result) 
                 : base("Tower.IsUpgradeBlockedEvent.Post")
             {
-                this.tower = __instance;
+                this.instance = __instance;
                 this.path = path;
                 this.tier = tier;
                 this.reason = reason;

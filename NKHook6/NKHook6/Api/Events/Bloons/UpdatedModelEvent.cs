@@ -7,24 +7,24 @@ namespace NKHook6.Api.Events.Bloons
     {
         public class Pre : EventBaseCancellable
         {
-            public Bloon bloon;
+            public Bloon instance;
             public Model model;
 
             public Pre(ref Bloon __instance, ref Model modelToUse) : base("Bloon.UpdatedModelEvent.Pre")
             {
-                this.bloon = __instance;
+                this.instance = __instance;
                 this.model = modelToUse;
             }
         }
 
         public class Post : EventBase
         {
-            public Bloon bloon;
+            public Bloon instance;
             public Model model;
 
             public Post(ref Bloon __instance, ref Model modelToUse) : base("Bloon.UpdatedModelEvent.Post")
             {
-                this.bloon = __instance;
+                this.instance = __instance;
                 this.model = modelToUse;
             }
         }

@@ -24,7 +24,7 @@ namespace NKHook6.Patches.Towers
             {
                 var o = new GetSaveDataEvent.Pre(ref __instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.tower;
+                __instance = o.instance;
                 allowOriginalMethod = !o.isCancelled();
             }
 
@@ -40,7 +40,7 @@ namespace NKHook6.Patches.Towers
             {
                 var o = new GetSaveDataEvent.Post(ref __instance, ref __result);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.tower;
+                __instance = o.instance;
                 __result = o.result;
             }
 

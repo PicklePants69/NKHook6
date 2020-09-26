@@ -9,7 +9,7 @@ namespace NKHook6.Api.Events.Bloons
     {
         public class Pre : EventBaseCancellable
         {
-            public Bloon bloon;
+            public Bloon instance;
             public float damageTaken { get; set; }
             public Il2CppStringArray damageTypes { get; set; }
             public Projectile projectile { get; set; }
@@ -27,7 +27,7 @@ namespace NKHook6.Api.Events.Bloons
             ref bool canDestroyProjectile, ref Il2CppStringArray ignoreImmunityForBloonTypes, ref bool ignoreNonTargetable,
             ref bool blockSpawnChildren) : base("Bloon.DamagedEvent.Pre")
             {
-                this.bloon = __instance;
+                this.instance = __instance;
                 this.damageTaken = totalAmount;
                 this.damageTypes = types;
                 this.projectile = projectile;
@@ -44,7 +44,7 @@ namespace NKHook6.Api.Events.Bloons
 
         public class Post : EventBase
         {
-            public Bloon bloon;
+            public Bloon instance;
             public float damageTaken { get; set; }
             public Il2CppStringArray damageTypes { get; set; }
             public Projectile projectile { get; set; }
@@ -62,7 +62,7 @@ namespace NKHook6.Api.Events.Bloons
             ref bool canDestroyProjectile, ref Il2CppStringArray ignoreImmunityForBloonTypes, ref bool ignoreNonTargetable,
             ref bool blockSpawnChildren) : base("Bloon.DamagedEvent.Post")
             {
-                this.bloon = __instance;
+                this.instance = __instance;
                 this.damageTaken = totalAmount;
                 this.damageTypes = types;
                 this.projectile = projectile;

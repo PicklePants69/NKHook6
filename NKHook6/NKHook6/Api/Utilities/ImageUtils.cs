@@ -11,7 +11,7 @@ namespace NKHook6.Api.Utilities
     /// </summary>
     public static class ImageUtils
     {
-        /// <summary>
+        /*/// <summary>
         /// Not sure on how well this works in all cases
         /// </summary>
         public static void writeTextoPNG(Texture2D tex)
@@ -31,7 +31,7 @@ namespace NKHook6.Api.Utilities
             byte[] bytes = ImageConversion.EncodeToPNG(tex);
 
             File.WriteAllBytes("/Image.png", bytes);
-        }
+        }*/
         
         public static Sprite LoadNewSprite(string FilePath, float PixelsPerUnit = 100.0f, SpriteMeshType spriteType = SpriteMeshType.Tight)
         {

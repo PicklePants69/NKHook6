@@ -19,7 +19,7 @@ namespace NKHook6.Patches.Bloons
             {
                 var o = new LeakedEvent.Pre(ref __instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.bloon;
+                __instance = o.instance;
                 allowOriginalMethod = !o.isCancelled();
             }
 
@@ -35,7 +35,7 @@ namespace NKHook6.Patches.Bloons
             {
                 var o = new LeakedEvent.Post(ref __instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.bloon;
+                __instance = o.instance;
             }
 
             sendPostfixEvent = !sendPostfixEvent;

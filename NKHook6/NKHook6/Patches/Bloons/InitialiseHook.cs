@@ -8,7 +8,7 @@ using NKHook6.Api.Events.Bloons;
 namespace NKHook6.Patches.Bloons
 {
     [HarmonyPatch(typeof(Bloon), "Initialise")]
-    class SpawnedHook
+    class InitialiseHook
     {
         private static bool sendPrefixEvent = true;
         private static bool sendPostfixEvent = true;
@@ -19,10 +19,10 @@ namespace NKHook6.Patches.Bloons
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new SpawnedEvent.Pre(ref __instance, ref target, ref modelToUse);
+                var o = new InitialiseEvent.Pre(ref __instance, ref target, ref modelToUse);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.bloon;
-                target = o.target;
+                __instance = o.instance;
+                target = o.entity;
                 modelToUse = o.model;
                 allowOriginalMethod = !o.isCancelled();
             }
@@ -37,10 +37,10 @@ namespace NKHook6.Patches.Bloons
         {
             if (sendPostfixEvent)
             {
-                var o = new SpawnedEvent.Post(ref __instance, ref target, ref modelToUse);
+                var o = new InitialiseEvent.Post(ref __instance, ref target, ref modelToUse);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.bloon;
-                target = o.target;
+                __instance = o.instance;
+                target = o.entity;
                 modelToUse = o.model;
             }
 

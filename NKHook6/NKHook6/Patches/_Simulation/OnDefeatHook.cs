@@ -19,7 +19,7 @@
 			{
 				var o = new OnDefeatEvent.Pre(ref __instance);
 				EventRegistry.subscriber.dispatchEvent(ref o);
-				__instance = o.simulation;
+				__instance = o.instance;
 				allowOriginalMethod = !o.isCancelled();
 			}
 
@@ -35,7 +35,7 @@
 			{
 				var o = new OnDefeatEvent.Post(ref __instance);
 				EventRegistry.subscriber.dispatchEvent(ref o);
-				__instance = o.simulation;
+				__instance = o.instance;
 			}
 
 			sendPostfixEvent = !sendPostfixEvent;

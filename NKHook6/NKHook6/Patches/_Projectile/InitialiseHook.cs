@@ -1,20 +1,20 @@
-﻿namespace NKHook6.Patches.Weapons
+﻿namespace NKHook6.Patches._Projectile
 {
     using Assets.Scripts.Models;
     using Assets.Scripts.Simulation.Objects;
-    using Assets.Scripts.Simulation.Towers.Weapons;
+    using Assets.Scripts.Simulation.Towers.Projectiles;
     using Harmony;
 	using NKHook6.Api.Events;
-    using NKHook6.Api.Events.Weapons;
+    using NKHook6.Api.Events._Projectile;
 
-    [HarmonyPatch(typeof(Weapon), "Initialise")]
+    [HarmonyPatch(typeof(Projectile), "Initialise")]
 	class InitialiseHook
 	{
 		private static bool sendPrefixEvent = true;
 		private static bool sendPostfixEvent = true;
 
 		[HarmonyPrefix]
-		internal static bool Prefix(ref Weapon __instance, ref Entity target, ref Model modelToUse)
+		internal static bool Prefix(ref Projectile __instance, ref Entity target, ref Model modelToUse)
 		{
 			bool allowOriginalMethod = true;
 			if (sendPrefixEvent)
@@ -33,7 +33,7 @@
 		}
 
 		[HarmonyPostfix]
-		internal static void Postfix(ref Weapon __instance, ref Entity target, ref Model modelToUse)
+		internal static void Postfix(ref Projectile __instance, ref Entity target, ref Model modelToUse)
 		{
 			if (sendPostfixEvent)
 			{

@@ -24,7 +24,7 @@ namespace NKHook6.Patches.Towers
             {
                 var o = new UpgradeBlockedEvent.Pre(ref __instance, ref path, ref tier);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.tower;
+                __instance = o.instance;
                 path = o.path;
                 tier = o.tier;
                 allowOriginalMethod = !o.isCancelled();
@@ -42,7 +42,7 @@ namespace NKHook6.Patches.Towers
             {
                 var o = new UpgradeBlockedEvent.Post(ref __instance, ref path, ref tier, ref reason, ref __result);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.tower;
+                __instance = o.instance;
                 path = o.path;
                 tier = o.tier;
                 reason = o.reason;
