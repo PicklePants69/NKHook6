@@ -61,6 +61,7 @@ namespace NKHook6.Api.Events
                 
                 "Projectile.InitialiseEvent",
                 "Projectile.OnDestroyEvent",
+                "Projectile.UpdateModelEvent",
             };
 
             foreach (var item in HarmonyEvents)
