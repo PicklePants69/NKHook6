@@ -8,7 +8,7 @@ namespace NKHook6.Api
     {
         const string modsFolder = "\\Mods\\";
         string FileName = "settings.json";
-        public string FilePath = "";
+        string FilePath = "";
         public ModSettings()
         {
             string modName = Utils.GetCallingModInfo().Name;
