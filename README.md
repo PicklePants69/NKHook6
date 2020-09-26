@@ -4,7 +4,7 @@ A Boo and C# modding API for [BloonsTD6](https://btd6.com/) using MelonLoader, m
 
 
 ## What is an API?
-API stands for "Application Programming Interface". Basically, its a tool you can use to modify programs that supports it. NKHook6 is an API for BTD6 and future support will be added for BTD Adventure Time.
+API stands for "Application Programming Interface". Basically, its a tool you can use to modify any programs that supports it. NKHook6 is an API for BTD6 and future support will be added for BTD Adventure Time.
 
 
 
