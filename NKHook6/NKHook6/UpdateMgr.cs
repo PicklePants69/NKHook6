@@ -21,7 +21,17 @@ namespace NKHook6
             {
                 foreach (var item in LatestVersionURLAttribute.loaded)
                 {
-                    var text = WebHandler.ReadText_FromURL(item.url);
+
+                    var text = "";
+                    try
+                    {
+                        text = WebHandler.ReadText_FromURL(item.url);
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.Log(ex.Message);
+                        return;
+                    }
                     if (String.IsNullOrEmpty(text))
                         return;
 
