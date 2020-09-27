@@ -30,20 +30,12 @@ namespace NKHook6
             new KeyListener();
 
             EventRegistry.subscriber.register(this.GetType());
-            //InitializeBoo();
-            InitializeClear();
+            InitializeBoo();
             Log("NKHook6 initialized");
 
             InitializeCommandMgr();
             
 
-        }
-
-        private void InitializeClear()
-        {
-            Log("Initializing Clear...");
-            new ClearScript();
-            Log("Initialized Clear!");
         }
 
         [EventAttribute("MainMenu.OnEnableEvent.Post")]
