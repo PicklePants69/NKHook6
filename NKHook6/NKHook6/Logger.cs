@@ -1,16 +1,6 @@
-﻿using Assets.Scripts.Unity;
-using Assets.Scripts.Unity.Display.Animation;
-using Assets.Scripts.Unity.UI_New.InGame;
-using Assets.Scripts.Unity.UI_New.Popups;
-using Il2CppSystem.Reflection;
-using NKHook6.Api.Utilities;
+﻿using Assets.Scripts.Unity.UI_New.Popups;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using UnityEngine.UI;
+
 using Utils = NKHook6.Api.Utilities.Utils;
 
 namespace NKHook6

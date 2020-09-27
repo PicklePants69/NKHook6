@@ -1,24 +1,23 @@
-﻿namespace NKHook6.Patches.__InGame
+﻿namespace NKHook6.Patches._Simulation
 {
-	using Assets.Scripts.Unity.UI_New.InGame;
-	using Assets.Scripts.Utils;
-	using Harmony;
+    using Assets.Scripts.Simulation;
+    using Harmony;
 	using NKHook6.Api.Events;
-	using NKHook6.Api.Events._InGame;
+    using NKHook6.Api.Events._Simulation;
 
-	[HarmonyPatch(typeof(InGame), "GetContinueCost")]
-	class GetContinueCostHook
+    [HarmonyPatch(typeof(Simulation), "OnDefeat")]
+	class OnDefeatHook
 	{
 		private static bool sendPrefixEvent = true;
 		private static bool sendPostfixEvent = true;
 
 		[HarmonyPrefix]
-		internal static bool Prefix(ref InGame __instance)
+		internal static bool Prefix(ref Simulation __instance)
 		{
 			bool allowOriginalMethod = true;
 			if (sendPrefixEvent)
 			{
-				var o = new GetContinueCostEvent.Pre(ref __instance);
+				var o = new OnDefeatEvent.Pre(ref __instance);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				__instance = o.instance;
 				allowOriginalMethod = !o.isCancelled();
@@ -30,14 +29,13 @@
 		}
 
 		[HarmonyPostfix]
-		internal static void Postfix(ref InGame __instance, ref KonFuze __result)
+		internal static void Postfix(ref Simulation __instance)
 		{
 			if (sendPostfixEvent)
 			{
-				var o = new GetContinueCostEvent.Post(ref __instance, ref __result);
+				var o = new OnDefeatEvent.Post(ref __instance);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				__instance = o.instance;
-				__result = o.konFuze;
 			}
 
 			sendPostfixEvent = !sendPostfixEvent;

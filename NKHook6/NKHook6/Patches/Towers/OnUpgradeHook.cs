@@ -1,12 +1,10 @@
-﻿
-
-using Assets.Scripts.Simulation.Towers;
-using Harmony;
-using NKHook6.Api.Events;
-using NKHook6.Api.Events.Towers;
-
-namespace NKHook6.Patches.Towers
+﻿namespace NKHook6.Patches._Towers
 {
+	using Assets.Scripts.Simulation.Towers;
+	using Harmony;
+	using NKHook6.Api.Events;
+	using NKHook6.Api.Events.Towers;
+
 	[HarmonyPatch(typeof(Tower), "OnUpgrade")]
 	class OnUpgradeHook
 	{

@@ -5,7 +5,7 @@ using Harmony;
 using NKHook6.Api.Events;
 using NKHook6.Api.Events.Bloons;
 
-namespace NKHook6.Patches.Bloons
+namespace NKHook6.Patches._Bloons
 {
     [HarmonyPatch(typeof(Bloon), "Initialise")]
     class InitialiseHook

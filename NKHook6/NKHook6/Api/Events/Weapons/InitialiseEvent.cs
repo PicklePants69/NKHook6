@@ -2,7 +2,7 @@
 using Assets.Scripts.Simulation.Objects;
 using Assets.Scripts.Simulation.Towers.Weapons;
 
-namespace NKHook6.Api.Events.Weapons
+namespace NKHook6.Api.Events._Weapons
 {
 	public class InitialiseEvent
 	{

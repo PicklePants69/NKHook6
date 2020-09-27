@@ -1,23 +1,23 @@
-﻿namespace NKHook6.Patches._Towers
+﻿namespace NKHook6.Patches._InGame
 {
-	using Assets.Scripts.Simulation.Towers;
-	using Harmony;
+    using Assets.Scripts.Unity.UI_New.InGame;
+    using Harmony;
 	using NKHook6.Api.Events;
-	using NKHook6.Api.Events.Towers;
+    using NKHook6.Api.Events._InGame;
 
-	[HarmonyPatch(typeof(Tower), "UnHighlight")]
-	class UnHighlightHook
+    [HarmonyPatch(typeof(InGame), "GetRoundHint")]
+	class GetRoundHintHook
 	{
 		private static bool sendPrefixEvent = true;
 		private static bool sendPostfixEvent = true;
 
 		[HarmonyPrefix]
-		internal static bool Prefix(ref Tower __instance)
+		internal static bool Prefix(ref InGame __instance)
 		{
 			bool allowOriginalMethod = true;
 			if (sendPrefixEvent)
 			{
-				var o = new UnHighlightEvent.Pre(ref __instance);
+				var o = new GetRoundHintEvent.Pre(ref __instance);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				__instance = o.instance;
 				allowOriginalMethod = !o.isCancelled();
@@ -29,13 +29,14 @@
 		}
 
 		[HarmonyPostfix]
-		internal static void Postfix(ref Tower __instance)
+		internal static void Postfix(ref InGame __instance, ref string __result)
 		{
 			if (sendPostfixEvent)
 			{
-				var o = new UnHighlightEvent.Post(ref __instance);
+				var o = new GetRoundHintEvent.Post(ref __instance, ref __result);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				__instance = o.instance;
+				__result = o.result;
 			}
 
 			sendPostfixEvent = !sendPostfixEvent;

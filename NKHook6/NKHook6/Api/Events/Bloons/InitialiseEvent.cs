@@ -2,7 +2,7 @@
 using Assets.Scripts.Simulation.Bloons;
 using Assets.Scripts.Simulation.Objects;
 
-namespace NKHook6.Api.Events.Bloons
+namespace NKHook6.Api.Events._Bloons
 {
     public class InitialiseEvent
     {

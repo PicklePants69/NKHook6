@@ -47,7 +47,7 @@ namespace NKHook6
         }
 
         [EventAttribute("MainMenu.OnEnableEvent.Post")]
-        public static void MainMenuShown(NKHook6.Api.Events._MainMenu.OnEnableEvent.Post e)
+        public static void MainMenuShown(Api.Events._MainMenu.OnEnableEvent.Post e)
         {
             //BgWorker bg = new BgWorker();
             NkhUpdateMgr.HandleUpdates();
