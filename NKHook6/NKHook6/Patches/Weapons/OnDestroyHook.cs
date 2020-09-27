@@ -3,7 +3,7 @@
     using Assets.Scripts.Simulation.Towers.Weapons;
     using Harmony;
 	using NKHook6.Api.Events;
-    using NKHook6.Api.Events.Weapons;
+    using NKHook6.Api.Events._Weapons;
 
     [HarmonyPatch(typeof(Weapon), "OnDestroy")]
 	class OnDestroyHook

@@ -3,7 +3,7 @@
     using Assets.Scripts.Simulation.Towers;
     using Harmony;
     using NKHook6.Api.Events;
-    using NKHook6.Api.Events.Towers;
+    using NKHook6.Api.Events._Towers;
 
     [HarmonyPatch(typeof(Tower), "AddPoppedCash")]
     class AddPoppedCashHook

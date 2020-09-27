@@ -1,7 +1,7 @@
 ﻿using Assets.Scripts.Simulation.Bloons;
 using Harmony;
 using NKHook6.Api.Events;
-using NKHook6.Api.Events.Bloons;
+using NKHook6.Api.Events._Bloons;
 
 namespace NKHook6.Patches._Bloons
 {

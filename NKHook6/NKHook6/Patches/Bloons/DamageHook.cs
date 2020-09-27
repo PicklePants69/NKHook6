@@ -3,7 +3,7 @@ using Assets.Scripts.Simulation.Towers;
 using Assets.Scripts.Simulation.Towers.Projectiles;
 using Harmony;
 using NKHook6.Api.Events;
-using NKHook6.Api.Events.Bloons;
+using NKHook6.Api.Events._Bloons;
 using System;
 using UnhollowerBaseLib;
 

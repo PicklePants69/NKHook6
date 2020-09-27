@@ -4,7 +4,7 @@
     using Assets.Scripts.Simulation.Towers;
     using Harmony;
     using NKHook6.Api.Events;
-    using NKHook6.Api.Events.Towers;
+    using NKHook6.Api.Events._Towers;
 
     /// <summary>
     /// Not too sure about this event. I know it fires at the end of each round
