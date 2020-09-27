@@ -587,8 +587,8 @@
     <Compile Include="Api\Events\TimeManager\SetFastForwardEvent.cs" />
     <Compile Include="Api\Events\InGame\GetContinueCostEvent.cs" />
     <Compile Include="Api\Events\Simulation\OnDefeatEvent.cs" />
-    <Compile Include="Api\Events\Simulation\RoundEndEvent.cs" />
-    <Compile Include="Api\Events\Simulation\RoundStartEvent.cs" />
+    <Compile Include="Api\Events\Simulation\OnRoundEndEvent.cs" />
+    <Compile Include="Api\Events\Simulation\OnRoundStartEvent.cs" />
     <Compile Include="Api\Events\KeyEvent.cs" />
     <Compile Include="Api\Events\MainMenu\OnEnableEvent.cs" />
     <Compile Include="Api\Events\Bloons\SetRotationEvent.cs" />
@@ -600,9 +600,9 @@
     <Compile Include="Api\Events\Towers\OnUpgradeEvent.cs" />
     <Compile Include="Api\Events\Towers\UnHighlightEvent.cs" />
     <Compile Include="Api\Events\Towers\UpdatedModelEvent.cs" />
-    <Compile Include="Api\Events\Towers\SoldEvent.cs" />
-    <Compile Include="Api\Events\Towers\DestroyedEvent.cs" />
-    <Compile Include="Api\Events\Towers\InitialisedEvent.cs" />
+    <Compile Include="Api\Events\Towers\OnSoldEvent.cs" />
+    <Compile Include="Api\Events\Towers\OnDestroyEvent.cs" />
+    <Compile Include="Api\Events\Towers\InitialiseEvent.cs" />
     <Compile Include="Api\Events\UpdateEvent.cs" />
     <Compile Include="Api\Events\Weapons\InitialiseEvent.cs" />
     <Compile Include="Api\Events\Weapons\OnDestroyEvent.cs" />
@@ -645,8 +645,8 @@
     <Compile Include="Patches\TimeManager\SetFastForwardHook.cs" />
     <Compile Include="Patches\InGame\GetContinueCostHook.cs" />
     <Compile Include="Patches\Simulation\OnDefeatHook.cs" />
-    <Compile Include="Patches\Simulation\RoundEndHook.cs" />
-    <Compile Include="Patches\Simulation\RoundStartHook.cs" />
+    <Compile Include="Patches\Simulation\OnRoundEndHook.cs" />
+    <Compile Include="Patches\Simulation\OnRoundStartHook.cs" />
     <Compile Include="Patches\MainMenu\OnEnableHook.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Main.cs" />
@@ -659,9 +659,9 @@
     <Compile Include="Patches\Towers\GetSaveDataHook.cs" />
     <Compile Include="Patches\Towers\UnHighlightHook.cs" />
     <Compile Include="Patches\Towers\UpdatedModelHook.cs" />
-    <Compile Include="Patches\Towers\SoldHook.cs" />
-    <Compile Include="Patches\Towers\DestroyedHook.cs" />
-    <Compile Include="Patches\Towers\InitializedHook.cs" />
+    <Compile Include="Patches\Towers\OnSoldHook.cs" />
+    <Compile Include="Patches\Towers\OnDestroyHook.cs" />
+    <Compile Include="Patches\Towers\InitializeHook.cs" />
     <Compile Include="Patches\Weapons\InitialiseHook.cs" />
     <Compile Include="Patches\Weapons\OnDestroyHook.cs" />
     <Compile Include="Patches\Weapons\UpgradeModelHook.cs" />

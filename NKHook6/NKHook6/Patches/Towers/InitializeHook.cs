@@ -8,7 +8,7 @@
     using NKHook6.Api.Events._Towers;
 
     [HarmonyPatch(typeof(Tower), "Initialise")]
-    class InitializedHook
+    class InitializeHook
     {
         private static bool sendPrefixEvent = true;
         private static bool sendPostfixEvent = true;
@@ -19,7 +19,7 @@
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new TowerEvents.InitialisedEvent.Pre(ref __instance, ref target, ref modelToUse);
+                var o = new TowerEvents.InitialiseEvent.Pre(ref __instance, ref target, ref modelToUse);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
                 target = o.entity;
@@ -37,7 +37,7 @@
         {
             if (sendPostfixEvent)
             {
-                var o = new TowerEvents.InitialisedEvent.Post(ref __instance, ref target, ref modelToUse);
+                var o = new TowerEvents.InitialiseEvent.Post(ref __instance, ref target, ref modelToUse);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
                 target = o.entity;

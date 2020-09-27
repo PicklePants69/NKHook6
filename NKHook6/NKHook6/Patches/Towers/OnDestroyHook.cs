@@ -1,26 +1,25 @@
-﻿namespace NKHook6.Patches._Simulation
+﻿namespace NKHook6.Patches._Towers
 {
-    using Assets.Scripts.Simulation;
+    using Assets.Scripts.Simulation.Towers;
     using Harmony;
     using NKHook6.Api.Events;
-    using NKHook6.Api.Events._Simulation;
+    using NKHook6.Api.Events._Towers;
 
-    [HarmonyPatch(typeof(Simulation), "OnRoundStart")]
-    class RoundStartHook
+    [HarmonyPatch(typeof(Tower), "OnDestroy")]
+    class DestroyedHook
     {
         private static bool sendPrefixEvent = true;
         private static bool sendPostfixEvent = true;
 
         [HarmonyPrefix]
-        internal static bool Prefix(ref Simulation __instance, ref int roundArrayIndex)
+        internal static bool Prefix(ref Tower __instance)
         {
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new SimulationEvents.RoundStartEvent.Pre(ref __instance, ref roundArrayIndex);
+                var o = new TowerEvents.OnDestroyEvent.Pre(ref __instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
-                roundArrayIndex = o.roundArrayIndex;
                 allowOriginalMethod = !o.isCancelled();
             }
 
@@ -30,14 +29,13 @@
         }
 
         [HarmonyPostfix]
-        internal static void Postfix(ref Simulation __instance, ref int roundArrayIndex)
+        internal static void Postfix(ref Tower __instance)
         {
             if (sendPostfixEvent)
             {
-                var o = new SimulationEvents.RoundStartEvent.Post(ref __instance, ref roundArrayIndex);
+                var o = new TowerEvents.OnDestroyEvent.Post(ref __instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
-                roundArrayIndex = o.roundArrayIndex;
             }
 
             sendPostfixEvent = !sendPostfixEvent;

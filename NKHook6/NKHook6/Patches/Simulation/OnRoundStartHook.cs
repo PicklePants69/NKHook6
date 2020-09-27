@@ -1,26 +1,26 @@
-﻿namespace NKHook6.Patches._Towers
+﻿namespace NKHook6.Patches._Simulation
 {
-    using Assets.Scripts.Simulation.Towers;
+    using Assets.Scripts.Simulation;
     using Harmony;
     using NKHook6.Api.Events;
-    using NKHook6.Api.Events._Towers;
+    using NKHook6.Api.Events._Simulation;
 
-    [HarmonyPatch(typeof(Tower), "OnSold")]
-    class OnSoldHook
+    [HarmonyPatch(typeof(Simulation), "OnRoundStart")]
+    class OnRoundStartHook
     {
         private static bool sendPrefixEvent = true;
         private static bool sendPostfixEvent = true;
 
         [HarmonyPrefix]
-        internal static bool Prefix(ref Tower __instance, ref float amount)
+        internal static bool Prefix(ref Simulation __instance, ref int roundArrayIndex)
         {
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new TowerEvents.SoldEvent.Pre(ref __instance, ref amount);
+                var o = new SimulationEvents.OnRoundStartEvent.Pre(ref __instance, ref roundArrayIndex);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
-                amount = o.sellAmount;
+                roundArrayIndex = o.roundArrayIndex;
                 allowOriginalMethod = !o.isCancelled();
             }
 
@@ -30,14 +30,14 @@
         }
 
         [HarmonyPostfix]
-        internal static void Postfix(ref Tower __instance, ref float amount)
+        internal static void Postfix(ref Simulation __instance, ref int roundArrayIndex)
         {
             if (sendPostfixEvent)
             {
-                var o = new TowerEvents.SoldEvent.Post(ref __instance, ref amount); ;
+                var o = new SimulationEvents.OnRoundStartEvent.Post(ref __instance, ref roundArrayIndex);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
-                amount = o.sellAmount;
+                roundArrayIndex = o.roundArrayIndex;
             }
 
             sendPostfixEvent = !sendPostfixEvent;
