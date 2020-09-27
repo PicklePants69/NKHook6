@@ -580,7 +580,6 @@
     <Compile Include="Api\Events\EventAttribute.cs" />
     <Compile Include="Api\Events\EventBaseCancellable.cs" />
     <Compile Include="Api\Events\EventRegistry.cs" />
-    <Compile Include="Api\Events\InGame\GetRoundHintEvent.cs" />
     <Compile Include="Api\Events\InGame\OnVictoryEvent.cs" />
     <Compile Include="Api\Events\Projectile\InitialiseEvent.cs" />
     <Compile Include="Api\Events\Projectile\OnDestroyEvent.cs" />
@@ -637,7 +636,6 @@
     <Compile Include="Patches\Bloons\InitialiseHook.cs" />
     <Compile Include="Patches\Bloons\OnDestroyHook.cs" />
     <Compile Include="Patches\Bloons\LeakedHook.cs" />
-    <Compile Include="Patches\InGame\GetRoundHintHook.cs" />
     <Compile Include="Patches\InGame\OnVictoryHook.cs" />
     <Compile Include="Patches\Projectile\InitialiseHook.cs" />
     <Compile Include="Patches\Projectile\OnDestroyHook.cs" />
