@@ -1,7 +1,7 @@
 ﻿using Assets.Scripts.Unity.UI_New.InGame;
 using Assets.Scripts.Utils;
 
-namespace NKHook6.Api.Events.__InGame
+namespace NKHook6.Api.Events._InGame
 {
 	public class GetContinueCostEvent
 	{
