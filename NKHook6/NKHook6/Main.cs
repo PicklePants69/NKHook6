@@ -27,7 +27,7 @@ namespace NKHook6
             new KeyListener();
 
             EventRegistry.subscriber.register(this.GetType());
-            InitializeBoo();
+            //InitializeBoo();
             Log("NKHook6 initialized");
 
             InitializeCommandMgr();

@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NKHook6", "NKHook6\NKHook6.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{E6B3C82B-412B-4A4D-A035-A6E67FC90676}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LHCM", "Examples\ClassLibrary1\LHCM.csproj", "{DF0BB63C-D4FB-4F0E-B0A4-05E5655DE569}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LHCM", "Examples\LHCM\LHCM.csproj", "{DF0BB63C-D4FB-4F0E-B0A4-05E5655DE569}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
