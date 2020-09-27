@@ -17,7 +17,7 @@
 			bool allowOriginalMethod = true;
 			if (sendPrefixEvent)
 			{
-				var o = new SetFastForwardEvent.Pre(ref value);
+				var o = new TimeManagerEvents.SetFastForwardEvent.Pre(ref value);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				value = o.value;
 				allowOriginalMethod = !o.isCancelled();
@@ -33,7 +33,7 @@
 		{
 			if (sendPostfixEvent)
 			{
-				var o = new SetFastForwardEvent.Post(ref value);
+				var o = new TimeManagerEvents.SetFastForwardEvent.Post(ref value);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				value = o.value;
 			}

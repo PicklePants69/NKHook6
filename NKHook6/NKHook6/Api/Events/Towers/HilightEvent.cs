@@ -2,7 +2,7 @@
 
 namespace NKHook6.Api.Events._Towers
 {
-	public partial class Tower
+	public partial class TowerEvents
 	{
 		public class HilightEvent
 		{

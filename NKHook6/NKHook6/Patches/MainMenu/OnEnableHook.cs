@@ -27,7 +27,7 @@ namespace NKHook6.Backend.Patches._MainMenu
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new OnEnableEvent.Pre(__instance);
+                var o = new MainMenuEvents.OnEnableEvent.Pre(__instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
                 allowOriginalMethod = !o.isCancelled();
@@ -47,7 +47,7 @@ namespace NKHook6.Backend.Patches._MainMenu
 
             if (sendPostfixEvent)
             {
-                var o = new OnEnableEvent.Post(__instance);
+                var o = new MainMenuEvents.OnEnableEvent.Post(__instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
             }

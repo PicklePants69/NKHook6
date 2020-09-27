@@ -19,7 +19,7 @@ namespace NKHook6.Patches._Bloons
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new UpdatedModelEvent.Pre(ref __instance, ref modelToUse);
+                var o = new BloonEvents.UpdatedModelEvent.Pre(ref __instance, ref modelToUse);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
                 modelToUse = o.model;
@@ -36,7 +36,7 @@ namespace NKHook6.Patches._Bloons
         {
             if (sendPostfixEvent)
             {
-                var o = new UpdatedModelEvent.Post(ref __instance, ref modelToUse);
+                var o = new BloonEvents.UpdatedModelEvent.Post(ref __instance, ref modelToUse);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
                 modelToUse = o.model;

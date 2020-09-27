@@ -17,7 +17,7 @@
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new SoldEvent.Pre(ref __instance, ref amount);
+                var o = new TowerEvents.SoldEvent.Pre(ref __instance, ref amount);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
                 amount = o.sellAmount;
@@ -34,7 +34,7 @@
         {
             if (sendPostfixEvent)
             {
-                var o = new SoldEvent.Post(ref __instance, ref amount); ;
+                var o = new TowerEvents.SoldEvent.Post(ref __instance, ref amount); ;
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
                 amount = o.sellAmount;

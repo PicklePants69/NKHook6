@@ -2,7 +2,7 @@
 
 namespace NKHook6.Api.Events._InGame
 {
-	public partial class InGame
+	public partial class InGameEvents
 	{
 		public class OnVictoryEvent
 		{

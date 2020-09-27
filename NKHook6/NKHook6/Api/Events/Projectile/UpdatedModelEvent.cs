@@ -3,7 +3,7 @@ using Assets.Scripts.Simulation.Towers.Projectiles;
 
 namespace NKHook6.Api.Events._Projectile
 {
-	public partial class Projectile
+	public partial class ProjectileEvents
 	{
 		public class UpdatedModelEvent
 		{

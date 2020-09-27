@@ -25,7 +25,7 @@ namespace NKHook6.Patches._Bloons
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new DamagedEvent.Pre(ref __instance, ref totalAmount, ref types, ref projectile,
+                var o = new BloonEvents.DamagedEvent.Pre(ref __instance, ref totalAmount, ref types, ref projectile,
                     ref distributeToChildren, ref overrideDistributeBlocker, ref createEffect, ref tower,
                     ref canDestroyProjectile, ref ignoreImmunityForBloonTypes, ref ignoreNonTargetable,
                     ref blockSpawnChildren);
@@ -59,7 +59,7 @@ namespace NKHook6.Patches._Bloons
         {
             if (sendPostfixEvent)
             {
-                var o = new DamagedEvent.Post(ref __instance, ref totalAmount, ref types, ref projectile,
+                var o = new BloonEvents.DamagedEvent.Post(ref __instance, ref totalAmount, ref types, ref projectile,
                     ref distributeToChildren, ref overrideDistributeBlocker, ref createEffect, ref tower,
                     ref canDestroyProjectile, ref ignoreImmunityForBloonTypes, ref ignoreNonTargetable,
                     ref blockSpawnChildren);

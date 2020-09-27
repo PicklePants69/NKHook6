@@ -29,7 +29,7 @@
 			bool allowOriginalMethod = true;
 			if (sendPrefixEvent)
 			{
-				var o = new AddCashEvent.Pre(ref __instance, ref c, ref from, ref cashIndex, ref source, ref tower);
+				var o = new SimulationEvents.AddCashEvent.Pre(ref __instance, ref c, ref from, ref cashIndex, ref source, ref tower);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				__instance = o.instance;
 				c = o.cash;
@@ -56,7 +56,7 @@
 			
 			if (sendPostfixEvent)
 			{
-				var o = new AddCashEvent.Post(ref __instance, ref c, ref from, ref cashIndex, ref source, ref tower);
+				var o = new SimulationEvents.AddCashEvent.Post(ref __instance, ref c, ref from, ref cashIndex, ref source, ref tower);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				__instance = o.instance;
 				c = o.cash;

@@ -3,7 +3,7 @@ using Assets.Scripts.Simulation.Towers.Weapons;
 
 namespace NKHook6.Api.Events._Weapons
 {
-	public partial class Weapon
+	public partial class WeaponEvents
 	{
 		public class UpdatedModelEvent
 		{

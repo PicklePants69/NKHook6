@@ -17,7 +17,7 @@
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new DestroyedEvent.Pre(ref __instance);
+                var o = new TowerEvents.DestroyedEvent.Pre(ref __instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
                 allowOriginalMethod = !o.isCancelled();
@@ -33,7 +33,7 @@
         {
             if (sendPostfixEvent)
             {
-                var o = new DestroyedEvent.Post(ref __instance);
+                var o = new TowerEvents.DestroyedEvent.Post(ref __instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
             }

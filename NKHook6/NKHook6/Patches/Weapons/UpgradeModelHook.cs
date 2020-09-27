@@ -18,7 +18,7 @@
 			bool allowOriginalMethod = true;
 			if (sendPrefixEvent)
 			{
-				var o = new UpdatedModelEvent.Pre(ref __instance, ref modelToUse);
+				var o = new WeaponEvents.UpdatedModelEvent.Pre(ref __instance, ref modelToUse);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				__instance = o.instance;
 				modelToUse = o.model;
@@ -35,7 +35,7 @@
 		{
 			if (sendPostfixEvent)
 			{
-				var o = new UpdatedModelEvent.Post(ref __instance, ref modelToUse);
+				var o = new WeaponEvents.UpdatedModelEvent.Post(ref __instance, ref modelToUse);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				__instance = o.instance;
 				modelToUse = o.model;

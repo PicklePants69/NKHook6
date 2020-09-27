@@ -21,7 +21,7 @@
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new GetSaveDataEvent.Pre(ref __instance);
+                var o = new TowerEvents.GetSaveDataEvent.Pre(ref __instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
                 allowOriginalMethod = !o.isCancelled();
@@ -37,7 +37,7 @@
         {
             if (sendPostfixEvent)
             {
-                var o = new GetSaveDataEvent.Post(ref __instance, ref __result);
+                var o = new TowerEvents.GetSaveDataEvent.Post(ref __instance, ref __result);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
                 __result = o.result;

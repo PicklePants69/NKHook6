@@ -20,7 +20,7 @@
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new IsSelectableEvent.Pre(ref __instance);
+                var o = new TowerEvents.IsSelectableEvent.Pre(ref __instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
                 allowOriginalMethod = !o.isCancelled();
@@ -36,7 +36,7 @@
         {
             if (sendPostfixEvent)
             {
-                var o = new IsSelectableEvent.Post(ref __instance, ref __result);
+                var o = new TowerEvents.IsSelectableEvent.Post(ref __instance, ref __result);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
                 __result = o.result;

@@ -2,43 +2,45 @@
 
 namespace NKHook6.Api.Events._Simulation
 {
-	public class RemoveCashEvent
+	public partial class SimulationEvents
 	{
-		public class Pre : EventBaseCancellable
+		public class RemoveCashEvent
 		{
-			public Simulation instance;
-			public double cash;
-			public Simulation.CashType from;
-			public int cashIndex;
-			public Simulation.CashSource source;
-
-			public Pre(ref Simulation __instance, ref double c, ref Simulation.CashType from, ref int cashIndex, ref Simulation.CashSource source) : base("Simulation.RemoveCashEvent.Pre")
+			public class Pre : EventBaseCancellable
 			{
-				this.instance = __instance;
-				this.cash = c;
-				this.from = from;
-				this.cashIndex = cashIndex;
-				this.source = source;
+				public Simulation instance;
+				public double cash;
+				public Simulation.CashType from;
+				public int cashIndex;
+				public Simulation.CashSource source;
+
+				public Pre(ref Simulation __instance, ref double c, ref Simulation.CashType from, ref int cashIndex, ref Simulation.CashSource source) : base("Simulation.RemoveCashEvent.Pre")
+				{
+					this.instance = __instance;
+					this.cash = c;
+					this.from = from;
+					this.cashIndex = cashIndex;
+					this.source = source;
+				}
 			}
-		}
 
-		public class Post : EventBase
-		{
-			public Simulation instance;
-			public double cash;
-			public Simulation.CashType from;
-			public int cashIndex;
-			public Simulation.CashSource source;
-
-			public Post(ref Simulation __instance, ref double c, ref Simulation.CashType from, ref int cashIndex, ref Simulation.CashSource source) : base("Simulation.RemoveCashEvent.Post")
+			public class Post : EventBase
 			{
-				this.instance = __instance;
-				this.cash = c;
-				this.from = from;
-				this.cashIndex = cashIndex;
-				this.source = source;
+				public Simulation instance;
+				public double cash;
+				public Simulation.CashType from;
+				public int cashIndex;
+				public Simulation.CashSource source;
+
+				public Post(ref Simulation __instance, ref double c, ref Simulation.CashType from, ref int cashIndex, ref Simulation.CashSource source) : base("Simulation.RemoveCashEvent.Post")
+				{
+					this.instance = __instance;
+					this.cash = c;
+					this.from = from;
+					this.cashIndex = cashIndex;
+					this.source = source;
+				}
 			}
 		}
 	}
-
 }

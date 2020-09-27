@@ -17,7 +17,7 @@
 			bool allowOriginalMethod = true;
 			if (sendPrefixEvent)
 			{
-				var o = new TakeDamageEvent.Pre(ref __instance, ref damage);
+				var o = new SimulationEvents.TakeDamageEvent.Pre(ref __instance, ref damage);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				__instance = o.instance;
 				damage = o.damage;
@@ -34,7 +34,7 @@
 		{
 			if (sendPostfixEvent)
 			{
-				var o = new TakeDamageEvent.Post(ref __instance, ref damage);
+				var o = new SimulationEvents.TakeDamageEvent.Post(ref __instance, ref damage);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				__instance = o.instance;
 				damage = o.damage;

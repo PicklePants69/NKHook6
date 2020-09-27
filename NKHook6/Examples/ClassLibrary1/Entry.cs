@@ -18,7 +18,7 @@ namespace NKHook6.Examples.LHCM
         }
 
         [EventAttribute("Bloon.LeakedEvent.Pre")]
-        public static void onLeaked(ref Bloons.LeakedEvent e)
+        public static void onLeaked(ref BloonEvents.LeakedEvent e)
         {
 
         }

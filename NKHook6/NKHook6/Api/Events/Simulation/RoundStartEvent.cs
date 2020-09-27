@@ -2,7 +2,7 @@
 
 namespace NKHook6.Api.Events._Simulation
 {
-    public partial class Simulation
+    public partial class SimulationEvents
     {
         public class RoundStartEvent
         {

@@ -3,35 +3,37 @@ using System.Runtime.InteropServices;
 
 namespace NKHook6.Api.Events._Simulation
 {
-	public class SetCashEvent
+	public partial class SimulationEvents
 	{
-		public class Pre : EventBaseCancellable
+		public class SetCashEvent
 		{
-			public Simulation instance;
-			public double cash;
-			public int cashIndex;
-
-			public Pre(ref Simulation __instance, ref double c, [Optional]ref int cashIndex) : base("Simulation.SetCashEvent.Pre")
+			public class Pre : EventBaseCancellable
 			{
-				this.instance = __instance;
-				this.cash = c;
-				this.cashIndex = cashIndex;
+				public Simulation instance;
+				public double cash;
+				public int cashIndex;
+
+				public Pre(ref Simulation __instance, ref double c, [Optional] ref int cashIndex) : base("Simulation.SetCashEvent.Pre")
+				{
+					this.instance = __instance;
+					this.cash = c;
+					this.cashIndex = cashIndex;
+				}
 			}
-		}
 
-		public class Post : EventBase
-		{
-			public Simulation instance;
-			public double cash;
-			public int cashIndex;
-
-			public Post(ref Simulation __instance, ref double c, [Optional]ref int cashIndex) : base("Simulation.SetCashEvent.Post")
+			public class Post : EventBase
 			{
-				this.instance = __instance;
-				this.cash = c;
-				this.cashIndex = cashIndex;
+				public Simulation instance;
+				public double cash;
+				public int cashIndex;
+
+				public Post(ref Simulation __instance, ref double c, [Optional] ref int cashIndex) : base("Simulation.SetCashEvent.Post")
+				{
+					this.instance = __instance;
+					this.cash = c;
+					this.cashIndex = cashIndex;
+				}
 			}
 		}
 	}
-
 }

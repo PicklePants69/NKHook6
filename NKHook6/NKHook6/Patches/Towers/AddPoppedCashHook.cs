@@ -17,7 +17,7 @@
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new AddPoppedCashEvent.Pre(ref __instance, ref cash);
+                var o = new TowerEvents.AddPoppedCashEvent.Pre(ref __instance, ref cash);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
                 cash = o.cash;
@@ -34,7 +34,7 @@
         {
             if (sendPostfixEvent)
             {
-                var o = new AddPoppedCashEvent.Post(ref __instance, ref cash); ;
+                var o = new TowerEvents.AddPoppedCashEvent.Post(ref __instance, ref cash); ;
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
                 cash = o.cash;

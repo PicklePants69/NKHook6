@@ -1,6 +1,6 @@
 ﻿namespace NKHook6.Api.Events._TimeManager
 {
-	public partial class TimeManager
+	public partial class TimeManagerEvents
 	{
 		public class SetFastForwardEvent
 		{

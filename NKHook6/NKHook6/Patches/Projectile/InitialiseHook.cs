@@ -19,7 +19,7 @@
 			bool allowOriginalMethod = true;
 			if (sendPrefixEvent)
 			{
-				var o = new InitialiseEvent.Pre(ref __instance, ref target, ref modelToUse);
+				var o = new ProjectileEvents.InitialiseEvent.Pre(ref __instance, ref target, ref modelToUse);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				__instance = o.instance;
 				target = o.entity;
@@ -37,7 +37,7 @@
 		{
 			if (sendPostfixEvent)
 			{
-				var o = new InitialiseEvent.Post(ref __instance, ref target, ref modelToUse);
+				var o = new ProjectileEvents.InitialiseEvent.Post(ref __instance, ref target, ref modelToUse);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				__instance = o.instance;
 				target = o.entity;

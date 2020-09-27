@@ -3,8 +3,9 @@ using Assets.Scripts.Simulation.Towers;
 
 namespace NKHook6.Api.Events._Towers
 {
-    public partial class Tower {+
-    public class UpdatedModelEvent
+    public partial class TowerEvents
+    {
+        public class UpdatedModelEvent
         {
             public class Pre : EventBaseCancellable
             {

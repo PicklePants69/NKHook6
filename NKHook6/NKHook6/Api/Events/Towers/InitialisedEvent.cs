@@ -4,7 +4,7 @@ using Assets.Scripts.Simulation.Towers;
 
 namespace NKHook6.Api.Events._Towers
 {
-    public partial class Tower
+    public partial class TowerEvents
     {
         public class InitialisedEvent
         {

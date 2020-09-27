@@ -17,7 +17,7 @@
 			bool allowOriginalMethod = true;
 			if (sendPrefixEvent)
 			{
-				var o = new OnVictoryEvent.Pre(ref __instance);
+				var o = new InGameEvents.OnVictoryEvent.Pre(ref __instance);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				__instance = o.instance;
 				allowOriginalMethod = !o.isCancelled();
@@ -33,7 +33,7 @@
 		{
 			if (sendPostfixEvent)
 			{
-				var o = new OnVictoryEvent.Post(ref __instance);
+				var o = new InGameEvents.OnVictoryEvent.Post(ref __instance);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				__instance = o.instance;
 			}

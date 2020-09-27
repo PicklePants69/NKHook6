@@ -4,7 +4,7 @@ using Assets.Scripts.Simulation.Objects;
 
 namespace NKHook6.Api.Events._Bloons
 {
-    public partial class Bloons
+    public partial class BloonEvents
     {
         public class InitialiseEvent
         {

@@ -17,7 +17,7 @@ namespace NKHook6.Patches._Bloons
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new SetRotationEvent.Pre(ref __instance, ref rotation);
+                var o = new BloonEvents.SetRotationEvent.Pre(ref __instance, ref rotation);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
                 rotation = o.rotation;
@@ -34,7 +34,7 @@ namespace NKHook6.Patches._Bloons
         {
             if (sendPostfixEvent)
             {
-                var o = new SetRotationEvent.Post(ref __instance, ref rotation);
+                var o = new BloonEvents.SetRotationEvent.Post(ref __instance, ref rotation);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
                 rotation = o.rotation;

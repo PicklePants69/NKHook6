@@ -7,6 +7,7 @@ using NKHook6.Scripting;
 using Harmony;
 using NKHook6.Api.Events;
 using NKHook6.Backend;
+using NKHook6.Api.Events._MainMenu;
 
 namespace NKHook6
 {
@@ -35,7 +36,7 @@ namespace NKHook6
         }
 
         [EventAttribute("MainMenu.OnEnableEvent.Post")]
-        public static void MainMenuShown(Api.Events._MainMenu.OnEnableEvent.Post e)
+        public static void MainMenuShown(MainMenuEvents.OnEnableEvent.Post e)
         {
             UpdateMgr.HandleUpdates();
         }

@@ -17,7 +17,7 @@ namespace NKHook6.Patches._Bloons
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new OnDestroyEvent.Pre(ref __instance);
+                var o = new BloonEvents.OnDestroyEvent.Pre(ref __instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
                 allowOriginalMethod = !o.isCancelled();
@@ -33,7 +33,7 @@ namespace NKHook6.Patches._Bloons
         {
             if (sendPostfixEvent)
             {
-                var o = new OnDestroyEvent.Post(ref __instance);
+                var o = new BloonEvents.OnDestroyEvent.Post(ref __instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
             }

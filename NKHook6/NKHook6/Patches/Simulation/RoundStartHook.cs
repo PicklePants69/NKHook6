@@ -17,7 +17,7 @@
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new RoundStartEvent.Pre(ref __instance, ref roundArrayIndex);
+                var o = new SimulationEvents.RoundStartEvent.Pre(ref __instance, ref roundArrayIndex);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
                 roundArrayIndex = o.roundArrayIndex;
@@ -34,7 +34,7 @@
         {
             if (sendPostfixEvent)
             {
-                var o = new RoundStartEvent.Post(ref __instance, ref roundArrayIndex);
+                var o = new SimulationEvents.RoundStartEvent.Post(ref __instance, ref roundArrayIndex);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
                 roundArrayIndex = o.roundArrayIndex;

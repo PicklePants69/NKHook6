@@ -5,7 +5,7 @@ using UnhollowerBaseLib;
 
 namespace NKHook6.Api.Events._Bloons
 {
-    public partial class Bloons
+    public partial class BloonEvents
     {
         public class DamagedEvent
         {

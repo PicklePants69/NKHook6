@@ -1,7 +1,7 @@
 ﻿using Assets.Scripts.Unity.UI_New.Main;
 namespace NKHook6.Api.Events._MainMenu
 {
-    public partial class MainMenu
+    public partial class MainMenuEvents
     {
         public class OnEnableEvent
         {
