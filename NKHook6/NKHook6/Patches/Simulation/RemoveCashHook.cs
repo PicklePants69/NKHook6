@@ -61,7 +61,7 @@
 				cashIndex = o.cashIndex;
 				source = o.source;
 			}
-			
+
 			sendPostfixEvent = !sendPostfixEvent;
 		}
 	}
