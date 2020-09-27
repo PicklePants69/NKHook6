@@ -1,23 +1,26 @@
 ﻿using Assets.Scripts.Unity.UI_New.Main;
 namespace NKHook6.Api.Events._MainMenu
 {
-    public class OnEnableEvent
+    public partial class MainMenu
     {
-        public class Pre : EventBaseCancellable
+        public class OnEnableEvent
         {
-            public MainMenu instance;
+            public class Pre : EventBaseCancellable
+            {
+                public MainMenu instance;
 
-            public Pre(MainMenu __instance) : base("MainMenu.OnEnableEvent.Pre")
-            {
-                this.instance = __instance;
+                public Pre(MainMenu __instance) : base("MainMenu.OnEnableEvent.Pre")
+                {
+                    this.instance = __instance;
+                }
             }
-        }
-        public class Post : EventBase
-        {
-            public MainMenu instance;
-            public Post(MainMenu __instance) : base("MainMenu.OnEnableEvent.Post")
+            public class Post : EventBase
             {
-                this.instance = __instance;
+                public MainMenu instance;
+                public Post(MainMenu __instance) : base("MainMenu.OnEnableEvent.Post")
+                {
+                    this.instance = __instance;
+                }
             }
         }
     }

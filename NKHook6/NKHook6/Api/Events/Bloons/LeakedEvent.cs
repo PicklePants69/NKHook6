@@ -2,25 +2,28 @@
 
 namespace NKHook6.Api.Events._Bloons
 {
-    public class LeakedEvent
+    public partial class Bloons
     {
-        public class Pre : EventBaseCancellable
+        public class LeakedEvent
         {
-            public Bloon instance;
-
-            public Pre(ref Bloon __instance) : base("Bloon.LeakedEvent.Pre")
+            public class Pre : EventBaseCancellable
             {
-                this.instance = __instance;
+                public Bloon instance;
+
+                public Pre(ref Bloon __instance) : base("Bloon.LeakedEvent.Pre")
+                {
+                    this.instance = __instance;
+                }
             }
-        }
 
-        public class Post : EventBase
-        {
-            public Bloon instance;
-
-            public Post(ref Bloon __instance) : base("Bloon.LeakedEvent.Post")
+            public class Post : EventBase
             {
-                this.instance = __instance;
+                public Bloon instance;
+
+                public Post(ref Bloon __instance) : base("Bloon.LeakedEvent.Post")
+                {
+                    this.instance = __instance;
+                }
             }
         }
     }

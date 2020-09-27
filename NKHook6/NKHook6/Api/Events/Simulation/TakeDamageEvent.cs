@@ -1,31 +1,33 @@
 ﻿using Assets.Scripts.Simulation;
 namespace NKHook6.Api.Events._Simulation
 {
-	public class TakeDamageEvent
+	public partial class Simulation
 	{
-		public class Pre : EventBaseCancellable
+		public class TakeDamageEvent
 		{
-			public Simulation instance;
-			public float damage;
-
-			public Pre(ref Simulation __instance, ref float damage) : base("Simulation.TakeDamageEvent.Pre")
+			public class Pre : EventBaseCancellable
 			{
-				this.instance = __instance;
-				this.damage = damage;
+				public Simulation instance;
+				public float damage;
+
+				public Pre(ref Simulation __instance, ref float damage) : base("Simulation.TakeDamageEvent.Pre")
+				{
+					this.instance = __instance;
+					this.damage = damage;
+				}
 			}
-		}
 
-		public class Post : EventBase
-		{
-			public Simulation instance;
-			public float damage;
-
-			public Post(ref Simulation __instance, ref float damage) : base("Simulation.TakeDamageEvent.Post")
+			public class Post : EventBase
 			{
-				this.instance = __instance;
-				this.damage = damage;
+				public Simulation instance;
+				public float damage;
+
+				public Post(ref Simulation __instance, ref float damage) : base("Simulation.TakeDamageEvent.Post")
+				{
+					this.instance = __instance;
+					this.damage = damage;
+				}
 			}
 		}
 	}
-
 }

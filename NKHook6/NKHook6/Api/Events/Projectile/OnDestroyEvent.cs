@@ -2,27 +2,29 @@
 
 namespace NKHook6.Api.Events._Projectile
 {
-	public class OnDestroyEvent
+	public partial class Projectile
 	{
-		public class Pre : EventBaseCancellable
+		public class OnDestroyEvent
 		{
-			public Projectile instance;
-
-			public Pre(ref Projectile __instance) : base("Projectile.OnDestroyEvent.Pre")
+			public class Pre : EventBaseCancellable
 			{
-				this.instance = __instance;
+				public Projectile instance;
+
+				public Pre(ref Projectile __instance) : base("Projectile.OnDestroyEvent.Pre")
+				{
+					this.instance = __instance;
+				}
 			}
-		}
 
-		public class Post : EventBase
-		{
-			public Projectile instance;
-
-			public Post(ref Projectile __instance) : base("Projectile.OnDestroyEvent.Post")
+			public class Post : EventBase
 			{
-				this.instance = __instance;
+				public Projectile instance;
+
+				public Post(ref Projectile __instance) : base("Projectile.OnDestroyEvent.Post")
+				{
+					this.instance = __instance;
+				}
 			}
 		}
 	}
-
 }

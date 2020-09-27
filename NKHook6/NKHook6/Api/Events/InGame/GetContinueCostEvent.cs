@@ -3,29 +3,31 @@ using Assets.Scripts.Utils;
 
 namespace NKHook6.Api.Events._InGame
 {
-	public class GetContinueCostEvent
+	public partial class InGame
 	{
-		public class Pre : EventBaseCancellable
+		public class GetContinueCostEvent
 		{
-			public InGame instance;
-
-			public Pre(ref InGame __instance) : base("InGame.GetContinueCostEvent.Pre")
+			public class Pre : EventBaseCancellable
 			{
-				this.instance = __instance;
+				public InGame instance;
+
+				public Pre(ref InGame __instance) : base("InGame.GetContinueCostEvent.Pre")
+				{
+					this.instance = __instance;
+				}
 			}
-		}
 
-		public class Post : EventBase
-		{
-			public InGame instance;
-			public KonFuze konFuze;
-
-			public Post(ref InGame __instance, ref KonFuze __result) : base("InGame.GetContinueCostEvent.Post")
+			public class Post : EventBase
 			{
-				this.instance = __instance;
-				this.konFuze = __result;
+				public InGame instance;
+				public KonFuze konFuze;
+
+				public Post(ref InGame __instance, ref KonFuze __result) : base("InGame.GetContinueCostEvent.Post")
+				{
+					this.instance = __instance;
+					this.konFuze = __result;
+				}
 			}
 		}
 	}
-
 }

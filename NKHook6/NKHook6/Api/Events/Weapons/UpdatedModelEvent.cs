@@ -3,31 +3,33 @@ using Assets.Scripts.Simulation.Towers.Weapons;
 
 namespace NKHook6.Api.Events._Weapons
 {
-	public class UpdatedModelEvent
+	public partial class Weapon
 	{
-		public class Pre : EventBaseCancellable
+		public class UpdatedModelEvent
 		{
-			public Weapon instance;
-			public Model model;
-
-			public Pre(ref Weapon __instance, ref Model modelToUse) : base("Weapon.UpdatedModelEvent.Pre")
+			public class Pre : EventBaseCancellable
 			{
-				this.instance = __instance;
-				this.model = modelToUse;
+				public Weapon instance;
+				public Model model;
+
+				public Pre(ref Weapon __instance, ref Model modelToUse) : base("Weapon.UpdatedModelEvent.Pre")
+				{
+					this.instance = __instance;
+					this.model = modelToUse;
+				}
 			}
-		}
 
-		public class Post : EventBase
-		{
-			public Weapon instance;
-			public Model model;
-
-			public Post(ref Weapon __instance, ref Model modelToUse) : base("Weapon.UpdatedModelEvent.Post")
+			public class Post : EventBase
 			{
-				this.instance = __instance;
-				this.model = modelToUse;
+				public Weapon instance;
+				public Model model;
+
+				public Post(ref Weapon __instance, ref Model modelToUse) : base("Weapon.UpdatedModelEvent.Post")
+				{
+					this.instance = __instance;
+					this.model = modelToUse;
+				}
 			}
 		}
 	}
-
 }

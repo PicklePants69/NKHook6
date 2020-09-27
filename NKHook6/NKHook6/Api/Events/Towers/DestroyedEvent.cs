@@ -2,25 +2,28 @@
 
 namespace NKHook6.Api.Events._Towers
 {
-    public class DestroyedEvent
+    public partial class Tower
     {
-        public class Pre : EventBaseCancellable
+        public class DestroyedEvent
         {
-            public Tower instance;
-
-            public Pre(ref Tower __instance) : base("Tower.DestroyedEvent.Pre")
+            public class Pre : EventBaseCancellable
             {
-                this.instance = __instance;
+                public Tower instance;
+
+                public Pre(ref Tower __instance) : base("Tower.DestroyedEvent.Pre")
+                {
+                    this.instance = __instance;
+                }
             }
-        }
 
-        public class Post : EventBase
-        {
-            public Tower instance;
-
-            public Post(ref Tower __instance) : base("Tower.DestroyedEvent.Post")
+            public class Post : EventBase
             {
-                this.instance = __instance;
+                public Tower instance;
+
+                public Post(ref Tower __instance) : base("Tower.DestroyedEvent.Post")
+                {
+                    this.instance = __instance;
+                }
             }
         }
     }

@@ -4,35 +4,37 @@ using Assets.Scripts.Simulation.Towers.Projectiles;
 
 namespace NKHook6.Api.Events._Projectile
 {
-	public class InitialiseEvent
+	public partial class Projectile
 	{
-		public class Pre : EventBaseCancellable
+		public class InitialiseEvent
 		{
-			public Projectile instance;
-			public Entity entity;
-			public Model model;
-
-			public Pre(ref Projectile __instance, ref Entity target, ref Model modelToUse) : base("Projectile.InitialiseEvent.Pre")
+			public class Pre : EventBaseCancellable
 			{
-				this.instance = __instance;
-				this.entity = target;
-				this.model = modelToUse;
+				public Projectile instance;
+				public Entity entity;
+				public Model model;
+
+				public Pre(ref Projectile __instance, ref Entity target, ref Model modelToUse) : base("Projectile.InitialiseEvent.Pre")
+				{
+					this.instance = __instance;
+					this.entity = target;
+					this.model = modelToUse;
+				}
 			}
-		}
 
-		public class Post : EventBase
-		{
-			public Projectile instance;
-			public Entity entity;
-			public Model model;
-
-			public Post(ref Projectile __instance, ref Entity target, ref Model modelToUse) : base("Projectile.InitialiseEvent.Post")
+			public class Post : EventBase
 			{
-				this.instance = __instance;
-				this.entity = target;
-				this.model = modelToUse;
+				public Projectile instance;
+				public Entity entity;
+				public Model model;
+
+				public Post(ref Projectile __instance, ref Entity target, ref Model modelToUse) : base("Projectile.InitialiseEvent.Post")
+				{
+					this.instance = __instance;
+					this.entity = target;
+					this.model = modelToUse;
+				}
 			}
 		}
 	}
-
 }

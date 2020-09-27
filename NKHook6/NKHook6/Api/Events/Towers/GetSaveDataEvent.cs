@@ -3,26 +3,29 @@ using Assets.Scripts.Simulation.Towers;
 
 namespace NKHook6.Api.Events._Towers
 {
-    public class GetSaveDataEvent
+    public partial class Tower
     {
-        public class Pre : EventBaseCancellable
+        public class GetSaveDataEvent
         {
-            public Tower instance;
-
-            public Pre(ref Tower __instance) : base("Tower.GetSaveDataEvent.Pre")
+            public class Pre : EventBaseCancellable
             {
-                this.instance = __instance;
+                public Tower instance;
+
+                public Pre(ref Tower __instance) : base("Tower.GetSaveDataEvent.Pre")
+                {
+                    this.instance = __instance;
+                }
             }
-        }
 
-        public class Post : EventBase
-        {
-            public Tower instance;
-            public TowerSaveDataModel result;
-            public Post(ref Tower __instance, ref TowerSaveDataModel __result) : base("Tower.GetSaveDataEvent.Post")
+            public class Post : EventBase
             {
-                this.instance = __instance;
-                this.result = __result;
+                public Tower instance;
+                public TowerSaveDataModel result;
+                public Post(ref Tower __instance, ref TowerSaveDataModel __result) : base("Tower.GetSaveDataEvent.Post")
+                {
+                    this.instance = __instance;
+                    this.result = __result;
+                }
             }
         }
     }

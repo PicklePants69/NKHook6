@@ -2,39 +2,42 @@
 
 namespace NKHook6.Api.Events._Towers
 {
-    public class UpgradeBlockedEvent
+    public partial class Tower
     {
-        public class Pre : EventBaseCancellable
+        public class UpgradeBlockedEvent
         {
-            public Tower instance;
-            public int path;
-            public int tier;
-            
-
-            public Pre(ref Tower __instance, ref int path, ref int tier) : base("Tower.IsUpgradeBlockedEvent.Pre")
+            public class Pre : EventBaseCancellable
             {
-                this.instance = __instance;
-                this.path = path;
-                this.tier = tier;
+                public Tower instance;
+                public int path;
+                public int tier;
+
+
+                public Pre(ref Tower __instance, ref int path, ref int tier) : base("Tower.IsUpgradeBlockedEvent.Pre")
+                {
+                    this.instance = __instance;
+                    this.path = path;
+                    this.tier = tier;
+                }
             }
-        }
 
-        public class Post : EventBase
-        {
-            public Tower instance;
-            public int path;
-            public int tier;
-            public string reason;
-            public bool result;
-
-            public Post(ref Tower __instance, ref int path, ref int tier, ref string reason, ref bool __result) 
-                : base("Tower.IsUpgradeBlockedEvent.Post")
+            public class Post : EventBase
             {
-                this.instance = __instance;
-                this.path = path;
-                this.tier = tier;
-                this.reason = reason;
-                this.result = __result;
+                public Tower instance;
+                public int path;
+                public int tier;
+                public string reason;
+                public bool result;
+
+                public Post(ref Tower __instance, ref int path, ref int tier, ref string reason, ref bool __result)
+                    : base("Tower.IsUpgradeBlockedEvent.Post")
+                {
+                    this.instance = __instance;
+                    this.path = path;
+                    this.tier = tier;
+                    this.reason = reason;
+                    this.result = __result;
+                }
             }
         }
     }

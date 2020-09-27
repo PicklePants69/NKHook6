@@ -2,29 +2,32 @@
 
 namespace NKHook6.Api.Events._Towers
 {
-    public class AddPoppedCashEvent
+    public partial class Tower
     {
-        public class Pre : EventBaseCancellable
+        public class AddPoppedCashEvent
         {
-            public Tower instance;
-            public float cash;
-
-            public Pre(ref Tower __instance, ref float cash) : base("Tower.AddPoppedCashEvent.Pre")
+            public class Pre : EventBaseCancellable
             {
-                this.instance = __instance;
-                this.cash = cash;
+                public Tower instance;
+                public float cash;
+
+                public Pre(ref Tower __instance, ref float cash) : base("Tower.AddPoppedCashEvent.Pre")
+                {
+                    this.instance = __instance;
+                    this.cash = cash;
+                }
             }
-        }
 
-        public class Post : EventBase
-        {
-            public Tower instance;
-            public float cash;
-
-            public Post(ref Tower __instance, ref float cash) : base("Tower.AddPoppedCashEvent.Post")
+            public class Post : EventBase
             {
-                this.instance = __instance;
-                this.cash = cash;
+                public Tower instance;
+                public float cash;
+
+                public Post(ref Tower __instance, ref float cash) : base("Tower.AddPoppedCashEvent.Post")
+                {
+                    this.instance = __instance;
+                    this.cash = cash;
+                }
             }
         }
     }

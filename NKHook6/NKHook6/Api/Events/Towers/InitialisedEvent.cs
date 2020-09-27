@@ -4,32 +4,35 @@ using Assets.Scripts.Simulation.Towers;
 
 namespace NKHook6.Api.Events._Towers
 {
-    public class InitialisedEvent
+    public partial class Tower
     {
-        public class Pre : EventBaseCancellable
+        public class InitialisedEvent
         {
-            public Tower instance;
-            public Entity entity;
-            public Model model;
-
-            public Pre(ref Tower __instance, ref Entity target, ref Model modelToUse) : base("Tower.InitialisedEvent.Pre")
+            public class Pre : EventBaseCancellable
             {
-                this.instance = __instance;
-                this.entity = target;
-                this.model = modelToUse;
+                public Tower instance;
+                public Entity entity;
+                public Model model;
+
+                public Pre(ref Tower __instance, ref Entity target, ref Model modelToUse) : base("Tower.InitialisedEvent.Pre")
+                {
+                    this.instance = __instance;
+                    this.entity = target;
+                    this.model = modelToUse;
+                }
             }
-        }
-        public class Post : EventBase
-        {
-            public Tower instance;
-            public Entity entity;
-            public Model model;
-
-            public Post(ref Tower __instance, ref Entity target, ref Model modelToUse) : base("Tower.InitialisedEvent.Post")
+            public class Post : EventBase
             {
-                this.instance = __instance;
-                this.entity = target;
-                this.model = modelToUse;
+                public Tower instance;
+                public Entity entity;
+                public Model model;
+
+                public Post(ref Tower __instance, ref Entity target, ref Model modelToUse) : base("Tower.InitialisedEvent.Post")
+                {
+                    this.instance = __instance;
+                    this.entity = target;
+                    this.model = modelToUse;
+                }
             }
         }
     }

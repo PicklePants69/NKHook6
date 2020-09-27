@@ -2,29 +2,32 @@
 
 namespace NKHook6.Api.Events._Bloons
 {
-    public class SetRotationEvent
+    public partial class Bloons
     {
-        public class Pre : EventBaseCancellable
+        public class SetRotationEvent
         {
-            public Bloon instance;
-            public float rotation;
-
-            public Pre(ref Bloon __instance, ref float rotation) : base("Bloon.SetRotationEvent.Pre")
+            public class Pre : EventBaseCancellable
             {
-                this.instance = __instance;
-                this.rotation = rotation;
+                public Bloon instance;
+                public float rotation;
+
+                public Pre(ref Bloon __instance, ref float rotation) : base("Bloon.SetRotationEvent.Pre")
+                {
+                    this.instance = __instance;
+                    this.rotation = rotation;
+                }
             }
-        }
 
-        public class Post : EventBase
-        {
-            public Bloon instance;
-            public float rotation;
-
-            public Post(ref Bloon __instance, ref float rotation) : base("Bloon.SetRotationEvent.Post")
+            public class Post : EventBase
             {
-                this.instance = __instance;
-                this.rotation = rotation;
+                public Bloon instance;
+                public float rotation;
+
+                public Post(ref Bloon __instance, ref float rotation) : base("Bloon.SetRotationEvent.Post")
+                {
+                    this.instance = __instance;
+                    this.rotation = rotation;
+                }
             }
         }
     }

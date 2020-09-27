@@ -2,27 +2,29 @@
 
 namespace NKHook6.Api.Events._Towers
 {
-	public class OnUpgradeEvent
+	public partial class Tower
 	{
-		public class Pre : EventBaseCancellable
+		public class OnUpgradeEvent
 		{
-			public Tower instance;
-
-			public Pre(ref Tower __instance) : base("Tower.OnUpgradeEvent.Pre")
+			public class Pre : EventBaseCancellable
 			{
-				this.instance = __instance;
+				public Tower instance;
+
+				public Pre(ref Tower __instance) : base("Tower.OnUpgradeEvent.Pre")
+				{
+					this.instance = __instance;
+				}
 			}
-		}
 
-		public class Post : EventBase
-		{
-			public Tower instance;
-
-			public Post(ref Tower __instance) : base("Tower.OnUpgradeEvent.Post")
+			public class Post : EventBase
 			{
-				this.instance = __instance;
+				public Tower instance;
+
+				public Post(ref Tower __instance) : base("Tower.OnUpgradeEvent.Post")
+				{
+					this.instance = __instance;
+				}
 			}
 		}
 	}
-
 }

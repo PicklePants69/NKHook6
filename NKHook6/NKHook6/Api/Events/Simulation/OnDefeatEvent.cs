@@ -1,27 +1,29 @@
 ﻿using Assets.Scripts.Simulation;
 namespace NKHook6.Api.Events._Simulation
 {
-	public class OnDefeatEvent
+	public partial class Simulation
 	{
-		public class Pre : EventBaseCancellable
+		public class OnDefeatEvent
 		{
-			public Simulation instance;
-
-			public Pre(ref Simulation __instance) : base("Simulation.OnDefeatEvent.Pre")
+			public class Pre : EventBaseCancellable
 			{
-				this.instance = __instance;
+				public Simulation instance;
+
+				public Pre(ref Simulation __instance) : base("Simulation.OnDefeatEvent.Pre")
+				{
+					this.instance = __instance;
+				}
 			}
-		}
 
-		public class Post : EventBase
-		{
-			public Simulation instance;
-
-			public Post(ref Simulation __instance) : base("Simulation.OnDefeatEvent.Post")
+			public class Post : EventBase
 			{
-				this.instance = __instance;
+				public Simulation instance;
+
+				public Post(ref Simulation __instance) : base("Simulation.OnDefeatEvent.Post")
+				{
+					this.instance = __instance;
+				}
 			}
 		}
 	}
-
 }

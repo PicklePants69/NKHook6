@@ -3,29 +3,32 @@ using Assets.Scripts.Simulation.Bloons;
 
 namespace NKHook6.Api.Events._Bloons
 {
-    public class UpdatedModelEvent
+    public partial class Bloons
     {
-        public class Pre : EventBaseCancellable
+        public class UpdatedModelEvent
         {
-            public Bloon instance;
-            public Model model;
-
-            public Pre(ref Bloon __instance, ref Model modelToUse) : base("Bloon.UpdatedModelEvent.Pre")
+            public class Pre : EventBaseCancellable
             {
-                this.instance = __instance;
-                this.model = modelToUse;
+                public Bloon instance;
+                public Model model;
+
+                public Pre(ref Bloon __instance, ref Model modelToUse) : base("Bloon.UpdatedModelEvent.Pre")
+                {
+                    this.instance = __instance;
+                    this.model = modelToUse;
+                }
             }
-        }
 
-        public class Post : EventBase
-        {
-            public Bloon instance;
-            public Model model;
-
-            public Post(ref Bloon __instance, ref Model modelToUse) : base("Bloon.UpdatedModelEvent.Post")
+            public class Post : EventBase
             {
-                this.instance = __instance;
-                this.model = modelToUse;
+                public Bloon instance;
+                public Model model;
+
+                public Post(ref Bloon __instance, ref Model modelToUse) : base("Bloon.UpdatedModelEvent.Post")
+                {
+                    this.instance = __instance;
+                    this.model = modelToUse;
+                }
             }
         }
     }

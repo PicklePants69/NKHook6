@@ -2,26 +2,29 @@
 
 namespace NKHook6.Api.Events._Towers
 {
-    public class IsSelectableEvent
+    public partial class Tower
     {
-        public class Pre : EventBaseCancellable
+        public class IsSelectableEvent
         {
-            public Tower instance;
-
-            public Pre(ref Tower __instance) : base("Tower.IsSelectableEvent.Pre")
+            public class Pre : EventBaseCancellable
             {
-                this.instance = __instance;
+                public Tower instance;
+
+                public Pre(ref Tower __instance) : base("Tower.IsSelectableEvent.Pre")
+                {
+                    this.instance = __instance;
+                }
             }
-        }
 
-        public class Post : EventBase
-        {
-            public Tower instance;
-            public bool result;
-            public Post(ref Tower __instance, ref bool __result) : base("Tower.IsSelectableEvent.Post")
+            public class Post : EventBase
             {
-                this.instance = __instance;
-                this.result = __result;
+                public Tower instance;
+                public bool result;
+                public Post(ref Tower __instance, ref bool __result) : base("Tower.IsSelectableEvent.Post")
+                {
+                    this.instance = __instance;
+                    this.result = __result;
+                }
             }
         }
     }

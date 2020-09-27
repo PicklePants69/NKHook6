@@ -2,27 +2,29 @@
 
 namespace NKHook6.Api.Events._InGame
 {
-	public class OnVictoryEvent
+	public partial class InGame
 	{
-		public class Pre : EventBaseCancellable
+		public class OnVictoryEvent
 		{
-			public InGame instance;
-
-			public Pre(ref InGame __instance) : base("InGame.OnVictoryEvent.Pre")
+			public class Pre : EventBaseCancellable
 			{
-				this.instance = __instance;
+				public InGame instance;
+
+				public Pre(ref InGame __instance) : base("InGame.OnVictoryEvent.Pre")
+				{
+					this.instance = __instance;
+				}
 			}
-		}
 
-		public class Post : EventBase
-		{
-			public InGame instance;
-
-			public Post(ref InGame __instance) : base("InGame.OnVictoryEvent.Post")
+			public class Post : EventBase
 			{
-				this.instance = __instance;
+				public InGame instance;
+
+				public Post(ref InGame __instance) : base("InGame.OnVictoryEvent.Post")
+				{
+					this.instance = __instance;
+				}
 			}
 		}
 	}
-
 }

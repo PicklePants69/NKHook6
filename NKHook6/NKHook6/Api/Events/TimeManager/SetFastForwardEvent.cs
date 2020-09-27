@@ -1,26 +1,28 @@
 ﻿namespace NKHook6.Api.Events._TimeManager
 {
-	public class SetFastForwardEvent
+	public partial class TimeManager
 	{
-		public class Pre : EventBaseCancellable
+		public class SetFastForwardEvent
 		{
-			public bool value;
-
-			public Pre(ref bool value) : base("TimeManager.SetFastForwardEvent.Pre")
+			public class Pre : EventBaseCancellable
 			{
-				this.value = value;
+				public bool value;
+
+				public Pre(ref bool value) : base("TimeManager.SetFastForwardEvent.Pre")
+				{
+					this.value = value;
+				}
 			}
-		}
 
-		public class Post : EventBase
-		{
-			public bool value;
-
-			public Post(ref bool value) : base("TimeManager.SetFastForwardEvent.Post")
+			public class Post : EventBase
 			{
-				this.value = value;
+				public bool value;
+
+				public Post(ref bool value) : base("TimeManager.SetFastForwardEvent.Post")
+				{
+					this.value = value;
+				}
 			}
 		}
 	}
-
 }
