@@ -4,26 +4,26 @@ namespace NKHook6.Api.Events._Simulation
 {
     public class RoundEndEvent
     {
-        public class Prefix : EventBaseCancellable
+        public class Pre : EventBaseCancellable
         {
-            public Simulation round;
+            public Simulation instance;
             public int roundArrayIndex;
 
-            public Prefix(ref Simulation __instance, ref int round) : base("RoundEndEvent.Pre")
+            public Pre(ref Simulation __instance, ref int round) : base("Simulation.RoundEndEvent.Pre")
             {
-                this.round = __instance;
+                this.instance = __instance;
                 this.roundArrayIndex = round;
             }
         }
 
-        public class Postfix : EventBase
+        public class Post : EventBase
         {
-            public Simulation round;
+            public Simulation instance;
             public int roundArrayIndex;
 
-            public Postfix(ref Simulation __instance, ref int round) : base("RoundEndEvent.Post")
+            public Post(ref Simulation __instance, ref int round) : base("Simulation.RoundEndEvent.Post")
             {
-                this.round = __instance;
+                this.instance = __instance;
                 this.roundArrayIndex = round;
             }
         }

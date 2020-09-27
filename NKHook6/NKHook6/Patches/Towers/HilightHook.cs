@@ -1,23 +1,25 @@
-﻿namespace NKHook6.Patches.Simulate
-{
-    using Assets.Scripts.Simulation;
-    using Harmony;
-	using NKHook6.Api.Events;
-    using NKHook6.Api.Events._Simulation;
+﻿
+using Assets.Scripts.Simulation.Towers;
+using Harmony;
+using NKHook6.Api.Events;
+using NKHook6.Api.Events.Towers;
+using NKHook6.Api.Utilities;
 
-    [HarmonyPatch(typeof(Simulation), "OnDefeat")]
-	class OnDefeatHook
+namespace NKHook6.Patches.Towers
+{
+	[HarmonyPatch(typeof(Tower), "Hilight")]
+	class HilightHook
 	{
 		private static bool sendPrefixEvent = true;
 		private static bool sendPostfixEvent = true;
 
 		[HarmonyPrefix]
-		internal static bool Prefix(ref Simulation __instance)
+		internal static bool Prefix(ref Tower __instance)
 		{
 			bool allowOriginalMethod = true;
 			if (sendPrefixEvent)
 			{
-				var o = new OnDefeatEvent.Pre(ref __instance);
+				var o = new HilightEvent.Pre(ref __instance);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				__instance = o.instance;
 				allowOriginalMethod = !o.isCancelled();
@@ -29,15 +31,15 @@
 		}
 
 		[HarmonyPostfix]
-		internal static void Postfix(ref Simulation __instance)
+		internal static void Postfix(ref Tower __instance)
 		{
 			if (sendPostfixEvent)
 			{
-				var o = new OnDefeatEvent.Post(ref __instance);
+				var o = new HilightEvent.Post(ref __instance);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				__instance = o.instance;
 			}
-
+			
 			sendPostfixEvent = !sendPostfixEvent;
 		}
 	}

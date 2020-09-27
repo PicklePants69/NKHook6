@@ -70,9 +70,6 @@
       <HintPath>..\references\Boo.Lang.Useful.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="BTD_Backend">
-      <HintPath>..\references\BTD_Backend.dll</HintPath>
-    </Reference>
     <Reference Include="Commons.Xml.Relaxng">
       <HintPath>..\references\Commons.Xml.Relaxng.dll</HintPath>
       <Private>False</Private>
@@ -83,9 +80,6 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="CustomMarshalers" />
-    <Reference Include="DotNetZip, Version=1.13.8.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotNetZip.1.13.8\lib\net40\DotNetZip.dll</HintPath>
-    </Reference>
     <Reference Include="Facebook.Unity.Settings">
       <HintPath>..\references\Facebook.Unity.Settings.dll</HintPath>
       <Private>False</Private>
@@ -572,11 +566,11 @@
     <Compile Include="Api\CommandManager.cs" />
     <Compile Include="Api\CustomTypes\DamageInfo.cs" />
     <Compile Include="Api\Enums\DefaultTowerIDs.cs" />
-    <Compile Include="Api\Events\Bloons\BloonSpawnedEvent.cs" />
-    <Compile Include="Api\Events\Bloons\BloonPoppedEvent.cs" />
-    <Compile Include="Api\Events\Bloons\BloonDamagedEvent.cs" />
-    <Compile Include="Api\Events\Bloons\BloonLeakedEvent.cs" />
-    <Compile Include="Api\Events\Bloons\BloonUpdatedModelEvent.cs" />
+    <Compile Include="Api\Events\Bloons\InitialiseEvent.cs" />
+    <Compile Include="Api\Events\Bloons\OnDestroyEvent.cs" />
+    <Compile Include="Api\Events\Bloons\DamagedEvent.cs" />
+    <Compile Include="Api\Events\Bloons\LeakedEvent.cs" />
+    <Compile Include="Api\Events\Bloons\UpdatedModelEvent.cs" />
     <Compile Include="Api\Events\Event.cs" />
     <Compile Include="Api\Events\EventAttribute.cs" />
     <Compile Include="Api\Events\EventBaseCancellable.cs" />
@@ -600,22 +594,46 @@
     <Compile Include="Api\Events\Towers\TowerInitializedEvent.cs" />
     <Compile Include="Api\Events\UpdateEvent.cs" />
     <Compile Include="Api\Events\Weapons\WeaponInitialiseEvent.cs" />
+    <Compile Include="Api\Events\_Projectile\InitialiseEvent.cs" />
+    <Compile Include="Api\Events\_Projectile\OnDestroyEvent.cs" />
+    <Compile Include="Api\Events\_Projectile\UpdateModelEvent.cs" />
+    <Compile Include="Api\Events\_TimeManager\SetFastForwardEvent.cs" />
+    <Compile Include="Api\Events\_InGame\GetContinueCostEvent.cs" />
+    <Compile Include="Api\Events\_Simulation\OnDefeatEvent.cs" />
+    <Compile Include="Api\Events\_Simulation\RoundEndEvent.cs" />
+    <Compile Include="Api\Events\_Simulation\RoundStartEvent.cs" />
+    <Compile Include="Api\Events\KeyEvent.cs" />
+    <Compile Include="Api\Events\_MainMenu\OnEnableEvent.cs" />
+    <Compile Include="Api\Events\Bloons\SetRotationEvent.cs" />
+    <Compile Include="Api\Events\Towers\AddPoppedCashEvent.cs" />
+    <Compile Include="Api\Events\Towers\HilightEvent.cs" />
+    <Compile Include="Api\Events\Towers\UpgradeBlockedEvent.cs" />
+    <Compile Include="Api\Events\Towers\IsSelectableEvent.cs" />
+    <Compile Include="Api\Events\Towers\GetSaveDataEvent.cs" />
+    <Compile Include="Api\Events\Towers\OnUpgradeEvent.cs" />
+    <Compile Include="Api\Events\Towers\UnHighlightEvent.cs" />
+    <Compile Include="Api\Events\Towers\UpdatedModelEvent.cs" />
+    <Compile Include="Api\Events\Towers\SoldEvent.cs" />
+    <Compile Include="Api\Events\Towers\DestroyedEvent.cs" />
+    <Compile Include="Api\Events\Towers\InitializedEvent.cs" />
+    <Compile Include="Api\Events\UpdateEvent.cs" />
+    <Compile Include="Api\Events\Weapons\InitialiseEvent.cs" />
+    <Compile Include="Api\Events\Weapons\OnDestroyEvent.cs" />
+    <Compile Include="Api\Events\Weapons\UpdatedModelEvent.cs" />
+    <Compile Include="Api\Events\_Simulation\TakeDamageEvent.cs" />
     <Compile Include="Api\Extensions\BloonExt.cs" />
     <Compile Include="Api\Extensions\GameExt.cs" />
     <Compile Include="Api\Extensions\TowerExt.cs" />
     <Compile Include="Api\ModSettings.cs" />
     <Compile Include="Api\Utilities\ASMPatcher.cs" />
     <Compile Include="Api\Utilities\AssetUtils.cs" />
-    <Compile Include="Api\Utilities\AudioUtils.cs" />
     <Compile Include="Api\Enums\DefaultBloonIds.cs" />
     <Compile Include="Api\Utilities\BloonUtils.cs" />
     <Compile Include="Api\Utilities\CameraUtils.cs" />
     <Compile Include="Api\Utilities\EnumUtils.cs" />
-    <Compile Include="Api\Utilities\FileUtils.cs" />
     <Compile Include="Api\Utilities\ImageUtils.cs" />
     <Compile Include="Api\Utilities\JsonUtils.cs" />
     <Compile Include="Api\Utilities\ReflectionUtils.cs" />
-    <Compile Include="Api\Utilities\SelfCheckingDictionary.cs" />
     <Compile Include="Api\Utilities\TowerUtils.cs" />
     <Compile Include="KeyListener.cs" />
     <Compile Include="Api\Utilities\Utils.cs" />
@@ -646,6 +664,38 @@
     <Compile Include="Patches\Towers\TowerDestroyedHook.cs" />
     <Compile Include="Patches\Towers\TowerInitializedHook.cs" />
     <Compile Include="Patches\Weapons\WeaponInitialiseHook.cs" />
+    <Compile Include="Patches\Bloons\DamageHook.cs" />
+    <Compile Include="Patches\Bloons\UpdatedModelHook.cs" />
+    <Compile Include="Patches\Bloons\InitialiseHook.cs" />
+    <Compile Include="Patches\Bloons\OnDestroyHook.cs" />
+    <Compile Include="Patches\Bloons\LeakedHook.cs" />
+    <Compile Include="Patches\_Projectile\InitialiseHook.cs" />
+    <Compile Include="Patches\_Projectile\OnDestroyHook.cs" />
+    <Compile Include="Patches\_Projectile\UpdateModelHook.cs" />
+    <Compile Include="Patches\_TimeManager\SetFastForwardHook.cs" />
+    <Compile Include="Patches\_InGame\GetContinueCostHook.cs" />
+    <Compile Include="Patches\_Simulation\OnDefeatHook.cs" />
+    <Compile Include="Patches\_Simulation\RoundEndHook.cs" />
+    <Compile Include="Patches\_Simulation\RoundStartHook.cs" />
+    <Compile Include="Patches\_MainMenu\OnEnableHook.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="Patches\Bloons\SetRotationHook.cs" />
+    <Compile Include="Patches\Towers\HilightHook.cs" />
+    <Compile Include="Patches\Towers\OnUpgradeHook.cs" />
+    <Compile Include="Patches\Towers\AddPoppedCashHook.cs" />
+    <Compile Include="Patches\Towers\IsUpgradeBlockedHook.cs" />
+    <Compile Include="Patches\Towers\IsSelectableHook.cs" />
+    <Compile Include="Patches\Towers\GetSaveDataHook.cs" />
+    <Compile Include="Patches\Towers\UnHighlightHook.cs" />
+    <Compile Include="Patches\Towers\UpdatedModelHook.cs" />
+    <Compile Include="Patches\Towers\SoldHook.cs" />
+    <Compile Include="Patches\Towers\DestroyedHook.cs" />
+    <Compile Include="Patches\Towers\InitializedHook.cs" />
+    <Compile Include="Patches\Weapons\InitialiseHook.cs" />
+    <Compile Include="Patches\Weapons\OnDestroyHook.cs" />
+    <Compile Include="Patches\Weapons\UpgradeModelHook.cs" />
+    <Compile Include="Patches\_Simulation\TakeDamageHook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripting\BooManager.cs" />
     <Compile Include="Win32.cs" />
@@ -653,7 +703,10 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Api\Events\Bridge\UnityToSimulation\" />
+    <Folder Include="Patches\Bride\UnityToSim\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>mkdir "$(SolutionDir)out\Mods"

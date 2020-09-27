@@ -1,26 +1,26 @@
-﻿using Assets.Scripts.Simulation;
+﻿using Assets.Scripts.Simulation.Towers;
 using Harmony;
 using NKHook6.Api.Events;
-using NKHook6.Api.Events._Simulation;
+using NKHook6.Api.Events.Towers;
 
-namespace NKHook6.Patches.Simulate
+namespace NKHook6.Patches.Towers
 {
-    [HarmonyPatch(typeof(Simulation), "OnRoundEnd")]
-    class RoundEndHook
+    [HarmonyPatch(typeof(Tower), "OnSold")]
+    class OnSoldHook
     {
         private static bool sendPrefixEvent = true;
         private static bool sendPostfixEvent = true;
 
         [HarmonyPrefix]
-        internal static bool Prefix(ref Simulation __instance, ref int round)
+        internal static bool Prefix(ref Tower __instance, ref float amount)
         {
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new RoundEndEvent.Pre(ref __instance, ref round);
+                var o = new SoldEvent.Pre(ref __instance, ref amount);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
-                round = o.roundArrayIndex;
+                amount = o.sellAmount;
                 allowOriginalMethod = !o.isCancelled();
             }
 
@@ -30,14 +30,14 @@ namespace NKHook6.Patches.Simulate
         }
 
         [HarmonyPostfix]
-        internal static void Postfix(ref Simulation __instance, ref int round)
+        internal static void Postfix(ref Tower __instance, ref float amount)
         {
             if (sendPostfixEvent)
             {
-                var o = new RoundEndEvent.Post(ref __instance, ref round);
+                var o = new SoldEvent.Post(ref __instance, ref amount); ;
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
-                round = o.roundArrayIndex;
+                amount = o.sellAmount;
             }
 
             sendPostfixEvent = !sendPostfixEvent;

@@ -17,9 +17,9 @@ namespace NKHook6.Patches.Simulate
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new RoundStartEvent.Prefix(ref __instance, ref roundArrayIndex);
+                var o = new RoundStartEvent.Pre(ref __instance, ref roundArrayIndex);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.round;
+                __instance = o.instance;
                 roundArrayIndex = o.roundArrayIndex;
                 allowOriginalMethod = !o.isCancelled();
             }
@@ -34,9 +34,9 @@ namespace NKHook6.Patches.Simulate
         {
             if (sendPostfixEvent)
             {
-                var o = new RoundStartEvent.Postfix(ref __instance, ref roundArrayIndex);
+                var o = new RoundStartEvent.Post(ref __instance, ref roundArrayIndex);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.round;
+                __instance = o.instance;
                 roundArrayIndex = o.roundArrayIndex;
             }
 

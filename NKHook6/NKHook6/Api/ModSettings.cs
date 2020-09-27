@@ -1,21 +1,14 @@
 ﻿using Il2CppSystem.IO;
-using Il2CppSystem.Reflection;
-using MelonLoader;
 using NKHook6.Api.Utilities;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NKHook6.Api
 {
-    public class ModSettings : JsonUtils
+    public class ModSettings
     {
         const string modsFolder = "\\Mods\\";
         string FileName = "settings.json";
-
+        string FilePath = "";
         public ModSettings()
         {
             string modName = Utils.GetCallingModInfo().Name;
@@ -23,7 +16,7 @@ namespace NKHook6.Api
             if (!String.IsNullOrEmpty(modName))
             {
                 FilePath = Environment.CurrentDirectory + modsFolder + modName;
-                
+
                 if (!Directory.Exists(FilePath))
                     Directory.CreateDirectory(FilePath);
 
@@ -38,5 +31,7 @@ namespace NKHook6.Api
 
             FileName = fileName;
         }
+
+
     }
 }

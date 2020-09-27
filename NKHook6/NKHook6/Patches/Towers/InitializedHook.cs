@@ -1,26 +1,29 @@
-﻿using Assets.Scripts.Simulation;
+﻿using Assets.Scripts.Models;
+using Assets.Scripts.Simulation.Objects;
+using Assets.Scripts.Simulation.Towers;
 using Harmony;
 using NKHook6.Api.Events;
-using NKHook6.Api.Events._Simulation;
+using NKHook6.Api.Events.Towers;
 
-namespace NKHook6.Patches.Simulate
+namespace NKHook6.Patches.Towers
 {
-    [HarmonyPatch(typeof(Simulation), "OnRoundEnd")]
-    class RoundEndHook
+    [HarmonyPatch(typeof(Tower), "Initialise")]
+    class InitializedHook
     {
         private static bool sendPrefixEvent = true;
         private static bool sendPostfixEvent = true;
 
         [HarmonyPrefix]
-        internal static bool Prefix(ref Simulation __instance, ref int round)
+        internal static bool Prefix(ref Tower __instance, ref Entity target, ref Model modelToUse)
         {
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new RoundEndEvent.Pre(ref __instance, ref round);
+                var o = new InitializedEvent.Pre(ref __instance, ref target, ref modelToUse);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
-                round = o.roundArrayIndex;
+                target = o.entity;
+                modelToUse = o.model;
                 allowOriginalMethod = !o.isCancelled();
             }
 
@@ -30,14 +33,15 @@ namespace NKHook6.Patches.Simulate
         }
 
         [HarmonyPostfix]
-        internal static void Postfix(ref Simulation __instance, ref int round)
+        internal static void Postfix(ref Tower __instance, ref Entity target, ref Model modelToUse)
         {
             if (sendPostfixEvent)
             {
-                var o = new RoundEndEvent.Post(ref __instance, ref round);
+                var o = new InitializedEvent.Post(ref __instance, ref target, ref modelToUse);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
-                round = o.roundArrayIndex;
+                target = o.entity;
+                modelToUse = o.model;
             }
 
             sendPostfixEvent = !sendPostfixEvent;

@@ -1,177 +1,172 @@
-﻿using MelonLoader;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NKHook6.Api.Utilities
+﻿namespace NKHook6.Api.Utilities
 {
-    public class JsonUtils
+    using System;
+    using System.IO;
+    using System.Globalization;
+    using System.Text;
+    using System.Threading;
+    using System.Reflection;
+    using Newtonsoft.Json;
+
+    /// <summary>
+    /// A collection of utilities for interacting with JSON files.
+    /// </summary>
+    public static class JsonUtils
     {
-        public string FilePath = "";
+        private static readonly string modsFolder = "\\Mods\\";
+        private static string FileName = "settings.json";
 
-        private JsonUtils instance;
-
-        public JsonUtils()
+        private static string GetDefaultPath()
         {
-            instance = this;       
-        }
+            string result = "";
+            string modName = Utils.GetCallingModInfo().Name;
 
-        public JsonUtils(string filePath) : this()
-        {
-            FilePath = filePath;
-            Logger.Log("JsonUtils Filepath = " + FilePath);
-            var dir = new FileInfo(FilePath).Directory;
-            if (!dir.Exists)
-                dir.Create();
-
-            Load();
-        }
-
-
-
-        /// <summary>
-        /// Load Json from file
-        /// </summary>
-        public void Load()
-        {
-            if (String.IsNullOrEmpty(FilePath) || !File.Exists(FilePath))
-                return;
-
-            string json = File.ReadAllText(FilePath);
-            if (String.IsNullOrEmpty(json) || !IsJsonValid(json))
-                return;
-
-            instance = JsonConvert.DeserializeObject<JsonUtils>(json);
-
-            var args = new JsonUtilsEventArgs();
-            args.FilePath = FilePath;
-            args.Instance = instance;
-            OnJsonLoaded(args);
-        }
-
-        /// <summary>
-        /// Save Json to file
-        /// </summary>
-        public void Save()
-        {
-            if (instance == null)
+            if (!String.IsNullOrEmpty(modName))
             {
-                Logger.Log("ERROR! Failed to Save Json! Instance is null");
-                return;
+                result = Environment.CurrentDirectory + modsFolder + modName;
+
+                if (!Directory.Exists(result))
+                    Directory.CreateDirectory(result);
+
+                result += "\\" + FileName;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Create an instance of <typeparamref name="T"/>, populated with data from the JSON file at the given 
+        /// <paramref name="path"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of object to initialise and populate with JSON data.</typeparam>
+        /// <param name="path">The path on disk at which the JSON file can be found.</param>
+        /// <param name="createFileIfNotExist">Whether a new JSON file should be created with default values if it does not 
+        /// already exist.</param>
+        /// <param name="jsonConverters">An array of <see cref="JsonConverter"/>s to be used for deserialization.</param>
+        /// <returns>The <typeparamref name="T"/> instance populated with data from the JSON file at
+        /// <paramref name="path"/>, or default values if it cannot be found or an error is encountered while parsing the
+        /// file.</returns>
+        /// <seealso cref="Load{T}(T, string, bool, JsonConverter[])"/>
+        /// <seealso cref="Save{T}(T, string, JsonConverter[])"/>
+        public static T Load<T>(string path = null, bool createFileIfNotExist = true,
+            params JsonConverter[] jsonConverters) where T : class, new()
+        {
+            if (string.IsNullOrEmpty(path))
+            {
+                path = GetDefaultPath();
             }
 
-            if (String.IsNullOrEmpty(FilePath))
+            if (Directory.Exists(Environment.CurrentDirectory + "\\Mods") && File.Exists(path))
             {
-                Logger.Log("ERROR! Failed to Save Json! Filepath is null");
-                return;
-            }
-
-            string output = JsonConvert.SerializeObject(instance, Formatting.Indented);
-
-            StreamWriter serialize = new StreamWriter(FilePath, false);
-            serialize.Write(output);
-            serialize.Close();
-
-            var args = new JsonUtilsEventArgs();
-            args.FilePath = FilePath;
-            args.Instance = instance;
-            OnJsonLoaded(args);
-        }
-
-
-        /// <summary>
-        /// Check if FileInfo file contains valid json
-        /// </summary>
-        /// <param name="file">FileInfo to check</param>
-        /// <returns>Whether or not FileInfo file contains valid json</returns>
-        public static bool IsJsonValid(FileInfo file) => IsJsonValid(File.ReadAllText(file.FullName));
-
-        /// <summary>
-        /// Check if text is valid json
-        /// </summary>
-        /// <param name="text">Text to check</param>
-        /// <returns>Whether or not text is valid json</returns>
-        public static bool IsJsonValid(string text)
-        {
-            try
-            {
-                var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
-                dynamic result = serializer.DeserializeObject(text);
-                return true;
-            }
-            catch { return false; }
-        }
-
-
-        #region Events
-
-        /// <summary>
-        /// Event fired when a Json file has successfully saved
-        /// </summary>
-        public static event EventHandler<JsonUtilsEventArgs> JsonSaved;
-
-        /// <summary>
-        /// Event fired when Json file has successfully loaded
-        /// </summary>
-        public static event EventHandler<JsonUtilsEventArgs> JsonLoaded;
-
-
-        /// <summary>
-        /// Events related to JetPasswords
-        /// </summary>
-        public class JsonUtilsEventArgs : EventArgs
-        {
-            /// <summary>
-            /// Instance of Json file
-            /// </summary>
-            public JsonUtils Instance { get; set; }
-
-            /// <summary>
-            /// Filepath to the Json file
-            /// </summary>
-            public string FilePath { get; set; }
-        }
-
-        /// <summary>
-        /// Fired when the Json file has successfully been loaded
-        /// </summary>
-        /// <param name="e">Event args containing the filepath to json file and insance of json file</param>
-        public void OnJsonLoaded(JsonUtilsEventArgs e)
-        {
-            EventHandler<JsonUtilsEventArgs> handler = JsonLoaded;
-            if (handler != null)
-                handler(this, e);
-        }
-
-        /// <summary>
-        /// Fired when the Json file has successfully been saved
-        /// </summary>
-        /// <param name="e">Event args containing the filepath to json file and insance of json file</param>
-        public void OnJsonSaved(JsonUtilsEventArgs e)
-        {
-            EventHandler<JsonUtilsEventArgs> handler = JsonSaved;
-            if (handler != null)
-                handler(this, e);
-        }
-        #endregion
-
-
-        #region Exceptions
-        public class FilePathNotSet : Exception
-        {
-            public override string Message
-            {
-                get
+                try
                 {
-                    return "SavePath was not set for Json file!";
+                    string serializedJson = File.ReadAllText(path);
+                    return JsonConvert.DeserializeObject<T>(
+                        serializedJson, jsonConverters
+                    );
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log($"Could not parse JSON file, loading default values: {path}", Logger.Level.Warning);
+                    Logger.Log(ex.Message);
+                    Logger.Log(ex.StackTrace);
+                    return new T();
                 }
             }
+            else if (createFileIfNotExist)
+            {
+                T jsonObject = new T();
+                Save(jsonObject, path, jsonConverters);
+                return jsonObject;
+            }
+            else
+            {
+                return new T();
+            }
         }
-        #endregion
+
+        /// <summary>
+        /// Loads data from the JSON file at <paramref name="path"/> into the <paramref name="jsonObject"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of <paramref name="jsonObject"/> to populate with JSON data.</typeparam>
+        /// <param name="jsonObject">The <typeparamref name="T"/> instance to popular with JSON data.</param>
+        /// <param name="path">The path on disk at which the JSON file can be found.</param>
+        /// <param name="createFileIfNotExist">Whether a new JSON file should be created with default values if it does not
+        /// already exist.</param>
+        /// <param name="jsonConverters">An array of <see cref="JsonConverter"/>s to be used for deserialization.</param>
+        /// <seealso cref="Load{T}(string, bool, JsonConverter[])"/>
+        /// <seealso cref="Save{T}(T, string, JsonConverter[])"/>
+        public static void Load<T>(T jsonObject, string path = null, bool createFileIfNotExist = true,
+            params JsonConverter[] jsonConverters) where T : class
+        {
+            if (string.IsNullOrEmpty(path))
+            {
+                path = GetDefaultPath();
+            }
+
+            if (Directory.Exists(Environment.CurrentDirectory + "\\Mods") && File.Exists(path))
+            {
+                try
+                {
+                    var jsonSerializerSettings = new JsonSerializerSettings()
+                    {
+                        Converters = jsonConverters
+                    };
+
+                    string serializedJson = File.ReadAllText(path);
+                    JsonConvert.PopulateObject(
+                        serializedJson, jsonObject, jsonSerializerSettings
+                    );
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log($"Could not parse JSON file, instance values unchanged: {path}", Logger.Level.Warning);
+                    Logger.Log(ex.Message);
+                    Logger.Log(ex.StackTrace);
+                }
+            }
+            else if (createFileIfNotExist)
+            {
+                Save(jsonObject, path, jsonConverters);
+            }
+        }
+
+        /// <summary>
+        /// Saves the <paramref name="jsonObject"/> parsed as JSON data to the JSON file at <paramref name="path"/>,
+        /// creating it if it does not exist.
+        /// </summary>
+        /// <typeparam name="T">The type of <paramref name="jsonObject"/> to parse into JSON data.</typeparam>
+        /// <param name="jsonObject">The <typeparamref name="T"/> instance to parse into JSON data.</param>
+        /// <param name="path">The path on disk at which to store the JSON file.</param>
+        /// <param name="jsonConverters">An array of <see cref="JsonConverter"/>s to be used for serialization.</param>
+        /// <seealso cref="Load{T}(T, string, bool, JsonConverter[])"/>
+        /// <seealso cref="Load{T}(string, bool, JsonConverter[])"/>
+        public static void Save<T>(T jsonObject, string path = null,
+            params JsonConverter[] jsonConverters) where T : class
+        {
+            if (string.IsNullOrEmpty(path))
+            {
+                path = GetDefaultPath();
+            }
+
+            var stringBuilder = new StringBuilder();
+            var stringWriter = new StringWriter(stringBuilder);
+            using (var jsonTextWriter = new JsonTextWriter(stringWriter)
+            {
+                Indentation = 4,
+                Formatting = Formatting.Indented
+            })
+            {
+                var jsonSerializer = new JsonSerializer();
+                foreach (var jsonConverter in jsonConverters)
+                {
+                    jsonSerializer.Converters.Add(jsonConverter);
+                }
+                jsonSerializer.Serialize(jsonTextWriter, jsonObject);
+            }
+
+            var fileInfo = new FileInfo(path);
+            fileInfo.Directory.Create(); // Only creates the directory if it doesn't already exist
+            File.WriteAllText(path, stringBuilder.ToString());
+        }
     }
 }

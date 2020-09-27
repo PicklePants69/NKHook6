@@ -4,11 +4,35 @@ using UnityEngine;
 
 namespace NKHook6.Api.Utilities
 {
+    //Taken from: https://github.com/SubnauticaModding/SMLHelper/blob/master/SMLHelper/Utility/ImageUtils.cs
+
     /// <summary>
     /// A collection of image loading utility methods that can create Unity objects from image files at runtime.
     /// </summary>
     public static class ImageUtils
     {
+        /*/// <summary>
+        /// Not sure on how well this works in all cases
+        /// </summary>
+        public static void writeTextoPNG(Texture2D tex)
+        {
+            byte[] bytes = ImageConversion.EncodeToPNG(tex);
+
+            File.WriteAllBytes("/Image.png", bytes);
+        }
+
+        /// <summary>
+        /// Not sure on how well this works in all cases
+        /// </summary>
+        public static void writeImagetoPNG(Image image)
+        {
+            Texture2D tex = image.activeSprite.texture;
+
+            byte[] bytes = ImageConversion.EncodeToPNG(tex);
+
+            File.WriteAllBytes("/Image.png", bytes);
+        }*/
+        
         public static Sprite LoadNewSprite(string FilePath, float PixelsPerUnit = 100.0f, SpriteMeshType spriteType = SpriteMeshType.Tight)
         {
 
@@ -48,9 +72,6 @@ namespace NKHook6.Api.Utilities
             }
             return null;                     // Return null if load failed
         }
-
-
-        //Taken from: https://github.com/SubnauticaModding/SMLHelper/blob/master/SMLHelper/Utility/ImageUtils.cs
 
         /// <summary>
         /// A collection of image loading utility methods that can create Unity objects from image files at runtime.

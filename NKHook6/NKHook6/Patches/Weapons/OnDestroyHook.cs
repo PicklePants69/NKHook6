@@ -1,23 +1,23 @@
-﻿namespace NKHook6.Patches.Simulate
+﻿namespace NKHook6.Patches.Weapons
 {
-    using Assets.Scripts.Simulation;
+    using Assets.Scripts.Simulation.Towers.Weapons;
     using Harmony;
 	using NKHook6.Api.Events;
-    using NKHook6.Api.Events._Simulation;
+    using NKHook6.Api.Events.Weapons;
 
-    [HarmonyPatch(typeof(Simulation), "OnDefeat")]
-	class OnDefeatHook
+    [HarmonyPatch(typeof(Weapon), "OnDestroy")]
+	class OnDestroyHook
 	{
 		private static bool sendPrefixEvent = true;
 		private static bool sendPostfixEvent = true;
 
 		[HarmonyPrefix]
-		internal static bool Prefix(ref Simulation __instance)
+		internal static bool Prefix(ref Weapon __instance)
 		{
 			bool allowOriginalMethod = true;
 			if (sendPrefixEvent)
 			{
-				var o = new OnDefeatEvent.Pre(ref __instance);
+				var o = new OnDestroyEvent.Pre(ref __instance);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				__instance = o.instance;
 				allowOriginalMethod = !o.isCancelled();
@@ -29,11 +29,11 @@
 		}
 
 		[HarmonyPostfix]
-		internal static void Postfix(ref Simulation __instance)
+		internal static void Postfix(ref Weapon __instance)
 		{
 			if (sendPostfixEvent)
 			{
-				var o = new OnDefeatEvent.Post(ref __instance);
+				var o = new OnDestroyEvent.Post(ref __instance);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				__instance = o.instance;
 			}
