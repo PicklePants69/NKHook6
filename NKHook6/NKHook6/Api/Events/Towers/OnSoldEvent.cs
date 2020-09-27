@@ -4,25 +4,29 @@ namespace NKHook6.Api.Events._Towers
 {
     public partial class TowerEvents
     {
-        public class DestroyedEvent
+        public class OnSoldEvent
         {
             public class Pre : EventBaseCancellable
             {
                 public Tower instance;
+                public float sellAmount;
 
-                public Pre(ref Tower __instance) : base("Tower.DestroyedEvent.Pre")
+                public Pre(ref Tower __instance, ref float sellAmount) : base("Tower.OnSoldEvent.Pre")
                 {
                     this.instance = __instance;
+                    this.sellAmount = sellAmount;
                 }
             }
 
             public class Post : EventBase
             {
                 public Tower instance;
+                public float sellAmount;
 
-                public Post(ref Tower __instance) : base("Tower.DestroyedEvent.Post")
+                public Post(ref Tower __instance, ref float sellAmount) : base("Tower.OnSoldEvent.Post")
                 {
                     this.instance = __instance;
+                    this.sellAmount = sellAmount;
                 }
             }
         }
