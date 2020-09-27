@@ -581,6 +581,9 @@
     <Compile Include="Api\Events\Projectile\InitialiseEvent.cs" />
     <Compile Include="Api\Events\Projectile\OnDestroyEvent.cs" />
     <Compile Include="Api\Events\Projectile\UpdatedModelEvent.cs" />
+    <Compile Include="Api\Events\Simulation\AddCashEvent.cs" />
+    <Compile Include="Api\Events\Simulation\RemoveCashEvent.cs" />
+    <Compile Include="Api\Events\Simulation\SetCashEvent.cs" />
     <Compile Include="Api\Events\TimeManager\SetFastForwardEvent.cs" />
     <Compile Include="Api\Events\InGame\GetContinueCostEvent.cs" />
     <Compile Include="Api\Events\Simulation\OnDefeatEvent.cs" />
@@ -621,13 +624,12 @@
     <Compile Include="Api\Utilities\ReflectionUtils.cs" />
     <Compile Include="Api\Utilities\TowerUtils.cs" />
     <Compile Include="Attribute.cs" />
-    <Compile Include="BgThread.cs" />
     <Compile Include="KeyListener.cs" />
     <Compile Include="Api\Utilities\Utils.cs" />
     <Compile Include="Api\Web\GitApi.cs" />
     <Compile Include="Api\Web\UpdateHandler.cs" />
     <Compile Include="Api\Web\WebHandler.cs" />
-    <Compile Include="NkhUpdateMgr.cs" />
+    <Compile Include="UpdateMgr.cs" />
     <Compile Include="Patches\Bloons\DamageHook.cs" />
     <Compile Include="Patches\Bloons\UpdatedModelHook.cs" />
     <Compile Include="Patches\Bloons\InitialiseHook.cs" />
@@ -637,6 +639,9 @@
     <Compile Include="Patches\Projectile\InitialiseHook.cs" />
     <Compile Include="Patches\Projectile\OnDestroyHook.cs" />
     <Compile Include="Patches\Projectile\UpdatedModelHook.cs" />
+    <Compile Include="Patches\Simulation\AddCashHook.cs" />
+    <Compile Include="Patches\Simulation\RemoveCashHook.cs" />
+    <Compile Include="Patches\Simulation\SetCashHook.cs" />
     <Compile Include="Patches\TimeManager\SetFastForwardHook.cs" />
     <Compile Include="Patches\InGame\GetContinueCostHook.cs" />
     <Compile Include="Patches\Simulation\OnDefeatHook.cs" />

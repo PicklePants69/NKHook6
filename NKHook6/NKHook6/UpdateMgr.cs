@@ -1,21 +1,14 @@
-﻿using Assets.Scripts.Models;
-using Assets.Scripts.Unity;
-using Assets.Scripts.Unity.UI_New.InGame;
-using Assets.Scripts.Unity.UI_New.Popups;
-using Newtonsoft.Json.Linq;
-using NKHook6.Api.Utilities;
+﻿using NKHook6.Api.Utilities;
 using NKHook6.Api.Web;
 using System;
-using System.Threading;
 using System.Threading.Tasks;
-using Unity.Jobs;
-using UnityEngine;
 
 namespace NKHook6
 {
-    class NkhUpdateMgr
+    class UpdateMgr
     {
         private static bool CheckedForUpdates = false;
+
         /// <summary>
         /// This method will check all of the loaded mods for updates and post notifications in console
         /// </summary>
@@ -32,27 +25,9 @@ namespace NKHook6
                     if (String.IsNullOrEmpty(text))
                         return;
 
-                    string cleanedLatest = "";
-                    foreach (var letter in text)
-                    {
-                        if (Int32.TryParse(letter.ToString(), out int result))
-                            cleanedLatest += result.ToString();
-                    }
-
-                    if (String.IsNullOrEmpty(cleanedLatest))
-                        return;
-
-
+                    string cleanedLatest = CleanVersionText(text);
                     var melonInfo = Utils.GetModInfo(item.type.Assembly);
-                    string cleanedCurrent = "";
-                    foreach (var letter in melonInfo.Version)
-                    {
-                        if (Int32.TryParse(letter.ToString(), out int result))
-                            cleanedCurrent += result.ToString();
-                    }
-
-                    if (String.IsNullOrEmpty(cleanedCurrent))
-                        return;
+                    string cleanedCurrent = CleanVersionText(melonInfo.Version);
 
 
                     while (cleanedCurrent.Length != cleanedLatest.Length)
@@ -73,19 +48,27 @@ namespace NKHook6
 
                     CheckedForUpdates = true;
                 }
-            }).ConfigureAwait(continueOnCapturedContext: true);
-           
-            //PopupScreen.instance.Invoke("ShowEventPopup", 10);
+            });//.ConfigureAwait(continueOnCapturedContext: true);
 
             /*if (isNkhUpdate)
                 Logger.ShowMsgPopup("Update available!", "An update is available for NKHook6. Make sure to get it so you're using the latest features!");*/
-
-            /*BgThread.AddToQueue(() =>
-            {
-                
-            });*/
         }
 
-        
+        /// <summary>
+        /// Remove all non-numeric characters from version info
+        /// </summary>
+        /// <param name="uncleanedText"></param>
+        /// <returns></returns>
+        internal static string CleanVersionText(string uncleanedText)
+        {
+            string cleaned = "";
+            foreach (var letter in uncleanedText)
+            {
+                if (Int32.TryParse(letter.ToString(), out int result))
+                    cleaned += result.ToString();
+            }
+
+            return cleaned;
+        }
     }
 }

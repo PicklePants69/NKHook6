@@ -67,6 +67,10 @@ namespace NKHook6.Api.Events
                 "Projectile.InitialiseEvent",
                 "Projectile.OnDestroyEvent",
                 "Projectile.UpdatedModelEvent",
+
+                "Simulation.SetCashEvent",
+                "Simulation.AddCashEvent",
+                "Simulation.RemoveCashEvent"
             };
 
             foreach (var item in CustomEvents)

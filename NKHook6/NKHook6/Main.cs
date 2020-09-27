@@ -6,10 +6,6 @@ using static NKHook6.Logger;
 using NKHook6.Scripting;
 using Harmony;
 using NKHook6.Api.Events;
-using Assets.Scripts.Simulation.Bloons;
-using NKHook6.Api.Extensions;
-using NKHook6.Api.Utilities;
-using Assets.Scripts.Unity.UI_New.InGame;
 using NKHook6.Backend;
 
 namespace NKHook6
@@ -41,8 +37,7 @@ namespace NKHook6
         [EventAttribute("MainMenu.OnEnableEvent.Post")]
         public static void MainMenuShown(Api.Events._MainMenu.OnEnableEvent.Post e)
         {
-            //BgWorker bg = new BgWorker();
-            NkhUpdateMgr.HandleUpdates();
+            UpdateMgr.HandleUpdates();
         }
 
 
