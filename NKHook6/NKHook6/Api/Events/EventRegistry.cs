@@ -19,7 +19,7 @@ namespace NKHook6.Api.Events
 
             string preName = ".Pre";
             string postName = ".Post";
-            List<string> HarmonyEvents = new List<string>()
+            List<string> CustomEvents = new List<string>()
             {
                 "MainMenu.OnEnableEvent",
                 "Bloon.InitialiseEvent",
@@ -64,7 +64,7 @@ namespace NKHook6.Api.Events
                 "Projectile.UpdateModelEvent",
             };
 
-            foreach (var item in HarmonyEvents)
+            foreach (var item in CustomEvents)
             {
                 if (theRegistry.ContainsKey(item + preName) && theRegistry.ContainsKey(item + postName))
                     continue;
