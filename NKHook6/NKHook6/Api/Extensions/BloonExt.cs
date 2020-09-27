@@ -16,5 +16,9 @@ namespace NKHook6.Api.Extensions
         {
             bloon.model = model;
         }
+        public static float getDamage(this Bloon bloon)
+        {
+            return bloon.GetModifiedTotalLeakDamage();
+        }
     }
 }

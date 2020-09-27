@@ -1,4 +1,5 @@
-﻿using Il2CppSystem.Reflection;
+﻿using Assets.Scripts.Unity.UI_New.InGame;
+using Il2CppSystem.Reflection;
 using MelonLoader;
 using System;
 using System.Collections.Generic;
@@ -93,5 +94,14 @@ namespace NKHook6.Api.Utilities
         /// <param name="modAssembly">Assembly of the mod you want MelonModInfo for</param>
         /// <returns></returns>
         public static bool IsValidMelonMod(System.Reflection.Assembly modAssembly) => GetModInfo(modAssembly) == null;
+
+        /// <summary>
+        /// Returns the instance of InGame or null if unavailable
+        /// </summary>
+        /// <returns>InGame</returns>
+        public static InGame getInGame()
+        {
+            return InGame.instance;
+        }
     }
 }
