@@ -43,6 +43,7 @@ namespace NKHook6
         {
             Log("Initializing Clear...");
             new ClearScript();
+            ClearScript.instance.ExecuteAllScripts();
             Log("Initialized Clear!");
         }
 
