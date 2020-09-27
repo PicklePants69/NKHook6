@@ -21,10 +21,12 @@ namespace NKHook6.Api.Utilities
 
         public static TowerModel GetTower(string baseId, [Optional]int tier1, [Optional]int tier2, [Optional]int tier3)
         {
-            string towerName = "";
+            string towerName = baseId;
             if (baseId == DefaultTowerIds.BallOfLight__Tower.ToString())
                 towerName = towerName.Replace("__", "-");
 
+
+            Logger.Log("TowerName = " + towerName);
             return Game.instance.model.GetTower(towerName, tier1, tier2, tier3);
         }
     }
