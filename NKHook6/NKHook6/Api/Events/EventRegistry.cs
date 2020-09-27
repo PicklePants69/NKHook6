@@ -11,10 +11,10 @@ namespace NKHook6.Api.Events
         {
             subscriber = this;
 
-            theRegistry.Add("UpdateEvent", new List<MethodInfo>());
-            theRegistry.Add("KeyPressEvent", new List<MethodInfo>());
-            theRegistry.Add("KeyHeldEvent", new List<MethodInfo>());
-            theRegistry.Add("KeyReleaseEvent", new List<MethodInfo>());
+            createEvent("UpdateEvent");
+            createEvent("KeyPressEvent");
+            createEvent("KeyHeldEvent");
+            createEvent("KeyReleaseEvent");
 
 
             string preName = ".Pre";
@@ -75,8 +75,7 @@ namespace NKHook6.Api.Events
                 if (theRegistry.ContainsKey(item + preName) && theRegistry.ContainsKey(item + postName))
                     continue;
 
-                theRegistry.Add(item + preName, new List<MethodInfo>());
-                theRegistry.Add(item + postName, new List<MethodInfo>());
+                createEvent(item + preName);
             }
         }
 

@@ -1,7 +1,9 @@
-﻿using Assets.Scripts.Unity.UI_New.InGame;
+﻿using Assets.Scripts.Unity;
+using Assets.Scripts.Unity.UI_New.InGame;
 using MelonLoader;
 using NKHook6.Api.Events;
 using NKHook6.Api.Events._Bloons;
+using NKHook6.Api.Events._MainMenu;
 using NKHook6.Api.Extensions;
 using System;
 using System.Collections.Generic;
@@ -29,7 +31,7 @@ namespace NKHook6.Examples.LHCM
                 double cash = inst.getCash();
                 inst.setCash(cash - damage);
                 cash = inst.getCash();
-                if(cash >= 0)
+                if(cash > 0)
                 {
                     inst.setHealth(inst.getHealth() + damage);
                 }

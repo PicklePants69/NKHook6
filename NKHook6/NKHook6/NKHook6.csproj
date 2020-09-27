@@ -611,7 +611,6 @@
     <Compile Include="Api\Extensions\BloonExt.cs" />
     <Compile Include="Api\Extensions\GameExt.cs" />
     <Compile Include="Api\Extensions\InGameExt.cs" />
-    <Compile Include="Api\Extensions\ThreadingExt.cs" />
     <Compile Include="Api\Extensions\TowerExt.cs" />
     <Compile Include="Api\ModSettings.cs" />
     <Compile Include="Api\Utilities\ASMPatcher.cs" />
