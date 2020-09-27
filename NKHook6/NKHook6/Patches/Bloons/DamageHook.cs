@@ -7,7 +7,7 @@ using NKHook6.Api.Events.Bloons;
 using System;
 using UnhollowerBaseLib;
 
-namespace NKHook6.Patches.Bloons
+namespace NKHook6.Patches._Bloons
 {
     [HarmonyPatch(typeof(Bloon), "Damage", new Type[] { typeof(float), typeof(Il2CppStringArray), typeof(Projectile), typeof(bool),
         typeof(bool), typeof(bool), typeof(Tower), typeof(bool), typeof(Il2CppStringArray), typeof(bool), typeof(bool) })]

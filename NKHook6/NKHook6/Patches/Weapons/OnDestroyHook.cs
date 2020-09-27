@@ -1,4 +1,4 @@
-﻿namespace NKHook6.Patches.Weapons
+﻿namespace NKHook6.Patches._Weapons
 {
     using Assets.Scripts.Simulation.Towers.Weapons;
     using Harmony;

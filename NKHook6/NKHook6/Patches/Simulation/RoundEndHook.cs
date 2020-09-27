@@ -1,26 +1,26 @@
-﻿using Assets.Scripts.Simulation;
-using Harmony;
-using NKHook6.Api.Events;
-using NKHook6.Api.Events._Simulation;
-
-namespace NKHook6.Patches.Simulate
+﻿namespace NKHook6.Patches._Simulation
 {
-    [HarmonyPatch(typeof(Simulation), "OnRoundStart")]
-    class RoundStartHook
+    using Assets.Scripts.Simulation;
+    using Harmony;
+    using NKHook6.Api.Events;
+    using NKHook6.Api.Events._Simulation;
+
+    [HarmonyPatch(typeof(Simulation), "OnRoundEnd")]
+    class RoundEndHook
     {
         private static bool sendPrefixEvent = true;
         private static bool sendPostfixEvent = true;
 
         [HarmonyPrefix]
-        internal static bool Prefix(ref Simulation __instance, ref int roundArrayIndex)
+        internal static bool Prefix(ref Simulation __instance, ref int round)
         {
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new RoundStartEvent.Pre(ref __instance, ref roundArrayIndex);
+                var o = new RoundEndEvent.Pre(ref __instance, ref round);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
-                roundArrayIndex = o.roundArrayIndex;
+                round = o.roundArrayIndex;
                 allowOriginalMethod = !o.isCancelled();
             }
 
@@ -30,14 +30,14 @@ namespace NKHook6.Patches.Simulate
         }
 
         [HarmonyPostfix]
-        internal static void Postfix(ref Simulation __instance, ref int roundArrayIndex)
+        internal static void Postfix(ref Simulation __instance, ref int round)
         {
             if (sendPostfixEvent)
             {
-                var o = new RoundStartEvent.Post(ref __instance, ref roundArrayIndex);
+                var o = new RoundEndEvent.Post(ref __instance, ref round);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
-                roundArrayIndex = o.roundArrayIndex;
+                round = o.roundArrayIndex;
             }
 
             sendPostfixEvent = !sendPostfixEvent;

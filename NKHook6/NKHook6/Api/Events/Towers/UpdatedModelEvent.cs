@@ -1,7 +1,7 @@
 ﻿using Assets.Scripts.Models;
 using Assets.Scripts.Simulation.Towers;
 
-namespace NKHook6.Api.Events.Towers
+namespace NKHook6.Api.Events._Towers
 {
     public class UpdatedModelEvent
     {

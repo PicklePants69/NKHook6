@@ -61,8 +61,10 @@ namespace NKHook6.Api.Events
                 "TimeManager.SetFastForwardEvent",
                 "InGame.GetContinueCostEvent",
                 "InGame.OnVictoryEvent",
+                "InGame.GetRoundHintEvent",
 
-                
+
+
                 "Projectile.InitialiseEvent",
                 "Projectile.OnDestroyEvent",
                 "Projectile.UpdatedModelEvent",

@@ -1,11 +1,11 @@
-﻿using Assets.Scripts.Models;
-using Assets.Scripts.Simulation.Towers;
-using Harmony;
-using NKHook6.Api.Events;
-using NKHook6.Api.Events.Towers;
-
-namespace NKHook6.Patches.Towers
+﻿namespace NKHook6.Patches._Towers
 {
+    using Assets.Scripts.Models;
+    using Assets.Scripts.Simulation.Towers;
+    using Harmony;
+    using NKHook6.Api.Events;
+    using NKHook6.Api.Events.Towers;
+
     [HarmonyPatch(typeof(Tower), "UpdatedModel")]
     class UpdatedModelHook
     {

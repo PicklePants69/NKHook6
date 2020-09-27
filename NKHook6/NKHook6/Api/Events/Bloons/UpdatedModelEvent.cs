@@ -1,7 +1,7 @@
 ﻿using Assets.Scripts.Models;
 using Assets.Scripts.Simulation.Bloons;
 
-namespace NKHook6.Api.Events.Bloons
+namespace NKHook6.Api.Events._Bloons
 {
     public class UpdatedModelEvent
     {
