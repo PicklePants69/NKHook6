@@ -36,7 +36,7 @@
 				source = o.source;
 				allowOriginalMethod = !o.isCancelled();
 			}
-			Logger.Log("RemoveCash Prefix Fired");
+			//Logger.Log("RemoveCash Prefix Fired");
 			sendPrefixEvent = !sendPrefixEvent;
 
 			return allowOriginalMethod;
@@ -61,7 +61,7 @@
 				cashIndex = o.cashIndex;
 				source = o.source;
 			}
-			Logger.Log("RemoveCash Postfix Fired");
+			//Logger.Log("RemoveCash Postfix Fired");
 			sendPostfixEvent = !sendPostfixEvent;
 		}
 	}

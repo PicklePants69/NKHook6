@@ -19,8 +19,8 @@ namespace NKHook6.Examples.LHCM
             EventRegistry.subscriber.register(typeof(Entry));
         }
 
-        [EventAttribute("Bloon.LeakedEvent.Pre")]
-        public static void onLeaked(ref BloonEvents.LeakedEvent.Pre e)
+        [EventAttribute("Bloon.LeakedEvent.Post")]
+        public static void onLeaked(ref BloonEvents.LeakedEvent.Post e)
         {
             float damage = e.instance.getDamage();
             InGame inst = InGame.instance;
@@ -38,6 +38,7 @@ namespace NKHook6.Examples.LHCM
                     inst.setHealth(0);
                 }
             }
+            return;
         }
     }
 }
