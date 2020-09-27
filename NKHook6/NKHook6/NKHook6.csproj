@@ -624,13 +624,12 @@
     <Compile Include="Api\Utilities\ReflectionUtils.cs" />
     <Compile Include="Api\Utilities\TowerUtils.cs" />
     <Compile Include="Attribute.cs" />
-    <Compile Include="BgThread.cs" />
     <Compile Include="KeyListener.cs" />
     <Compile Include="Api\Utilities\Utils.cs" />
     <Compile Include="Api\Web\GitApi.cs" />
     <Compile Include="Api\Web\UpdateHandler.cs" />
     <Compile Include="Api\Web\WebHandler.cs" />
-    <Compile Include="NkhUpdateMgr.cs" />
+    <Compile Include="UpdateMgr.cs" />
     <Compile Include="Patches\Bloons\DamageHook.cs" />
     <Compile Include="Patches\Bloons\UpdatedModelHook.cs" />
     <Compile Include="Patches\Bloons\InitialiseHook.cs" />
