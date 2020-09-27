@@ -10,6 +10,9 @@ namespace NKHook6.Api.Utilities
 {
     public class BloonUtils
     {
+        /// <summary>
+        /// A list of all bloons currently on the map. Updated when a bloon is initialised or destroyed
+        /// </summary>
         public static List<Bloon> BloonsOnMap = new List<Bloon>();
 
         /// <summary>
@@ -26,6 +29,11 @@ namespace NKHook6.Api.Utilities
         }
 
 
+        /// <summary>
+        /// Get the number ID of the bloon. Mainly used to get the numeric position of bloon in the list of DefaultBloonIds
+        /// </summary>
+        /// <param name="bloonId">bloon name of bloon you want Id for</param>
+        /// <returns></returns>
         public static int GetBloonIdNum(string bloonId)
         {
             int result = 0;

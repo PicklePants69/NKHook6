@@ -603,6 +603,7 @@
     <Compile Include="Api\Events\_Simulation\TakeDamageEvent.cs" />
     <Compile Include="Api\Extensions\BloonExt.cs" />
     <Compile Include="Api\Extensions\GameExt.cs" />
+    <Compile Include="Api\Extensions\ThreadingExt.cs" />
     <Compile Include="Api\Extensions\TowerExt.cs" />
     <Compile Include="Api\ModSettings.cs" />
     <Compile Include="Api\Utilities\AssetUtils.cs" />
@@ -613,11 +614,14 @@
     <Compile Include="Api\Utilities\JsonUtils.cs" />
     <Compile Include="Api\Utilities\ReflectionUtils.cs" />
     <Compile Include="Api\Utilities\TowerUtils.cs" />
+    <Compile Include="Attribute.cs" />
+    <Compile Include="BgThread.cs" />
     <Compile Include="KeyListener.cs" />
     <Compile Include="Api\Utilities\Utils.cs" />
     <Compile Include="Api\Web\GitApi.cs" />
     <Compile Include="Api\Web\UpdateHandler.cs" />
     <Compile Include="Api\Web\WebHandler.cs" />
+    <Compile Include="NkhUpdateMgr.cs" />
     <Compile Include="Patches\Bloons\DamageHook.cs" />
     <Compile Include="Patches\Bloons\UpdatedModelHook.cs" />
     <Compile Include="Patches\Bloons\InitialiseHook.cs" />

@@ -1,6 +1,6 @@
 ﻿using MelonLoader;
+using NKHook6;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
@@ -36,5 +36,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: MelonInfo(typeof(NKHook6.Main), "NKHook6", "0.0.1", "DisabledMallis & Gurrenm4")]
+[assembly: MelonInfo(typeof(NKHook6.Main), "NKHook6", "0.5.0", "DisabledMallis & Gurrenm4")]
 [assembly: MelonGame("Ninja Kiwi", "BloonsTD6")]
+[assembly: LatestVersionURL(typeof(NKHook6.Main), "https://raw.githubusercontent.com/gurrenm3/version-checking-test/master/README.md")]

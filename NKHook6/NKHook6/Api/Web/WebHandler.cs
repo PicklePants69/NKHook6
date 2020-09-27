@@ -20,8 +20,9 @@ namespace NKHook6.Api.Web
             WebClient client = new WebClient();
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             client.Headers.Add("user-agent", " Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0");
-
+            
             string result = "";
+            string lastExeption = "";
             for (int i = 0; i <= 250; i++)
             {
                 try
@@ -32,7 +33,14 @@ namespace NKHook6.Api.Web
 
                     break;
                 }
-                catch(Exception e) { Logger.Log(e.Message); }// Thread.Sleep(100); }
+                catch(Exception e) 
+                { 
+                    if (e.Message != lastExeption)
+                    {
+                        Logger.Log(e.Message);
+                        lastExeption = e.Message;
+                    }
+                }
             }
             return result;
         }

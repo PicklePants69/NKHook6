@@ -7,7 +7,7 @@ namespace NKHook6.Api.Events._MainMenu
         {
             public MainMenu instance;
 
-            public Pre(MainMenu __instance) : base("MainMenu.OnEnable.Pre")
+            public Pre(MainMenu __instance) : base("MainMenu.OnEnableEvent.Pre")
             {
                 this.instance = __instance;
             }
@@ -15,7 +15,7 @@ namespace NKHook6.Api.Events._MainMenu
         public class Post : EventBase
         {
             public MainMenu instance;
-            public Post(MainMenu __instance) : base("MainMenu.OnEnable.Post")
+            public Post(MainMenu __instance) : base("MainMenu.OnEnableEvent.Post")
             {
                 this.instance = __instance;
             }
