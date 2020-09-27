@@ -575,11 +575,10 @@
     <Compile Include="Api\Events\EventAttribute.cs" />
     <Compile Include="Api\Events\EventBaseCancellable.cs" />
     <Compile Include="Api\Events\EventRegistry.cs" />
-    <Compile Include="Api\Events\KeyEvent.cs" />
-    <Compile Include="Api\Events\UpdateEvent.cs" />
+    <Compile Include="Api\Events\InGame\OnVictoryEvent.cs" />
     <Compile Include="Api\Events\Projectile\InitialiseEvent.cs" />
     <Compile Include="Api\Events\Projectile\OnDestroyEvent.cs" />
-    <Compile Include="Api\Events\Projectile\UpdateModelEvent.cs" />
+    <Compile Include="Api\Events\Projectile\UpdatedModelEvent.cs" />
     <Compile Include="Api\Events\TimeManager\SetFastForwardEvent.cs" />
     <Compile Include="Api\Events\InGame\GetContinueCostEvent.cs" />
     <Compile Include="Api\Events\Simulation\OnDefeatEvent.cs" />
@@ -598,7 +597,7 @@
     <Compile Include="Api\Events\Towers\UpdatedModelEvent.cs" />
     <Compile Include="Api\Events\Towers\SoldEvent.cs" />
     <Compile Include="Api\Events\Towers\DestroyedEvent.cs" />
-    <Compile Include="Api\Events\Towers\InitializedEvent.cs" />
+    <Compile Include="Api\Events\Towers\InitialisedEvent.cs" />
     <Compile Include="Api\Events\UpdateEvent.cs" />
     <Compile Include="Api\Events\Weapons\InitialiseEvent.cs" />
     <Compile Include="Api\Events\Weapons\OnDestroyEvent.cs" />
@@ -631,9 +630,10 @@
     <Compile Include="Patches\Bloons\InitialiseHook.cs" />
     <Compile Include="Patches\Bloons\OnDestroyHook.cs" />
     <Compile Include="Patches\Bloons\LeakedHook.cs" />
+    <Compile Include="Patches\_InGame\OnVictoryHook.cs" />
     <Compile Include="Patches\_Projectile\InitialiseHook.cs" />
     <Compile Include="Patches\_Projectile\OnDestroyHook.cs" />
-    <Compile Include="Patches\_Projectile\UpdateModelHook.cs" />
+    <Compile Include="Patches\_Projectile\UpdatedModelHook.cs" />
     <Compile Include="Patches\_TimeManager\SetFastForwardHook.cs" />
     <Compile Include="Patches\_InGame\GetContinueCostHook.cs" />
     <Compile Include="Patches\_Simulation\OnDefeatHook.cs" />

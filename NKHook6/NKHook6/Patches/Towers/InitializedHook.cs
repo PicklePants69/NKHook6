@@ -19,7 +19,7 @@ namespace NKHook6.Patches.Towers
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new InitializedEvent.Pre(ref __instance, ref target, ref modelToUse);
+                var o = new InitialisedEvent.Pre(ref __instance, ref target, ref modelToUse);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
                 target = o.entity;
@@ -37,7 +37,7 @@ namespace NKHook6.Patches.Towers
         {
             if (sendPostfixEvent)
             {
-                var o = new InitializedEvent.Post(ref __instance, ref target, ref modelToUse);
+                var o = new InitialisedEvent.Post(ref __instance, ref target, ref modelToUse);
                 EventRegistry.subscriber.dispatchEvent(ref o);
                 __instance = o.instance;
                 target = o.entity;

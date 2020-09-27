@@ -1,15 +1,14 @@
 ﻿using Assets.Scripts.Unity.UI_New.InGame;
-using Assets.Scripts.Utils;
 
 namespace NKHook6.Api.Events._InGame
 {
-	public class GetContinueCostEvent
+	public class OnVictoryEvent
 	{
 		public class Pre : EventBaseCancellable
 		{
 			public InGame instance;
 
-			public Pre(ref InGame __instance) : base("InGame.GetContinueCostEvent.Pre")
+			public Pre(ref InGame __instance) : base("InGame.OnVictoryEvent.Pre")
 			{
 				this.instance = __instance;
 			}
@@ -18,12 +17,10 @@ namespace NKHook6.Api.Events._InGame
 		public class Post : EventBase
 		{
 			public InGame instance;
-			public KonFuze konFuze;
 
-			public Post(ref InGame __instance, ref KonFuze __result) : base("InGame.GetContinueCostEvent.Post")
+			public Post(ref InGame __instance) : base("InGame.OnVictoryEvent.Post")
 			{
 				this.instance = __instance;
-				this.konFuze = __result;
 			}
 		}
 	}

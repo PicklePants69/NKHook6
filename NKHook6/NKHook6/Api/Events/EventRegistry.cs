@@ -29,14 +29,16 @@ namespace NKHook6.Api.Events
                 "Bloon.SetRotationEvent",
                 "Bloon.UpdatedModelEvent",
 
-                "Tower.UpdatedModelEvent",
+                "Tower.InitialisedEvent",
                 "Tower.DestroyedEvent",
                 "Tower.SoldEvent",
-                "Tower.InitializedEvent",
-                "Tower.AddPoppedCashEvent",
-                "Tower.GetSaveDataEvent",
+                "Tower.UpdatedModelEvent",
                 "Tower.IsSelectableEvent",
                 "Tower.IsUpgradeBlockedEvent",
+                "Tower.AddPoppedCashEvent",
+                "Tower.GetSaveDataEvent",
+                
+
                 "InGame.UpdateEvent",
                 "Simulation.RoundStartEvent",
                 "Simulation.RoundEndEvent",
@@ -58,10 +60,12 @@ namespace NKHook6.Api.Events
 
                 "TimeManager.SetFastForwardEvent",
                 "InGame.GetContinueCostEvent",
+                "InGame.OnVictoryEvent",
+
                 
                 "Projectile.InitialiseEvent",
                 "Projectile.OnDestroyEvent",
-                "Projectile.UpdateModelEvent",
+                "Projectile.UpdatedModelEvent",
             };
 
             foreach (var item in CustomEvents)
