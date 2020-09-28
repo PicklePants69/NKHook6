@@ -76,6 +76,7 @@ namespace NKHook6.Api.Events
                     continue;
 
                 createEvent(item + preName);
+                createEvent(item + postName);
             }
         }
 
