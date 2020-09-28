@@ -19,7 +19,7 @@ You'll need to do a few things before you can make your first mod for BTD6/BTDAT
 
 
 ## Making your first mod in C#
-After following our getting started [Wiki Page](https://github.com/TDToolbox/BTD-Docs/blob/master/Unity%20Engine/MelonLoader/How%20to%20create%20Visual%20Studio%20project.md) mentioned above, you're ready to make your first mod!
+After following our getting started [Wiki Page](https://github.com/TDToolbox/BTD-Docs/blob/master/Unity%20Engine/MelonLoader/How%20to%20create%20Visual%20Studio%20project.md) mentioned above, you're ready to make your first mod! Follow this guide to learn how to make your first MelonMod: https://melonwiki.xyz/#/modders/quickstart
 
 
 ## How do Harmonny Patches work?
