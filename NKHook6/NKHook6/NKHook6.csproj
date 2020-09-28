@@ -674,7 +674,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Api\Events\Bridge\UnityToSimulation\" />
-    <Folder Include="Patches\Bride\UnityToSim\" />
+    <Folder Include="Patches\Bridge\UnityToSim\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

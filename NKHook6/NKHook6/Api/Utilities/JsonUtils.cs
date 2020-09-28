@@ -8,6 +8,7 @@
     using System.Reflection;
     using Newtonsoft.Json;
 
+    //Taken from: https://github.com/SubnauticaModding/SMLHelper/blob/master/SMLHelper/Utility/JsonUtils.cs
     /// <summary>
     /// A collection of utilities for interacting with JSON files.
     /// </summary>
