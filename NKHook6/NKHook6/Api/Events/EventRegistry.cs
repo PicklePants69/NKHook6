@@ -101,6 +101,7 @@ namespace NKHook6.Api.Events
                     {
                         if(attrib is EventAttribute)
                         {
+                            bool registered = false;
                             EventAttribute eventAttrib = (EventAttribute)attrib;
                             foreach(string currentEventName in theRegistry.Keys)
                             {
@@ -108,10 +109,12 @@ namespace NKHook6.Api.Events
                                 {
                                     theRegistry[currentEventName].Add(method);
                                     Logger.Log("Registered event \"" + eventAttrib.eventName + "\"");
+                                    registered = true;
                                     continue;
                                 }
                             }
-                            Logger.Log("Unknown event \"" + eventAttrib.eventName + "\"");
+                            if(!registered)
+                                Logger.Log("Unknown event \"" + eventAttrib.eventName + "\"");
                         }
                     }
                 }
