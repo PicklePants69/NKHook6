@@ -107,7 +107,7 @@ namespace NKHook6.Api.Events
                                 {
                                     theRegistry[currentEventName].Add(method);
                                     Logger.Log("Registered event \"" + eventAttrib.eventName + "\"");
-                                    return;
+                                    continue;
                                 }
                             }
                             Logger.Log("Unknown event \"" + eventAttrib.eventName + "\"");

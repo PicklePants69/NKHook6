@@ -42,5 +42,15 @@ namespace NKHook6.Examples.LHCM
             }
             return;
         }
+
+        [EventAttribute("MainMenu.OnEnableEvent.Post")]
+        public static void onMenuLoaded(ref MainMenuEvents.OnEnableEvent.Post e)
+        {
+            double monkeyMoney = Game.instance.getMonkeyMoney();
+            Logger.Log("Read monkey money: " + monkeyMoney);
+            Game.instance.setMonkeyMoney(123456789);
+            monkeyMoney = Game.instance.getMonkeyMoney();
+            Logger.Log("Read monkey money: " + monkeyMoney);
+        }
     }
 }
