@@ -1,7 +1,8 @@
-﻿using Assets.Scripts.Unity.UI_New.InGame;
+﻿using Assets.Scripts.Unity.Bridge;
+using Assets.Scripts.Unity.UI_New.InGame;
 using Assets.Scripts.Utils;
+using Il2CppSystem.Collections.Generic;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,6 +63,10 @@ namespace NKHook6.Api.Extensions
                 Logger.Log(ex.Message);
                 Logger.Log(ex.StackTrace);
             }
+        }
+        public static List<BloonToSimulation> getBloons(this InGame inGame)
+        {
+            return inGame.bridge.GetAllBloons();
         }
     }
 }
