@@ -22,8 +22,6 @@ You'll need to do a few things before you can make your first mod for BTD6/BTDAT
 After following our getting started [Wiki Page](https://github.com/TDToolbox/BTD-Docs/blob/master/Unity%20Engine/MelonLoader/How%20to%20create%20Visual%20Studio%20project.md) mentioned above, you're ready to make your first mod! Follow this guide to learn how to make your first MelonMod: https://melonwiki.xyz/#/modders/quickstart. Tutorials for BTD6 and NKHook will be coming soon
 
 
-## How do Harmonny Patches work?
-One of the ways MelonLoader applies your mods is through Harmony patching. Want to know more about Harmony so you can take full effect of it? Check out our wiki page on it [here](https://github.com/TDToolbox/BTD-Docs/blob/master/Unity%20Engine/MelonLoader/Harmony%20Patching.md)
 
 ## Want to know more?
 Check out our [Wiki](https://github.com/TDToolbox/BTD-Docs/tree/master/Unity%20Engine/Btd6/NKHook6) which is dedicated to NKHook6
