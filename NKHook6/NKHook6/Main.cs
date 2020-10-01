@@ -21,13 +21,11 @@ namespace NKHook6
             Logger.Log("NKHook6 is initializing...");
             Log("CWD: " + Environment.CurrentDirectory);
 
-            InitializeHarmony();
-
             new EventRegistry();
             new KeyListener();
 
-            EventRegistry.subscriber.register(this.GetType());
-            //InitializeBoo();
+            EventRegistry.subscriber.register(typeof(Main));
+
             Log("NKHook6 initialized");
 
             InitializeCommandMgr();
@@ -35,25 +33,11 @@ namespace NKHook6
 
         }
 
-        [EventAttribute("MainMenu.OnEnableEvent.Post")]
-        public static void MainMenuShown(MainMenuEvents.OnEnableEvent.Post e)
+        [EventAttribute("MainMenuLoadedEvent")]
+        public static void MainMenuShown(MainMenuEvents.LoadedEvent e)
         {
+            Logger.Log("Async works too i guess");
             UpdateMgr.HandleUpdates();
-        }
-
-
-        private void InitializeBoo()
-        {
-            Log("Initializing Boo...");
-            BooManager.ExecuteAllScripts();
-            Log("Initialized Boo");
-        }
-
-        private void InitializeHarmony()
-        {
-            Log("Initializing Harmony...");
-            HarmonyInstance.Create("TD Toolbox.NKHook6").PatchAll();
-            Log("Finished Initializing Harmony. Hooks are patched");
         }
 
         private void InitializeCommandMgr()

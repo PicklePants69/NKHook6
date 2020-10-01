@@ -5,18 +5,20 @@ using NKHook6.Api.Events._Bloons;
 
 namespace NKHook6.Patches._Bloons
 {
-    [HarmonyPatch(typeof(Bloon), "Leaked")]
-    class LeakedHook
+    [HarmonyPatch(typeof(Bloon), "set_distanceTraveled")]
+    class MoveHook
     {
         private static bool sendPrefixEvent = true;
 
         [HarmonyPrefix]
-        internal static bool Prefix(ref Bloon __instance)
+        internal static bool Prefix(ref Bloon __instance, ref float newPosition)
         {
             bool allowOriginalMethod = true;
 
-            var o = new BloonEvents.LeakedEvent(ref __instance);
+            float oldPosition = __instance.distanceTraveled;
+            var o = new BloonEvents.MoveEvent(ref __instance, ref newPosition, ref oldPosition);
             EventRegistry.subscriber.dispatchEvent(ref o);
+            newPosition = o.newPosition;
             allowOriginalMethod = !o.isCancelled();
 
             return allowOriginalMethod;

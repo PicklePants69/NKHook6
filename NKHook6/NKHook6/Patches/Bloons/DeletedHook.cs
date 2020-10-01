@@ -6,10 +6,9 @@ using NKHook6.Api.Events._Bloons;
 namespace NKHook6.Patches._Bloons
 {
     [HarmonyPatch(typeof(Bloon), "OnDestroy")]
-    class OnDestroyHook
+    class DeletedHook
     {
         private static bool sendPrefixEvent = true;
-        private static bool sendPostfixEvent = true;
 
         [HarmonyPrefix]
         internal static bool Prefix(ref Bloon __instance)
@@ -17,28 +16,14 @@ namespace NKHook6.Patches._Bloons
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new BloonEvents.OnDestroyEvent.Pre(ref __instance);
+                var o = new BloonEvents.DeletedEvent(ref __instance);
                 EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.instance;
                 allowOriginalMethod = !o.isCancelled();
             }
 
             sendPrefixEvent = !sendPrefixEvent;
 
             return allowOriginalMethod;
-        }
-
-        [HarmonyPostfix]
-        internal static void Postfix(ref Bloon __instance)
-        {
-            if (sendPostfixEvent)
-            {
-                var o = new BloonEvents.OnDestroyEvent.Post(ref __instance);
-                EventRegistry.subscriber.dispatchEvent(ref o);
-                __instance = o.instance;
-            }
-
-            sendPostfixEvent = !sendPostfixEvent;
         }
     }
 }

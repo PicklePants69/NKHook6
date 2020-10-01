@@ -25,13 +25,12 @@ namespace NKHook6.Patches._Bloons
             bool allowOriginalMethod = true;
             if (sendPrefixEvent)
             {
-                var o = new BloonEvents.DamagedEvent.Pre(ref __instance, ref totalAmount, ref types, ref projectile,
+                var o = new BloonEvents.DamagedEvent(ref __instance, ref totalAmount, ref types, ref projectile,
                     ref distributeToChildren, ref overrideDistributeBlocker, ref createEffect, ref tower,
                     ref canDestroyProjectile, ref ignoreImmunityForBloonTypes, ref ignoreNonTargetable,
                     ref blockSpawnChildren);
                 EventRegistry.subscriber.dispatchEvent(ref o);
 
-                __instance = o.instance;
                 totalAmount = o.damageTaken;
                 types = o.damageTypes;
                 projectile = o.projectile;
@@ -49,37 +48,6 @@ namespace NKHook6.Patches._Bloons
             sendPrefixEvent = !sendPrefixEvent;
 
             return allowOriginalMethod;
-        }
-
-        [HarmonyPostfix]
-        internal static void Postfix(ref Bloon __instance, ref float totalAmount, ref Il2CppStringArray types, ref Projectile projectile,
-        ref bool distributeToChildren, ref bool overrideDistributeBlocker, ref bool createEffect, ref Tower tower,
-        ref bool canDestroyProjectile, ref Il2CppStringArray ignoreImmunityForBloonTypes, ref bool ignoreNonTargetable,
-        ref bool blockSpawnChildren)
-        {
-            if (sendPostfixEvent)
-            {
-                var o = new BloonEvents.DamagedEvent.Post(ref __instance, ref totalAmount, ref types, ref projectile,
-                    ref distributeToChildren, ref overrideDistributeBlocker, ref createEffect, ref tower,
-                    ref canDestroyProjectile, ref ignoreImmunityForBloonTypes, ref ignoreNonTargetable,
-                    ref blockSpawnChildren);
-                EventRegistry.subscriber.dispatchEvent(ref o);
-
-                __instance = o.instance;
-                totalAmount = o.damageTaken;
-                types = o.damageTypes;
-                projectile = o.projectile;
-                distributeToChildren = o.distrubuteToChildren;
-                overrideDistributeBlocker = o.overrideDistributeBlocker;
-                createEffect = o.createEffect;
-                tower = o.tower;
-                canDestroyProjectile = o.canDestroyProjectile;
-                ignoreImmunityForBloonTypes = o.ignoreImmunityForBloonTypes;
-                ignoreNonTargetable = o.ignoreNonTargetables;
-                blockSpawnChildren = o.blockSpawnChildren;
-            }
-
-            sendPostfixEvent = !sendPostfixEvent;
         }
     }
 }
