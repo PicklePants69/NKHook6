@@ -1,5 +1,5 @@
 # NKHook6
-A Boo and C# modding API for [BloonsTD6](https://btd6.com/) using MelonLoader, made by [TD Toolbox](https://github.com/TDToolbox)
+A C# modding API for [BloonsTD6](https://btd6.com/) using MelonLoader, made by [TD Toolbox](https://github.com/TDToolbox)
 
 
 
