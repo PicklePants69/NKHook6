@@ -108,7 +108,7 @@ namespace NKHook6.Api.Events
                                 if (currentEventName == eventAttrib.eventName)
                                 {
                                     theRegistry[currentEventName].Add(method);
-                                    Logger.Log("Registered event \"" + eventAttrib.eventName + "\"");
+                                    //Logger.Log("Registered event \"" + eventAttrib.eventName + "\"");
                                     registered = true;
                                     continue;
                                 }

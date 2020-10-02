@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.Unity.UI_New.Popups;
 using System;
-
+using UnityEngine.Events;
 using Utils = NKHook6.Api.Utilities.Utils;
 
 namespace NKHook6
@@ -66,7 +66,14 @@ namespace NKHook6
         public static void ShowMsgPopup(string title, string body)
         {
             //PopupScreen.instance.(new Action(() => ));
-
+            // here i'm going to use the TitleScreen class as an example, you can use any GenericAnimatedScene, instance of TitleScreen will be "title"
+            
+            //UnityAction action = new UnityAction((object)title, methodPointer);
+            PopupScreen.ReturnCallback p = null;
+            
+            PopupScreen.instance.ShowPopup(PopupScreen.Placement.menuCenter, "RACISM CHECK", "Are you racist?", p, "Fuck yes!", null, "I love BLM, actually", Popup.TransitionAnim.Scale, PopupScreen.BackGround.Grey, -1, -1, false);
+            
+            
             try
             {
                 //There are 29 different imageIndexes
