@@ -603,7 +603,7 @@
     <Compile Include="Api\Events\Towers\UpdatedModelEvent.cs" />
     <Compile Include="Api\Events\Towers\OnSoldEvent.cs" />
     <Compile Include="Api\Events\Towers\OnDestroyEvent.cs" />
-    <Compile Include="Api\Events\Towers\InitialiseEvent.cs" />
+    <Compile Include="Api\Events\Towers\CreatedEvent.cs" />
     <Compile Include="Api\Events\UpdateEvent.cs" />
     <Compile Include="Api\Events\Weapons\InitialiseEvent.cs" />
     <Compile Include="Api\Events\Weapons\OnDestroyEvent.cs" />
@@ -662,7 +662,7 @@
     <Compile Include="Patches\Towers\UpdatedModelHook.cs" />
     <Compile Include="Patches\Towers\OnSoldHook.cs" />
     <Compile Include="Patches\Towers\OnDestroyHook.cs" />
-    <Compile Include="Patches\Towers\InitializeHook.cs" />
+    <Compile Include="Patches\Towers\CreatedHook.cs" />
     <Compile Include="Patches\Weapons\InitialiseHook.cs" />
     <Compile Include="Patches\Weapons\OnDestroyHook.cs" />
     <Compile Include="Patches\Weapons\UpgradeModelHook.cs" />

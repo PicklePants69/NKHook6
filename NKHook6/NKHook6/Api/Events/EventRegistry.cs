@@ -21,17 +21,17 @@ namespace NKHook6.Api.Events
             createEvent("BloonDamagedEvent"); //Updated
             createEvent("BloonLeakedEvent"); //Updated
             createEvent("BloonDeletedEvent"); //Updated
-            createEvent("BloonMoveEvent");
+            //createEvent("BloonMoveEvent"); //Not possible yet, gotta do more investigation
             createEvent("BloonRotateEvent"); //Updated
-            createEvent("BloonModelChangedEvent");
+            //createEvent("BloonModelChangedEvent"); //Kinda useless
 
-            createEvent("TowerCreatedEvent");
-            createEvent("TowerDeletedEvent");
-            createEvent("TowerSoldEvent");
-            createEvent("TowerModelChangedEvent");
-            createEvent("TowerSelectedEvent");
-            createEvent("TowerUpgradeEvent");
-            createEvent("TowerDeselectedEvent");
+            createEvent("TowerCreatedEvent"); //Updated
+            createEvent("TowerDeletedEvent"); //Updated
+            createEvent("TowerSoldEvent"); //Updated
+            //createEvent("TowerModelChangedEvent"); //Kinda useless
+            createEvent("TowerSelectedEvent"); //Updated
+            createEvent("TowerDeselectedEvent"); //Updated
+            createEvent("TowerUpgradeEvent"); //Updated
 
             createEvent("RoundStartEvent");
             createEvent("RoundEndEvent");
