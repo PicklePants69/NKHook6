@@ -33,12 +33,12 @@ namespace NKHook6.Api.Events
             createEvent("TowerDeselectedEvent"); //Updated
             createEvent("TowerUpgradeEvent"); //Updated
 
-            createEvent("RoundStartEvent");
-            createEvent("RoundEndEvent");
+            createEvent("RoundStartEvent"); //Updated
+            createEvent("RoundEndEvent"); //Updated
 
-            createEvent("WeaponCreatedEvent");
-            createEvent("WeaponDeletedEvent");
-            createEvent("WeaponModelChangedEvent");
+            createEvent("WeaponCreatedEvent"); //Updated
+            createEvent("WeaponDeletedEvent"); //Updated
+            //createEvent("WeaponModelChangedEvent"); //Kinda useless
 
             createEvent("VictoryEvent");
             createEvent("DefeatedEvent");
