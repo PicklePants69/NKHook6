@@ -620,6 +620,7 @@
     <Compile Include="Api\Utilities\EnumUtils.cs" />
     <Compile Include="Api\Utilities\ImageUtils.cs" />
     <Compile Include="Api\Utilities\JsonUtils.cs" />
+    <Compile Include="Api\Utilities\ProfileUtils.cs" />
     <Compile Include="Api\Utilities\ReflectionUtils.cs" />
     <Compile Include="Api\Utilities\TowerUtils.cs" />
     <Compile Include="Attribute.cs" />
