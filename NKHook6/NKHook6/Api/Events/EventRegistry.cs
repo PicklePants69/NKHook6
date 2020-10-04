@@ -82,7 +82,7 @@ namespace NKHook6.Api.Events
 
         void createEvent(string eventName)
         {
-            Logger.Log("Created event: " + eventName);
+            //Logger.Log("Created event: " + eventName);
             theRegistry.Add(eventName, new List<MethodInfo>());
         }
 

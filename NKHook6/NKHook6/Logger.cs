@@ -71,7 +71,7 @@ namespace NKHook6
             //UnityAction action = new UnityAction((object)title, methodPointer);
             PopupScreen.ReturnCallback p = null;
             
-            PopupScreen.instance.ShowPopup(PopupScreen.Placement.menuCenter, "RACISM CHECK", "Are you racist?", p, "Fuck yes!", null, "I love BLM, actually", Popup.TransitionAnim.Scale, PopupScreen.BackGround.Grey, -1, -1, false);
+            PopupScreen.instance.ShowPopup(PopupScreen.Placement.menuCenter, "Title", "Body", p, "Okay", null, "Cancel", Popup.TransitionAnim.Scale, PopupScreen.BackGround.Grey, -1, -1, false);
             
             
             try
