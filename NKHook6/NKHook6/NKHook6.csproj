@@ -578,12 +578,13 @@
     <Compile Include="Api\Events\EventAttribute.cs" />
     <Compile Include="Api\Events\EventBaseCancellable.cs" />
     <Compile Include="Api\Events\EventRegistry.cs" />
-    <Compile Include="Api\Events\InGame\OnVictoryEvent.cs" />
+    <Compile Include="Api\Events\InGame\VictoryEvent.cs" />
     <Compile Include="Api\Events\Projectile\InitialiseEvent.cs" />
     <Compile Include="Api\Events\Projectile\OnDestroyEvent.cs" />
     <Compile Include="Api\Events\Projectile\UpdatedModelEvent.cs" />
+    <Compile Include="Api\Events\Simulation\CashChangedEvent.cs" />
     <Compile Include="Api\Events\Simulation\CashGainedEvent.cs" />
-    <Compile Include="Api\Events\Simulation\RemoveCashEvent.cs" />
+    <Compile Include="Api\Events\Simulation\CashLostEvent.cs" />
     <Compile Include="Api\Events\Simulation\SetCashEvent.cs" />
     <Compile Include="Api\Events\TimeManager\SetFastForwardEvent.cs" />
     <Compile Include="Api\Events\InGame\GetContinueCostEvent.cs" />
@@ -636,7 +637,7 @@
     <Compile Include="Patches\Bloons\CreatedHook.cs" />
     <Compile Include="Patches\Bloons\DeletedHook.cs" />
     <Compile Include="Patches\Bloons\LeakedHook.cs" />
-    <Compile Include="Patches\InGame\OnVictoryHook.cs" />
+    <Compile Include="Patches\InGame\VictoryHook.cs" />
     <Compile Include="Patches\Projectile\InitialiseHook.cs" />
     <Compile Include="Patches\Projectile\OnDestroyHook.cs" />
     <Compile Include="Patches\Projectile\UpdatedModelHook.cs" />
