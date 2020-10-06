@@ -10,6 +10,7 @@ using Il2CppSystem.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using Assets.Scripts.Models.Profile;
+using Assets.Scripts.Models.Power;
 
 namespace NKHook6.Api.Utilities
 {
@@ -23,6 +24,7 @@ namespace NKHook6.Api.Utilities
         public static List<TowerDetailsModel> AllTowersInTheGame = new List<TowerDetailsModel>();
 
         internal static Dictionary<ShopTowerDetailsModel, int> AddTheseTowersToList;
+        internal static Dictionary<ShopTowerDetailsModel, int> AddThesePowersTowersToList;
 
         public static TowerInventory TowerInventory;
 

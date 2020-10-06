@@ -35,10 +35,15 @@ namespace NKHook6
 
         }
 
+        internal static bool checkedForUpdates = false;
         [EventAttribute("MainMenu.OnEnableEvent.Post")]
         public static void MainMenuShown(MainMenuEvents.OnEnableEvent.Post e)
         {
-            UpdateMgr.HandleUpdates();
+            if (!checkedForUpdates)
+            {
+                UpdateMgr.HandleUpdates();
+                checkedForUpdates = true;
+            }
         }
 
 
@@ -52,7 +57,7 @@ namespace NKHook6
         private void InitializeHarmony()
         {
             Log("Initializing Harmony...");
-            HarmonyInstance.Create("TD Toolbox.NKHook6").PatchAll();
+            //HarmonyInstance.Create("TD Toolbox.NKHook6").PatchAll();
             Log("Finished Initializing Harmony. Hooks are patched");
         }
 
