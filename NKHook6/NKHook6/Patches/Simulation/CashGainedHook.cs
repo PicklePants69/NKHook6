@@ -18,7 +18,7 @@
 		private static int postfixSkipCount = 0;
 
 		[HarmonyPrefix]
-		internal static bool Prefix(ref Simulation __instance, ref double cash, ref Simulation.CashType from, ref int cashIndex, ref Simulation.CashSource source, [Optional]ref Tower tower)
+		internal static bool Prefix(ref Simulation __instance, ref double cash, ref Simulation.CashType from, ref int cashIndex, ref Simulation.CashSource source, [Optional] ref Tower tower)
 		{
 			//Have to do weird skipping because the event normally fires all the time for no reason
 			prefixSkipCount++;
@@ -27,16 +27,35 @@
 			prefixSkipCount = 0;
 
 			bool allowOriginalMethod = true;
-			var o = new SimulationEvents.CashGainedEvent(ref __instance, ref c, ref from, ref cashIndex, ref source, ref tower);
-			EventRegistry.subscriber.dispatchEvent(ref o);
-			cash = o.cash;
-			from = o.from;
-			cashIndex = o.cashIndex;
-			source = o.source;
-			tower = o.tower;
-			allowOriginalMethod = !o.isCancelled();
+			var p = new SimulationEvents.CashChangedEvent(__instance, cash, from, cashIndex, source, tower);
+			EventRegistry.subscriber.dispatchEvent(ref p);
+			if (cash > 0)
+			{
+				var o = new SimulationEvents.CashGainedEvent(__instance, cash, from, cashIndex, source, tower);
+				EventRegistry.subscriber.dispatchEvent(ref o);
 
-			return allowOriginalMethod;
+				cash = o.cash;
+				from = o.from;
+				cashIndex = o.cashIndex;
+				source = o.source;
+				tower = o.tower;
+				allowOriginalMethod = !(o.isCancelled() || p.isCancelled());
+
+				return allowOriginalMethod;
+			}
+            else
+            {
+				var o = new SimulationEvents.CashLostEvent(__instance, cash, from, cashIndex, source);
+				EventRegistry.subscriber.dispatchEvent(ref o);
+
+				cash = o.cash;
+				from = o.from;
+				cashIndex = o.cashIndex;
+				source = o.source;
+				allowOriginalMethod = !(o.isCancelled() || p.isCancelled());
+
+				return allowOriginalMethod;
+			}
 		}
 	}
 }

@@ -40,13 +40,13 @@ namespace NKHook6.Api.Events
             createEvent("WeaponDeletedEvent"); //Updated
             //createEvent("WeaponModelChangedEvent"); //Kinda useless
 
-            createEvent("VictoryEvent");
+            createEvent("VictoryEvent"); //Updated
             createEvent("DefeatedEvent"); //Updated
             createEvent("HealthChangedEvent");
             createEvent("HealthLostEvent");
             createEvent("HealthGainedEvent");
-            createEvent("CashChangedEvent");
-            createEvent("CashLostEvent");
+            createEvent("CashChangedEvent"); //Updated
+            createEvent("CashLostEvent"); //Updated
             createEvent("CashGainedEvent"); //Updated
 
             createEvent("FastForwardToggleEvent");

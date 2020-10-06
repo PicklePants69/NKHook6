@@ -16,7 +16,7 @@
 		private static int postfixSkipCount = 0;
 
 		[HarmonyPrefix]
-		internal static bool Prefix(ref Simulation __instance, ref double c, ref Simulation.CashType from, ref int cashIndex, ref Simulation.CashSource source)
+		internal static bool Prefix(ref Simulation __instance, ref double cash, ref Simulation.CashType from, ref int cashIndex, ref Simulation.CashSource source)
 		{
 			//Have to do weird skipping because the event normally fires all the time for no reason
 			prefixSkipCount++;
@@ -24,13 +24,12 @@
 				return true;
 			prefixSkipCount = 0;
 
-			bool allowOriginalMethod = true;
+			/*bool allowOriginalMethod = true;
 			if (sendPrefixEvent)
 			{
-				var o = new SimulationEvents.RemoveCashEvent.Pre(ref __instance, ref c, ref from, ref cashIndex, ref source);
+				var o = new SimulationEvents.CashLostEvent(ref __instance, ref cash, ref from, ref cashIndex, ref source);
 				EventRegistry.subscriber.dispatchEvent(ref o);
-				__instance = o.instance;
-				c = o.cash;
+				cash = o.cash;
 				from = o.from;
 				cashIndex = o.cashIndex;
 				source = o.source;
@@ -39,31 +38,36 @@
 
 			sendPrefixEvent = !sendPrefixEvent;
 
-			return allowOriginalMethod;
-		}
-
-		[HarmonyPostfix]
-		internal static void Postfix(ref Simulation __instance, ref double c, ref Simulation.CashType from, ref int cashIndex, ref Simulation.CashSource source)
-		{
-			//Have to do weird skipping because the event normally fires all the time for no reason
-			postfixSkipCount++;
-			if (postfixSkipCount < skipNum)
-				return;
-			postfixSkipCount = 0;
-
-			if (sendPostfixEvent)
+			return allowOriginalMethod;*/
+			bool allowOriginalMethod = true;
+			var p = new SimulationEvents.CashChangedEvent(__instance, cash, from, cashIndex, source, null);
+			EventRegistry.subscriber.dispatchEvent(ref p);
+			if (cash < 0)
 			{
-				var o = new SimulationEvents.RemoveCashEvent.Post(ref __instance, ref c, ref from, ref cashIndex, ref source);
+				var o = new SimulationEvents.CashGainedEvent(__instance, cash, from, cashIndex, source, null);
 				EventRegistry.subscriber.dispatchEvent(ref o);
-				__instance = o.instance;
-				c = o.cash;
+
+				cash = o.cash;
 				from = o.from;
 				cashIndex = o.cashIndex;
 				source = o.source;
-			}
+				allowOriginalMethod = !(o.isCancelled() || p.isCancelled());
 
-			sendPostfixEvent = !sendPostfixEvent;
+				return allowOriginalMethod;
+			}
+			else
+			{
+				var o = new SimulationEvents.CashLostEvent(__instance, cash, from, cashIndex, source);
+				EventRegistry.subscriber.dispatchEvent(ref o);
+
+				cash = o.cash;
+				from = o.from;
+				cashIndex = o.cashIndex;
+				source = o.source;
+				allowOriginalMethod = !(o.isCancelled() || p.isCancelled());
+
+				return allowOriginalMethod;
+			}
 		}
 	}
-
 }
