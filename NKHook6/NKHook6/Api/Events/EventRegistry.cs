@@ -11,12 +11,16 @@ namespace NKHook6.Api.Events
         {
             subscriber = this;
 
+            //Unity
             createEvent("UpdateEvent"); //Updated
             createEvent("KeyPressEvent"); //Updated
             createEvent("KeyHeldEvent"); //Updated
             createEvent("KeyReleaseEvent"); //Updated
 
+            //Game
             createEvent("MainMenuLoadedEvent"); //Updated
+
+            //Bloons
             createEvent("BloonCreatedEvent"); //Updated
             createEvent("BloonDamagedEvent"); //Updated
             createEvent("BloonLeakedEvent"); //Updated
@@ -25,6 +29,7 @@ namespace NKHook6.Api.Events
             createEvent("BloonRotateEvent"); //Updated
             //createEvent("BloonModelChangedEvent"); //Kinda useless
 
+            //Towers
             createEvent("TowerCreatedEvent"); //Updated
             createEvent("TowerDeletedEvent"); //Updated
             createEvent("TowerSoldEvent"); //Updated
@@ -33,27 +38,32 @@ namespace NKHook6.Api.Events
             createEvent("TowerDeselectedEvent"); //Updated
             createEvent("TowerUpgradeEvent"); //Updated
 
+            //Simulation
             createEvent("RoundStartEvent"); //Updated
             createEvent("RoundEndEvent"); //Updated
-
-            createEvent("WeaponCreatedEvent"); //Updated
-            createEvent("WeaponDeletedEvent"); //Updated
-            //createEvent("WeaponModelChangedEvent"); //Kinda useless
-
-            createEvent("VictoryEvent"); //Updated
             createEvent("DefeatedEvent"); //Updated
-            createEvent("HealthChangedEvent");
-            createEvent("HealthLostEvent");
-            createEvent("HealthGainedEvent");
             createEvent("CashChangedEvent"); //Updated
             createEvent("CashLostEvent"); //Updated
             createEvent("CashGainedEvent"); //Updated
 
-            createEvent("FastForwardToggleEvent");
+            //Weapons
+            createEvent("WeaponCreatedEvent"); //Updated
+            createEvent("WeaponDeletedEvent"); //Updated
+            //createEvent("WeaponModelChangedEvent"); //Kinda useless
 
+            //InGame
+            createEvent("VictoryEvent"); //Updated
+
+            //Projectiles
             createEvent("ProjectileCreatedEvent");
             createEvent("ProjectileDeletedEvent");
-            createEvent("ProjectileModelChangedEvent");
+            //createEvent("ProjectileModelChangedEvent");
+
+            //TODO:
+            /*createEvent("HealthChangedEvent");
+            createEvent("HealthLostEvent");
+            createEvent("HealthGainedEvent");
+            createEvent("FastForwardToggleEvent");*/
         }
 
         void createEvent(string eventName)

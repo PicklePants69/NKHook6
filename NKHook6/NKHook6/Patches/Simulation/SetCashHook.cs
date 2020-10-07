@@ -11,7 +11,7 @@
 	class SetCashHook
 	{
 		[HarmonyPrefix]
-		internal static bool Prefix(ref Simulation __instance, ref double cash, [Optional] ref int cashIndex)
+		internal static bool Prefix(ref Simulation __instance, ref double c, [Optional] ref int cashIndex)
 		{
 			/*bool allowOriginalMethod = true;
 			var o = new SimulationEvents.SetCashEvent.Pre(__instance, cash, cashIndex);
@@ -22,6 +22,9 @@
 			allowOriginalMethod = !o.isCancelled();
 
 			return allowOriginalMethod;*/
+
+			double cash = c;
+
 			bool allowOriginalMethod = true;
 			var p = new SimulationEvents.CashChangedEvent(__instance, cash, CashType.Normal, cashIndex, CashSource.Normal, null);
 			EventRegistry.subscriber.dispatchEvent(ref p);

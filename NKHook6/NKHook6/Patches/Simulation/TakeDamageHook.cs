@@ -14,7 +14,7 @@
 		[HarmonyPrefix]
 		internal static bool Prefix(ref Simulation __instance, ref float damage)
 		{
-			bool allowOriginalMethod = true;
+			/*bool allowOriginalMethod = true;
 			if (sendPrefixEvent)
 			{
 				var o = new SimulationEvents.TakeDamageEvent.Pre(ref __instance, ref damage);
@@ -26,13 +26,14 @@
 
 			sendPrefixEvent = !sendPrefixEvent;
 
-			return allowOriginalMethod;
+			return allowOriginalMethod;*/
+			return true;
 		}
 
 		[HarmonyPostfix]
 		internal static void Postfix(ref Simulation __instance, ref float damage)
 		{
-			if (sendPostfixEvent)
+			/*if (sendPostfixEvent)
 			{
 				var o = new SimulationEvents.TakeDamageEvent.Post(ref __instance, ref damage);
 				EventRegistry.subscriber.dispatchEvent(ref o);
@@ -40,7 +41,7 @@
 				damage = o.damage;
 			}
 
-			sendPostfixEvent = !sendPostfixEvent;
+			sendPostfixEvent = !sendPostfixEvent;*/
 		}
 	}
 

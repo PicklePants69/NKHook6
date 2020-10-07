@@ -5,7 +5,7 @@ using NKHook6.Api.Events._Bloons;
 
 namespace NKHook6.Patches._Bloons
 {
-    [HarmonyPatch(typeof(Bloon), "set_distanceTraveled")]
+    /*[HarmonyPatch(typeof(Bloon), "set_distanceTraveled")]
     class MoveHook
     {
         private static bool sendPrefixEvent = true;
@@ -23,5 +23,5 @@ namespace NKHook6.Patches._Bloons
 
             return allowOriginalMethod;
         }
-    }
+    }*/
 }

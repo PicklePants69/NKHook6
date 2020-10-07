@@ -579,13 +579,11 @@
     <Compile Include="Api\Events\EventBaseCancellable.cs" />
     <Compile Include="Api\Events\EventRegistry.cs" />
     <Compile Include="Api\Events\InGame\VictoryEvent.cs" />
-    <Compile Include="Api\Events\Projectile\InitialiseEvent.cs" />
-    <Compile Include="Api\Events\Projectile\OnDestroyEvent.cs" />
-    <Compile Include="Api\Events\Projectile\UpdatedModelEvent.cs" />
+    <Compile Include="Api\Events\Projectile\CreatedEvent.cs" />
+    <Compile Include="Api\Events\Projectile\DeletedEvent.cs" />
     <Compile Include="Api\Events\Simulation\CashChangedEvent.cs" />
     <Compile Include="Api\Events\Simulation\CashGainedEvent.cs" />
     <Compile Include="Api\Events\Simulation\CashLostEvent.cs" />
-    <Compile Include="Api\Events\Simulation\SetCashEvent.cs" />
     <Compile Include="Api\Events\TimeManager\SetFastForwardEvent.cs" />
     <Compile Include="Api\Events\InGame\GetContinueCostEvent.cs" />
     <Compile Include="Api\Events\Simulation\DefeatedEvent.cs" />
@@ -609,7 +607,6 @@
     <Compile Include="Api\Events\Weapons\CreatedEvent.cs" />
     <Compile Include="Api\Events\Weapons\DeletedEvent.cs" />
     <Compile Include="Api\Events\Weapons\UpdatedModelEvent.cs" />
-    <Compile Include="Api\Events\Simulation\TakeDamageEvent.cs" />
     <Compile Include="Api\Extensions\BloonExt.cs" />
     <Compile Include="Api\Extensions\GameExt.cs" />
     <Compile Include="Api\Extensions\InGameExt.cs" />
@@ -638,8 +635,8 @@
     <Compile Include="Patches\Bloons\DeletedHook.cs" />
     <Compile Include="Patches\Bloons\LeakedHook.cs" />
     <Compile Include="Patches\InGame\VictoryHook.cs" />
-    <Compile Include="Patches\Projectile\InitialiseHook.cs" />
-    <Compile Include="Patches\Projectile\OnDestroyHook.cs" />
+    <Compile Include="Patches\Projectile\CreatedHook.cs" />
+    <Compile Include="Patches\Projectile\DeletedHook.cs" />
     <Compile Include="Patches\Projectile\UpdatedModelHook.cs" />
     <Compile Include="Patches\Simulation\CashGainedHook.cs" />
     <Compile Include="Patches\Simulation\RemoveCashHook.cs" />

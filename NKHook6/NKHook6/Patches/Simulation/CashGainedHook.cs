@@ -18,8 +18,9 @@
 		private static int postfixSkipCount = 0;
 
 		[HarmonyPrefix]
-		internal static bool Prefix(ref Simulation __instance, ref double cash, ref Simulation.CashType from, ref int cashIndex, ref Simulation.CashSource source, [Optional] ref Tower tower)
+		internal static bool Prefix(ref Simulation __instance, ref double c, ref Simulation.CashType from, ref int cashIndex, ref Simulation.CashSource source, [Optional] ref Tower tower)
 		{
+			double cash = c;
 			//Have to do weird skipping because the event normally fires all the time for no reason
 			prefixSkipCount++;
 			if (cash == 0 || (prefixSkipCount < skipNum))
