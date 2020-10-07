@@ -622,7 +622,7 @@
     <Compile Include="Api\Utilities\ProfileUtils.cs" />
     <Compile Include="Api\Utilities\ReflectionUtils.cs" />
     <Compile Include="Api\Utilities\TowerUtils.cs" />
-    <Compile Include="Attribute.cs" />
+    <Compile Include="VersionCheckAttribute.cs" />
     <Compile Include="KeyListener.cs" />
     <Compile Include="Api\Utilities\Utils.cs" />
     <Compile Include="Api\Web\GitApi.cs" />
