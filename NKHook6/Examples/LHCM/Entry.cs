@@ -43,11 +43,5 @@ namespace NKHook6.Examples.LHCM
             }
             return;
         }
-
-        [EventAttribute("BloonMoveEvent")]
-        public static void onMove(ref BloonEvents.MoveEvent e)
-        {
-            Logger.Log("Move");
-        }
     }
 }
