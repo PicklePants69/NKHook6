@@ -150,11 +150,6 @@ namespace NKHook6.Api.Web
             return VersionTextFromWeb;
         }
 
-        /// <summary>
-        /// Compare the latest release on github to see if an update is available for the main/executing program
-        /// </summary>
-        /// <returns>true or false, whether or not there is an update</returns>
-        private bool IsUpdate() => IsUpdate(CurrentVersion, VersionTextFromWeb);
 
         private static bool IsUpdate(string currentVersion, string latestVersion)
         {
