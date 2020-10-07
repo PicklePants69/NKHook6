@@ -26,6 +26,19 @@ namespace NKHook6.Api.Extensions
                 return 0;
             }
         }
+        public static void addCash(this InGame inGame, double newCash)
+        {
+            try
+            {
+                CashManager cashManager = inGame.bridge.simulation.cashManagers.entries[0].value;
+                cashManager.cash.Value += newCash;
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(ex.Message);
+                Logger.Log(ex.StackTrace);
+            }
+        }
         public static void setCash(this InGame inGame, double newCash)
         {
             try
@@ -50,6 +63,18 @@ namespace NKHook6.Api.Extensions
                 Logger.Log(ex.Message);
                 Logger.Log(ex.StackTrace);
                 return 0;
+            }
+        }
+        public static void addHealth(this InGame inGame, double newHealth)
+        {
+            try
+            {
+                inGame.bridge.simulation.health.Value += newHealth;
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(ex.Message);
+                Logger.Log(ex.StackTrace);
             }
         }
         public static void setHealth(this InGame inGame, double newHealth)
