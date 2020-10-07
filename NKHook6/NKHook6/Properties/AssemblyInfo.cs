@@ -38,4 +38,5 @@ using System.Runtime.InteropServices;
 
 [assembly: MelonInfo(typeof(NKHook6.Main), "NKHook6", "1.1.0", "DisabledMallis & Gurrenm4")]
 [assembly: MelonGame("Ninja Kiwi", "BloonsTD6")]
+//[assembly: LatestVersionURL(typeof(NKHook6.Main), "https://api.github.com/repos/TDToolbox/NKHook6/releases")]
 [assembly: LatestVersionURL(typeof(NKHook6.Main), "https://raw.githubusercontent.com/gurrenm3/version-checking-test/master/README.md")]

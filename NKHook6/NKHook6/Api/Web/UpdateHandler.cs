@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mono.CSharp;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -16,7 +17,7 @@ namespace NKHook6.Api.Web
         /// <summary>
         /// The url to the githubApi releases page, which contains info about the releases
         /// </summary>
-        public string GitApiReleasesURL { get; set; }
+        public string VersionURL { get; set; }
 
         /// <summary>
         /// The name of the project. Example: "BTDToolbox". Used for logging messages like: "Updating BTDToolbox"
@@ -41,9 +42,16 @@ namespace NKHook6.Api.Web
         public string UpdatedZipName { get; set; }
 
         /// <summary>
-        /// The text read from GitApiReleasesURL
+        /// The text read from VersionURL
         /// </summary>
-        private string AquiredGitApiText;
+        private string VersionTextFromWeb;
+        
+        /// <summary>
+        /// The current version of your program. This is optional
+        /// </summary>
+        public string CurrentVersion { get; set; }
+
+        public bool DownloadUpdate { get; set; } = false;
 
         public string InstallDirectory { get; set; } = Environment.CurrentDirectory;
         #endregion
@@ -60,7 +68,7 @@ namespace NKHook6.Api.Web
         /// </summary>
         public UpdateHandler(string gitApiReleaseURL, string projectName, string projectExePath, string installDir, string updaterExeName, string updatedZipName)
         {
-            GitApiReleasesURL = gitApiReleaseURL;
+            VersionURL = gitApiReleaseURL;
             ProjectName = projectName;
             ProjectExePath = projectExePath;
             InstallDirectory = installDir;
@@ -79,23 +87,49 @@ namespace NKHook6.Api.Web
 
             
             GetGitApiText();
-            if (String.IsNullOrEmpty(AquiredGitApiText))
+            if (String.IsNullOrEmpty(VersionTextFromWeb))
             {
                 Logger.Log("Failed to read release info for " + ProjectName);
                 return;
             }
 
-            if (!IsUpdate())
+            if (String.IsNullOrEmpty(CurrentVersion))
+            {
+                if (String.IsNullOrEmpty(ProjectExePath))
+                {
+                    Logger.Log("Can't check for version info because Current version and Project EXE Path were set to null");
+                    return;
+                }
+
+                CurrentVersion = FileVersionInfo.GetVersionInfo(ProjectExePath).FileVersion;
+            }
+
+
+            bool isUpdate = false;
+            if (VersionURL.Contains("api.github.com/repos")) //This is a github api url
+                isUpdate = IsUpdate(CurrentVersion, GetLatestVersion(VersionTextFromWeb));
+            else
+                isUpdate = IsUpdate(CurrentVersion, VersionTextFromWeb);
+
+
+
+            if (!isUpdate)
             {
                 Logger.Log(ProjectName + " is up to date!");
                 return;
             }
 
-            Logger.Log("An update is available for " + ProjectName + ". Downloading latest version...");
+            Logger.Log("An update is available for " + ProjectName, Logger.Level.UpdateNotify);
+
+            if (!DownloadUpdate)
+                return;
+
+            Logger.Log("Downloading latest version...");
+
             DownloadUpdates();
             ExtractUpdater();
 
-            
+
             if (closeProgram)
                 Logger.Log("Closing " + ProjectName + "...");
                 
@@ -107,56 +141,64 @@ namespace NKHook6.Api.Web
         }
 
         /// <summary>
-        /// Get the text from the GitApiReleasesUrl
+        /// Get the text from the VersionURL
         /// </summary>
         /// <returns>The text on the page from the url</returns>
         private string GetGitApiText()
         {
-            AquiredGitApiText = WebHandler.ReadText_FromURL(GitApiReleasesURL);
-            return AquiredGitApiText;
+            VersionTextFromWeb = WebHandler.ReadText_FromURL(VersionURL);
+            return VersionTextFromWeb;
         }
 
         /// <summary>
         /// Compare the latest release on github to see if an update is available for the main/executing program
         /// </summary>
         /// <returns>true or false, whether or not there is an update</returns>
-        private bool IsUpdate() => IsUpdate(ProjectExePath, ProjectName, AquiredGitApiText);
+        private bool IsUpdate() => IsUpdate(CurrentVersion, VersionTextFromWeb);
+
+        private static bool IsUpdate(string currentVersion, string latestVersion)
+        {
+            string currentProcessed = CleanVersionText(currentVersion);
+            string latestProcessed = CleanVersionText(latestVersion);
+
+            while (currentProcessed.Length != latestProcessed.Length)
+            {
+                if (currentProcessed.Length < latestProcessed.Length)
+                    currentProcessed += "0";
+                else
+                    latestProcessed += "0";
+            }
+
+            int current = Int32.Parse(currentProcessed);
+            int latest = Int32.Parse(latestProcessed);
+
+            return latest > current;
+        }
+
 
         /// <summary>
-        /// Compare the latest release on github to see if an update is 
-        /// available for the program located at the path "exeToCheck"
+        /// Remove all non-numeric characters from version info
         /// </summary>
-        /// <param name="exeToCheck">The exe you want to check for an update</param>
-        /// <param name="aquiredGitText">The url to the gitApi releases of the program you want to check for updates</param>
+        /// <param name="uncleanedText"></param>
         /// <returns></returns>
-        public static bool IsUpdate(string exeToCheck, string projectName, string aquiredGitText)
+        internal static string CleanVersionText(string uncleanedText)
         {
-            string latestVersion = GetLatestVersion(aquiredGitText);
-            bool isLatestValid = Int32.TryParse(latestVersion.Replace(".", ""), out var isLValid);
-            if (!isLatestValid)
+            string cleaned = "";
+            foreach (var letter in uncleanedText)
             {
-                Logger.Log("The version number for " + projectName + " on githubAPI releases is invalid. Please" +
-                    " make sure the verson number is only numbers and decimals, and doesn't contain any letters");
-                return false;
+                if (Int32.TryParse(letter.ToString(), out int result))
+                    cleaned += result.ToString();
             }
 
-            string currentVersion = FileVersionInfo.GetVersionInfo(exeToCheck).FileVersion;
-            bool isCurrentValid = Int32.TryParse(currentVersion.Replace(".", ""), out var isCValid);
-            if (!isCurrentValid)
-            {
-                Logger.Log("The version number for " + projectName + "'s .EXE file is invalid. Please" +
-                    " make sure the verson number is only numbers and decimals, and doesn't contain any letters");
-                return false;
-            }
-
-            return Version.Parse(latestVersion) > Version.Parse(currentVersion);
+            return cleaned;
         }
+
 
         /// <summary>
         /// Parses gitApi text and gets the latest release version of the main executing program
         /// </summary>
         /// <returns>an int of the latest release version, as a whole number without decimals</returns>
-        private string GetLatestVersion() => GetLatestVersion(AquiredGitApiText);
+        private string GetLatestVersion() => GetLatestVersion(VersionTextFromWeb);
 
         /// <summary>
         /// Parses gitApi text and gets the latest release version of the program the gitApi text is for
@@ -178,7 +220,7 @@ namespace NKHook6.Api.Web
         private List<string> GetDownloadURLs()
         {
             List<string> downloads = new List<string>();
-            var gitApi = GitApi.FromJson(AquiredGitApiText);
+            var gitApi = GitApi.FromJson(VersionTextFromWeb);
             foreach (var a in gitApi[0].Assets)
                 downloads.Add(a.BrowserDownloadUrl.ToString());
 

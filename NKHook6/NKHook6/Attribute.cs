@@ -1,12 +1,5 @@
-﻿using Assets.Scripts.Unity;
-using Assets.Scripts.Unity.UI_New.Main;
-using Boo.Lang;
-using NKHook6.Api.Events;
-using NKHook6.Api.Events._MainMenu;
-using NKHook6.Api.Web;
+﻿using Boo.Lang;
 using System;
-using System.Linq;
-using System.Reflection;
 
 namespace NKHook6
 {

@@ -34,7 +34,7 @@ namespace NKHook6.Api.Web
                     break;
                 }
                 catch(Exception e) 
-                { 
+                {
                     if (e.Message != lastExeption)
                     {
                         Logger.Log("Failed to check for updates because an exception occured: " + e.Message, Logger.Level.Warning);
