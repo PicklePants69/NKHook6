@@ -77,7 +77,7 @@ namespace NKHook6
 
             try
             {
-                //There are 29 different imageIndexes
+                //There are 29 different imageIndexes, starting at 0
                 PopupScreen.instance.ShowEventPopup(placement, title, body, "Okay",
                  null, null, null, Popup.TransitionAnim.Scale, imgIndex, PopupScreen.BackGround.None);
             }

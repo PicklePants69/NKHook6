@@ -7,16 +7,11 @@ namespace NKHook6
 {
     class UpdateMgr
     {
-        private static bool CheckedForUpdates = false;
-
         /// <summary>
         /// This method will check all of the loaded mods for updates and post notifications in console
         /// </summary>
         public static async Task HandleUpdates()
         {
-            if (CheckedForUpdates)
-                return;
-
             await Task.Run(() =>
             {
                 foreach (var item in LatestVersionURLAttribute.loaded)
@@ -55,8 +50,6 @@ namespace NKHook6
                         Logger.Log("An update is available for " + melonInfo.Name + "!", Logger.Level.UpdateNotify, melonInfo.Name);
                     else
                         Logger.Log(melonInfo.Name + " is up to date", melonInfo.Name);
-
-                    CheckedForUpdates = true;
                 }
             });//.ConfigureAwait(continueOnCapturedContext: true);
 

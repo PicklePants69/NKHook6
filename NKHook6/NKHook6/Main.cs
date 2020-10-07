@@ -8,6 +8,7 @@ using Harmony;
 using NKHook6.Api.Events;
 using NKHook6.Backend;
 using NKHook6.Api.Events._MainMenu;
+using Assets.Scripts.Unity.UI_New.Main;
 
 namespace NKHook6
 {
@@ -35,18 +36,6 @@ namespace NKHook6
 
         }
 
-        internal static bool checkedForUpdates = false;
-        [EventAttribute("MainMenu.OnEnableEvent.Post")]
-        public static void MainMenuShown(MainMenuEvents.OnEnableEvent.Post e)
-        {
-            if (!checkedForUpdates)
-            {
-                UpdateMgr.HandleUpdates();
-                checkedForUpdates = true;
-            }
-        }
-
-
         private void InitializeBoo()
         {
             Log("Initializing Boo...");
@@ -57,7 +46,7 @@ namespace NKHook6
         private void InitializeHarmony()
         {
             Log("Initializing Harmony...");
-            //HarmonyInstance.Create("TD Toolbox.NKHook6").PatchAll();
+            HarmonyInstance.Create("TD Toolbox.NKHook6").PatchAll();
             Log("Finished Initializing Harmony. Hooks are patched");
         }
 
@@ -78,6 +67,21 @@ namespace NKHook6
             base.OnUpdate();
             UpdateEvent update = new UpdateEvent();
             EventRegistry.subscriber.dispatchEvent(ref update);
+        }
+    }
+
+    [HarmonyPatch(typeof(MainMenu), "OnEnable")]
+    public class MainMenu_Patch
+    {
+        internal static bool checkedForUpdates = false;
+        [HarmonyPostfix]
+        internal static void Postfix(MainMenu __instance)
+        {
+            if (!checkedForUpdates)
+            {
+                UpdateMgr.HandleUpdates();
+                checkedForUpdates = true;
+            }
         }
     }
 }
