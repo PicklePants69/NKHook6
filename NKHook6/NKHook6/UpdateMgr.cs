@@ -7,17 +7,12 @@ namespace NKHook6
 {
     class UpdateMgr
     {
-        private static bool CheckedForUpdates = false;
-
         /// <summary>
         /// This method will check all of the loaded mods for updates and post notifications in console
         /// </summary>
         public static void HandleUpdates()
         {
-            if (CheckedForUpdates)
-                return;
-
-            foreach (var item in LatestVersionURLAttribute.loaded)
+            await Task.Run(() =>
             {
 
                 var text = "";
@@ -43,7 +38,7 @@ namespace NKHook6
                     if (cleanedCurrent.Length < cleanedLatest.Length)
                         cleanedCurrent += "0";
                     else
-                        cleanedLatest += "0";
+                        Logger.Log(melonInfo.Name + " is up to date", melonInfo.Name);
                 }
 
                 int current = Int32.Parse(cleanedCurrent);

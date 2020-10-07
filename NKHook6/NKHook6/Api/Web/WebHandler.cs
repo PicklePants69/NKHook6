@@ -37,7 +37,7 @@ namespace NKHook6.Api.Web
                 { 
                     if (e.Message != lastExeption)
                     {
-                        Logger.Log("Failed to check for updates because an exception occured: " + e.Message, Logger.Level.Error);
+                        Logger.Log("Failed to check for updates because an exception occured: " + e.Message, Logger.Level.Warning);
                         Logger.Log("This happens from time to time so don't worry too much.");
                         lastExeption = e.Message;
                     }

@@ -71,7 +71,7 @@ namespace NKHook6.Api.Events
             try
             {
                 theRegistry.Add(eventName, new List<MethodInfo>());
-                Logger.Log("Created event: " + eventName);
+                //Logger.Log("Created event: " + eventName);
             }
             catch (Exception ex)
             {
@@ -103,7 +103,7 @@ namespace NKHook6.Api.Events
                                 if (currentEventName == eventAttrib.eventName)
                                 {
                                     theRegistry[currentEventName].Add(method);
-                                    Logger.Log("Registered event \"" + eventAttrib.eventName + "\"");
+                                    //Logger.Log("Registered event \"" + eventAttrib.eventName + "\"");
                                     registered = true;
                                     continue;
                                 }

@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Unity.UI_New.Popups;
 using System;
-
+using System.Runtime.InteropServices;
+using UnityEngine.Events;
 using Utils = NKHook6.Api.Utilities.Utils;
 
 namespace NKHook6
@@ -63,19 +64,26 @@ namespace NKHook6
             }
         }
 
-        public static void ShowMsgPopup(string title, string body)
+
+        public static void ShowMsgPopup(string title, string body, int imgIndex = 0, PopupScreen.Placement placement = PopupScreen.Placement.menuCenter)
         {
             //PopupScreen.instance.(new Action(() => ));
+            // here i'm going to use the TitleScreen class as an example, you can use any GenericAnimatedScene, instance of TitleScreen will be "title"
+            
+            //UnityAction action = new UnityAction((object)title, methodPointer);
+            PopupScreen.ReturnCallback p = null;
+
+            //PopupScreen.instance.ShowPopup(PopupScreen.Placement.menuCenter, "Title", "Body", p, "Okay", null, "Cancel", Popup.TransitionAnim.Scale, PopupScreen.BackGround.Grey, -1, -1, false);
 
             try
             {
-                //There are 29 different imageIndexes
-                PopupScreen.instance.ShowEventPopup(PopupScreen.Placement.menuCenter, title, body, "Okay",
-                 null, null, null, Popup.TransitionAnim.Scale, 0, PopupScreen.BackGround.None);
+                //There are 29 different imageIndexes, starting at 0
+                PopupScreen.instance.ShowEventPopup(placement, title, body, "Okay",
+                 null, null, null, Popup.TransitionAnim.Scale, imgIndex, PopupScreen.BackGround.None);
             }
             catch (Exception ex)
             {
-                Logger.Log(ex.Message);
+                Logger.Log(ex.Message, Level.Error);
             }
         }
 
