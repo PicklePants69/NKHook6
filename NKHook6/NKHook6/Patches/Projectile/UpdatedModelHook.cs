@@ -15,7 +15,7 @@
 		[HarmonyPrefix]
 		internal static bool Prefix(ref Projectile __instance, ref Model modelToUse)
 		{
-			bool allowOriginalMethod = true;
+			/*bool allowOriginalMethod = true;
 			if (sendPrefixEvent)
 			{
 				var o = new ProjectileEvents.UpdatedModelEvent.Pre(ref __instance, ref modelToUse);
@@ -27,13 +27,14 @@
 
 			sendPrefixEvent = !sendPrefixEvent;
 
-			return allowOriginalMethod;
+			return allowOriginalMethod;*/
+			return true;
 		}
 
 		[HarmonyPostfix]
 		internal static void Postfix(ref Projectile __instance, ref Model modelToUse)
 		{
-			if (sendPostfixEvent)
+			/*if (sendPostfixEvent)
 			{
 				var o = new ProjectileEvents.UpdatedModelEvent.Post(ref __instance, ref modelToUse);
 				EventRegistry.subscriber.dispatchEvent(ref o);
@@ -41,7 +42,7 @@
 				modelToUse = o.model;
 			}
 
-			sendPostfixEvent = !sendPostfixEvent;
+			sendPostfixEvent = !sendPostfixEvent;*/
 		}
 	}
 

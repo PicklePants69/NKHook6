@@ -5,8 +5,8 @@ using NKHook6.Api.Events._Bloons;
 
 namespace NKHook6.Patches._Bloons
 {
-    [HarmonyPatch(typeof(Bloon), "Leaked")]
-    class LeakedHook
+    [HarmonyPatch(typeof(Bloon), "OnDestroy")]
+    class DeletedHook
     {
         private static bool sendPrefixEvent = true;
 
@@ -14,10 +14,14 @@ namespace NKHook6.Patches._Bloons
         internal static bool Prefix(ref Bloon __instance)
         {
             bool allowOriginalMethod = true;
+            if (sendPrefixEvent)
+            {
+                var o = new BloonEvents.DeletedEvent(ref __instance);
+                EventRegistry.subscriber.dispatchEvent(ref o);
+                allowOriginalMethod = !o.isCancelled();
+            }
 
-            var o = new BloonEvents.LeakedEvent(ref __instance);
-            EventRegistry.subscriber.dispatchEvent(ref o);
-            allowOriginalMethod = !o.isCancelled();
+            sendPrefixEvent = !sendPrefixEvent;
 
             return allowOriginalMethod;
         }

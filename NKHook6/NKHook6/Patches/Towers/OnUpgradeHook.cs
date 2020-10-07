@@ -14,7 +14,7 @@
 		[HarmonyPrefix]
 		internal static bool Prefix(ref Tower __instance)
 		{
-			bool allowOriginalMethod = true;
+			/*bool allowOriginalMethod = true;
 			if (sendPrefixEvent)
 			{
 				var o = new TowerEvents.OnUpgradeEvent.Pre(ref __instance);
@@ -25,20 +25,21 @@
 
 			sendPrefixEvent = !sendPrefixEvent;
 
-			return allowOriginalMethod;
+			return allowOriginalMethod;*/
+			return true;
 		}
 
 		[HarmonyPostfix]
 		internal static void Postfix(ref Tower __instance)
 		{
-			if (sendPostfixEvent)
+			/*if (sendPostfixEvent)
 			{
 				var o = new TowerEvents.OnUpgradeEvent.Post(ref __instance);
 				EventRegistry.subscriber.dispatchEvent(ref o);
 				__instance = o.instance;
 			}
 
-			sendPostfixEvent = !sendPostfixEvent;
+			sendPostfixEvent = !sendPostfixEvent;*/
 		}
 	}
 

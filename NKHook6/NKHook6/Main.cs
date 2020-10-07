@@ -22,32 +22,16 @@ namespace NKHook6
             Logger.Log("NKHook6 is initializing...");
             Log("CWD: " + Environment.CurrentDirectory);
 
-            InitializeHarmony();
-
             new EventRegistry();
             new KeyListener();
 
-            EventRegistry.subscriber.register(this.GetType());
-            //InitializeBoo();
+            EventRegistry.subscriber.register(typeof(Main));
+
             Log("NKHook6 initialized");
 
             InitializeCommandMgr();
             
 
-        }
-
-        private void InitializeBoo()
-        {
-            Log("Initializing Boo...");
-            BooManager.ExecuteAllScripts();
-            Log("Initialized Boo");
-        }
-
-        private void InitializeHarmony()
-        {
-            Log("Initializing Harmony...");
-            HarmonyInstance.Create("TD Toolbox.NKHook6").PatchAll();
-            Log("Finished Initializing Harmony. Hooks are patched");
         }
 
         private void InitializeCommandMgr()

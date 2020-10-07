@@ -12,7 +12,7 @@ namespace NKHook6
         /// <summary>
         /// This method will check all of the loaded mods for updates and post notifications in console
         /// </summary>
-        public static async Task HandleUpdates()
+        public static async void HandleUpdates()
         {
             await Task.Run(() =>
             {
@@ -29,9 +29,6 @@ namespace NKHook6
                     u.HandleUpdates(false, false);
                 }
             });//.ConfigureAwait(continueOnCapturedContext: true);
-
-            /*if (isNkhUpdate)
-                Logger.ShowMsgPopup("Update available!", "An update is available for NKHook6. Make sure to get it so you're using the latest features!");*/
         }
     }
 }

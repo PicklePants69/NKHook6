@@ -4,13 +4,15 @@ namespace NKHook6.Api.Events._Bloons
 {
     public partial class BloonEvents
     {
-        public class LeakedEvent : EventBaseCancellable
+        public class RotateEvent : EventBaseCancellable
         {
             public Bloon bloon;
+            public float rotation;
 
-            public LeakedEvent(ref Bloon bloon) : base("BloonLeakedEvent")
+            public RotateEvent(ref Bloon bloon, ref float rotation) : base("BloonRotateEvent")
             {
                 this.bloon = bloon;
+                this.rotation = rotation;
             }
         }
     }

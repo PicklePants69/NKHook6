@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Unity;
 using Assets.Scripts.Unity.UI_New.InGame;
+using BTD_Backend;
 using MelonLoader;
 using NKHook6.Api.Events;
 using NKHook6.Api.Events._Bloons;
@@ -21,10 +22,10 @@ namespace NKHook6.Examples.LHCM
             EventRegistry.subscriber.register(typeof(Entry));
         }
 
-        [EventAttribute("Bloon.LeakedEvent.Post")]
-        public static void onLeaked(ref BloonEvents.LeakedEvent.Post e)
+        [EventAttribute("BloonLeakedEvent")]
+        public static void onLeaked(ref BloonEvents.LeakedEvent e)
         {
-            float damage = e.instance.getDamage();
+            float damage = e.bloon.getDamage();
             InGame inst = InGame.instance;
             if (inst != null)
             {
