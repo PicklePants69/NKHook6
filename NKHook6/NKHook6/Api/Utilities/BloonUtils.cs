@@ -78,6 +78,54 @@ namespace NKHook6.Api.Utilities
         }
 
 
+        public static BloonModel ApplyBloonStatus(string bloonId, bool applyCamo, bool applyFortified, bool applyRegrow)
+        {
+            string camoText = "";
+            string fortifiedText = "";
+            string regrowText = "";
+
+            if (bloonId.Contains("Camo") || applyCamo)
+                camoText = "Camo";
+            if (bloonId.Contains("Fortified") || applyFortified)
+                fortifiedText = "Fortified";
+            if (bloonId.Contains("Regrow") || applyRegrow)
+                regrowText = "Regrow";
+
+            string bloonBase = bloonId.Replace("Camo", "").Replace("Fortified", "").Replace("Regrow", "");
+            string newBloonID = bloonBase + regrowText + fortifiedText + camoText;
+
+            var newBloon = GetBloon(newBloonID, true);
+            while(newBloon == null)
+            {
+                if (applyCamo && (GetBloon(newBloonID.Replace("Camo",""), true) != null))
+                {
+                    newBloonID = newBloonID.Replace("Camo", "");
+                    newBloon = GetBloon(newBloonID, true);
+                    continue;
+                }
+
+                if (applyFortified && (GetBloon(newBloonID.Replace("Fortified", ""), true) != null))
+                {
+                    newBloonID = newBloonID.Replace("Fortified", "");
+                    newBloon = GetBloon(newBloonID, true);
+                    continue;
+                }
+
+                if (applyRegrow && (GetBloon(newBloonID.Replace("Regrow", ""), true) != null))
+                {
+                    newBloonID = newBloonID.Replace("Regrow", "");
+                    newBloon = GetBloon(newBloonID, true);
+                    continue;
+                }
+
+                newBloon = GetBloon(bloonBase, true);
+                return newBloon;
+            }
+
+            return newBloon;
+        }
+
+
         /// <summary>
         /// Get the next strongest bloon. Ex: the next strongest bloon after Red is Red Regrow
         /// </summary>
@@ -167,7 +215,7 @@ namespace NKHook6.Api.Utilities
         /// </summary>
         /// <param name="bloonId">The ID of the bloon you want</param>
         /// <returns></returns>
-        public static BloonModel GetBloon(DefaultBloonIds bloonId) => GetBloon(bloonId.ToString());
+        public static BloonModel GetBloon(DefaultBloonIds bloonId, bool ignoreException = false) => GetBloon(bloonId.ToString(), ignoreException);
 
 
         /// <summary>
@@ -175,7 +223,7 @@ namespace NKHook6.Api.Utilities
         /// </summary>
         /// <param name="bloonId">The ID of the bloon you want</param>
         /// <returns></returns>
-        public static BloonModel GetBloon(string bloonId)
+        public static BloonModel GetBloon(string bloonId, bool ignoreException = false)
         {
             BloonModel result = null;
 
@@ -196,6 +244,9 @@ namespace NKHook6.Api.Utilities
             }
             catch (Exception e)
             {
+                if (ignoreException)
+                    return result;
+
                 Logger.Log("Exception occured when trying to use GetBloon from NKHook6." +
                     " Tried Getting a bloon with this non-existant BloonId: \"" + bloonId + "\"." +
                     "\nMore exception details: " + e.Message);
