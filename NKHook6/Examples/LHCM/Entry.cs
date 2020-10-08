@@ -43,5 +43,11 @@ namespace NKHook6.Examples.LHCM
             }
             return;
         }
+        
+        [EventAttribute("BloonCreatedEvent")]
+        public static void onBloonInit(BloonEvents.CreatedEvent e)
+        {
+            e.bloon.setCamo(true);
+        }
     }
 }
