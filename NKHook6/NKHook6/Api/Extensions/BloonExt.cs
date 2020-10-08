@@ -32,11 +32,7 @@ namespace NKHook6.Api.Extensions
         {
             if (bloon.bloonModel != null)
             {
-                string modelName = bloon.bloonModel.name;
-                if (!modelName.Contains("Camo"))
-                {
-                    BloonModel newModel = BloonUtils.GetBloon(modelName + "Camo");
-                }
+                bloon.bloonModel = BloonUtils.ApplyBloonStatus(bloon.bloonModel.name, isCamo, bloon.isFortified(), bloon.isRegrow());
             }
         }
         public static bool isRegrow(this Bloon bloon)
@@ -46,12 +42,26 @@ namespace NKHook6.Api.Extensions
             else
                 return false;
         }
+        public static void setRegrow(this Bloon bloon, bool isRegrow)
+        {
+            if (bloon.bloonModel != null)
+            {
+                bloon.bloonModel = BloonUtils.ApplyBloonStatus(bloon.bloonModel.name, bloon.isCamo(), bloon.isFortified(), isRegrow);
+            }
+        }
         public static bool isFortified(this Bloon bloon)
         {
             if (bloon.bloonModel != null)
                 return bloon.bloonModel.isFortified;
             else
                 return false;
+        }
+        public static void setFortified(this Bloon bloon, bool isFortified)
+        {
+            if (bloon.bloonModel != null)
+            {
+                bloon.bloonModel = BloonUtils.ApplyBloonStatus(bloon.bloonModel.name, bloon.isCamo(), bloon.isFortified(), bloon.isRegrow());
+            }
         }
         public static BloonModel getNextStrongest(this Bloon bloon)
         {
