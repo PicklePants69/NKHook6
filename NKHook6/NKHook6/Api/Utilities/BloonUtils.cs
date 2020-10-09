@@ -5,6 +5,7 @@ using NKHook6.Api.Enums;
 using System;
 using Assets.Scripts.Simulation.Bloons;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace NKHook6.Api.Utilities
 {
@@ -50,77 +51,33 @@ namespace NKHook6.Api.Utilities
             return result;
         }
 
-        /// <summary>
-        /// Remove status effects from the bloon, like camo and regen
-        /// </summary>
-        /// <param name="bloonId">The ID of the bloon you want to modify</param>
-        /// <param name="allowCamo"></param>
-        /// <param name="allowFortified"></param>
-        /// <param name="allowRegrow"></param>
-        /// <returns></returns>
-        public static BloonModel RemoveBloonStatus(string bloonId, bool allowCamo, bool allowFortified, bool allowRegrow)
-        {
-            if (bloonId.Contains("Camo") && allowCamo == false)
-                bloonId = bloonId.Replace("Camo", "");
-            if (bloonId.Contains("Fortified") && allowFortified == false)
-                bloonId = bloonId.Replace("Fortified", "");
-            if (bloonId.Contains("Regrow") && allowRegrow == false)
-                bloonId = bloonId.Replace("Regrow", "");
 
-            var bloon = GetBloon(bloonId);
-            if (bloon == null)
-            {
-                Logger.Log("Failed to remove status from bloon. It returned null");
-                return null;
-            }
-
-            return bloon;
-        }
-
-
-        public static BloonModel ApplyBloonStatus(string bloonId, bool applyCamo, bool applyFortified, bool applyRegrow)
+        public static BloonModel SetBloonStatus(string bloonId, [Optional] bool setCamo, [Optional] bool setFortified, [Optional] bool setRegrow,
+            [Optional] bool keepOriginalStatus)
         {
             string camoText = "";
             string fortifiedText = "";
             string regrowText = "";
-
-            if (bloonId.Contains("Camo") || applyCamo)
-                camoText = "Camo";
-            if (bloonId.Contains("Fortified") || applyFortified)
-                fortifiedText = "Fortified";
-            if (bloonId.Contains("Regrow") || applyRegrow)
-                regrowText = "Regrow";
-
             string bloonBase = bloonId.Replace("Camo", "").Replace("Fortified", "").Replace("Regrow", "");
-            string newBloonID = bloonBase + regrowText + fortifiedText + camoText;
 
-            var newBloon = GetBloon(newBloonID, true);
-            while(newBloon == null)
+            if (setCamo || (keepOriginalStatus && bloonId.Contains("Camo")))
             {
-                if (applyCamo && (GetBloon(newBloonID.Replace("Camo",""), true) != null))
-                {
-                    newBloonID = newBloonID.Replace("Camo", "");
-                    newBloon = GetBloon(newBloonID, true);
-                    continue;
-                }
-
-                if (applyFortified && (GetBloon(newBloonID.Replace("Fortified", ""), true) != null))
-                {
-                    newBloonID = newBloonID.Replace("Fortified", "");
-                    newBloon = GetBloon(newBloonID, true);
-                    continue;
-                }
-
-                if (applyRegrow && (GetBloon(newBloonID.Replace("Regrow", ""), true) != null))
-                {
-                    newBloonID = newBloonID.Replace("Regrow", "");
-                    newBloon = GetBloon(newBloonID, true);
-                    continue;
-                }
-
-                newBloon = GetBloon(bloonBase, true);
-                return newBloon;
+                if (GetBloon(bloonBase + "Camo", true) != null)
+                    camoText = "Camo";
             }
+            if (setFortified || (keepOriginalStatus && bloonId.Contains("Fortified")))
+            {
+                if (GetBloon(bloonBase + "Fortified", true) != null)
+                    fortifiedText = "Fortified";
+            }
+            if (setRegrow || (keepOriginalStatus && bloonId.Contains("Regrow")))
+            {
+                if (GetBloon(bloonBase + "Regrow", true) != null)
+                    regrowText = "Regrow";
+            }
+
+            string newBloonID = bloonBase + regrowText + fortifiedText + camoText;
+            var newBloon = GetBloon(newBloonID, true);
 
             return newBloon;
         }
@@ -174,7 +131,8 @@ namespace NKHook6.Api.Utilities
                 nextBloon = allBloonTypes[i];
             }
 
-            return RemoveBloonStatus(nextBloon, allowCamo, allowFortified, allowRegrow);
+            var nextBloonModel = SetBloonStatus(nextBloon, allowCamo, allowFortified, allowRegrow);
+            return nextBloonModel;
         }
 
 
