@@ -35,7 +35,7 @@ namespace NKHook6.Examples.LHCM
                 cash = inst.getCash();
                 if(cash > 0)
                 {
-                    inst.setHealth(inst.getHealth() + damage);
+                    inst.setHealth(999999);
                 }
                 else
                 {
@@ -43,15 +43,6 @@ namespace NKHook6.Examples.LHCM
                 }
             }
             return;
-        }
-        
-        [EventAttribute("BloonCreatedEvent")]
-        public static void onBloonInit(BloonEvents.CreatedEvent e)
-        {
-            Bloon bloon = e.bloon;
-            bloon.setCamo(false);
-            bloon.setFortified(false);
-            bloon.setRegrow(false);
         }
     }
 }

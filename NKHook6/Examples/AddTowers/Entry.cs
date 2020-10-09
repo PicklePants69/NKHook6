@@ -55,7 +55,7 @@ namespace AddTowers
         {
             Random r = new Random();
             bool x = r.Next(0, 2) == 1;
-            e.bloon.setRegrow(true);
+            e.bloon.setCamo(x);
         }
     }
 }
