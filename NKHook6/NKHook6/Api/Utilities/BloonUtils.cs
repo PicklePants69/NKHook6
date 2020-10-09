@@ -52,25 +52,24 @@ namespace NKHook6.Api.Utilities
         }
 
 
-        public static BloonModel SetBloonStatus(string bloonId, [Optional] bool setCamo, [Optional] bool setFortified, [Optional] bool setRegrow,
-            [Optional] bool keepOriginalStatus)
+        public static BloonModel SetBloonStatus(string bloonId, [Optional]bool setCamo, [Optional]bool setFortified, [Optional]bool setRegrow)
         {
             string camoText = "";
             string fortifiedText = "";
             string regrowText = "";
             string bloonBase = bloonId.Replace("Camo", "").Replace("Fortified", "").Replace("Regrow", "");
 
-            if (setCamo || (keepOriginalStatus && bloonId.Contains("Camo")))
+            if (setCamo || (bloonId.Contains("Camo")))
             {
                 if (GetBloon(bloonBase + "Camo", true) != null)
                     camoText = "Camo";
             }
-            if (setFortified || (keepOriginalStatus && bloonId.Contains("Fortified")))
+            if (setFortified || (bloonId.Contains("Fortified")))
             {
                 if (GetBloon(bloonBase + "Fortified", true) != null)
                     fortifiedText = "Fortified";
             }
-            if (setRegrow || (keepOriginalStatus && bloonId.Contains("Regrow")))
+            if (setRegrow || (bloonId.Contains("Regrow")))
             {
                 if (GetBloon(bloonBase + "Regrow", true) != null)
                     regrowText = "Regrow";
@@ -92,8 +91,8 @@ namespace NKHook6.Api.Utilities
         /// <param name="allowRegrow">Is it okay if the next bloon is a Regrow bloon. Ex: Red => RedRegrow</param>
         /// <returns>The next strongest bloon</returns>
         public static BloonModel GetNextStrongestBloon(BloonModel bloon, bool allowCamo = true,
-            bool allowFortified = true, bool allowRegrow = true) => GetNextStrongestBloon(bloon.name,
-                allowCamo, allowFortified, allowRegrow);
+            bool allowFortified = true, bool allowRegrow = true, bool ignoreException = false) => GetNextStrongestBloon(bloon.name,
+                allowCamo, allowFortified, allowRegrow, ignoreException);
 
         /// <summary>
         /// Get the next strongest bloon. Ex: the next strongest bloon after Red is Red Regrow
@@ -104,8 +103,8 @@ namespace NKHook6.Api.Utilities
         /// <param name="allowRegrow">Is it okay if the next bloon is a Regrow bloon. Ex: Red => RedRegrow</param>
         /// <returns>The next strongest bloon</returns>
         public static BloonModel GetNextStrongestBloon(DefaultBloonIds bloonId, bool allowCamo = true, 
-            bool allowFortified = true, bool allowRegrow = true) => GetNextStrongestBloon(bloonId.ToString(), 
-                allowCamo, allowFortified, allowRegrow);
+            bool allowFortified = true, bool allowRegrow = true, bool ignoreException = false) => GetNextStrongestBloon(bloonId.ToString(), 
+                allowCamo, allowFortified, allowRegrow, ignoreException);
 
 
         /// <summary>
@@ -117,7 +116,7 @@ namespace NKHook6.Api.Utilities
         /// <param name="allowRegrow">Is it okay if the next bloon is a Regrow bloon. Ex: Red => RedRegrow</param>
         /// <returns>The next strongest bloon</returns>
         public static BloonModel GetNextStrongestBloon(string bloonId, bool allowCamo = true,
-            bool allowFortified = true, bool allowRegrow = true)
+            bool allowFortified = true, bool allowRegrow = true, bool ignoreException = false)
         {
             var allBloonTypes = GetAllBloonTypes();
 
@@ -131,7 +130,7 @@ namespace NKHook6.Api.Utilities
                 nextBloon = allBloonTypes[i];
             }
 
-            var nextBloonModel = SetBloonStatus(nextBloon, allowCamo, allowFortified, allowRegrow);
+            var nextBloonModel = RemoveBloonStatus(nextBloon, !allowCamo, !allowFortified, !allowRegrow, ignoreException);
             return nextBloonModel;
         }
         
@@ -164,7 +163,8 @@ namespace NKHook6.Api.Utilities
                 break;
             }
 
-            return RemoveBloonStatus(nextBloon, allowCamo, allowFortified, allowRegrow, true);
+            var nextWeakestBloon = SetBloonStatus(nextBloon, allowCamo, allowFortified, allowRegrow);
+            return nextWeakestBloon;
         }
 
 
@@ -173,7 +173,8 @@ namespace NKHook6.Api.Utilities
         /// </summary>
         /// <param name="bloonId">The ID of the bloon you want</param>
         /// <returns></returns>
-        public static BloonModel GetBloon(DefaultBloonIds bloonId, bool ignoreException = false) => GetBloon(bloonId.ToString(), ignoreException);
+        public static BloonModel GetBloon(DefaultBloonIds bloonId, bool isCamo = false, bool isFortified = false, bool isRegrow = false,
+            bool ignoreException = false) => GetBloon(bloonId.ToString(), isCamo, isFortified, isRegrow, ignoreException);
 
 
         /// <summary>
@@ -181,7 +182,8 @@ namespace NKHook6.Api.Utilities
         /// </summary>
         /// <param name="bloonId">The ID of the bloon you want</param>
         /// <returns></returns>
-        public static BloonModel GetBloon(string bloonId, bool ignoreException = false)
+        public static BloonModel GetBloon(string bloonId, bool isCamo = false, bool isFortified = false, bool isRegrow = false,
+            bool ignoreException = false)
         {
             BloonModel result = null;
 
@@ -211,6 +213,27 @@ namespace NKHook6.Api.Utilities
             }
 
             return result;
+        }
+
+
+        public static BloonModel RemoveBloonStatus(string bloonId, bool removeCamo, bool removeFortified, bool removeRegrow, bool ignoreException = false)
+        {
+            if (bloonId.Contains("Camo") && removeCamo)
+                bloonId = bloonId.Replace("Camo", "");
+            if (bloonId.Contains("Fortified") && removeFortified)
+                bloonId = bloonId.Replace("Fortified", "");
+            if (bloonId.Contains("Regrow") && removeRegrow)
+                bloonId = bloonId.Replace("Regrow", "");
+
+            var bloon = GetBloon(bloonId, ignoreException);
+            if (bloon == null)
+            {
+                if (!ignoreException)
+                    Logger.Log("Failed to remove status from bloon. It returned null");
+                return null;
+            }
+
+            return bloon;
         }
     }
 }
