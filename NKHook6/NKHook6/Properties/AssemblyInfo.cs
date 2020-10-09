@@ -33,9 +33,9 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.0")]
-[assembly: AssemblyFileVersion("2.0.0")]
+[assembly: AssemblyVersion("2.0.1")]
+[assembly: AssemblyFileVersion("2.0.1")]
 
-[assembly: MelonInfo(typeof(NKHook6.Main), "NKHook6", "2.0.0", "DisabledMallis & Gurrenm4")]
+[assembly: MelonInfo(typeof(NKHook6.Main), "NKHook6", "2.0.1", "DisabledMallis & Gurrenm4")]
 [assembly: MelonGame("Ninja Kiwi", "BloonsTD6")]
 [assembly: LatestVersionURL(typeof(NKHook6.Main), "https://api.github.com/repos/TDToolbox/NKHook6/releases")]

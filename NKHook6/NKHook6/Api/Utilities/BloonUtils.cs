@@ -91,7 +91,7 @@ namespace NKHook6.Api.Utilities
         /// <param name="allowRegrow">Is it okay if the next bloon is a Regrow bloon. Ex: Red => RedRegrow</param>
         /// <returns>The next strongest bloon</returns>
         public static BloonModel GetNextStrongestBloon(BloonModel bloon, bool allowCamo = true,
-            bool allowFortified = true, bool allowRegrow = true, bool ignoreException = false) => GetNextStrongestBloon(bloon.name,
+            bool allowFortified = true, bool allowRegrow = true, bool ignoreException = true) => GetNextStrongestBloon(bloon.name,
                 allowCamo, allowFortified, allowRegrow, ignoreException);
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace NKHook6.Api.Utilities
         /// <param name="allowRegrow">Is it okay if the next bloon is a Regrow bloon. Ex: Red => RedRegrow</param>
         /// <returns>The next strongest bloon</returns>
         public static BloonModel GetNextStrongestBloon(DefaultBloonIds bloonId, bool allowCamo = true, 
-            bool allowFortified = true, bool allowRegrow = true, bool ignoreException = false) => GetNextStrongestBloon(bloonId.ToString(), 
+            bool allowFortified = true, bool allowRegrow = true, bool ignoreException = true) => GetNextStrongestBloon(bloonId.ToString(), 
                 allowCamo, allowFortified, allowRegrow, ignoreException);
 
 
@@ -116,21 +116,31 @@ namespace NKHook6.Api.Utilities
         /// <param name="allowRegrow">Is it okay if the next bloon is a Regrow bloon. Ex: Red => RedRegrow</param>
         /// <returns>The next strongest bloon</returns>
         public static BloonModel GetNextStrongestBloon(string bloonId, bool allowCamo = true,
-            bool allowFortified = true, bool allowRegrow = true, bool ignoreException = false)
+            bool allowFortified = true, bool allowRegrow = true, bool ignoreException = true)
         {
+            BloonModel nextBloonModel = null;
             var allBloonTypes = GetAllBloonTypes();
 
-            string nextBloon = bloonId;
             int max = allBloonTypes.Count - 1; // subtract 1 more here to avoid test bloon
-            for (int i = 0; i < max; i++)
-            {
-                if (bloonId.ToLower() != allBloonTypes[i].ToLower())
-                    continue;
+            int currentBloonNum = GetBloonIdNum(bloonId);
 
-                nextBloon = allBloonTypes[i];
+            if (!allowCamo && !allowFortified && !allowRegrow)
+            {
+                string baseBloon = bloonId.Replace("Camo", "").Replace("Fortified", "").Replace("Regrow", "");
+                for (int a = GetBloonIdNum(baseBloon); a < max; a++)
+                {
+                    if (allBloonTypes[a].Contains(baseBloon))
+                        continue;
+                    
+                    nextBloonModel = RemoveBloonStatus(allBloonTypes[a], true, true, true, ignoreException);
+                    break;
+                }
+            }
+            else
+            {
+                nextBloonModel = RemoveBloonStatus(allBloonTypes[currentBloonNum + 1], !allowCamo, !allowFortified, !allowRegrow, ignoreException);
             }
 
-            var nextBloonModel = RemoveBloonStatus(nextBloon, !allowCamo, !allowFortified, !allowRegrow, ignoreException);
             return nextBloonModel;
         }
         
@@ -173,8 +183,7 @@ namespace NKHook6.Api.Utilities
         /// </summary>
         /// <param name="bloonId">The ID of the bloon you want</param>
         /// <returns></returns>
-        public static BloonModel GetBloon(DefaultBloonIds bloonId, bool isCamo = false, bool isFortified = false, bool isRegrow = false,
-            bool ignoreException = false) => GetBloon(bloonId.ToString(), isCamo, isFortified, isRegrow, ignoreException);
+        public static BloonModel GetBloon(DefaultBloonIds bloonId, bool ignoreException = false) => GetBloon(bloonId.ToString(), ignoreException);
 
 
         /// <summary>
@@ -182,8 +191,7 @@ namespace NKHook6.Api.Utilities
         /// </summary>
         /// <param name="bloonId">The ID of the bloon you want</param>
         /// <returns></returns>
-        public static BloonModel GetBloon(string bloonId, bool isCamo = false, bool isFortified = false, bool isRegrow = false,
-            bool ignoreException = false)
+        public static BloonModel GetBloon(string bloonId, bool ignoreException = false)
         {
             BloonModel result = null;
 
@@ -216,7 +224,7 @@ namespace NKHook6.Api.Utilities
         }
 
 
-        public static BloonModel RemoveBloonStatus(string bloonId, bool removeCamo, bool removeFortified, bool removeRegrow, bool ignoreException = false)
+        public static BloonModel RemoveBloonStatus(string bloonId, bool removeCamo, bool removeFortified, bool removeRegrow, bool ignoreException = true)
         {
             if (bloonId.Contains("Camo") && removeCamo)
                 bloonId = bloonId.Replace("Camo", "");
