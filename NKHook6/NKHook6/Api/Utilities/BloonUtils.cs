@@ -164,7 +164,8 @@ namespace NKHook6.Api.Utilities
                 break;
             }
 
-            return RemoveBloonStatus(nextBloon, allowCamo, allowFortified, allowRegrow);
+            var nextWeakestBloon = SetBloonStatus(nextBloon, allowCamo, allowFortified, allowRegrow);
+            return nextWeakestBloon;
         }
 
 
