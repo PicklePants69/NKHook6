@@ -134,6 +134,38 @@ namespace NKHook6.Api.Utilities
             var nextBloonModel = SetBloonStatus(nextBloon, allowCamo, allowFortified, allowRegrow);
             return nextBloonModel;
         }
+        
+        /// <summary>
+        /// Get the next weakest bloon. Ex: the next strongest bloon after Red is Red Regrow
+        /// </summary>
+        /// <param name="bloonId">The bloon id of the current bloon. Ex: Red</param>
+        /// <param name="allowCamo">Is it okay if the next bloon is a camo bloon. Ex: Red => RedCamo</param>
+        /// <param name="allowFortified">Is it okay if the next bloon is a Fortified bloon. Ex: Red => RedFortified</param>
+        /// <param name="allowRegrow">Is it okay if the next bloon is a Regrow bloon. Ex: Red => RedRegrow</param>
+        /// <returns>The next strongest bloon</returns>
+        public static BloonModel GetNextWeakestBloon(string bloonId, bool allowCamo = true,
+            bool allowFortified = true, bool allowRegrow = true)
+        {
+            var allBloonTypes = GetAllBloonTypes();
+
+            string nextBloon = bloonId;
+            int max = allBloonTypes.Count - 1; // subtract 1 more here to avoid test bloon
+            for (int i = 0; i < max; i++)
+            {
+                if (bloonId.ToLower() != allBloonTypes[i].ToLower())
+                    continue;
+
+                if (i == 0)
+                {
+                    nextBloon = allBloonTypes[0];
+                    break;
+                }
+                nextBloon = allBloonTypes[i-1];
+                break;
+            }
+
+            return RemoveBloonStatus(nextBloon, allowCamo, allowFortified, allowRegrow);
+        }
 
 
         /// <summary>

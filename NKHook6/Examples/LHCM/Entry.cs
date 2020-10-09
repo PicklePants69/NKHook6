@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Unity;
+﻿using Assets.Scripts.Simulation.Bloons;
+using Assets.Scripts.Unity;
 using Assets.Scripts.Unity.UI_New.InGame;
 using BTD_Backend;
 using MelonLoader;
@@ -42,6 +43,15 @@ namespace NKHook6.Examples.LHCM
                 }
             }
             return;
+        }
+        
+        [EventAttribute("BloonCreatedEvent")]
+        public static void onBloonInit(BloonEvents.CreatedEvent e)
+        {
+            Bloon bloon = e.bloon;
+            bloon.setCamo(false);
+            bloon.setFortified(false);
+            bloon.setRegrow(false);
         }
     }
 }
