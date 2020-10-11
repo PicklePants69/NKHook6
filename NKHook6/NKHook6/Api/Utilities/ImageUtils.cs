@@ -11,27 +11,22 @@ namespace NKHook6.Api.Utilities
     /// </summary>
     public static class ImageUtils
     {
-        /*/// <summary>
-        /// Not sure on how well this works in all cases
-        /// </summary>
-        public static void writeTextoPNG(Texture2D tex)
+        public static Sprite LoadSpriteB64(string encoded, float PixelsPerUnit = 100.0f,
+            SpriteMeshType spriteType = SpriteMeshType.Tight)
         {
-            byte[] bytes = ImageConversion.EncodeToPNG(tex);
-
-            File.WriteAllBytes("/Image.png", bytes);
+            try
+            {
+                Texture2D SpriteTexture = LoadTextureFromBytes(Convert.FromBase64String(encoded));
+                Sprite NewSprite = Sprite.Create(SpriteTexture,
+                    new Rect(0, 0, SpriteTexture.width, SpriteTexture.height), new Vector2(0, 0), PixelsPerUnit, 0,
+                    spriteType);
+                return NewSprite;
+            }
+            catch (Exception)
+            {
+                throw spriteCantBeCreatedException;
+            }
         }
-
-        /// <summary>
-        /// Not sure on how well this works in all cases
-        /// </summary>
-        public static void writeImagetoPNG(Image image)
-        {
-            Texture2D tex = image.activeSprite.texture;
-
-            byte[] bytes = ImageConversion.EncodeToPNG(tex);
-
-            File.WriteAllBytes("/Image.png", bytes);
-        }*/
         
         public static Sprite LoadNewSprite(string FilePath, float PixelsPerUnit = 100.0f, SpriteMeshType spriteType = SpriteMeshType.Tight)
         {
@@ -110,6 +105,19 @@ namespace NKHook6.Api.Utilities
             else
             {
                 Logger.Log("Error on LoadTextureFromFile call. File not found at " + filePathToImage, Logger.Level.Error);
+            }
+
+            return null;
+        }
+        
+        public static Texture2D LoadTextureFromBytes(byte[] FileData)
+        {
+
+            Texture2D Tex2D = new Texture2D(2, 2);
+
+            if (ImageConversion.LoadImage(Tex2D, FileData))
+            {
+                return Tex2D;
             }
 
             return null;
