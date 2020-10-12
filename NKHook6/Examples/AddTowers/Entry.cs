@@ -36,14 +36,14 @@ namespace AddTowers
 
         static TowerModel customModel = null;
         [EventAttribute("MainMenuLoadedEvent")]
-        public static void onLoad(MainMenuEvents.LoadedEvent e)
+        public static unsafe void onLoad(MainMenuEvents.LoadedEvent e)
         {
             Game game = Game.instance;
 
-            
-            /*Il2CppReferenceArray<TowerModel> towerList = game.model.towers;
 
-            TowerModel[] modelArr = new TowerModel[towerList.Count+1];
+            Il2CppReferenceArray<TowerModel> towerList = game.model.towers;
+
+            /*TowerModel[] modelArr = new TowerModel[towerList.Count+1];
 
             int x = 0;
             foreach(TowerModel model in towerList)
@@ -56,7 +56,10 @@ namespace AddTowers
 */
             /*game.model.towers[game.model.towers.Count] = myModel;
             */
-            foreach (TowerModel model in game.model.towers)
+            TypedReference tr = __makeref(towerList);
+            IntPtr ptr = **(IntPtr**)(&tr);
+            Logger.Log("Ptr of tower list: " + ptr.ToString("X"));
+            /*foreach (TowerModel model in game.model.towers)
             {
                 if (model.name == "DartMonkey")
                 {
@@ -65,10 +68,10 @@ namespace AddTowers
                 }
             }
             customModel.isGlobalRange = true;
-            customModel.range = 9999;
+            customModel.range = 9999;*/
         }
 
-        [HarmonyPatch(typeof(TowerInventory), "Init")] // this method tells the game to create buttons for a given list of towers, allTowersInTheGame, which we modify here
+        /*[HarmonyPatch(typeof(TowerInventory), "Init")] // this method tells the game to create buttons for a given list of towers, allTowersInTheGame, which we modify here
         internal class TowerInit_Patch
         {
             [HarmonyPrefix]
@@ -87,6 +90,6 @@ namespace AddTowers
                 //if(e.tower.towerModel.)
                 //e.tower.towerModel = customModel;
             }
-        }
+        }*/
     }
 }
