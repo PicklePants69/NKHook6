@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using Assets.Scripts.Unity.UI_New.InGame;
+using Assets.Scripts.Unity;
 
 namespace NKHook6
 {
     public class NkhMsg
     {
         public NkhText NkhText;
-        public float MsgShowTime = 1.5f;
+        public double MsgShowTime = 1.5f;
         public NkhImage NkhImage = null;
     }
 
@@ -79,6 +80,23 @@ namespace NKHook6
             nextX = -defaultWidth;
             img.transform.position = pos;
 
+            
+            
+
+            var scale = img.rectTransform.rect;
+            //Logger.Log(scale.ToString());
+            /*Logger.Log(scale.x.ToString());
+            Logger.Log(scale.y.ToString());*/
+
+            //Logger.Log(scale.z.ToString());
+
+            var test = img.sprite.bounds.size;
+            /*Logger.Log(test.x.ToString());
+            Logger.Log(test.y.ToString());
+            Logger.Log(test.z.ToString());*/
+
+            if (currentMsg.MsgShowTime == 0)
+                currentMsg.MsgShowTime = 1.5;
             //prepping final variables for smooth transitions
             msgIsAlive = true;
             doShowMsg = true;
@@ -127,7 +145,7 @@ namespace NKHook6
             {
                 Slide(maxX);
                 doShowMsg = false;
-                nextMsgRunTime = Time.time + currentMsg.MsgShowTime;
+                nextMsgRunTime = Time.time + (float)currentMsg.MsgShowTime;
                 doStallMsg = true;
                 return;
             }

@@ -75,7 +75,7 @@ namespace NKHook6
             }
         }
 
-        public static void ShowMessage(string msg, [Optional] string title)
+        public static void ShowMessage(string msg, [Optional] string title, [Optional]double displayTime)
         {
             NkhText nkhText = new NkhText()
             {
@@ -83,10 +83,10 @@ namespace NKHook6
                 Body = msg,
             };
 
-            ShowMessage(nkhText);
+            ShowMessage(nkhText, displayTime);
         }
 
-        public static void ShowMessage(NkhText nkhText, [Optional]NkhImage nkhImage)
+        public static void ShowMessage(NkhText nkhText, [Optional]double displayTime, [Optional]NkhImage nkhImage)
         {
             if (String.IsNullOrEmpty(nkhText.Title))
             {
@@ -96,13 +96,19 @@ namespace NKHook6
                     nkhText.Title = Utils.GetCallingModInfo().Name;
             }
 
+            
             NkhMsg nkhMsg = new NkhMsg()
             {
                 NkhText = nkhText,
-                NkhImage = nkhImage
+                NkhImage = nkhImage,
+                MsgShowTime = displayTime
             };
 
+            ShowMessage(nkhMsg);
+        }
 
+        public static void ShowMessage(NkhMsg nkhMsg)
+        {
             NotificationMgr.AddNotification(nkhMsg);
         }
 
