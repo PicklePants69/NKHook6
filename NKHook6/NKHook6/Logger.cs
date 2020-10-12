@@ -1,13 +1,24 @@
-﻿using Assets.Scripts.Unity.UI_New.Popups;
+﻿using Assets.Scripts.Unity;
+using Assets.Scripts.Unity.UI_New.Popups;
+using System.Collections.Generic;
 using System;
 using System.Runtime.InteropServices;
+using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using Utils = NKHook6.Api.Utilities.Utils;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using Il2CppSystem.Xml;
+using System.Collections;
 
 namespace NKHook6
 {
     public class Logger
     {
+        internal static GameObject ingameMsgPopup;
+        internal static AssetBundle assetBundle;
+
         public enum Level
         {
             Normal,
@@ -64,6 +75,37 @@ namespace NKHook6
             }
         }
 
+        public static void ShowMessage(string msg, [Optional] string title)
+        {
+            NkhText nkhText = new NkhText()
+            {
+                Title = title,
+                Body = msg,
+            };
+
+            ShowMessage(nkhText);
+        }
+
+        public static void ShowMessage(NkhText nkhText, [Optional]NkhImage nkhImage)
+        {
+            if (String.IsNullOrEmpty(nkhText.Title))
+            {
+                if (Utils.GetCallingModInfo() == null)
+                    nkhText.Title = "NKHook6";
+                else
+                    nkhText.Title = Utils.GetCallingModInfo().Name;
+            }
+
+            NkhMsg nkhMsg = new NkhMsg()
+            {
+                NkhText = nkhText,
+                NkhImage = nkhImage
+            };
+
+
+            NotificationMgr.AddNotification(nkhMsg);
+        }
+
 
         public static void ShowMsgPopup(string title, string body, int imgIndex = 0, PopupScreen.Placement placement = PopupScreen.Placement.menuCenter)
         {
@@ -85,11 +127,6 @@ namespace NKHook6
             {
                 Logger.Log(ex.Message, Level.Error);
             }
-        }
-
-        internal static void ReturnCallbackTest()
-        {
-
         }
     }
 }

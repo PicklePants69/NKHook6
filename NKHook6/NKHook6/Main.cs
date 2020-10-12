@@ -3,12 +3,12 @@ using System;
 using System.Threading;
 using NKHook6.Api;
 using static NKHook6.Logger;
-using NKHook6.Scripting;
 using Harmony;
 using NKHook6.Api.Events;
 using NKHook6.Backend;
-using NKHook6.Api.Events._MainMenu;
 using Assets.Scripts.Unity.UI_New.Main;
+using Assets.Scripts.Unity;
+using Assets.Scripts.Unity.UI_New.InGame;
 
 namespace NKHook6
 {
@@ -46,13 +46,20 @@ namespace NKHook6
             }).Start();
         }
 
+
         public override void OnUpdate()
         {
             base.OnUpdate();
             UpdateEvent update = new UpdateEvent();
             EventRegistry.subscriber.dispatchEvent(ref update);
+
+            if (Game.instance == null || InGame.instance == null || InGame.instance.bridge == null)
+                return;
+
+            NotificationMgr.CheckForNotifications();
         }
     }
+
 
     [HarmonyPatch(typeof(MainMenu), "OnEnable")]
     public class MainMenu_Patch
@@ -61,11 +68,7 @@ namespace NKHook6
         [HarmonyPostfix]
         internal static void Postfix(MainMenu __instance)
         {
-            if (!checkedForUpdates)
-            {
-                UpdateMgr.HandleUpdates();
-                checkedForUpdates = true;
-            }
+            
         }
     }
 }
