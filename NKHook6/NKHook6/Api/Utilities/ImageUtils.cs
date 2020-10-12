@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace NKHook6.Api.Utilities
 {
@@ -11,9 +12,24 @@ namespace NKHook6.Api.Utilities
     /// </summary>
     public static class ImageUtils
     {
+        public static void writeTextoPNG(Texture2D tex)
+        {
+            byte[] bytes = ImageConversion.EncodeToPNG(tex);
+            File.WriteAllBytes("/Image.png", bytes);
+        }
+
+        public static void writeImagetoPNG(Image image)
+        {
+            Texture2D tex = image.activeSprite.texture;
+            byte[] bytes = ImageConversion.EncodeToPNG(tex);
+            File.WriteAllBytes("/Image.png", bytes);
+        }
+
+
         public static Sprite LoadSpriteB64(string encoded, float PixelsPerUnit = 100.0f,
             SpriteMeshType spriteType = SpriteMeshType.Tight)
         {
+
             try
             {
                 Texture2D SpriteTexture = LoadTextureFromBytes(Convert.FromBase64String(encoded));
@@ -22,9 +38,10 @@ namespace NKHook6.Api.Utilities
                     spriteType);
                 return NewSprite;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw spriteCantBeCreatedException;
+                Logger.Log(ex.Message, Logger.Level.Error);
+                return null;
             }
         }
         
