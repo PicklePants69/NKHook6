@@ -19,6 +19,11 @@ using System.Text;
 using System.Threading.Tasks;
 using UnhollowerBaseLib;
 
+
+/*
+ * DO NOT USE THIS MOD AS A REFERENCE!
+ * This is still a WIP and is a topic currently being researched. Once we know how to add a tower, and a large majority of features to one, you will be able to use this file as a guide for using the NKHAPI to do it. As for right now, we are merely using this as a testing ground and a way to show off discoveries to other NKHAPI developers.
+ */
 namespace AddTowers
 {
     public class Entry : MelonMod
