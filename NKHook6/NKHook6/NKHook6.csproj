@@ -25,6 +25,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -34,6 +35,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
@@ -622,6 +624,23 @@
     <Compile Include="Api\Utilities\ProfileUtils.cs" />
     <Compile Include="Api\Utilities\ReflectionUtils.cs" />
     <Compile Include="Api\Utilities\TowerUtils.cs" />
+    <Compile Include="Dependencies\NLayer\NLayer\Decoder\BitReservoir.cs" />
+    <Compile Include="Dependencies\NLayer\NLayer\Decoder\FrameBase.cs" />
+    <Compile Include="Dependencies\NLayer\NLayer\Decoder\Huffman.cs" />
+    <Compile Include="Dependencies\NLayer\NLayer\Decoder\ID3Frame.cs" />
+    <Compile Include="Dependencies\NLayer\NLayer\Decoder\LayerDecoderBase.cs" />
+    <Compile Include="Dependencies\NLayer\NLayer\Decoder\LayerIDecoder.cs" />
+    <Compile Include="Dependencies\NLayer\NLayer\Decoder\LayerIIDecoder.cs" />
+    <Compile Include="Dependencies\NLayer\NLayer\Decoder\LayerIIDecoderBase.cs" />
+    <Compile Include="Dependencies\NLayer\NLayer\Decoder\LayerIIIDecoder.cs" />
+    <Compile Include="Dependencies\NLayer\NLayer\Decoder\MpegFrame.cs" />
+    <Compile Include="Dependencies\NLayer\NLayer\Decoder\MpegStreamReader.cs" />
+    <Compile Include="Dependencies\NLayer\NLayer\Decoder\RiffHeaderFrame.cs" />
+    <Compile Include="Dependencies\NLayer\NLayer\Decoder\VBRInfo.cs" />
+    <Compile Include="Dependencies\NLayer\NLayer\Enums.cs" />
+    <Compile Include="Dependencies\NLayer\NLayer\IMpegFrame.cs" />
+    <Compile Include="Dependencies\NLayer\NLayer\MpegFile.cs" />
+    <Compile Include="Dependencies\NLayer\NLayer\MpegFrameDecoder.cs" />
     <Compile Include="NotificationMgr.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -677,6 +696,8 @@
     <Compile Include="Win32.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Dependencies\NLayer\LICENSE" />
+    <None Include="Dependencies\NLayer\NLayer\NLayer.csproj" />
     <None Include="packages.config" />
     <None Include="Resources\ingame_popup.bundle" />
   </ItemGroup>

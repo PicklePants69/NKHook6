@@ -39,6 +39,8 @@ namespace NKHook6.Api.Utilities
 
 
         //Thanks to BowDown for creating the AddTowerToInventory methods
+        public static void AddToTowerSelection(ShopTowerDetailsModel details)
+            => AddToTowerSelection(details, AllTowersInTheGame.Count, AllTowersInTheGame);
         public static void AddToTowerSelection(ShopTowerDetailsModel details, TowerType insertBefore)
             => AddToTowerSelection(details, insertBefore.ToString(), AllTowersInTheGame);
 

@@ -1,0 +1,9 @@
+[submodule "NLayer"]
+	path = NLayer
+	url = https://github.com/naudio/NLayer.git
+[submodule "NKHook6/NKHook6/Dependencies/NLayer"]
+	path = NKHook6/NKHook6/Dependencies/NLayer
+	url = https://github.com/naudio/NLayer.git
+[submodule "NKHook6/NKHook6/Dependencies/NAudio"]
+	path = NKHook6/NKHook6/Dependencies/NAudio
+	url = https://github.com/naudio/NAudio.git
