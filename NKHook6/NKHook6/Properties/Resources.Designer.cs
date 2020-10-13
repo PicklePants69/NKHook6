@@ -69,5 +69,15 @@ namespace NKHook6.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] nkhook_logo {
+            get {
+                object obj = ResourceManager.GetObject("nkhook_logo", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

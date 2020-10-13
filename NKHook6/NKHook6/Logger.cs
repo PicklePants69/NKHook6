@@ -90,7 +90,7 @@ namespace NKHook6
         {
             if (String.IsNullOrEmpty(nkhText.Title))
             {
-                if (Utils.GetCallingModInfo() == null)
+                if (Utils.GetCallingModInfo() == null || Utils.GetCallingModInfo().Name.ToLower() == "nkhook6")
                     nkhText.Title = "NKHook6";
                 else
                     nkhText.Title = Utils.GetCallingModInfo().Name;

@@ -700,6 +700,7 @@
     <None Include="Dependencies\NLayer\NLayer\NLayer.csproj" />
     <None Include="packages.config" />
     <None Include="Resources\ingame_popup.bundle" />
+    <None Include="Resources\nkhook logo.bundle" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Api\Events\Bridge\UnityToSimulation\" />

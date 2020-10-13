@@ -10,6 +10,7 @@ namespace NKHook6.Api.Utilities
     {
         public static List<string> UnlockTheseTowers;
         public static List<string> LockTheseTowers;
+        public static ProfileModel profileModel;
     }
 
     [HarmonyPatch(typeof(ProfileModel), "Validate")] // this method is called after the profile data is parsed, hence why it's used to modify said profile data
@@ -18,6 +19,8 @@ namespace NKHook6.Api.Utilities
         [HarmonyPostfix]
         internal static void Postfix(ProfileModel __instance)
         {
+            ProfileUtils.profileModel = __instance;
+
             if ((ProfileUtils.UnlockTheseTowers == null || ProfileUtils.UnlockTheseTowers.Count == 0) && 
                 (TowerUtils.AddTheseTowersToList == null || TowerUtils.AddTheseTowersToList.Count == 0))
                 return;

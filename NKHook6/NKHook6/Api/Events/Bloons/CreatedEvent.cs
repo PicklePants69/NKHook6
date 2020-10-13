@@ -14,6 +14,7 @@ namespace NKHook6.Api.Events._Bloons
 
             public CreatedEvent(ref Bloon bloon, ref Entity target, ref Model model) : base("BloonCreatedEvent")
             {
+                //Logger.ShowMessage("Bloon Spawned!");
                 this.bloon = bloon;
                 this.model = model;
                 this.entity = target;

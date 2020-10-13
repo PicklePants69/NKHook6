@@ -1,5 +1,7 @@
-﻿using Assets.Scripts.Unity;
+﻿using Assets.Scripts.Models.Profile;
+using Assets.Scripts.Unity;
 using Mono.CSharp;
+using NKHook6.Api.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +12,8 @@ namespace NKHook6.Api.Extensions
 {
     public static class GameExt
     {
+        public static ProfileModel getProfileModel(this Game game) => ProfileUtils.profileModel;
+
         public static double getMonkeyMoney(this Game game)
         {
             if(game != null)
