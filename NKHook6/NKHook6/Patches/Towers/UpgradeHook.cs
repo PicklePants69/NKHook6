@@ -6,27 +6,16 @@
 	using NKHook6.Api.Events._Towers;
 
 	[HarmonyPatch(typeof(Tower), "OnUpgrade")]
-	class OnUpgradeHook
+	class UpgradeHook
 	{
-		private static bool sendPrefixEvent = true;
-		private static bool sendPostfixEvent = true;
-
 		[HarmonyPrefix]
 		internal static bool Prefix(ref Tower __instance)
 		{
-			/*bool allowOriginalMethod = true;
-			if (sendPrefixEvent)
-			{
-				var o = new TowerEvents.OnUpgradeEvent.Pre(ref __instance);
-				EventRegistry.subscriber.dispatchEvent(ref o);
-				__instance = o.instance;
-				allowOriginalMethod = !o.isCancelled();
-			}
-
-			sendPrefixEvent = !sendPrefixEvent;
-
-			return allowOriginalMethod;*/
-			return true;
+			bool allowOriginalMethod = true;
+			var o = new TowerEvents.UpgradeEvent(ref __instance);
+			EventRegistry.subscriber.dispatchEvent(ref o);
+			allowOriginalMethod = !o.isCancelled();
+			return allowOriginalMethod;
 		}
 
 		[HarmonyPostfix]

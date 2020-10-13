@@ -22,5 +22,29 @@ namespace NKHook6.Api.Extensions
         {
             tower.PositionTower(new Vector2(posX, posY));
         }
+        public static int[] getUpgrades(this Tower tower)
+        {
+            if (!tower.towerModel.name.Contains("-"))
+            {
+                return new int[]{ 0,0,0 };
+            }
+            string upgrades = tower.towerModel.name.Split('-')[1];
+            int[] returning = new int[] { 0, 0, 0 };
+            int i = 0;
+            foreach (char c in upgrades)
+            {
+                try
+                {
+                    int level = int.Parse(c.ToString());
+                    returning[i] = level;
+                    i++;
+                }
+                catch(Exception)
+                {
+                    return new int[] { 0, 0, 0 };
+                }
+            }
+            return returning;
+        }
     }
 }

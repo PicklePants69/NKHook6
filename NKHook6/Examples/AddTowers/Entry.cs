@@ -41,7 +41,7 @@ namespace AddTowers
             Game game = Game.instance;
 
 
-            Il2CppReferenceArray<TowerModel> towerList = game.model.towers;
+            //Il2CppReferenceArray<TowerModel> towerList = game.model.towers;
 
             /*TowerModel[] modelArr = new TowerModel[towerList.Count+1];
 
@@ -56,18 +56,19 @@ namespace AddTowers
 */
             /*game.model.towers[game.model.towers.Count] = myModel;
             */
-            TypedReference tr = __makeref(towerList);
+            /*TypedReference tr = __makeref(towerList);
             IntPtr ptr = **(IntPtr**)(&tr);
-            Logger.Log("Ptr of tower list: " + ptr.ToString("X"));
-            /*foreach (TowerModel model in game.model.towers)
+            Logger.Log("Ptr of tower list: " + ptr.ToString("X"));*/
+            foreach (TowerModel model in game.model.towers)
             {
-                if (model.name == "DartMonkey")
+                /*if (model.name == "DartMonkey")
                 {
                     customModel = model;
                     Logger.Log("Set default modded model");
-                }
+                }*/
+                Logger.Log(model.name);
             }
-            customModel.isGlobalRange = true;
+            /*customModel.isGlobalRange = true;
             customModel.range = 9999;*/
         }
 

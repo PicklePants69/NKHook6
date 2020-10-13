@@ -677,7 +677,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="Patches\Bloons\RotateHook.cs" />
     <Compile Include="Patches\Towers\SelectedHook.cs" />
-    <Compile Include="Patches\Towers\OnUpgradeHook.cs" />
+    <Compile Include="Patches\Towers\UpgradeHook.cs" />
     <Compile Include="Patches\Towers\AddPoppedCashHook.cs" />
     <Compile Include="Patches\Towers\IsUpgradeBlockedHook.cs" />
     <Compile Include="Patches\Towers\IsSelectableHook.cs" />
