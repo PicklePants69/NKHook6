@@ -44,7 +44,7 @@ namespace NKHook6
         public Text body;
         public NkhMsg currentMsg;
         public int slot;
-        public Notification(float startingYpos, NkhMsg msg)
+        public Notification(int slot, NkhMsg msg)
         {
             if (assetBundle == null)
                 assetBundle = AssetBundle.LoadFromMemory(Properties.Resources.ingame_popup);
@@ -52,7 +52,7 @@ namespace NKHook6
                 canvas = assetBundle.LoadAsset("Canvas").Cast<GameObject>();
 
             Logger.Log(msg.NkhText.Body);
-
+            this.slot = slot;
             //======
             // Initialize game object stuff
             //======
@@ -73,15 +73,26 @@ namespace NKHook6
             body.color = currentMsg.NkhText.BodyColor;
 
             //set pos so elements are positioned correctly
+            var windowHeight = Screen.height;
+            //Logger.Log(windowHeight.ToString());
+
+            var test1 = (windowHeight / 8) *1.155f;
+            //var spaceBetweenSlots = 110 * slot;
+            //var spaceBetweenSlots = 135* slot;
+            var spaceBetweenSlots = test1 * slot;
+
+
             var pos = img.transform.position;
             pos.x = -defaultWidth;
-            pos.y -= startingYpos + 55;
+            pos.y -= spaceBetweenSlots + 55;
             pos.z = 955;       //might get rid of this later. Setting ui to be very high up so it won't get put under other stuff. Game camera is at about 995
             nextX = -defaultWidth;
             img.transform.position = pos;
 
-            
-            
+            var test2 = Camera.current.transform.position;
+            //Logger.Log(test2.x.ToString());
+            //Logger.Log(test2.y.ToString());
+            //Logger.Log(test2.z.ToString());
 
             var scale = img.rectTransform.rect;
             //Logger.Log(scale.ToString());
@@ -133,7 +144,8 @@ namespace NKHook6
         private float nextMsgRunTime = 0f;
         private readonly float transitionWaitTimePerRun = 0f;
         private float nextX = 0;
-        private readonly int defaultWidth = 345;
+        //private readonly int defaultWidth = 345;
+        private readonly int defaultWidth = 500;
         private readonly int maxX = 15;
         private void ShowMsg()
         {
@@ -264,8 +276,7 @@ namespace NKHook6
                     break;
                 }
 
-                Notification notification = new Notification(((slot) * 110), msg);
-                notification.slot = slot;
+                Notification notification = new Notification(slot, msg);
                 notifications.Add(notification);
             }
         }

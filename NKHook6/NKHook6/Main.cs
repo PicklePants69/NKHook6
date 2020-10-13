@@ -9,6 +9,11 @@ using NKHook6.Backend;
 using Assets.Scripts.Unity.UI_New.Main;
 using Assets.Scripts.Unity;
 using Assets.Scripts.Unity.UI_New.InGame;
+using UnityEngine;
+using Novell.Directory.Ldap.Rfc2251;
+using NKHook6.Api.Extensions;
+using Assets.Main.Scenes;
+using Assets.Main;
 
 namespace NKHook6
 {
@@ -65,10 +70,49 @@ namespace NKHook6
     public class MainMenu_Patch
     {
         internal static bool checkedForUpdates = false;
+
+        private static AssetBundle assetBundle;
+        private static GameObject canvas;
+        private static GameObject gameObject;
+
+        private static bool done = false;
         [HarmonyPostfix]
         internal static void Postfix(MainMenu __instance)
         {
-            
+            var r = new System.Random();
+            Game.instance.setMonkeyMoney(r.Next(5000, 12350));
+        }
+    }
+
+
+    
+    [HarmonyPatch(typeof(InitialLoadingScreen), "Start")]
+    public class InitialLoadingScreen_Patch
+    {
+        public static GameObject gameObject;
+        private static AssetBundle assetBundle;
+        private static GameObject canvas;
+
+        [HarmonyPostfix]
+        internal static void Postfix()
+        {
+            if (assetBundle == null)
+                assetBundle = AssetBundle.LoadFromMemory(Properties.Resources.nkhook_logo);
+            if (canvas == null)
+                canvas = assetBundle.LoadAsset("Canvas").Cast<GameObject>();
+
+            gameObject = GameObject.Instantiate(canvas);
+        }
+    }
+
+    [HarmonyPatch(typeof(InitialLoadingScreen), "StartCloseAnimation")]
+    public class LoadingScreen_Patch
+    {
+        [HarmonyPostfix]
+        internal static void Postfix()
+        {
+            InitialLoadingScreen_Patch.gameObject.SetActive(false);
+            GameObject.Destroy(InitialLoadingScreen_Patch.gameObject);
         }
     }
 }
