@@ -14,6 +14,7 @@ using Novell.Directory.Ldap.Rfc2251;
 using NKHook6.Api.Extensions;
 using Assets.Main.Scenes;
 using Assets.Main;
+using NKHook6.Api.Gamemodes;
 
 namespace NKHook6
 {
@@ -79,15 +80,17 @@ namespace NKHook6
         [HarmonyPostfix]
         internal static void Postfix(MainMenu __instance)
         {
-            var r = new System.Random();
-            Game.instance.setMonkeyMoney(r.Next(5000, 12350));
+            //var r = new System.Random();
+            //Game.instance.setMonkeyMoney(r.Next(5000, 12350));
+
+            Loader.Start();
         }
     }
 
 
     
     [HarmonyPatch(typeof(InitialLoadingScreen), "Start")]
-    public class InitialLoadingScreen_Patch
+    internal class InitialLoadingScreen_Patch
     {
         public static GameObject gameObject;
         private static AssetBundle assetBundle;
@@ -106,7 +109,7 @@ namespace NKHook6
     }
 
     [HarmonyPatch(typeof(InitialLoadingScreen), "StartCloseAnimation")]
-    public class LoadingScreen_Patch
+    internal class LoadingScreen_Patch
     {
         [HarmonyPostfix]
         internal static void Postfix()
