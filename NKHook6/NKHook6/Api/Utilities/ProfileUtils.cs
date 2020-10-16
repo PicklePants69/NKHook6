@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Models.Profile;
 using Assets.Scripts.Models.Towers;
 using Assets.Scripts.Models.TowerSets;
+using Assets.Scripts.Unity.Player;
 using Harmony;
 using Il2CppSystem.Collections.Generic;
 
@@ -11,6 +12,8 @@ namespace NKHook6.Api.Utilities
         public static List<string> UnlockTheseTowers;
         public static List<string> LockTheseTowers;
         public static ProfileModel profileModel;
+        public static Btd6Player btd6Player;
+
     }
 
     [HarmonyPatch(typeof(ProfileModel), "Validate")] // this method is called after the profile data is parsed, hence why it's used to modify said profile data
@@ -21,7 +24,7 @@ namespace NKHook6.Api.Utilities
         {
             ProfileUtils.profileModel = __instance;
 
-            if ((ProfileUtils.UnlockTheseTowers == null || ProfileUtils.UnlockTheseTowers.Count == 0) && 
+            if ((ProfileUtils.UnlockTheseTowers == null || ProfileUtils.UnlockTheseTowers.Count == 0) &&
                 (TowerUtils.AddTheseTowersToList == null || TowerUtils.AddTheseTowersToList.Count == 0))
                 return;
 
@@ -60,6 +63,17 @@ namespace NKHook6.Api.Utilities
                     unlockedTowers.Remove(item);
                 }
             }
+        }
+    }
+
+
+    [HarmonyPatch(typeof(Btd6Player), "GetAnalyticsInfo")]
+    public class PlayerInfoExtensions_Patch
+    {
+        [HarmonyPostfix]
+        public static void Postfix(Btd6Player __instance)
+        {
+            ProfileUtils.btd6Player = __instance;
         }
     }
 }

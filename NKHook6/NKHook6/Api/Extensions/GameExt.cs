@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Models.Profile;
 using Assets.Scripts.Unity;
+using Assets.Scripts.Unity.Player;
 using Mono.CSharp;
 using NKHook6.Api.Utilities;
 using System;
@@ -13,6 +14,7 @@ namespace NKHook6.Api.Extensions
     public static class GameExt
     {
         public static ProfileModel getProfileModel(this Game game) => ProfileUtils.profileModel;
+        public static Btd6Player getBtd6Player(this Game game) => ProfileUtils.btd6Player;
 
         public static double getMonkeyMoney(this Game game)
         {

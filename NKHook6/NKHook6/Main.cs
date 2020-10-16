@@ -83,6 +83,9 @@ namespace NKHook6
         [HarmonyPostfix]
         internal static void Postfix(MainMenu __instance)
         {
+            var profile = Game.instance.getProfileModel();
+            
+            Logger.Log(
             //var r = new System.Random();
             //Game.instance.setMonkeyMoney(r.Next(5000, 12350));
 
