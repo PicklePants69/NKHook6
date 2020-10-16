@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Models;
 using Assets.Scripts.Simulation.Bloons;
 using Assets.Scripts.Simulation.Objects;
+using NKHook6.Api.Gamemodes;
 
 namespace NKHook6.Api.Events._Bloons
 {
@@ -14,7 +15,7 @@ namespace NKHook6.Api.Events._Bloons
 
             public CreatedEvent(ref Bloon bloon, ref Entity target, ref Model model) : base("BloonCreatedEvent")
             {
-                //Logger.ShowMessage("Bloon Spawned!");
+                //Loader.Start();
                 this.bloon = bloon;
                 this.model = model;
                 this.entity = target;

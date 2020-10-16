@@ -86,7 +86,7 @@ namespace NKHook6
             //var r = new System.Random();
             //Game.instance.setMonkeyMoney(r.Next(5000, 12350));
 
-            Loader.Start();
+            //Loader.Start();
         }
     }
 
