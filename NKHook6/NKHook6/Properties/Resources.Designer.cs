@@ -63,6 +63,16 @@ namespace NKHook6.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] gamemode_ui {
+            get {
+                object obj = ResourceManager.GetObject("gamemode_ui", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] ingame_popup {
             get {
                 object obj = ResourceManager.GetObject("ingame_popup", resourceCulture);

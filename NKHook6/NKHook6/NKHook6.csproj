@@ -616,6 +616,8 @@
     <Compile Include="Api\Gamemodes\Gamemode.cs" />
     <Compile Include="Api\Gamemodes\Loader.cs" />
     <Compile Include="Api\ModSettings.cs" />
+    <Compile Include="Api\PseudoUpgrades\BloonUpgrade.cs" />
+    <Compile Include="Api\PseudoUpgrades\TowerUpgrade.cs" />
     <Compile Include="Api\Utilities\ASMPatcher.cs" />
     <Compile Include="Api\Utilities\AssetUtils.cs" />
     <Compile Include="Api\Enums\DefaultBloonIds.cs" />
@@ -701,6 +703,7 @@
     <None Include="Dependencies\NLayer\LICENSE" />
     <None Include="Dependencies\NLayer\NLayer\NLayer.csproj" />
     <None Include="packages.config" />
+    <None Include="Resources\gamemode ui.bundle" />
     <None Include="Resources\ingame_popup.bundle" />
     <None Include="Resources\nkhook logo.bundle" />
   </ItemGroup>
