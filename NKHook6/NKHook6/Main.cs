@@ -15,6 +15,9 @@ using NKHook6.Api.Extensions;
 using Assets.Main.Scenes;
 using Assets.Main;
 using NKHook6.Api.Gamemodes;
+using NKHook6.Api.Utilities;
+using UnityEngine.UI;
+using NKHook6.Api.Web;
 
 namespace NKHook6
 {
@@ -92,19 +95,32 @@ namespace NKHook6
     [HarmonyPatch(typeof(InitialLoadingScreen), "Start")]
     internal class InitialLoadingScreen_Patch
     {
-        public static GameObject gameObject;
-        private static AssetBundle assetBundle;
-        private static GameObject canvas;
-
+        public static GameObject canvasObject = new GameObject("Canvas");
+        public static GameObject nkhTextObj = new GameObject("Text");
         [HarmonyPostfix]
         internal static void Postfix()
         {
-            if (assetBundle == null)
+            /*if (assetBundle == null)
                 assetBundle = AssetBundle.LoadFromMemory(Properties.Resources.nkhook_logo);
             if (canvas == null)
                 canvas = assetBundle.LoadAsset("Canvas").Cast<GameObject>();
 
-            gameObject = GameObject.Instantiate(canvas);
+            gameObject = GameObject.Instantiate(canvas);*/
+
+            Canvas canvas = canvasObject.AddComponent<Canvas>();
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+
+            nkhTextObj.transform.parent = canvas.transform;
+            Text nkhText = nkhTextObj.AddComponent<Text>();
+            nkhText.text = "NKHook6";
+            nkhText.font = Resources.FindObjectsOfTypeAll<Font>()[0];
+            nkhText.fontSize = 70;
+            nkhText.color = Color.black;
+            nkhText.alignment = TextAnchor.UpperLeft;
+            nkhText.rectTransform.sizeDelta = Vector2.zero;
+            nkhText.rectTransform.anchorMin = Vector2.zero;
+            nkhText.rectTransform.anchorMax = Vector2.one;
+            nkhText.rectTransform.anchoredPosition = new Vector2(0, 0);
         }
     }
 
@@ -114,8 +130,8 @@ namespace NKHook6
         [HarmonyPostfix]
         internal static void Postfix()
         {
-            InitialLoadingScreen_Patch.gameObject.SetActive(false);
-            GameObject.Destroy(InitialLoadingScreen_Patch.gameObject);
+            InitialLoadingScreen_Patch.canvasObject.SetActive(false);
+            GameObject.Destroy(InitialLoadingScreen_Patch.canvasObject);
         }
     }
 }
