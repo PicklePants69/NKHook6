@@ -10,14 +10,11 @@ using Assets.Scripts.Unity.UI_New.Main;
 using Assets.Scripts.Unity;
 using Assets.Scripts.Unity.UI_New.InGame;
 using UnityEngine;
-using Novell.Directory.Ldap.Rfc2251;
 using NKHook6.Api.Extensions;
 using Assets.Main.Scenes;
 using Assets.Main;
 using NKHook6.Api.Gamemodes;
-using NKHook6.Api.Utilities;
 using UnityEngine.UI;
-using NKHook6.Api.Web;
 
 namespace NKHook6
 {
@@ -85,7 +82,6 @@ namespace NKHook6
         {
             var profile = Game.instance.getProfileModel();
             
-            Logger.Log(
             //var r = new System.Random();
             //Game.instance.setMonkeyMoney(r.Next(5000, 12350));
 

@@ -1,23 +1,9 @@
 ﻿using Assets.Scripts.Models.Towers;
-using Assets.Scripts.Models.Towers.Mods;
-using Assets.Scripts.Models.TowerSets;
-using Assets.Scripts.Simulation.Input;
 using Assets.Scripts.Unity;
-using Harmony;
 using MelonLoader;
 using NKHook6;
 using NKHook6.Api.Events;
-using NKHook6.Api.Events._Bloons;
 using NKHook6.Api.Events._MainMenu;
-using NKHook6.Api.Events._Towers;
-using NKHook6.Api.Extensions;
-using NKHook6.Api.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnhollowerBaseLib;
 
 
 /*

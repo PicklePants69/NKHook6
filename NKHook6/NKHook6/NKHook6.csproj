@@ -38,7 +38,6 @@
     <CodeAnalysisRuleSet />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Accessibility" />
     <Reference Include="Assembly-CSharp">
       <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
@@ -48,100 +47,6 @@
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>..\references\Assembly-CSharp-firstpass.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Boo.Lang">
-      <HintPath>..\references\Boo.Lang.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Boo.Lang.Compiler">
-      <HintPath>..\references\Boo.Lang.Compiler.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Boo.Lang.Extensions">
-      <HintPath>..\references\Boo.Lang.Extensions.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Boo.Lang.Parser">
-      <HintPath>..\references\Boo.Lang.Parser.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Boo.Lang.PatternMatching">
-      <HintPath>..\references\Boo.Lang.PatternMatching.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Boo.Lang.Useful">
-      <HintPath>..\references\Boo.Lang.Useful.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Commons.Xml.Relaxng">
-      <HintPath>..\references\Commons.Xml.Relaxng.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="cscompmgd, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\references\cscompmgd.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="CustomMarshalers" />
-    <Reference Include="Facebook.Unity.Settings">
-      <HintPath>..\references\Facebook.Unity.Settings.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Facepunch.Steamworks">
-      <HintPath>..\references\Facepunch.Steamworks.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Firebase.Analytics">
-      <HintPath>..\references\Firebase.Analytics.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Firebase.App">
-      <HintPath>..\references\Firebase.App.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Firebase.Crashlytics">
-      <HintPath>..\references\Firebase.Crashlytics.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Firebase.Platform">
-      <HintPath>..\references\Firebase.Platform.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="I18N">
-      <HintPath>..\references\I18N.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="I18N.CJK">
-      <HintPath>..\references\I18N.CJK.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="I18N.MidEast">
-      <HintPath>..\references\I18N.MidEast.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="I18N.Other">
-      <HintPath>..\references\I18N.Other.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="I18N.Rare">
-      <HintPath>..\references\I18N.Rare.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="I18N.West">
-      <HintPath>..\references\I18N.West.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="IBM.Data.DB2">
-      <HintPath>..\references\IBM.Data.DB2.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Iced">
-      <HintPath>..\references\Iced.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>..\references\ICSharpCode.SharpZipLib.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Il2CppMono.Security">
@@ -192,51 +97,6 @@
       <HintPath>..\references\MelonLoader.ModHandler.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Web.Infrastructure">
-      <HintPath>..\references\Microsoft.Web.Infrastructure.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mono.CompilerServices.SymbolWriter">
-      <HintPath>..\references\Mono.CompilerServices.SymbolWriter.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mono.CSharp">
-      <HintPath>..\references\Mono.CSharp.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mono.Data.Sqlite">
-      <HintPath>..\references\Mono.Data.Sqlite.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mono.Data.Tds">
-      <HintPath>..\references\Mono.Data.Tds.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mono.Messaging">
-      <HintPath>..\references\Mono.Messaging.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mono.Posix">
-      <HintPath>..\references\Mono.Posix.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mono.Security">
-      <HintPath>..\references\Mono.Security.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mono.WebBrowser">
-      <HintPath>..\references\Mono.WebBrowser.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="NCalc">
-      <HintPath>..\references\NCalc.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="netstandard">
-      <HintPath>..\references\netstandard.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\references\Newtonsoft.Json.dll</HintPath>
@@ -251,23 +111,6 @@
     </Reference>
     <Reference Include="NK-Unity-Libs">
       <HintPath>..\references\NK-Unity-Libs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Novell.Directory.Ldap">
-      <HintPath>..\references\Novell.Directory.Ldap.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Purchasing.Common">
-      <HintPath>..\references\Purchasing.Common.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="SMDiagnostics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\references\SMDiagnostics.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Stores">
-      <HintPath>..\references\Stores.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -568,8 +411,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\CommandManager.cs" />
-    <Compile Include="Api\CustomTypes\DamageInfo.cs" />
-    <Compile Include="Api\Enums\DefaultTowerIDs.cs" />
     <Compile Include="Api\Events\Bloons\CreatedEvent.cs" />
     <Compile Include="Api\Events\Bloons\DeletedEvent.cs" />
     <Compile Include="Api\Events\Bloons\DamagedEvent.cs" />
@@ -616,18 +457,10 @@
     <Compile Include="Api\Gamemodes\Gamemode.cs" />
     <Compile Include="Api\Gamemodes\Loader.cs" />
     <Compile Include="Api\ModSettings.cs" />
-    <Compile Include="Api\PseudoUpgrades\BloonUpgrade.cs" />
-    <Compile Include="Api\PseudoUpgrades\TowerUpgrade.cs" />
-    <Compile Include="Api\Utilities\ASMPatcher.cs" />
-    <Compile Include="Api\Utilities\AssetUtils.cs" />
-    <Compile Include="Api\Enums\DefaultBloonIds.cs" />
-    <Compile Include="Api\Utilities\BloonUtils.cs" />
-    <Compile Include="Api\Utilities\EnumUtils.cs" />
-    <Compile Include="Api\Utilities\ImageUtils.cs" />
-    <Compile Include="Api\Utilities\JsonUtils.cs" />
-    <Compile Include="Api\Utilities\ProfileUtils.cs" />
-    <Compile Include="Api\Utilities\ReflectionUtils.cs" />
-    <Compile Include="Api\Utilities\TowerUtils.cs" />
+    <Compile Include="Patches\Bloon6Player\Bloon6PlayerPatch.cs" />
+    <Compile Include="Patches\ProfileModel\ProfilePatch.cs" />
+    <Compile Include="Utils\BloonToolkit.cs" />
+    <Compile Include="Utils\Utils.cs" />
     <Compile Include="Dependencies\NLayer\NLayer\Decoder\BitReservoir.cs" />
     <Compile Include="Dependencies\NLayer\NLayer\Decoder\FrameBase.cs" />
     <Compile Include="Dependencies\NLayer\NLayer\Decoder\Huffman.cs" />
@@ -651,14 +484,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="VersionCheckAttribute.cs" />
     <Compile Include="KeyListener.cs" />
-    <Compile Include="Api\Utilities\Utils.cs" />
-    <Compile Include="Api\Web\GitApi.cs" />
-    <Compile Include="Api\Web\UpdateHandler.cs" />
-    <Compile Include="Api\Web\WebHandler.cs" />
     <Compile Include="Patches\Bloons\MoveHook.cs" />
-    <Compile Include="UpdateMgr.cs" />
     <Compile Include="Patches\Bloons\DamagedHook.cs" />
     <Compile Include="Patches\Bloons\UpdatedModelHook.cs" />
     <Compile Include="Patches\Bloons\CreatedHook.cs" />
@@ -696,7 +523,6 @@
     <Compile Include="Patches\Weapons\UpgradeModelHook.cs" />
     <Compile Include="Patches\Simulation\TakeDamageHook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scripting\BooManager.cs" />
     <Compile Include="Win32.cs" />
   </ItemGroup>
   <ItemGroup>

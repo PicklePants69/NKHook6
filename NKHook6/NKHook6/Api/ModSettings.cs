@@ -1,5 +1,5 @@
 ﻿using Il2CppSystem.IO;
-using NKHook6.Api.Utilities;
+using NKHook6.Utils;
 using System;
 
 namespace NKHook6.Api
@@ -11,7 +11,7 @@ namespace NKHook6.Api
         string FilePath = "";
         public ModSettings()
         {
-            string modName = Utils.GetCallingModInfo().Name;
+            string modName = Toolkit.GetCallingModInfo().Name;
 
             if (!String.IsNullOrEmpty(modName))
             {

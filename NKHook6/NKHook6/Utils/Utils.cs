@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NKHook6.Api.Utilities
+namespace NKHook6.Utils
 {
-    public class Utils
+    internal partial class Toolkit
     {
         /// <summary>
         /// Get the Assembly of the mod that is calling NKHook6 code

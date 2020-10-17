@@ -1,16 +1,8 @@
-﻿using Assets.Scripts.Unity;
-using Assets.Scripts.Unity.UI_New.Popups;
-using System.Collections.Generic;
+﻿using Assets.Scripts.Unity.UI_New.Popups;
+using NKHook6.Utils;
 using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
-using Utils = NKHook6.Api.Utilities.Utils;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using Il2CppSystem.Xml;
-using System.Collections;
 
 namespace NKHook6
 {
@@ -38,7 +30,7 @@ namespace NKHook6
         {
             string modName;
             if (String.IsNullOrEmpty(sender))
-                modName = (Utils.GetCallingModInfo() == null ? "NKHook6" : Utils.GetCallingModInfo().Name);
+                modName = (Toolkit.GetCallingModInfo() == null ? "NKHook6" : Toolkit.GetCallingModInfo().Name);
             else
                 modName = sender;
 
@@ -90,10 +82,10 @@ namespace NKHook6
         {
             if (String.IsNullOrEmpty(nkhText.Title))
             {
-                if (Utils.GetCallingModInfo() == null || Utils.GetCallingModInfo().Name.ToLower() == "nkhook6")
+                if (Toolkit.GetCallingModInfo() == null || Toolkit.GetCallingModInfo().Name.ToLower() == "nkhook6")
                     nkhText.Title = "NKHook6";
                 else
-                    nkhText.Title = Utils.GetCallingModInfo().Name;
+                    nkhText.Title = Toolkit.GetCallingModInfo().Name;
             }
 
             
