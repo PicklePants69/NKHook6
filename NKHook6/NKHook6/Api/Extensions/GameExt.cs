@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Models.Bloons;
 using Assets.Scripts.Models.Profile;
+using Assets.Scripts.Models.Towers;
 using Assets.Scripts.Unity;
 using Assets.Scripts.Unity.Player;
 using NKHook6.Patches._ProfileModel;
@@ -39,6 +40,15 @@ namespace NKHook6.Api.Extensions
         public static BloonModel[] getAllBloonModels(this Game game)
         {
             return game.model.bloons;
+        }
+        
+        public static TowerModel getTowerModel(this Game game, string towerName)
+        {
+            return game.model.GetTower(towerName);
+        }
+        public static TowerModel[] getAllTowerModels(this Game game)
+        {
+            return game.model.towers;
         }
     }
 }

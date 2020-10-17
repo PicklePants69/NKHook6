@@ -5,7 +5,7 @@
 	using NKHook6.Api.Events;
 	using NKHook6.Api.Events._Towers;
 
-	[HarmonyPatch(typeof(Tower), "OnUpgrade")]
+	[HarmonyPatch(typeof(Tower), "OnUpgraded")]
 	class UpgradeHook
 	{
 		[HarmonyPrefix]
