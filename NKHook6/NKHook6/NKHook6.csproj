@@ -454,6 +454,7 @@
     <Compile Include="Api\Extensions\GameExt.cs" />
     <Compile Include="Api\Extensions\InGameExt.cs" />
     <Compile Include="Api\Extensions\TowerExt.cs" />
+    <Compile Include="Api\Extensions\TowerModelExt.cs" />
     <Compile Include="Api\Gamemodes\Gamemode.cs" />
     <Compile Include="Api\Gamemodes\Loader.cs" />
     <Compile Include="Api\ModSettings.cs" />
@@ -461,6 +462,7 @@
     <Compile Include="Api\TowerRegistry.cs" />
     <Compile Include="Patches\Bloon6Player\Bloon6PlayerPatch.cs" />
     <Compile Include="Patches\ProfileModel\ProfilePatch.cs" />
+    <Compile Include="Patches\TowerInventory\InitPatch.cs" />
     <Compile Include="Utils\BloonToolkit.cs" />
     <Compile Include="Utils\Utils.cs" />
     <Compile Include="Dependencies\NLayer\NLayer\Decoder\BitReservoir.cs" />

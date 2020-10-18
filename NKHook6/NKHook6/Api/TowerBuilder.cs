@@ -42,7 +42,7 @@ namespace NKHook6.Api
         bool isBakable = false;
         FootprintModel footprint;
         bool dontDisplayUpgrades = false;
-        bool isPowerTower;
+        string powerName;
         float animationSpeed;
         SpriteReference emoteSpriteSmall;
         SpriteReference emoteSpriteLarge;
@@ -79,7 +79,7 @@ namespace NKHook6.Api
             this.isBakable = baseModel.isBakable;
             this.footprint = baseModel.footprint;
             this.dontDisplayUpgrades = baseModel.dontDisplayUpgrades;
-            this.isPowerTower = baseModel.isPowerTower;
+            this.powerName = baseModel.powerName;
             this.animationSpeed = baseModel.animationSpeed;
             this.emoteSpriteSmall = baseModel.emoteSpriteSmall;
             this.emoteSpriteLarge = baseModel.emoteSpriteLarge;
@@ -210,9 +210,9 @@ namespace NKHook6.Api
             this.dontDisplayUpgrades = dontDisplayUpgrades;
             return this;
         }
-        public TowerBuilder SetIsPowerTower(bool isPowerTower)
+        public TowerBuilder SetPowerName(string powerName)
         {
-            this.isPowerTower = isPowerTower;
+            this.powerName = powerName;
             return this;
         }
         public TowerBuilder SetAnimationSpeed(float animationSpeed)
@@ -254,40 +254,76 @@ namespace NKHook6.Api
         #region Builder
         public TowerModel build()
         {
+            TowerModel newModel = Game.instance.getTowerModel("DartMonkey").Clone().Cast<TowerModel>();
+            newModel.name = this.name;
+            newModel.baseId = this.baseId;
+            newModel.towerSet = this.towerSet;
+            newModel.display = this.display;
+            newModel.cost = this.cost;
+            newModel.radius = this.radius;
+            newModel.range = this.range;
+            newModel.ignoreBlockers = this.ignoreBlockers;
+            newModel.isGlobalRange = this.isGlobalRange;
+            newModel.tier = this.tier;
+            newModel.tiers = this.tiers;
+            newModel.appliedUpgrades = this.appliedUpgrades;
+            newModel.upgrades = this.upgrades;
+            newModel.behaviors = this.behaviors;
+            newModel.areaTypes = this.areaTypes;
+            newModel.icon = this.icon;
+            newModel.portrait = this.portrait;
+            newModel.instaIcon = this.instaIcon;
+            newModel.mods = this.mods;
+            newModel.ignoreTowerForSelection = this.ignoreTowerForSelection;
+            newModel.isSubTower = this.isSubTower;
+            newModel.isBakable = this.isBakable;
+            newModel.footprint = this.footprint;
+            newModel.dontDisplayUpgrades = this.dontDisplayUpgrades;
+            newModel.powerName = this.powerName;
+            newModel.animationSpeed = this.animationSpeed;
+            newModel.emoteSpriteSmall = this.emoteSpriteSmall;
+            newModel.emoteSpriteLarge = this.emoteSpriteLarge;
+            newModel.doesntRotate = this.doesntRotate;
+            newModel.showPowerTowerBuffs = this.showPowerTowerBuffs;
+            newModel.towerSelectionMenuThemeId = this.towerSelectionMenuThemeId;
+            newModel.ignoreCoopAreas = this.ignoreCoopAreas;
+            return newModel;
+            /*
             return new TowerModel(
-                this.name, 
-                this.baseId, 
-                this.towerSet, 
-                this.display, 
-                this.cost, 
-                this.radius, 
-                this.range, 
-                this.ignoreBlockers, 
-                this.isGlobalRange, 
-                this.tier, 
-                this.tiers, 
-                this.appliedUpgrades, 
-                this.upgrades, 
-                this.behaviors, 
-                this.areaTypes, 
-                this.icon, 
-                this.portrait, 
-                this.instaIcon, 
-                this.mods, 
-                this.ignoreTowerForSelection, 
-                this.isSubTower, 
-                this.isBakable, 
-                this.footprint, 
-                this.dontDisplayUpgrades, 
-                this.isPowerTower, 
-                this.animationSpeed, 
-                this.emoteSpriteSmall, 
-                this.emoteSpriteLarge, 
-                this.doesntRotate, 
-                this.showPowerTowerBuffs, 
+                this.name,
+                this.baseId,
+                this.towerSet,
+                this.display,
+                this.cost,
+                this.radius,
+                this.range,
+                this.ignoreBlockers,
+                this.isGlobalRange,
+                this.tier,
+                this.tiers,
+                this.appliedUpgrades,
+                this.upgrades,
+                this.behaviors,
+                this.areaTypes,
+                this.icon,
+                this.portrait,
+                this.instaIcon,
+                this.mods,
+                this.ignoreTowerForSelection,
+                this.isSubTower,
+                this.isBakable,
+                this.footprint,
+                this.dontDisplayUpgrades,
+                this.powerName,
+                this.animationSpeed,
+                this.emoteSpriteSmall,
+                this.emoteSpriteLarge,
+                this.doesntRotate,
+                this.showPowerTowerBuffs,
                 this.towerSelectionMenuThemeId,
                 this.ignoreCoopAreas
             );
+            */
         }
         #endregion
     }

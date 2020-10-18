@@ -1,9 +1,17 @@
 ﻿using Assets.Scripts.Models.Towers;
+using Assets.Scripts.Models.TowerSets;
+using Assets.Scripts.Simulation.Input;
 using Assets.Scripts.Unity;
+using Harmony;
 using MelonLoader;
 using NKHook6;
+using NKHook6.Api;
 using NKHook6.Api.Events;
 using NKHook6.Api.Events._MainMenu;
+using NKHook6.Api.Extensions;
+using System.Collections.Generic;
+using System.Linq;
+using UnhollowerBaseLib;
 
 
 /*
@@ -20,63 +28,47 @@ namespace AddTowers
             EventRegistry.subscriber.register(typeof(Entry));
         }
 
-        static TowerModel customModel = null;
+        static TowerModel customMonkey = null;
         [EventAttribute("MainMenuLoadedEvent")]
         public static unsafe void onLoad(MainMenuEvents.LoadedEvent e)
         {
             Game game = Game.instance;
 
+            //Build tower
+            customMonkey = new TowerBuilder().SetName("CustomMonkey").SetBaseId("CustomMonkey").SetCost(20).build();
 
-            //Il2CppReferenceArray<TowerModel> towerList = game.model.towers;
+            var p_towerList = game.model.towers;
+            List<TowerModel> towerList = new List<TowerModel>(p_towerList.ToArray());
+            towerList.Add(customMonkey);
+            Il2CppReferenceArray<TowerModel> m_towerList = new Il2CppReferenceArray<TowerModel>(towerList.ToArray());
+            game.model.towers = m_towerList;
 
-            /*TowerModel[] modelArr = new TowerModel[towerList.Count+1];
-
-            int x = 0;
-            foreach(TowerModel model in towerList)
+            foreach(TowerModel model in game.model.towers)
             {
-                modelArr[x] = model;
-                x++;
-            }
-            Il2CppReferenceArray<TowerModel> newList = new Il2CppReferenceArray<TowerModel>(modelArr);
-            newList[x] = myModel;
-*/
-            /*game.model.towers[game.model.towers.Count] = myModel;
-            */
-            /*TypedReference tr = __makeref(towerList);
-            IntPtr ptr = **(IntPtr**)(&tr);
-            Logger.Log("Ptr of tower list: " + ptr.ToString("X"));*/
-            foreach (TowerModel model in game.model.towers)
-            {
-                /*if (model.name == "DartMonkey")
-                {
-                    customModel = model;
-                    Logger.Log("Set default modded model");
-                }*/
                 Logger.Log(model.name);
             }
-            /*customModel.isGlobalRange = true;
-            customModel.range = 9999;*/
         }
 
-        /*[HarmonyPatch(typeof(TowerInventory), "Init")] // this method tells the game to create buttons for a given list of towers, allTowersInTheGame, which we modify here
-        internal class TowerInit_Patch
+        [HarmonyPatch(typeof(TowerInventory), "Init")]
+        class InitPatch
         {
             [HarmonyPrefix]
             internal static bool Prefix(TowerInventory __instance, ref List<TowerDetailsModel> allTowersInTheGame)
             {
-                allTowersInTheGame.Insert(allTowersInTheGame.Count, new TowerDetailsModel("DartMonkey", allTowersInTheGame.Count, 1, new Il2CppReferenceArray<ApplyModModel>(0)));
+                bool customPresent = false;
+                foreach(TowerDetailsModel details in allTowersInTheGame)
+                {
+                    if(details.towerId == customMonkey.baseId)
+                    {
+                        customPresent = true;
+                    }
+                }
+                if (!customPresent)
+                {
+                    allTowersInTheGame.Add(customMonkey.getShopDetails());
+                }
                 return true;
             }
         }
-
-        [EventAttribute("TowerCreatedEvent")]
-        public static void onCreated(TowerEvents.CreatedEvent e)
-        {
-            if (e.tower.towerModel.name == "CustomMonkey")
-            {
-                //if(e.tower.towerModel.)
-                //e.tower.towerModel = customModel;
-            }
-        }*/
     }
 }
