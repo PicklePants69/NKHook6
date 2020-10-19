@@ -458,6 +458,7 @@
     <Compile Include="Api\Gamemodes\Gamemode.cs" />
     <Compile Include="Api\Gamemodes\Loader.cs" />
     <Compile Include="Api\ModSettings.cs" />
+    <Compile Include="Api\Registry.cs" />
     <Compile Include="Api\TowerBuilder.cs" />
     <Compile Include="Api\TowerRegistry.cs" />
     <Compile Include="Patches\Bloon6Player\Bloon6PlayerPatch.cs" />

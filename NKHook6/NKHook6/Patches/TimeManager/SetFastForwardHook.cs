@@ -18,7 +18,7 @@
 			if (sendPrefixEvent)
 			{
 				var o = new TimeManagerEvents.SetFastForwardEvent.Pre(ref value);
-				EventRegistry.subscriber.dispatchEvent(ref o);
+				EventRegistry.instance.dispatchEvent(ref o);
 				value = o.value;
 				allowOriginalMethod = !o.isCancelled();
 			}
@@ -34,7 +34,7 @@
 			if (sendPostfixEvent)
 			{
 				var o = new TimeManagerEvents.SetFastForwardEvent.Post(ref value);
-				EventRegistry.subscriber.dispatchEvent(ref o);
+				EventRegistry.instance.dispatchEvent(ref o);
 				value = o.value;
 			}
 

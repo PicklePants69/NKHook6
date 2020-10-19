@@ -15,7 +15,7 @@
 		{
 			/*bool allowOriginalMethod = true;
 			var o = new SimulationEvents.SetCashEvent.Pre(__instance, cash, cashIndex);
-			EventRegistry.subscriber.dispatchEvent(o);
+			EventRegistry.instance.dispatchEvent(o);
 			__instance = o.instance;
 			cash = o.cash;
 			cashIndex = o.cashIndex;
@@ -27,11 +27,11 @@
 
 			bool allowOriginalMethod = true;
 			var p = new SimulationEvents.CashChangedEvent(__instance, cash, CashType.Normal, cashIndex, CashSource.Normal, null);
-			EventRegistry.subscriber.dispatchEvent(ref p);
+			EventRegistry.instance.dispatchEvent(ref p);
 			if (cash > 0)
 			{
 				var o = new SimulationEvents.CashGainedEvent(__instance, cash, CashType.Normal, cashIndex, CashSource.Normal, null);
-				EventRegistry.subscriber.dispatchEvent(ref o);
+				EventRegistry.instance.dispatchEvent(ref o);
 
 				cash = o.cash;
 				cashIndex = o.cashIndex;
@@ -42,7 +42,7 @@
 			else
 			{
 				var o = new SimulationEvents.CashLostEvent(__instance, cash, CashType.Normal, cashIndex, CashSource.Normal);
-				EventRegistry.subscriber.dispatchEvent(ref o);
+				EventRegistry.instance.dispatchEvent(ref o);
 
 				cash = o.cash;
 				cashIndex = o.cashIndex;

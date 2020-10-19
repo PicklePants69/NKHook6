@@ -19,7 +19,7 @@ namespace NKHook6.Examples.LHCM
         public override void OnApplicationStart()
         {
             base.OnApplicationStart();
-            EventRegistry.subscriber.register(typeof(Entry));
+            EventRegistry.instance.listen(typeof(Entry));
         }
 
         [EventAttribute("BloonLeakedEvent")]

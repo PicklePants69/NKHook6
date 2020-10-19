@@ -12,7 +12,7 @@
         internal static void Postfix(ref Tower __instance)
         {
             var o = new TowerEvents.DeletedEvent(ref __instance);
-            EventRegistry.subscriber.dispatchEvent(ref o);
+            EventRegistry.instance.dispatchEvent(ref o);
             __instance = o.instance;
         }
     }

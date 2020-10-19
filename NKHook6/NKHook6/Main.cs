@@ -30,8 +30,9 @@ namespace NKHook6
 
             new EventRegistry();
             new KeyListener();
+            new TowerRegistry();
 
-            EventRegistry.subscriber.register(typeof(Main));
+            EventRegistry.instance.listen(typeof(Main));
 
             Log("NKHook6 initialized");
 
@@ -57,7 +58,7 @@ namespace NKHook6
         {
             base.OnUpdate();
             UpdateEvent update = new UpdateEvent();
-            EventRegistry.subscriber.dispatchEvent(ref update);
+            EventRegistry.instance.dispatchEvent(ref update);
 
             if (Game.instance == null || InGame.instance == null || InGame.instance.bridge == null)
                 return;

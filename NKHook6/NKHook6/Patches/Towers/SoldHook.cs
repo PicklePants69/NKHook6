@@ -13,7 +13,7 @@
         {
             bool allowOriginalMethod = true;
             var o = new TowerEvents.SoldEvent(ref __instance, ref amount);
-            EventRegistry.subscriber.dispatchEvent(ref o);
+            EventRegistry.instance.dispatchEvent(ref o);
             amount = o.sellAmount;
             allowOriginalMethod = !o.isCancelled();
 

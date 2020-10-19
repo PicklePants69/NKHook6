@@ -6,13 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace NKHook6.Backend
+namespace NKHook6
 {
     class KeyListener
     {
         public KeyListener()
         {
-            EventRegistry.subscriber.register(this.GetType());
+            EventRegistry.instance.listen(this.GetType());
         }
 
         [EventAttribute("UpdateEvent")]
@@ -23,19 +23,19 @@ namespace NKHook6.Backend
                 if (Input.GetKeyDown(key))
                 {
                     KeyPressEvent keyEvent = new KeyPressEvent(key);
-                    EventRegistry.subscriber.dispatchEvent(ref keyEvent);
+                    EventRegistry.instance.dispatchEvent(ref keyEvent);
                     continue;
                 }
                 if (Input.GetKey(key))
                 {
                     KeyHeldEvent keyEvent = new KeyHeldEvent(key);
-                    EventRegistry.subscriber.dispatchEvent(ref keyEvent);
+                    EventRegistry.instance.dispatchEvent(ref keyEvent);
                     continue;
                 }
                 if (Input.GetKeyUp(key))
                 {
                     KeyReleaseEvent keyEvent = new KeyReleaseEvent(key);
-                    EventRegistry.subscriber.dispatchEvent(ref keyEvent);
+                    EventRegistry.instance.dispatchEvent(ref keyEvent);
                     continue;
                 }
             }

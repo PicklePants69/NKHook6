@@ -14,7 +14,7 @@ namespace NKHook6.Patches._Bloons
         internal static void Postfix(ref Bloon __instance, ref Entity target, ref Model modelToUse)
         {
             var o = new BloonEvents.CreatedEvent(ref __instance, ref target, ref modelToUse);
-            EventRegistry.subscriber.dispatchEvent(ref o);
+            EventRegistry.instance.dispatchEvent(ref o);
             target = o.entity;
             modelToUse = o.model;
         }

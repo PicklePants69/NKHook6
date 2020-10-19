@@ -16,7 +16,7 @@ namespace NKHook6.Patches._Bloons
             bool allowOriginalMethod = true;
 
             var o = new BloonEvents.RotateEvent(ref __instance, ref rotation);
-            EventRegistry.subscriber.dispatchEvent(ref o);
+            EventRegistry.instance.dispatchEvent(ref o);
             rotation = o.rotation;
             allowOriginalMethod = !o.isCancelled();
 

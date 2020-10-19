@@ -21,7 +21,7 @@
             if (sendPrefixEvent)
             {
                 var o = new TowerEvents.UpgradeBlockedEvent.Pre(ref __instance, ref path, ref tier);
-                EventRegistry.subscriber.dispatchEvent(ref o);
+                EventRegistry.instance.dispatchEvent(ref o);
                 __instance = o.instance;
                 path = o.path;
                 tier = o.tier;
@@ -39,7 +39,7 @@
             if (sendPostfixEvent)
             {
                 var o = new TowerEvents.UpgradeBlockedEvent.Post(ref __instance, ref path, ref tier, ref reason, ref __result);
-                EventRegistry.subscriber.dispatchEvent(ref o);
+                EventRegistry.instance.dispatchEvent(ref o);
                 __instance = o.instance;
                 path = o.path;
                 tier = o.tier;

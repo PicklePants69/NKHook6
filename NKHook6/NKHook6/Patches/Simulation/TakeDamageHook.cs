@@ -18,7 +18,7 @@
 			if (sendPrefixEvent)
 			{
 				var o = new SimulationEvents.TakeDamageEvent.Pre(ref __instance, ref damage);
-				EventRegistry.subscriber.dispatchEvent(ref o);
+				EventRegistry.instance.dispatchEvent(ref o);
 				__instance = o.instance;
 				damage = o.damage;
 				allowOriginalMethod = !o.isCancelled();
@@ -36,7 +36,7 @@
 			/*if (sendPostfixEvent)
 			{
 				var o = new SimulationEvents.TakeDamageEvent.Post(ref __instance, ref damage);
-				EventRegistry.subscriber.dispatchEvent(ref o);
+				EventRegistry.instance.dispatchEvent(ref o);
 				__instance = o.instance;
 				damage = o.damage;
 			}

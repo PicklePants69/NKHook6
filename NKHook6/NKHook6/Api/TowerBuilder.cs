@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Models;
+﻿
+using Assets.Scripts.Models;
 using Assets.Scripts.Models.Map;
 using Assets.Scripts.Models.Towers;
 using Assets.Scripts.Models.Towers.Behaviors;
@@ -210,7 +211,7 @@ namespace NKHook6.Api
             this.dontDisplayUpgrades = dontDisplayUpgrades;
             return this;
         }
-        public TowerBuilder SetPowerName(string powerName)
+        public TowerBuilder SetIsPowerTower(string powerName)
         {
             this.powerName = powerName;
             return this;
@@ -254,41 +255,6 @@ namespace NKHook6.Api
         #region Builder
         public TowerModel build()
         {
-            TowerModel newModel = Game.instance.getTowerModel("DartMonkey").Clone().Cast<TowerModel>();
-            newModel.name = this.name;
-            newModel.baseId = this.baseId;
-            newModel.towerSet = this.towerSet;
-            newModel.display = this.display;
-            newModel.cost = this.cost;
-            newModel.radius = this.radius;
-            newModel.range = this.range;
-            newModel.ignoreBlockers = this.ignoreBlockers;
-            newModel.isGlobalRange = this.isGlobalRange;
-            newModel.tier = this.tier;
-            newModel.tiers = this.tiers;
-            newModel.appliedUpgrades = this.appliedUpgrades;
-            newModel.upgrades = this.upgrades;
-            newModel.behaviors = this.behaviors;
-            newModel.areaTypes = this.areaTypes;
-            newModel.icon = this.icon;
-            newModel.portrait = this.portrait;
-            newModel.instaIcon = this.instaIcon;
-            newModel.mods = this.mods;
-            newModel.ignoreTowerForSelection = this.ignoreTowerForSelection;
-            newModel.isSubTower = this.isSubTower;
-            newModel.isBakable = this.isBakable;
-            newModel.footprint = this.footprint;
-            newModel.dontDisplayUpgrades = this.dontDisplayUpgrades;
-            newModel.powerName = this.powerName;
-            newModel.animationSpeed = this.animationSpeed;
-            newModel.emoteSpriteSmall = this.emoteSpriteSmall;
-            newModel.emoteSpriteLarge = this.emoteSpriteLarge;
-            newModel.doesntRotate = this.doesntRotate;
-            newModel.showPowerTowerBuffs = this.showPowerTowerBuffs;
-            newModel.towerSelectionMenuThemeId = this.towerSelectionMenuThemeId;
-            newModel.ignoreCoopAreas = this.ignoreCoopAreas;
-            return newModel;
-            /*
             return new TowerModel(
                 this.name,
                 this.baseId,
@@ -323,7 +289,6 @@ namespace NKHook6.Api
                 this.towerSelectionMenuThemeId,
                 this.ignoreCoopAreas
             );
-            */
         }
         #endregion
     }

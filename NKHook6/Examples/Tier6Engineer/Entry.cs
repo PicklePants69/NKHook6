@@ -17,7 +17,7 @@ namespace Tier6Engineer
         public override void OnApplicationStart()
         {
             base.OnApplicationStart();
-            EventRegistry.subscriber.register(typeof(Entry));
+            EventRegistry.instance.listen(typeof(Entry));
         }
 
         [EventAttribute("TowerUpgradeEvent")]

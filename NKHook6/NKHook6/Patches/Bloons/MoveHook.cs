@@ -17,7 +17,7 @@ namespace NKHook6.Patches._Bloons
 
             float oldPosition = __instance.distanceTraveled;
             var o = new BloonEvents.MoveEvent(ref __instance, ref newPosition, ref oldPosition);
-            EventRegistry.subscriber.dispatchEvent(ref o);
+            EventRegistry.instance.dispatchEvent(ref o);
             newPosition = o.newPosition;
             allowOriginalMethod = !o.isCancelled();
 

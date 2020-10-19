@@ -29,11 +29,11 @@
 
 			bool allowOriginalMethod = true;
 			var p = new SimulationEvents.CashChangedEvent(__instance, cash, from, cashIndex, source, tower);
-			EventRegistry.subscriber.dispatchEvent(ref p);
+			EventRegistry.instance.dispatchEvent(ref p);
 			if (cash > 0)
 			{
 				var o = new SimulationEvents.CashGainedEvent(__instance, cash, from, cashIndex, source, tower);
-				EventRegistry.subscriber.dispatchEvent(ref o);
+				EventRegistry.instance.dispatchEvent(ref o);
 
 				cash = o.cash;
 				from = o.from;
@@ -47,7 +47,7 @@
             else
             {
 				var o = new SimulationEvents.CashLostEvent(__instance, cash, from, cashIndex, source);
-				EventRegistry.subscriber.dispatchEvent(ref o);
+				EventRegistry.instance.dispatchEvent(ref o);
 
 				cash = o.cash;
 				from = o.from;

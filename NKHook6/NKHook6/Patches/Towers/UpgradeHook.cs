@@ -13,7 +13,7 @@
 		{
 			bool allowOriginalMethod = true;
 			var o = new TowerEvents.UpgradeEvent(ref __instance);
-			EventRegistry.subscriber.dispatchEvent(ref o);
+			EventRegistry.instance.dispatchEvent(ref o);
 			allowOriginalMethod = !o.isCancelled();
 			return allowOriginalMethod;
 		}
@@ -24,7 +24,7 @@
 			/*if (sendPostfixEvent)
 			{
 				var o = new TowerEvents.OnUpgradeEvent.Post(ref __instance);
-				EventRegistry.subscriber.dispatchEvent(ref o);
+				EventRegistry.instance.dispatchEvent(ref o);
 				__instance = o.instance;
 			}
 

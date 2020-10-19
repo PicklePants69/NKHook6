@@ -19,7 +19,7 @@
 			if (sendPrefixEvent)
 			{
 				var o = new InGameEvents.GetContinueCostEvent.Pre(ref __instance);
-				EventRegistry.subscriber.dispatchEvent(ref o);
+				EventRegistry.instance.dispatchEvent(ref o);
 				__instance = o.instance;
 				allowOriginalMethod = !o.isCancelled();
 			}
@@ -35,7 +35,7 @@
 			if (sendPostfixEvent)
 			{
 				var o = new InGameEvents.GetContinueCostEvent.Post(ref __instance, ref __result);
-				EventRegistry.subscriber.dispatchEvent(ref o);
+				EventRegistry.instance.dispatchEvent(ref o);
 				__instance = o.instance;
 				__result = o.konFuze;
 			}

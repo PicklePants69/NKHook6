@@ -15,7 +15,7 @@
 		{
 			bool allowOriginalMethod = true;
 			var o = new ProjectileEvents.CreatedEvent(__instance, target, modelToUse);
-			EventRegistry.subscriber.dispatchEvent(ref o);
+			EventRegistry.instance.dispatchEvent(ref o);
 			__instance = o.instance;
 			target = o.entity;
 			modelToUse = o.model;

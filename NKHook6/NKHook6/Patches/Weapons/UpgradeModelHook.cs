@@ -19,7 +19,7 @@
 			if (sendPrefixEvent)
 			{
 				var o = new WeaponEvents.UpdatedModelEvent.Pre(ref __instance, ref modelToUse);
-				EventRegistry.subscriber.dispatchEvent(ref o);
+				EventRegistry.instance.dispatchEvent(ref o);
 				__instance = o.instance;
 				modelToUse = o.model;
 				allowOriginalMethod = !o.isCancelled();
@@ -36,7 +36,7 @@
 			if (sendPostfixEvent)
 			{
 				var o = new WeaponEvents.UpdatedModelEvent.Post(ref __instance, ref modelToUse);
-				EventRegistry.subscriber.dispatchEvent(ref o);
+				EventRegistry.instance.dispatchEvent(ref o);
 				__instance = o.instance;
 				modelToUse = o.model;
 			}

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace NKHook6.Patches._TowerInventory
 {
-    [HarmonyPatch(typeof(TowerInventory), "Init")]
+    /*[HarmonyPatch(typeof(TowerInventory), "Init")]
     class InitPatch
     {
         [HarmonyPrefix]
@@ -14,5 +14,5 @@ namespace NKHook6.Patches._TowerInventory
         {
             return true;
         }
-    }
+    }*/
 }

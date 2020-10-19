@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Models.Towers;
+using Assets.Scripts.Models.Towers.Mods;
 using Assets.Scripts.Models.TowerSets;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace NKHook6.Api.Extensions
         }
         public static ShopTowerDetailsModel getShopDetails(this TowerModel model)
         {
-            return new ShopTowerDetailsModel(model.name, 1, 0,0,0, -1, null);
+            return new ShopTowerDetailsModel(model.name, 1, 0,0,0, -1, new ApplyModModel[0]);
         }
     }
 }

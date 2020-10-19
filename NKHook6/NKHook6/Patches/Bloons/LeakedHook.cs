@@ -16,7 +16,7 @@ namespace NKHook6.Patches._Bloons
             bool allowOriginalMethod = true;
 
             var o = new BloonEvents.LeakedEvent(ref __instance);
-            EventRegistry.subscriber.dispatchEvent(ref o);
+            EventRegistry.instance.dispatchEvent(ref o);
             allowOriginalMethod = !o.isCancelled();
 
             return allowOriginalMethod;

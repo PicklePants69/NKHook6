@@ -16,7 +16,7 @@ namespace NKHook6.Backend.Patches._MainMenu
             if (sendEvent)
             {
                 var o = new MainMenuEvents.LoadedEvent(__instance);
-                EventRegistry.subscriber.dispatchEvent(ref o);
+                EventRegistry.instance.dispatchEvent(ref o);
             }
             sendEvent = !sendEvent;
         }

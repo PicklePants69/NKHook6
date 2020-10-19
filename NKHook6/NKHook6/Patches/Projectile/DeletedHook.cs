@@ -13,7 +13,7 @@
 		{
 			bool allowOriginalMethod = true;
 			var o = new ProjectileEvents.DeletedEvent(__instance);
-			EventRegistry.subscriber.dispatchEvent(ref o);
+			EventRegistry.instance.dispatchEvent(ref o);
 			__instance = o.instance;
 			allowOriginalMethod = !o.isCancelled();
 

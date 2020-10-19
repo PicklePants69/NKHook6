@@ -17,7 +17,7 @@ namespace NKHook6.Patches._Bloons
             if (sendPrefixEvent)
             {
                 var o = new BloonEvents.DeletedEvent(ref __instance);
-                EventRegistry.subscriber.dispatchEvent(ref o);
+                EventRegistry.instance.dispatchEvent(ref o);
                 allowOriginalMethod = !o.isCancelled();
             }
 

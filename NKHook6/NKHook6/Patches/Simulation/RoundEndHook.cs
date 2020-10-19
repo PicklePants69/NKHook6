@@ -13,7 +13,7 @@
         {
             bool allowOriginalMethod = true;
             var o = new SimulationEvents.RoundEndEvent(ref __instance, ref round);
-            EventRegistry.subscriber.dispatchEvent(ref o);
+            EventRegistry.instance.dispatchEvent(ref o);
             round = o.roundArrayIndex;
             allowOriginalMethod = !o.isCancelled();
 

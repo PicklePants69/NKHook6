@@ -25,50 +25,19 @@ namespace AddTowers
         public override void OnApplicationStart()
         {
             base.OnApplicationStart();
-            EventRegistry.subscriber.register(typeof(Entry));
+            EventRegistry.instance.listen(typeof(Entry));
         }
 
-        static TowerModel customMonkey = null;
         [EventAttribute("MainMenuLoadedEvent")]
         public static unsafe void onLoad(MainMenuEvents.LoadedEvent e)
         {
             Game game = Game.instance;
 
             //Build tower
-            customMonkey = new TowerBuilder().SetName("CustomMonkey").SetBaseId("CustomMonkey").SetCost(20).build();
+            TowerModel customMonkey = new TowerBuilder().SetName("CustomMonkey").SetBaseId("CustomMonkey").SetCost(20).build();
+            game.getProfileModel().unlockedTowers.Add("CustomMonkey");
 
-            var p_towerList = game.model.towers;
-            List<TowerModel> towerList = new List<TowerModel>(p_towerList.ToArray());
-            towerList.Add(customMonkey);
-            Il2CppReferenceArray<TowerModel> m_towerList = new Il2CppReferenceArray<TowerModel>(towerList.ToArray());
-            game.model.towers = m_towerList;
-
-            foreach(TowerModel model in game.model.towers)
-            {
-                Logger.Log(model.name);
-            }
-        }
-
-        [HarmonyPatch(typeof(TowerInventory), "Init")]
-        class InitPatch
-        {
-            [HarmonyPrefix]
-            internal static bool Prefix(TowerInventory __instance, ref List<TowerDetailsModel> allTowersInTheGame)
-            {
-                bool customPresent = false;
-                foreach(TowerDetailsModel details in allTowersInTheGame)
-                {
-                    if(details.towerId == customMonkey.baseId)
-                    {
-                        customPresent = true;
-                    }
-                }
-                if (!customPresent)
-                {
-                    allTowersInTheGame.Add(customMonkey.getShopDetails());
-                }
-                return true;
-            }
+            TowerRegistry.instance.register("CustomMonkey", customMonkey);
         }
     }
 }

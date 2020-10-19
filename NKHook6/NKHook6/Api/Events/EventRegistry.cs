@@ -4,12 +4,20 @@ using System.Reflection;
 
 namespace NKHook6.Api.Events
 {
-    public class EventRegistry
+    public class EventRegistry : Registry<List<MethodInfo>>
     {
-        public static EventRegistry subscriber;
-        internal EventRegistry()
+        //Compat for old mods
+        public static EventRegistry subscriber
         {
-            subscriber = this;
+            get
+            {
+                return instance;
+            }
+        }
+        public static EventRegistry instance;
+        internal EventRegistry() : base()
+        {
+            instance = this;
 
             //Unity
             createEvent("UpdateEvent"); //Updated
@@ -70,7 +78,7 @@ namespace NKHook6.Api.Events
         {
             try
             {
-                theRegistry.Add(eventName, new List<MethodInfo>());
+                register(eventName, new List<MethodInfo>());
                 //Logger.Log("Created event: " + eventName);
             }
             catch (Exception ex)
@@ -81,12 +89,12 @@ namespace NKHook6.Api.Events
             }
         }
 
-        /// <summary>
+        /*/// <summary>
         /// Dictionary of eventNames with their callbacks
         /// </summary>
-        Dictionary<string, List<MethodInfo>> theRegistry = new Dictionary<string, List<MethodInfo>>();
+        Dictionary<string, List<MethodInfo>> theRegistry = new Dictionary<string, List<MethodInfo>>();*/
 
-        public void register(Type toSubscribe)
+        public void listen(Type toSubscribe)
         {
             foreach(MethodInfo method in toSubscribe.GetMethods())
             {
@@ -98,11 +106,11 @@ namespace NKHook6.Api.Events
                         {
                             bool registered = false;
                             EventAttribute eventAttrib = (EventAttribute)attrib;
-                            foreach(string currentEventName in theRegistry.Keys)
+                            foreach(string currentEventName in getIDs())
                             {
                                 if (currentEventName == eventAttrib.eventName)
                                 {
-                                    theRegistry[currentEventName].Add(method);
+                                    getItem(currentEventName).Add(method);
                                     //Logger.Log("Registered event \"" + eventAttrib.eventName + "\"");
                                     registered = true;
                                     continue;
@@ -115,15 +123,11 @@ namespace NKHook6.Api.Events
                 }
             }
         }
-        public void unregister(Type toUnSubscribe)
-        {
-
-        }
         public void dispatchEvent<T>(ref T e) where T : EventBase
         {
-            foreach (string name in theRegistry.Keys)
+            foreach (string name in getIDs())
             {
-                List<MethodInfo> callbacks = theRegistry[name];
+                List<MethodInfo> callbacks = getItem(name);
                 if (callbacks == null)
                     continue;
                 if (callbacks.Count == 0)

@@ -29,7 +29,7 @@ namespace NKHook6.Patches._Bloons
                     ref distributeToChildren, ref overrideDistributeBlocker, ref createEffect, ref tower,
                     ref canDestroyProjectile, ref ignoreImmunityForBloonTypes, ref ignoreNonTargetable,
                     ref blockSpawnChildren);
-                EventRegistry.subscriber.dispatchEvent(ref o);
+                EventRegistry.instance.dispatchEvent(ref o);
 
                 totalAmount = o.damageTaken;
                 types = o.damageTypes;
