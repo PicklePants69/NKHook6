@@ -31,13 +31,12 @@ namespace AddTowers
         [EventAttribute("MainMenuLoadedEvent")]
         public static unsafe void onLoad(MainMenuEvents.LoadedEvent e)
         {
+            //Get instance
             Game game = Game.instance;
-
             //Build tower
-            TowerModel customMonkey = new TowerBuilder().SetName("CustomMonkey").SetBaseId("CustomMonkey").SetCost(20).build();
-            game.getProfileModel().unlockedTowers.Add("CustomMonkey");
-
-            TowerRegistry.instance.register("CustomMonkey", customMonkey);
+            TowerModel customMonkey = new TowerBuilder().SetName("CustomMonkey").SetBaseId("CustomMonkey").SetCost(20).build(); //Create the model
+            game.getProfileModel().unlockedTowers.Add("CustomMonkey"); //Unlock it so you can use it
+            TowerRegistry.instance.register("CustomMonkey", customMonkey); //Register it
         }
     }
 }

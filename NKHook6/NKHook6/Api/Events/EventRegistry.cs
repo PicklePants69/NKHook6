@@ -74,7 +74,7 @@ namespace NKHook6.Api.Events
             createEvent("FastForwardToggleEvent");*/
         }
 
-        void createEvent(string eventName)
+        public void createEvent(string eventName)
         {
             try
             {
