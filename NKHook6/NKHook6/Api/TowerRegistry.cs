@@ -96,8 +96,9 @@ namespace NKHook6.Api
                     //if the tower id in the upgrade screen is a modded one, make it a dart monkey upgrade screen for safety
                     if (towerId.Contains(customModel.baseId))
                     {
-                        towerId = "DartMonkey";
-                        break;
+                        //towerId = "DartMonkey";
+                        __instance.Close();
+                        return false;
                     }
                 }
                 //Return true executes the rest of the game code
