@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnhollowerBaseLib;
 
-namespace NKHook6.Api
+namespace NKHook6.Api.Towers
 {
     /*
      * Huge thanks to Kosmic (https://github.com/KosmicShovel) for helping research & actually add new tower content into the game

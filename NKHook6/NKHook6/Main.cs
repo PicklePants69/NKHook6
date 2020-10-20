@@ -15,6 +15,7 @@ using Assets.Main.Scenes;
 using Assets.Main;
 using NKHook6.Api.Gamemodes;
 using UnityEngine.UI;
+using NKHook6.Api.Towers;
 
 namespace NKHook6
 {

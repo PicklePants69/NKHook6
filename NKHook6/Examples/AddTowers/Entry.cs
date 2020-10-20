@@ -1,7 +1,9 @@
 ﻿using Assets.Scripts.Models.Towers;
+using Assets.Scripts.Models.Towers.Upgrades;
 using Assets.Scripts.Models.TowerSets;
 using Assets.Scripts.Simulation.Input;
 using Assets.Scripts.Unity;
+using Assets.Scripts.Unity.UI_New.Upgrade;
 using Harmony;
 using MelonLoader;
 using NKHook6;
@@ -9,6 +11,8 @@ using NKHook6.Api;
 using NKHook6.Api.Events;
 using NKHook6.Api.Events._MainMenu;
 using NKHook6.Api.Extensions;
+using NKHook6.Api.Towers;
+using NKHook6.Api.Upgrades;
 using System.Collections.Generic;
 using System.Linq;
 using UnhollowerBaseLib;
@@ -33,10 +37,41 @@ namespace AddTowers
         {
             //Get instance
             Game game = Game.instance;
+
+            //Build and register upgrades
+            UpgradeModel customUpgrade = new UpgradeBuilder().SetName("CustomUpgrade").build();
+            UpgradeRegistry.instance.register("CustomUpgrade", customUpgrade);
+            UpgradePathModel upgradePathModel = new UpgradePathModel("CustomUpgrade", "CustomMonkey", 0, 0);
+
+
+            foreach (UpgradeModel upgrade in game.model.upgrades)
+            {
+                Logger.Log(upgrade.name);
+            }
+
+
             //Build tower
-            TowerModel customMonkey = new TowerBuilder().SetName("CustomMonkey").SetBaseId("CustomMonkey").SetDontDisplayUpgrades(true).SetCost(20).build(); //Create the model
+            TowerModel customMonkey = new TowerBuilder()
+                .SetName("CustomMonkey")
+                .SetBaseId("CustomMonkey")
+                .IgnoreBlockers(true)
+                .SetRange(1000)
+                .SetCost(20)
+                .SetUpgrades(new UpgradePathModel[]{ upgradePathModel })
+                .build(); //Create the model
             game.getProfileModel().unlockedTowers.Add("CustomMonkey"); //Unlock it so you can use it
             TowerRegistry.instance.register("CustomMonkey", customMonkey); //Register it
         }
     }
+
+	[HarmonyPatch(typeof(UpgradeScreen), "SelectUpgrade")]
+	class UpgradeHook
+	{
+		[HarmonyPrefix]
+		internal static bool Prefix(ref UpgradeScreen __instance, UpgradeDetails details, bool showSelected = true)
+		{
+            //Logger.Log(__instance.tower)
+            return true;
+		}
+	}
 }

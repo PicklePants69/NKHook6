@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Models.Bloons;
 using Assets.Scripts.Models.Profile;
 using Assets.Scripts.Models.Towers;
+using Assets.Scripts.Models.Towers.Upgrades;
 using Assets.Scripts.Unity;
 using Assets.Scripts.Unity.Player;
 using NKHook6.Patches._ProfileModel;
@@ -49,6 +50,11 @@ namespace NKHook6.Api.Extensions
         public static TowerModel[] getAllTowerModels(this Game game)
         {
             return game.model.towers;
+        }
+
+        public static UpgradeModel getUpgradeModel(this Game game, string upgradeName)
+        {
+            return game.model.GetUpgrade(upgradeName);
         }
     }
 }
