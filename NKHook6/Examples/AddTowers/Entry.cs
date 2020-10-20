@@ -34,7 +34,7 @@ namespace AddTowers
             //Get instance
             Game game = Game.instance;
             //Build tower
-            TowerModel customMonkey = new TowerBuilder().SetName("CustomMonkey").SetBaseId("CustomMonkey").SetCost(20).build(); //Create the model
+            TowerModel customMonkey = new TowerBuilder().SetName("CustomMonkey").SetBaseId("CustomMonkey").SetDontDisplayUpgrades(true).SetCost(20).build(); //Create the model
             game.getProfileModel().unlockedTowers.Add("CustomMonkey"); //Unlock it so you can use it
             TowerRegistry.instance.register("CustomMonkey", customMonkey); //Register it
         }
