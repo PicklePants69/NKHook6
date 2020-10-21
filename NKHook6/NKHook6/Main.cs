@@ -16,6 +16,7 @@ using Assets.Main;
 using NKHook6.Api.Gamemodes;
 using UnityEngine.UI;
 using NKHook6.Api.Towers;
+using NKHook6.Api.Upgrades;
 
 namespace NKHook6
 {
@@ -32,6 +33,7 @@ namespace NKHook6
             new EventRegistry();
             new KeyListener();
             new TowerRegistry();
+            new UpgradeRegistry();
 
             EventRegistry.instance.listen(typeof(Main));
 

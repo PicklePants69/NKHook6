@@ -30,15 +30,15 @@ namespace NKHook6.Api.Upgrades
 
             //Get game instance
             Game game = Game.instance;
-            //Get tower list
+            //Get upgrade list
             var p_towerList = game.model.upgrades;
-            //Create a managed version of the tower list to modify it easily
+            //Create a managed version of the upgrade list to modify it easily
             List<UpgradeModel> upgradeList = new List<UpgradeModel>(p_towerList.ToArray());
             //Add the model
             upgradeList.Add(item);
             //Make the list an il2cpp array again
             Il2CppReferenceArray<UpgradeModel> m_upgradeList = new Il2CppReferenceArray<UpgradeModel>(upgradeList.ToArray());
-            //Set the list of towers
+            //Set the list of upgrades
             game.model.upgrades = m_upgradeList;
         }
     }
