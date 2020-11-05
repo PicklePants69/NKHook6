@@ -410,6 +410,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\BTDGame.cs" />
     <Compile Include="Api\CommandManager.cs" />
     <Compile Include="Api\Events\Bloons\CreatedEvent.cs" />
     <Compile Include="Api\Events\Bloons\DeletedEvent.cs" />
@@ -458,6 +459,7 @@
     <Compile Include="Api\Gamemodes\Gamemode.cs" />
     <Compile Include="Api\Gamemodes\Loader.cs" />
     <Compile Include="Api\ModSettings.cs" />
+    <Compile Include="Api\NKHookInfo.cs" />
     <Compile Include="Api\Registry.cs" />
     <Compile Include="Api\Towers\TowerBuilder.cs" />
     <Compile Include="Api\Towers\TowerRegistry.cs" />

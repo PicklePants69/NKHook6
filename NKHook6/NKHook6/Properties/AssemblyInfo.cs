@@ -1,5 +1,5 @@
 ﻿using MelonLoader;
-using NKHook6;
+using NKHook6.Api;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
@@ -36,5 +36,5 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("2.1.0")]
 [assembly: AssemblyFileVersion("2.1.0")]
 
-[assembly: MelonInfo(typeof(NKHook6.Main), "NKHook6", "2.1.0", "DisabledMallis & Gurrenm4")]
-[assembly: MelonGame("Ninja Kiwi", "BloonsTD6")]
+[assembly: NKHookInfo(typeof(NKHook6.Main), "NKHook6", "2.1.0", "DisabledMallis & Gurrenm4")]
+[assembly: BTDGame()]

@@ -42,6 +42,7 @@ namespace AddTowers
             UpgradeModel customUpgrade = new UpgradeBuilder().SetName("CustomUpgrade").build();
             UpgradeRegistry.instance.register("CustomUpgrade", customUpgrade);
             UpgradePathModel upgradePathModel = new UpgradePathModel("CustomUpgrade", "CustomMonkey", 0, 0);
+            game.getProfileModel().acquiredUpgrades.Add("CustomUpgrade");
 
 
             foreach (UpgradeModel upgrade in game.model.upgrades)
@@ -59,8 +60,19 @@ namespace AddTowers
                 .SetCost(20)
                 .SetUpgrades(new UpgradePathModel[]{ upgradePathModel })
                 .build(); //Create the model
+
             game.getProfileModel().unlockedTowers.Add("CustomMonkey"); //Unlock it so you can use it
             TowerRegistry.instance.register("CustomMonkey", customMonkey); //Register it
+
+            TowerModel customMonkey100 = new TowerBuilder(customMonkey).SetName("CustomMonkey-100").build();
+            game.getProfileModel().unlockedTowers.Add("CustomMonkey-100"); //Unlock it so you can use it
+            TowerRegistry.instance.register("CustomMonkey-100", customMonkey100); //Register it
+
+
+
+
+            /*TowerModel newModel = new TowerBuilder().SetName("Test").SetBaseId("Test").build();
+            TowerRegistry.instance.register("Test", newModel);*/
         }
     }
 
@@ -70,7 +82,7 @@ namespace AddTowers
 		[HarmonyPrefix]
 		internal static bool Prefix(ref UpgradeScreen __instance, UpgradeDetails details, bool showSelected = true)
 		{
-            //Logger.Log(__instance.tower)
+            Logger.Log(__instance.name);
             return true;
 		}
 	}
