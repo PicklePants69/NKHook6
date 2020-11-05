@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Unity.Bridge;
+﻿using Assets.Scripts.Simulation.Towers.Projectiles;
+using Assets.Scripts.Unity.Bridge;
 using Assets.Scripts.Unity.UI_New.InGame;
 using Assets.Scripts.Utils;
 using Il2CppSystem.Collections.Generic;
@@ -99,7 +100,7 @@ namespace NKHook6.Api.Extensions
         }
          public static List<AbilityToSimulation> getAbilities(this InGame inGame)
         {
-            return inGame.bridge.GetAllAbilities();
+            return inGame.bridge.GetAllAbilities(true);
         }
          public static List<Projectile> getProjectiles(this InGame inGame)
         {
