@@ -93,5 +93,17 @@ namespace NKHook6.Api.Extensions
         {
             return inGame.bridge.GetAllBloons();
         }
+        public static List<TowerToSimulation> getTowers(this InGame inGame)
+        {
+            return inGame.bridge.GetAllTowers();
+        }
+         public static List<AbilityToSimulation> getAbilities(this InGame inGame)
+        {
+            return inGame.bridge.GetAllAbilities();
+        }
+         public static List<Projectile> getProjectiles(this InGame inGame)
+        {
+            return inGame.bridge.GetAllProjectiles();
+        }
     }
 }
