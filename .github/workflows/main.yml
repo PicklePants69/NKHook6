@@ -33,10 +33,10 @@ jobs:
         run: git submodule update --init --recursive
         
       - name: Delete unused NLayer projects
-        run: rd /S /Q %CD%\NKHook6\NKHook6\Dependencies\NLayer\NLayer.NAudioSupport | rd /S /Q %CD%\NKHook6\NKHook6\Dependencies\NLayer\TestApp
+        run: rd /s %CD%\NKHook6\NKHook6\Dependencies\NLayer\NLayer.NAudioSupport | rd /s %CD%\NKHook6\NKHook6\Dependencies\NLayer\TestApp
         
       - name: Restore NuGet Packages
-        run: nuget restore SimpleFrameworkApp.sln
+        run: nuget restore NKHook6/NKHook6.sln
 
       - name: Build NKHook6
         run: msbuild NKHook6/NKHook6.sln /p:Configuration=Release
