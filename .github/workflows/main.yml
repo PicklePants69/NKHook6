@@ -31,3 +31,17 @@ jobs:
         
       - name: Checkout submodules
         run: git submodule update --init --recursive
+        
+      - name: Delete unused NLayer projects
+        run: rd /S /Q %CD%\NKHook6\NKHook6\Dependencies\NLayer\NLayer.NAudioSupport | rd /S /Q %CD%\NKHook6\NKHook6\Dependencies\NLayer\TestApp
+        
+      - name: Restore NuGet Packages
+        run: nuget restore SimpleFrameworkApp.sln
+
+      - name: Build NKHook6
+        run: msbuild NKHook6/NKHook6.sln /p:Configuration=Release
+        
+      - uses: actions/upload-artifact@v2
+        with:
+          name: NKHook6-Build
+          path: NKHook6\NKHook6\bin\Release\NKHook6.dll
