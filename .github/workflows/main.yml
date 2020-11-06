@@ -33,10 +33,10 @@ jobs:
         run: git submodule update --init --recursive
         
       - name: Delete unused NLayer NAudioSupport
-        run: rmdir /s "%CD%\NKHook6\NKHook6\Dependencies\NLayer\NLayer.NAudioSupport"
+        run: Remove-Item "NKHook6\NKHook6\Dependencies\NLayer\NLayer.NAudioSupport" -Recurse
         
       - name: Delete unused NLayer TestApp
-        run: rmdir /s "%CD%\NKHook6\NKHook6\Dependencies\NLayer\TestApp"
+        run: Remove-Item "NKHook6\NKHook6\Dependencies\NLayer\TestApp" -Recurse
         
       - name: Restore NuGet Packages
         run: nuget restore NKHook6/NKHook6.sln
