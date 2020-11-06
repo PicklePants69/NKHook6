@@ -32,8 +32,11 @@ jobs:
       - name: Checkout submodules
         run: git submodule update --init --recursive
         
-      - name: Delete unused NLayer projects
-        run: rd /s %CD%\NKHook6\NKHook6\Dependencies\NLayer\NLayer.NAudioSupport | rd /s %CD%\NKHook6\NKHook6\Dependencies\NLayer\TestApp
+      - name: Delete unused NLayer NAudioSupport
+        run: rd /s NKHook6\NKHook6\Dependencies\NLayer\NLayer.NAudioSupport
+        
+      - name: Delete unused NLayer TestApp
+        run: rd /s NKHook6\NKHook6\Dependencies\NLayer\TestApp
         
       - name: Restore NuGet Packages
         run: nuget restore NKHook6/NKHook6.sln
