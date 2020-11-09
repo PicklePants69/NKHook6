@@ -48,3 +48,20 @@ jobs:
         with:
           name: NKHook6-Build
           path: NKHook6\NKHook6\bin\Release\NKHook6.dll
+      - name: Create a Release
+        uses: actions/create-release@v1.1.4
+        with:
+          # The name of the tag. This should come from the webhook payload, `github.GITHUB_REF` when a user pushes a new tag
+          tag_name: ${{ github.run_number }}
+          # The name of the release. For example, `Release v1.0.1`
+          release_name: Build ${{ github.run_number }}
+      - name: Upload Release Asset
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: NKHook6\NKHook6\bin\Release\NKHook6.dll
+          asset_name: NKHook6.dll
+          asset_content_type: application/dll
