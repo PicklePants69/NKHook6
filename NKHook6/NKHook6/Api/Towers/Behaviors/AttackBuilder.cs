@@ -5,10 +5,6 @@ using Assets.Scripts.Models.Towers.Weapons;
 using Assets.Scripts.Unity;
 using NKHook6.Api.Extensions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnhollowerBaseLib;
 
 namespace NKHook6.Api.Towers.Behaviors
@@ -36,7 +32,6 @@ namespace NKHook6.Api.Towers.Behaviors
             Model[] behaviorModels = Game.instance.getTowerModel("DartMonkey").behaviors;
             foreach(Model behavior in behaviorModels)
             {
-                Logger.Log(behavior.name);
                 if (behavior.name.StartsWith("AttackModel"))
                 {
                     Initialize(new AttackModel(behavior.Clone().Pointer));
@@ -50,7 +45,6 @@ namespace NKHook6.Api.Towers.Behaviors
         }
         private void Initialize(AttackModel baseModel)
         {
-            Logger.Log("Initializing builder with base " + baseModel.name);
             name = baseModel.name;
             weapons = baseModel.weapons;
             range = baseModel.range;
@@ -67,6 +61,14 @@ namespace NKHook6.Api.Towers.Behaviors
         }
         #endregion
         #region Functions
+        public AttackBuilder ForEachWeapon(Action<WeaponModel> func)
+        {
+            foreach(WeaponModel weapon in this.weapons)
+            {
+                func(weapon);
+            }
+            return this;
+        }
         public AttackBuilder SetName(string name)
         {
             this.name = name;

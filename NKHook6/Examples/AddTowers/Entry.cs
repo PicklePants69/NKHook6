@@ -42,7 +42,7 @@ namespace AddTowers
             //Get instance
             Game game = Game.instance;
 
-            //Build and register upgrades
+            //Build and register upgrades (WIP, DO NOT USE!!!!!)
             UpgradeModel customUpgrade = new UpgradeBuilder().SetName("CustomUpgrade").build();
             UpgradeRegistry.instance.register("CustomUpgrade", customUpgrade);
             UpgradePathModel upgradePathModel = new UpgradePathModel("CustomUpgrade", "CustomMonkey", 0, 0);
@@ -55,47 +55,34 @@ namespace AddTowers
                 .IgnoreBlockers(true) //Make it ignore blockers
                 .SetRange(100) //Set its range
                 .SetCost(20) //Set the cost
-                .SetAnimationSpeed(10)
-                .SetUpgrades(new UpgradePathModel[]{ upgradePathModel })
+                .SetAnimationSpeed(10) //Make him drink coffee
+                .SetUpgrades(new UpgradePathModel[]{ upgradePathModel }) //Unfinished, seems to have no effect at the moment
                 .SetVisibleInShop(true); //Make sure it is present in the shop (don't do this for upgrade models)
 
             AttackBuilder customAttack = new AttackBuilder()
-                .SetRange(100)
-                .SetFramesBeforeRetarget(1)
-                .SetAttackThroughWalls(true);
-            /*Logger.Log("Custom attack: " + customAttack.name);
-            Logger.Log("Custom attack model: " + customAttack.build().name);*/
-
-
-            List<TowerBehaviorModel> behaviors = new List<TowerBehaviorModel>();
-            foreach (TowerBehaviorModel model in customMonkey.behaviors)
-            {
-                if(model.name.StartsWith("AttackModel"))
+                .SetRange(100) //Set the attack range
+                .SetFramesBeforeRetarget(1) //Set the frames before the monkey will target the next bloon
+                .ForEachWeapon((weapon) => //For every weapon in the attack (You can do this in your own foreach loop, but this is beneficial for if youre trying to edit more properties directly after)
                 {
-                    //AttackModel attackModel = new AttackModel(model.Clone().Pointer);
-                    //attackModel.range = 100;
-                    behaviors.Add(customAttack.build());
-                    foreach(WeaponModel weapon in customAttack.weapons)
-                    {
-                        weapon.rate = 0.01f;
-                        Logger.Log(weapon.name);
-                    }
-                    //Logger.Log("Patched attack model");
+                    weapon.rate = 0.1f; //Set the fire rate
+                })
+                .SetAttackThroughWalls(true); //Make it so the attack ignores walls;
+
+
+            List<TowerBehaviorModel> behaviors = new List<TowerBehaviorModel>(); //Create a new behavior list
+            foreach (TowerBehaviorModel model in customMonkey.behaviors) //Loop through the existing behaviors
+            {
+                if(model.name.StartsWith("AttackModel")) //If the behavior is an attack model. NOTE: For some reason, the class information is lost, so we cannot use an "if is" check, we have to check using the name and then force cast. NKHook6 should take care of the conversion for you, given youre using the API features.
+                {
+                    behaviors.Add(customAttack.build()); //Build our custom attack and add it where the old one was
                     continue;
                 }
-                behaviors.Add(model);
-                //Logger.Log(model.name);
+                behaviors.Add(model); //Add existing behaviors back
             }
-            customMonkey.SetBehaviors(behaviors);
+            customMonkey.SetBehaviors(behaviors); //Override the tower's behaviors with our own
 
             game.getProfileModel().unlockedTowers.Add("CustomMonkey"); //Unlock it so you can use it
             TowerRegistry.instance.register("CustomMonkey", customMonkey); //Register it
-
-
-
-
-            /*TowerModel newModel = new TowerBuilder().SetName("Test").SetBaseId("Test").build();
-            TowerRegistry.instance.register("Test", newModel);*/
         }
     }
 
