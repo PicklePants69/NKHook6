@@ -50,23 +50,19 @@ namespace AddTowers
                 Logger.Log(upgrade.name);
             }
 
-
             //Build tower
-            TowerModel customMonkey = new TowerBuilder()
-                .SetName("CustomMonkey")
-                .SetBaseId("CustomMonkey")
-                .IgnoreBlockers(true)
-                .SetRange(1000)
-                .SetCost(20)
+            TowerBuilder customMonkey = new TowerBuilder()
+                .SetName("CustomMonkey") //Give it a name
+                .SetBaseId("CustomMonkey") //Give it a base ID
+                .IgnoreBlockers(true) //Make it ignore blockers
+                .SetRange(100) //Set its range
+                .SetCost(20) //Set the cost
                 .SetUpgrades(new UpgradePathModel[]{ upgradePathModel })
-                .build(); //Create the model
+                .SetBehaviors()
+                .SetVisibleInShop(true); //Make sure it is present in the shop (don't do this for upgrade models)
 
             game.getProfileModel().unlockedTowers.Add("CustomMonkey"); //Unlock it so you can use it
             TowerRegistry.instance.register("CustomMonkey", customMonkey); //Register it
-
-            TowerModel customMonkey100 = new TowerBuilder(customMonkey).SetName("CustomMonkey-100").build();
-            game.getProfileModel().unlockedTowers.Add("CustomMonkey-100"); //Unlock it so you can use it
-            TowerRegistry.instance.register("CustomMonkey-100", customMonkey100); //Register it
 
 
 

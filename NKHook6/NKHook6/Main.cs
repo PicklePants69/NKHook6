@@ -17,6 +17,7 @@ using NKHook6.Api.Gamemodes;
 using UnityEngine.UI;
 using NKHook6.Api.Towers;
 using NKHook6.Api.Upgrades;
+using System.Reflection;
 
 namespace NKHook6
 {
@@ -28,7 +29,7 @@ namespace NKHook6
             
             //BTD_Backend.Log.MessageLogged += Log_MessageLogged;
             Logger.Log("NKHook6 is initializing...");
-            Log("CWD: " + Environment.CurrentDirectory);
+            //Log("CWD: " + Environment.CurrentDirectory);
 
             new EventRegistry();
             new KeyListener();
@@ -36,7 +37,6 @@ namespace NKHook6
             new UpgradeRegistry();
 
             EventRegistry.instance.listen(typeof(Main));
-
             Log("NKHook6 initialized");
 
             InitializeCommandMgr();

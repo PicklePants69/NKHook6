@@ -18,39 +18,42 @@ namespace NKHook6.Api.Towers
 {
     public class TowerBuilder
     {
-        #region Properties
-        string name = "Monkey";
-        string baseId = "Monkey";
-        string towerSet = "Primary";
-        string display = "Towers/Dart";
-        float cost;
-        float radius;
-        float range;
-        bool ignoreBlockers = false;
-        bool isGlobalRange = false;
-        int tier;
-        int[] tiers;
-        string[] appliedUpgrades;
-        UpgradePathModel[] upgrades;
-        Model[] behaviors;
-        AreaType[] areaTypes;
-        SpriteReference icon;
-        SpriteReference portrait;
-        SpriteReference instaIcon;
-        ApplyModModel[] mods;
-        bool ignoreTowerForSelection = false;
-        bool isSubTower = false;
-        bool isBakable = false;
-        FootprintModel footprint;
-        bool dontDisplayUpgrades = false;
-        string powerName;
-        float animationSpeed;
-        SpriteReference emoteSpriteSmall;
-        SpriteReference emoteSpriteLarge;
-        bool doesntRotate = false;
-        bool showPowerTowerBuffs = false;
-        string towerSelectionMenuThemeId = "Default";
-        bool ignoreCoopAreas = false;
+        #region Default Properties
+        public string name = "Monkey";
+        public string baseId = "Monkey";
+        public string towerSet = "Primary";
+        public string display = "Towers/Dart";
+        public float cost;
+        public float radius;
+        public float range;
+        public bool ignoreBlockers = false;
+        public bool isGlobalRange = false;
+        public int tier;
+        public int[] tiers;
+        public string[] appliedUpgrades;
+        public UpgradePathModel[] upgrades;
+        public Model[] behaviors;
+        public AreaType[] areaTypes;
+        public SpriteReference icon;
+        public SpriteReference portrait;
+        public SpriteReference instaIcon;
+        public ApplyModModel[] mods;
+        public bool ignoreTowerForSelection = false;
+        public bool isSubTower = false;
+        public bool isBakable = false;
+        public FootprintModel footprint;
+        public bool dontDisplayUpgrades = false;
+        public string powerName;
+        public float animationSpeed;
+        public SpriteReference emoteSpriteSmall;
+        public SpriteReference emoteSpriteLarge;
+        public bool doesntRotate = false;
+        public bool showPowerTowerBuffs = false;
+        public string towerSelectionMenuThemeId = "Default";
+        public bool ignoreCoopAreas = false;
+        #endregion
+        #region Custom Properties
+        public bool visibleInShop = false;
         #endregion
         #region Constructor
         public TowerBuilder() : this(Game.instance.getTowerModel("DartMonkey")) { }
@@ -88,6 +91,7 @@ namespace NKHook6.Api.Towers
             this.showPowerTowerBuffs = baseModel.showPowerTowerBuffs;
             this.towerSelectionMenuThemeId = baseModel.towerSelectionMenuThemeId;
             this.ignoreCoopAreas = baseModel.ignoreCoopAreas;
+            this.visibleInShop = false;
         }
         #endregion
         #region Functions
@@ -249,6 +253,11 @@ namespace NKHook6.Api.Towers
         public TowerBuilder SetIgnoreCoopAreas(bool ignoreCoopAreas)
         {
             this.ignoreCoopAreas = ignoreCoopAreas;
+            return this;
+        }
+        public TowerBuilder SetVisibleInShop(bool visibleInShop)
+        {
+            this.visibleInShop = visibleInShop;
             return this;
         }
         #endregion
