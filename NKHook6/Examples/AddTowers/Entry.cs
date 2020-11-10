@@ -56,18 +56,21 @@ namespace AddTowers
                 .SetUpgrades(new UpgradePathModel[]{ upgradePathModel })
                 .SetVisibleInShop(true); //Make sure it is present in the shop (don't do this for upgrade models)
 
-            TowerBehaviorModel[] behaviors = customMonkey.behaviors;
-            foreach(TowerBehaviorModel model in behaviors)
+            List<TowerBehaviorModel> behaviors = new List<TowerBehaviorModel>();
+            foreach (TowerBehaviorModel model in customMonkey.behaviors)
             {
                 if(model.name.StartsWith("AttackModel"))
                 {
                     AttackModel attackModel = new AttackModel(model.Clone().Pointer);
                     attackModel.range = 100;
-                    customMonkey.AddBehavior(attackModel);
+                    behaviors.Add(attackModel);
                     Logger.Log("Patched attack model");
+                    continue;
                 }
+                behaviors.Add(model);
                 Logger.Log(model.name);
             }
+            customMonkey.SetBehaviors(behaviors);
 
             game.getProfileModel().unlockedTowers.Add("CustomMonkey"); //Unlock it so you can use it
             TowerRegistry.instance.register("CustomMonkey", customMonkey); //Register it

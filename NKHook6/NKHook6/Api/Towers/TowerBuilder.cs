@@ -34,7 +34,7 @@ namespace NKHook6.Api.Towers
         public int[] tiers;
         public string[] appliedUpgrades;
         public UpgradePathModel[] upgrades;
-        public TowerBehaviorModel[] behaviors;
+        public List<TowerBehaviorModel> behaviors;
         public AreaType[] areaTypes;
         public SpriteReference icon;
         public SpriteReference portrait;
@@ -80,7 +80,7 @@ namespace NKHook6.Api.Towers
                 TowerBehaviorModel newModel = new TowerBehaviorModel(behaviorModel.Pointer);
                 modelList.Add(newModel);
             }
-            this.behaviors = modelList.ToArray();
+            this.behaviors = modelList;
             this.areaTypes = baseModel.areaTypes;
             this.icon = baseModel.icon;
             this.portrait = baseModel.portrait;
@@ -173,9 +173,9 @@ namespace NKHook6.Api.Towers
             this.behaviors.Add(behavior);
             return this;
         }
-        public TowerBuilder SetBehaviors(Model[] behaviors)
+        public TowerBuilder SetBehaviors(List<TowerBehaviorModel> behaviors)
         {
-            this.behaviors = (TowerBehaviorModel[])behaviors;
+            this.behaviors = behaviors;
             return this;
         }
         public TowerBuilder SetAreaTypes(AreaType[] areaTypes)
@@ -291,7 +291,7 @@ namespace NKHook6.Api.Towers
                 this.tiers,
                 this.appliedUpgrades,
                 this.upgrades,
-                this.behaviors,
+                this.behaviors.ToArray(),
                 this.areaTypes,
                 this.icon,
                 this.portrait,

@@ -13,10 +13,10 @@ namespace NKHook6.Patches._Bloons
         [HarmonyPostfix]
         internal static void Postfix(ref Bloon __instance, ref Entity target, ref Model modelToUse)
         {
-            var o = new BloonEvents.CreatedEvent(ref __instance, ref target, ref modelToUse);
-            EventRegistry.instance.dispatchEvent(ref o);
-            target = o.entity;
-            modelToUse = o.model;
+            var o = new BloonEvents.CreatedEvent(ref __instance, ref target, ref modelToUse); //Create CreatedEvent instance
+            EventRegistry.instance.dispatchEvent(ref o); //Dispatch it
+            target = o.entity; //Get the changed values and modify them
+            modelToUse = o.model; //Same here
         }
     }
 }
