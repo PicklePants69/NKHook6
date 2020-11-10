@@ -7,12 +7,14 @@ using Assets.Scripts.Models.Towers.Mods;
 using Assets.Scripts.Models.Towers.Upgrades;
 using Assets.Scripts.Unity;
 using Assets.Scripts.Utils;
+using Harmony;
 using NKHook6.Api.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnhollowerBaseLib;
 
 namespace NKHook6.Api.Towers
 {
@@ -32,7 +34,7 @@ namespace NKHook6.Api.Towers
         public int[] tiers;
         public string[] appliedUpgrades;
         public UpgradePathModel[] upgrades;
-        public Model[] behaviors;
+        public TowerBehaviorModel[] behaviors;
         public AreaType[] areaTypes;
         public SpriteReference icon;
         public SpriteReference portrait;
@@ -72,7 +74,13 @@ namespace NKHook6.Api.Towers
             this.tiers = baseModel.tiers;
             this.appliedUpgrades = baseModel.appliedUpgrades;
             this.upgrades = baseModel.upgrades;
-            this.behaviors = baseModel.behaviors;
+            List<TowerBehaviorModel> modelList = new List<TowerBehaviorModel>();
+            foreach(Model behaviorModel in baseModel.behaviors)
+            {
+                TowerBehaviorModel newModel = new TowerBehaviorModel(behaviorModel.Pointer);
+                modelList.Add(newModel);
+            }
+            this.behaviors = modelList.ToArray();
             this.areaTypes = baseModel.areaTypes;
             this.icon = baseModel.icon;
             this.portrait = baseModel.portrait;
@@ -160,9 +168,14 @@ namespace NKHook6.Api.Towers
             this.upgrades = upgrades;
             return this;
         }
+        public TowerBuilder AddBehavior(Model behavior)
+        {
+            this.behaviors.Add(behavior);
+            return this;
+        }
         public TowerBuilder SetBehaviors(Model[] behaviors)
         {
-            this.behaviors = behaviors;
+            this.behaviors = (TowerBehaviorModel[])behaviors;
             return this;
         }
         public TowerBuilder SetAreaTypes(AreaType[] areaTypes)

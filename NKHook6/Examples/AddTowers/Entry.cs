@@ -1,4 +1,6 @@
-﻿using Assets.Scripts.Models.Towers;
+﻿using Assets.Scripts.Models;
+using Assets.Scripts.Models.Towers;
+using Assets.Scripts.Models.Towers.Behaviors.Attack;
 using Assets.Scripts.Models.Towers.Upgrades;
 using Assets.Scripts.Models.TowerSets;
 using Assets.Scripts.Simulation.Input;
@@ -44,12 +46,6 @@ namespace AddTowers
             UpgradePathModel upgradePathModel = new UpgradePathModel("CustomUpgrade", "CustomMonkey", 0, 0);
             game.getProfileModel().acquiredUpgrades.Add("CustomUpgrade");
 
-
-            foreach (UpgradeModel upgrade in game.model.upgrades)
-            {
-                Logger.Log(upgrade.name);
-            }
-
             //Build tower
             TowerBuilder customMonkey = new TowerBuilder()
                 .SetName("CustomMonkey") //Give it a name
@@ -59,6 +55,19 @@ namespace AddTowers
                 .SetCost(20) //Set the cost
                 .SetUpgrades(new UpgradePathModel[]{ upgradePathModel })
                 .SetVisibleInShop(true); //Make sure it is present in the shop (don't do this for upgrade models)
+
+            TowerBehaviorModel[] behaviors = customMonkey.behaviors;
+            foreach(TowerBehaviorModel model in behaviors)
+            {
+                if(model.name.StartsWith("AttackModel"))
+                {
+                    AttackModel attackModel = new AttackModel(model.Clone().Pointer);
+                    attackModel.range = 100;
+                    customMonkey.AddBehavior(attackModel);
+                    Logger.Log("Patched attack model");
+                }
+                Logger.Log(model.name);
+            }
 
             game.getProfileModel().unlockedTowers.Add("CustomMonkey"); //Unlock it so you can use it
             TowerRegistry.instance.register("CustomMonkey", customMonkey); //Register it
