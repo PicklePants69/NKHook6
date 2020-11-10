@@ -58,7 +58,6 @@ namespace AddTowers
                 .SetRange(100) //Set its range
                 .SetCost(20) //Set the cost
                 .SetUpgrades(new UpgradePathModel[]{ upgradePathModel })
-                .SetBehaviors()
                 .SetVisibleInShop(true); //Make sure it is present in the shop (don't do this for upgrade models)
 
             game.getProfileModel().unlockedTowers.Add("CustomMonkey"); //Unlock it so you can use it
