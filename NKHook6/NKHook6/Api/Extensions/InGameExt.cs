@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Unity.Bridge;
+﻿using Assets.Scripts.Simulation.Towers.Projectiles;
+using Assets.Scripts.Unity.Bridge;
 using Assets.Scripts.Unity.UI_New.InGame;
 using Assets.Scripts.Utils;
 using Il2CppSystem.Collections.Generic;
@@ -105,6 +106,17 @@ namespace NKHook6.Api.Extensions
                     bloonEmissionModels[i] = (new BloonEmissionModel(bloonName, spacing, bloonName));
                 }
             inGame.spawnBloons(bloonEmissionModels);
+        public static List<TowerToSimulation> getTowers(this InGame inGame)
+        {
+            return inGame.bridge.GetAllTowers();
+        }
+         public static List<AbilityToSimulation> getAbilities(this InGame inGame)
+        {
+            return inGame.bridge.GetAllAbilities(true);
+        }
+         public static List<Projectile> getProjectiles(this InGame inGame)
+        {
+            return inGame.bridge.GetAllProjectiles();
         }
     }
 }
