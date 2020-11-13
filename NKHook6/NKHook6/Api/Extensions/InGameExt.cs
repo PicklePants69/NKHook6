@@ -93,5 +93,18 @@ namespace NKHook6.Api.Extensions
         {
             return inGame.bridge.GetAllBloons();
         }
+        public static void spawnBloons(this InGameExt inGame, Il2CppReferenceArray<BloonEmissionModel> bloonEmissionModels)
+        {
+            inGame.brige.spawnBloons(BloonEmissionModels);
+        }
+        public static void spawnBloons(this InGameExt inGame, string bloonName, float spacing, int number)
+        {
+            Il2CppReferenceArray<BloonEmissionModel> bloonEmissionModels = new Il2CppReferenceArray<BloonEmissionModel>(number);
+            for (int i = 0; i < number; i++) 
+                {
+                    bloonEmissionModels[i] = (new BloonEmissionModel(bloonName, spacing, bloonName));
+                }
+            inGame.spawnBloons(bloonEmissionModels);
+        }
     }
 }

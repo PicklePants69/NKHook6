@@ -8,7 +8,7 @@ namespace NKHook6.Api.Events._InGame
 		{
 			public InGame inGame;
 
-			public VictoryEvent(ref InGame inGame) : base("StartMatchEvent")
+			public StartMatchEvent(ref InGame inGame) : base("StartMatchEvent")
 			{
 				this.inGame = inGame;
 			}
