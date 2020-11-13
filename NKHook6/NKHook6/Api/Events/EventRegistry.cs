@@ -61,7 +61,7 @@ namespace NKHook6.Api.Events
 
             //InGame
             createEvent("VictoryEvent"); //Updated
-            createEvent("StartMatch");
+            createEvent("StartMatchEvent");
 
             //Projectiles
             createEvent("ProjectileCreatedEvent");

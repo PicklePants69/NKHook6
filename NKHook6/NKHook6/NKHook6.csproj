@@ -417,6 +417,7 @@
     <Compile Include="Api\Events\EventAttribute.cs" />
     <Compile Include="Api\Events\EventBaseCancellable.cs" />
     <Compile Include="Api\Events\EventRegistry.cs" />
+    <Compile Include="Api\Events\InGame\StartMatchEvent.cs" />
     <Compile Include="Api\Events\InGame\VictoryEvent.cs" />
     <Compile Include="Api\Events\Projectile\CreatedEvent.cs" />
     <Compile Include="Api\Events\Projectile\DeletedEvent.cs" />
@@ -461,6 +462,7 @@
     <Compile Include="Api\Upgrades\UpgradeBuilder.cs" />
     <Compile Include="Api\Upgrades\UpgradeRegistry.cs" />
     <Compile Include="Patches\Bloon6Player\Bloon6PlayerPatch.cs" />
+    <Compile Include="Patches\InGame\StartMatchHook.cs" />
     <Compile Include="Patches\ProfileModel\ProfilePatch.cs" />
     <Compile Include="Patches\TowerInventory\InitPatch.cs" />
     <Compile Include="Utils\BloonToolkit.cs" />

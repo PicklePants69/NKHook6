@@ -8,12 +8,13 @@ namespace NKHook6.Patches._InGame
 	[HarmonyPatch(typeof(InGame), "StartMatch")]
 	class StartMatchHook
 	{
-		[HarmonyPostfix]
-		internal static bool Postfix(ref InGame __instance)
+		[HarmonyPrefix]
+		internal static bool Prefix(ref InGame __instance, ref bool isFromSave)
 		{
 			bool allowOriginalMethod = true;
-			var o = new InGameEvents.StartMatchEvent(ref __instance);
+			var o = new InGameEvents.StartMatchEvent(ref __instance, ref isFromSave);
 			EventRegistry.instance.dispatchEvent(ref o);
+			isFromSave = o.isFromSave;
 			allowOriginalMethod = !o.isCancelled();
 			return allowOriginalMethod;
 		}
