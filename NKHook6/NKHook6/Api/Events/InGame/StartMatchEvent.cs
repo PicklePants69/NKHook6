@@ -4,7 +4,7 @@ namespace NKHook6.Api.Events._InGame
 {
 	public partial class InGameEvents
 	{
-		public class StartMatchEvent : EventBaseCancellable
+		public class StartMatchEvent : EventBase
 		{
 			public InGame inGame;
 			public bool isFromSave;
