@@ -14,7 +14,7 @@ namespace NKHook6.Api.Towers
     /*
      * Huge thanks to Kosmic (https://github.com/KosmicShovel) for helping research & actually add new tower content into the game
      */
-    public class TowerRegistry : Registry<TowerModel>
+    public class TowerRegistry : Registry<TowerBuilder>
     {
         //The registry instance
         public static TowerRegistry instance;
@@ -28,7 +28,7 @@ namespace NKHook6.Api.Towers
         /// </summary>
         /// <param name="ID">The ID/Name of the tower</param>
         /// <param name="item">The actual model to be registered</param>
-        public override void register(string ID, TowerModel item)
+        public override void register(string ID, TowerBuilder item)
         {
             //Store it using the base function
             base.register(ID, item);
@@ -40,7 +40,7 @@ namespace NKHook6.Api.Towers
             //Create a managed version of the tower list to modify it easily
             List<TowerModel> towerList = new List<TowerModel>(p_towerList.ToArray());
             //Add the model
-            towerList.Add(item);
+            towerList.Add(item.build());
             //Make the list an il2cpp array again
             Il2CppReferenceArray<TowerModel> m_towerList = new Il2CppReferenceArray<TowerModel>(towerList.ToArray());
             //Set the list of towers
@@ -55,8 +55,8 @@ namespace NKHook6.Api.Towers
             internal static bool Prefix(TowerInventory __instance, ref Il2CppSystem.Collections.Generic.List<ShopTowerDetailsModel> allTowersInTheGame)
             {
                 //Get & Loop all models
-                TowerModel[] customTowerModels = instance.getItems();
-                foreach(TowerModel customModel in customTowerModels)
+                TowerBuilder[] customTowerModels = instance.getItems();
+                foreach(TowerBuilder customModel in customTowerModels)
                 {
                     //Bool to check if the custom tower already exists
                     bool customPresent = false;
@@ -73,8 +73,9 @@ namespace NKHook6.Api.Towers
                     //If it doesnt, add it
                     if (!customPresent)
                     {
-                        //Add the tower model to the shop
-                        allTowersInTheGame.Add(customModel.getShopDetails());
+                        //Add the tower model to the shop if it should be added
+                        if(customModel.visibleInShop)
+                            allTowersInTheGame.Add(customModel.build().getShopDetails());
                     }
                 }
                 //Return true executes the rest of the game code
@@ -90,8 +91,8 @@ namespace NKHook6.Api.Towers
             public static bool Prefix(ref UpgradeScreen __instance, ref string towerId, ref string upgradeID)
             {
                 //Get all models
-                TowerModel[] customTowerModels = instance.getItems();
-                foreach (TowerModel customModel in customTowerModels)
+                TowerBuilder[] customTowerModels = instance.getItems();
+                foreach (TowerBuilder customModel in customTowerModels)
                 {
                     //if the tower id in the upgrade screen is a modded one, make it a dart monkey upgrade screen for safety
                     if (towerId.Contains(customModel.baseId))

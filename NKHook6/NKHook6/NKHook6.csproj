@@ -39,10 +39,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>L:\Program Files (x86)\Steam\steamapps\common\BloonsTD6\MelonLoader\Managed\Assembly-CSharp.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Assembly-CSharp">
       <HintPath>..\references\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
@@ -459,6 +455,7 @@
     <Compile Include="Api\Gamemodes\Loader.cs" />
     <Compile Include="Api\ModSettings.cs" />
     <Compile Include="Api\Registry.cs" />
+    <Compile Include="Api\Towers\Behaviors\AttackBuilder.cs" />
     <Compile Include="Api\Towers\TowerBuilder.cs" />
     <Compile Include="Api\Towers\TowerRegistry.cs" />
     <Compile Include="Api\Upgrades\UpgradeBuilder.cs" />
