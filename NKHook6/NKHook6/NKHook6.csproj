@@ -447,6 +447,7 @@
     <Compile Include="Api\Events\Weapons\DeletedEvent.cs" />
     <Compile Include="Api\Events\Weapons\UpdatedModelEvent.cs" />
     <Compile Include="Api\Extensions\BloonExt.cs" />
+    <Compile Include="Api\Extensions\BloonModelExt.cs" />
     <Compile Include="Api\Extensions\GameExt.cs" />
     <Compile Include="Api\Extensions\InGameExt.cs" />
     <Compile Include="Api\Extensions\TowerExt.cs" />

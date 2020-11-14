@@ -7,6 +7,7 @@ using Assets.Scripts.Unity.Player;
 using NKHook6.Patches._ProfileModel;
 using NKHook6.Patches.Bloon6Player;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NKHook6.Api.Extensions
 {
@@ -38,18 +39,18 @@ namespace NKHook6.Api.Extensions
         {
             return game.model.GetBloon(bloonName);
         }
-        public static BloonModel[] getAllBloonModels(this Game game)
+        public static List<BloonModel> getAllBloonModels(this Game game)
         {
-            return game.model.bloons;
+            return game.model.bloons.ToList<BloonModel>();
         }
         
         public static TowerModel getTowerModel(this Game game, string towerName)
         {
             return game.model.GetTower(towerName);
         }
-        public static TowerModel[] getAllTowerModels(this Game game)
+        public static List<TowerModel> getAllTowerModels(this Game game)
         {
-            return game.model.towers;
+            return game.model.towers.ToList<TowerModel>();
         }
 
         public static UpgradeModel getUpgradeModel(this Game game, string upgradeName)
