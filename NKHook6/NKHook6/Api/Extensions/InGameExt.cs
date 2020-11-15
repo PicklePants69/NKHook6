@@ -1,5 +1,7 @@
-﻿using Assets.Scripts.Models.Rounds;
+﻿using Assets.Scripts.Models;
+using Assets.Scripts.Models.Rounds;
 using Assets.Scripts.Simulation.Towers.Projectiles;
+using Assets.Scripts.Unity;
 using Assets.Scripts.Unity.Bridge;
 using Assets.Scripts.Unity.UI_New.InGame;
 using Assets.Scripts.Utils;
@@ -105,13 +107,22 @@ namespace NKHook6.Api.Extensions
         public static void spawnBloons(this InGame inGame, string bloonName, float spacing, int number)
         {
             Il2CppReferenceArray<BloonEmissionModel> bloonEmissionModels = new Il2CppReferenceArray<BloonEmissionModel>(number);
+            float time = 0;
             for (int i = 0; i < number; i++)
             {
-                bloonEmissionModels[i] = (new BloonEmissionModel(bloonName, spacing, bloonName));
-            }
+                time += spacing;
+                bloonEmissionModels[i] = (new BloonEmissionModel(bloonName, time, bloonName));
+            }   
             inGame.spawnBloons(bloonEmissionModels);
 
 
+        }
+        public static void spawnBloons(this InGame inGame, int round)
+        {
+            GameModel model = Game.instance.model;
+            var rounds = model.GetRoundSet().rounds;
+            var emissions = rounds[round - 1].emissions;
+            inGame.spawnBloons(emissions);
         }
         public static List<TowerToSimulation> getTowers(this InGame inGame)
         {
