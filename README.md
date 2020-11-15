@@ -25,3 +25,8 @@ After following our getting started [Wiki Page](https://github.com/TDToolbox/BTD
 
 ## Want to know more?
 Check out our [Wiki](https://github.com/TDToolbox/BTD-Docs/tree/master/Unity%20Engine/Btd6/NKHook6) which is dedicated to NKHook6
+
+
+## How to contribute
+
+Fork the repo, and open `NKHook6.sln` in Visual Studio
