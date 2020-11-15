@@ -112,7 +112,7 @@ namespace NKHook6.Api.Extensions
             {
                 time += spacing;
                 bloonEmissionModels[i] = (new BloonEmissionModel(bloonName, time, bloonName));
-            }   
+            }
             inGame.spawnBloons(bloonEmissionModels);
 
 
@@ -120,9 +120,18 @@ namespace NKHook6.Api.Extensions
         public static void spawnBloons(this InGame inGame, int round)
         {
             GameModel model = Game.instance.model;
-            var rounds = model.GetRoundSet().rounds;
-            var emissions = rounds[round - 1].emissions;
-            inGame.spawnBloons(emissions);
+            if (round < 100)
+            {
+
+                var rounds = model.GetRoundSet().rounds;
+                var emissions = rounds[round - 1].emissions;
+                inGame.spawnBloons(emissions);
+            }
+            if (round > 100)
+            {
+                var emissions = model.freeplayGroups[round - 100].bloonEmissions;
+                inGame.spawnBloons(emissions);
+            }
         }
         public static List<TowerToSimulation> getTowers(this InGame inGame)
         {
