@@ -11,7 +11,6 @@ namespace NKHook6.Patches._InGame
 		[HarmonyPostfix]
 		internal static void Postfix(ref InGame __instance, ref bool isFromSave)
 		{
-			Logger.Log("Event postfix");
 			var o = new InGameEvents.StartMatchEvent(ref __instance, ref isFromSave);
 			EventRegistry.instance.dispatchEvent(ref o);
 			isFromSave = o.isFromSave;
