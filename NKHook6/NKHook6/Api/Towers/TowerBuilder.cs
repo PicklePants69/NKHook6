@@ -58,7 +58,8 @@ namespace NKHook6.Api.Towers
         public bool visibleInShop = false;
         #endregion
         #region Constructor
-        public TowerBuilder() : this(Game.instance.getTowerModel("DartMonkey")) { }
+        public TowerBuilder() : this("DartMonkey") { }
+        public TowerBuilder(string baseName) : this(Game.instance.getTowerModel(baseName)) { }
         public TowerBuilder(TowerModel baseModel)
         {
             this.name = baseModel.name;

@@ -27,9 +27,10 @@ namespace NKHook6.Api.Towers.Behaviors
         public float sharedGridRange;
         #endregion
         #region Constructor
-        public AttackBuilder()
+        public AttackBuilder() : this("DartMonkey") { }
+        public AttackBuilder(string baseTower)
         {
-            Model[] behaviorModels = Game.instance.getTowerModel("DartMonkey").behaviors;
+            Model[] behaviorModels = Game.instance.getTowerModel(baseTower).behaviors;
             foreach(Model behavior in behaviorModels)
             {
                 if (behavior.name.StartsWith("AttackModel"))

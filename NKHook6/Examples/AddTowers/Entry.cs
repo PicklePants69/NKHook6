@@ -1,16 +1,8 @@
-﻿using Assets.Scripts.Models;
-using Assets.Scripts.Models.Towers;
-using Assets.Scripts.Models.Towers.Behaviors.Attack;
+﻿using Assets.Scripts.Models.Towers;
 using Assets.Scripts.Models.Towers.Upgrades;
-using Assets.Scripts.Models.Towers.Weapons;
-using Assets.Scripts.Models.TowerSets;
-using Assets.Scripts.Simulation.Input;
 using Assets.Scripts.Unity;
-using Assets.Scripts.Unity.UI_New.Upgrade;
-using Harmony;
 using MelonLoader;
-using NKHook6;
-using NKHook6.Api;
+using Newtonsoft.Json;
 using NKHook6.Api.Events;
 using NKHook6.Api.Events._MainMenu;
 using NKHook6.Api.Extensions;
@@ -18,8 +10,7 @@ using NKHook6.Api.Towers;
 using NKHook6.Api.Towers.Behaviors;
 using NKHook6.Api.Upgrades;
 using System.Collections.Generic;
-using System.Linq;
-using UnhollowerBaseLib;
+using System.IO;
 
 
 /*
@@ -36,6 +27,16 @@ namespace AddTowers
             EventRegistry.instance.listen(typeof(Entry));
         }
 
+        public class GenObj
+        {
+            public string TowerModel;
+
+            public GenObj(string TowerModel)
+            {
+                this.TowerModel = TowerModel;
+            }
+        }
+
         [EventAttribute("MainMenuLoadedEvent")]
         public static unsafe void onLoad(MainMenuEvents.LoadedEvent e)
         {
@@ -47,6 +48,14 @@ namespace AddTowers
             UpgradeRegistry.instance.register("CustomUpgrade", customUpgrade);
             UpgradePathModel upgradePathModel = new UpgradePathModel("CustomUpgrade", "CustomMonkey", 0, 0);
             game.getProfileModel().acquiredUpgrades.Add("CustomUpgrade");
+
+            List<GenObj> modelNames = new List<GenObj>();
+            foreach(TowerModel model in Game.instance.getAllTowerModels())
+            {
+                modelNames.Add(new GenObj(model.name));
+            }
+            string modelList = JsonConvert.SerializeObject(modelNames, Formatting.Indented);
+            File.WriteAllText("TowerModels.json", modelList);
 
             //Build tower
             TowerBuilder customMonkey = new TowerBuilder()
@@ -64,7 +73,7 @@ namespace AddTowers
                 .SetFramesBeforeRetarget(1) //Set the frames before the monkey will target the next bloon
                 .ForEachWeapon((weapon) => //For every weapon in the attack (You can do this in your own foreach loop, but this is beneficial for if youre trying to edit more properties directly after)
                 {
-                    weapon.rate = 0.1f; //Set the fire rate
+                    weapon.rate = 0.1f; //Set the fire rate (MS between shots)
                 })
                 .SetAttackThroughWalls(true); //Make it so the attack ignores walls;
 
@@ -85,15 +94,4 @@ namespace AddTowers
             TowerRegistry.instance.register("CustomMonkey", customMonkey); //Register it
         }
     }
-
-	[HarmonyPatch(typeof(UpgradeScreen), "SelectUpgrade")]
-	class UpgradeHook
-	{
-		[HarmonyPrefix]
-		internal static bool Prefix(ref UpgradeScreen __instance, UpgradeDetails details, bool showSelected = true)
-		{
-            Logger.Log(__instance.name);
-            return true;
-		}
-	}
 }
