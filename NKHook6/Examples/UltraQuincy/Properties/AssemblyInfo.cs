@@ -1,15 +1,16 @@
-﻿using System.Reflection;
+﻿using MelonLoader;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Tier6Engineer")]
+[assembly: AssemblyTitle("UltraQuincy")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Tier6Engineer")]
+[assembly: AssemblyProduct("UltraQuincy")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +21,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("03f60d2b-9778-4292-9b2e-87243121a5cd")]
+[assembly: Guid("02835fe6-e6d0-4c56-8b46-b2c0f2bafe05")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -34,3 +35,5 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: MelonInfo(typeof(UltraQuincy.Entry), "UltraQuincy", "1.0", "DisabledMallis")]
+[assembly: MelonGame("Ninja Kiwi", "BloonsTD6")]

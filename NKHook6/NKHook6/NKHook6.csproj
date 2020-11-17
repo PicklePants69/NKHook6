@@ -40,6 +40,7 @@
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\references\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>..\references\Assembly-CSharp-firstpass.dll</HintPath>
@@ -96,17 +97,26 @@
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\references\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="NinjaKiwi.Common">
-      <HintPath>..\references\NinjaKiwi.Common.dll</HintPath>
+      <HintPath>..\References\NinjaKiwi.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Ninjakiwi.LiNK">
-      <HintPath>..\references\Ninjakiwi.LiNK.dll</HintPath>
+      <HintPath>..\References\Ninjakiwi.LiNK.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="NK-Unity-Libs">
-      <HintPath>..\references\NK-Unity-Libs.dll</HintPath>
+      <HintPath>..\References\NK-Unity-Libs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Purchasing.Common">
+      <HintPath>..\References\Purchasing.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Stores">
+      <HintPath>..\References\Stores.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -451,6 +461,7 @@
     <Compile Include="Api\Extensions\BloonModelExt.cs" />
     <Compile Include="Api\Extensions\GameExt.cs" />
     <Compile Include="Api\Extensions\InGameExt.cs" />
+    <Compile Include="Api\Extensions\ModelExt.cs" />
     <Compile Include="Api\Extensions\TowerExt.cs" />
     <Compile Include="Api\Extensions\TowerModelExt.cs" />
     <Compile Include="Api\Gamemodes\Gamemode.cs" />

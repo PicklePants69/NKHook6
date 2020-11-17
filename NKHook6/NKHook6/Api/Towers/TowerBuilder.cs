@@ -171,7 +171,32 @@ namespace NKHook6.Api.Towers
         }
         public TowerBuilder AddBehavior(Model behavior)
         {
+            return AddBehavior(behavior);
+        }
+        public TowerBuilder AddBehavior(TowerBehaviorModel behavior)
+        {
             this.behaviors.Add(behavior);
+            return this;
+        }
+        public TowerBuilder RemoveBehavior(string behaviorType)
+        {
+            foreach(TowerBehaviorModel behavior in behaviors)
+            {
+                if (behavior.name.StartsWith(behaviorType))
+                {
+                    behaviors.Remove(behavior);
+                    break;
+                }
+            }
+            return this;
+        }
+        public TowerBuilder RemoveBehavior(Model behavior)
+        {
+            return RemoveBehavior(behavior);
+        }
+        public TowerBuilder RemoveBehavior(TowerBehaviorModel behavior)
+        {
+            behaviors.Remove(behavior);
             return this;
         }
         public TowerBuilder SetBehaviors(List<TowerBehaviorModel> behaviors)

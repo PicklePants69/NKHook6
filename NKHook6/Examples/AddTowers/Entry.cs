@@ -1,8 +1,12 @@
-﻿using Assets.Scripts.Models.Towers;
+﻿using Assets.Scripts.Models;
+using Assets.Scripts.Models.GenericBehaviors;
+using Assets.Scripts.Models.Towers;
+using Assets.Scripts.Models.Towers.Behaviors.Attack;
 using Assets.Scripts.Models.Towers.Upgrades;
 using Assets.Scripts.Unity;
 using MelonLoader;
 using Newtonsoft.Json;
+using NKHook6;
 using NKHook6.Api.Events;
 using NKHook6.Api.Events._MainMenu;
 using NKHook6.Api.Extensions;
@@ -29,11 +33,11 @@ namespace AddTowers
 
         public class GenObj
         {
-            public string TowerModel;
+            public string BehaviorModel;
 
-            public GenObj(string TowerModel)
+            public GenObj(string text)
             {
-                this.TowerModel = TowerModel;
+                this.BehaviorModel = text;
             }
         }
 
@@ -52,21 +56,13 @@ namespace AddTowers
             List<GenObj> modelNames = new List<GenObj>();
             foreach(TowerModel model in Game.instance.getAllTowerModels())
             {
-                modelNames.Add(new GenObj(model.name));
+                foreach(Model bmodel in model.behaviors)
+                {
+                    modelNames.Add(new GenObj(bmodel.name));
+                }
             }
             string modelList = JsonConvert.SerializeObject(modelNames, Formatting.Indented);
-            File.WriteAllText("TowerModels.json", modelList);
-
-            //Build tower
-            TowerBuilder customMonkey = new TowerBuilder()
-                .SetName("CustomMonkey") //Give it a name
-                .SetBaseId("CustomMonkey") //Give it a base ID
-                .IgnoreBlockers(true) //Make it ignore blockers
-                .SetRange(100) //Set its range
-                .SetCost(20) //Set the cost
-                .SetAnimationSpeed(10) //Make him drink coffee
-                .SetUpgrades(new UpgradePathModel[]{ upgradePathModel }) //Unfinished, seems to have no effect at the moment
-                .SetVisibleInShop(true); //Make sure it is present in the shop (don't do this for upgrade models)
+            File.WriteAllText("BehaviorModels.json", modelList);
 
             AttackBuilder customAttack = new AttackBuilder()
                 .SetRange(100) //Set the attack range
@@ -77,18 +73,29 @@ namespace AddTowers
                 })
                 .SetAttackThroughWalls(true); //Make it so the attack ignores walls;
 
-
-            List<TowerBehaviorModel> behaviors = new List<TowerBehaviorModel>(); //Create a new behavior list
-            foreach (TowerBehaviorModel model in customMonkey.behaviors) //Loop through the existing behaviors
-            {
-                if(model.name.StartsWith("AttackModel")) //If the behavior is an attack model. NOTE: For some reason, the class information is lost, so we cannot use an "if is" check, we have to check using the name and then force cast. NKHook6 should take care of the conversion for you, given youre using the API features.
+            AttackBuilder customQuincyAttack = new AttackBuilder("Quincy")
+                .SetRange(100)
+                .SetFramesBeforeRetarget(1)
+                .ForEachWeapon(weapon =>
                 {
-                    behaviors.Add(customAttack.build()); //Build our custom attack and add it where the old one was
-                    continue;
-                }
-                behaviors.Add(model); //Add existing behaviors back
-            }
-            customMonkey.SetBehaviors(behaviors); //Override the tower's behaviors with our own
+                    weapon.rate = 0.1f;
+                })
+                .SetAttackThroughWalls(true);
+
+
+            //Build tower
+            TowerBuilder customMonkey = new TowerBuilder()
+                .SetName("CustomMonkey") //Give it a name
+                .SetBaseId("CustomMonkey") //Give it a base ID
+                .IgnoreBlockers(true) //Make it ignore blockers
+                .SetRange(100) //Set its range
+                .SetCost(20) //Set the cost
+                .SetAnimationSpeed(10) //Make him drink coffee
+                .SetUpgrades(new UpgradePathModel[] { upgradePathModel }) //Unfinished, seems to have no effect at the moment
+                .SetVisibleInShop(true) //Make sure it is present in the shop (don't do this for upgrade models)
+                .RemoveBehavior("AttackModel") //Remove an attack model behavior
+                .AddBehavior(customQuincyAttack.build())
+                .AddBehavior(customAttack.build()); //Add our own
 
             game.getProfileModel().unlockedTowers.Add("CustomMonkey"); //Unlock it so you can use it
             TowerRegistry.instance.register("CustomMonkey", customMonkey); //Register it
