@@ -43,10 +43,10 @@ namespace NKHook6.Api.Extensions
         {
             return game.model.bloons.ToList<BloonModel>();
         }
-        
-        public static TowerModel getTowerModel(this Game game, string towerName)
+
+        public static TowerModel getTowerModel(this Game game, string towerID, int pathATier = 0, int pathBTier = 0, int pathCTier = 0)
         {
-            return game.model.GetTower(towerName);
+            return game.model.GetTower(towerID, pathATier, pathBTier, pathCTier);
         }
         public static List<TowerModel> getAllTowerModels(this Game game)
         {

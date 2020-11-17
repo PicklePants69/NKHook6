@@ -31,5 +31,29 @@ namespace NKHook6.Api.Extensions
             }
             return null;
         }
+        public static Model getBehaviorByName(this TowerModel model, string behaviorName)
+        {
+            foreach(Model behavior in model.behaviors)
+            {
+                string theName = behavior.name.Split('_')[1];
+                if (theName==behaviorName)
+                {
+                    return behavior;
+                }
+            }
+            return null;
+        }
+        public static Model getBehaviorByTypeAndName(this TowerModel model, string behaviorType, string behaviorName)
+        {
+            foreach(Model behavior in model.behaviors)
+            {
+                string theName = behavior.name.Split('_')[1];
+                if (behavior.name.StartsWith(behaviorType) && theName == behaviorName)
+                {
+                    return behavior;
+                }
+            }
+            return null;
+        }
     }
 }

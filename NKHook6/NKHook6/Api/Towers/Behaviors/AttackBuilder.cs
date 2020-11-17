@@ -5,6 +5,7 @@ using Assets.Scripts.Models.Towers.Weapons;
 using Assets.Scripts.Unity;
 using NKHook6.Api.Extensions;
 using System;
+using System.Collections.Generic;
 using UnhollowerBaseLib;
 
 namespace NKHook6.Api.Towers.Behaviors
@@ -13,7 +14,7 @@ namespace NKHook6.Api.Towers.Behaviors
     {
         #region Fields
         public string name;
-        public WeaponModel[] weapons;
+        public List<WeaponModel> weapons;
         public float range;
         public WeaponBehaviorModel[] behaviors;
         public TargetSupplierModel targetProvider;
@@ -47,7 +48,7 @@ namespace NKHook6.Api.Towers.Behaviors
         private void Initialize(AttackModel baseModel)
         {
             name = baseModel.name;
-            weapons = baseModel.weapons;
+            weapons = new List<WeaponModel>(baseModel.weapons);
             range = baseModel.range;
             behaviors = new Il2CppReferenceArray<WeaponBehaviorModel>(baseModel.behaviors.Pointer);
             targetProvider = baseModel.targetProvider;
@@ -62,6 +63,11 @@ namespace NKHook6.Api.Towers.Behaviors
         }
         #endregion
         #region Functions
+        public AttackBuilder AddWeapon(WeaponModel toAdd)
+        {
+            weapons.Add(toAdd);
+            return this;
+        }
         public AttackBuilder ForEachWeapon(Action<WeaponModel> func)
         {
             foreach(WeaponModel weapon in this.weapons)
@@ -75,7 +81,7 @@ namespace NKHook6.Api.Towers.Behaviors
             this.name = name;
             return this;
         }
-        public AttackBuilder SetName(WeaponModel[] weapons)
+        public AttackBuilder SetName(List<WeaponModel> weapons)
         {
             this.weapons = weapons;
             return this;
@@ -141,7 +147,7 @@ namespace NKHook6.Api.Towers.Behaviors
         {
             return new AttackModel(
                 name, 
-                weapons, 
+                weapons.ToArray(), 
                 range, 
                 behaviors, 
                 targetProvider, 
