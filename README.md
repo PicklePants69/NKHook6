@@ -1,3 +1,6 @@
+# Clean up
+I wanna clean up the codebase even more, lots of these changes would be quite problematic and may break lots of stuff so don't be afraid to use the 'archive' branch
+
 # NKHook6
 A C# modding API for [BloonsTD6](https://btd6.com/) using MelonLoader, made by [TD Toolbox](https://github.com/TDToolbox)
 
