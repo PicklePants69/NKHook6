@@ -4,3 +4,9 @@
 [submodule "NKHook6/NKHook6/Dependencies/NLayer"]
 	path = NKHook6/NKHook6/Dependencies/NLayer
 	url = https://github.com/naudio/NLayer.git
+[submodule "NKHook6/NKHook6/--name"]
+	path = NKHook6/NKHook6/--name
+	url = https://github.com/TDToolbox/NKHook6-API.git
+[submodule "Api"]
+	path = NKHook6/NKHook6/NKHook6-API
+	url = https://github.com/TDToolbox/NKHook6-API.git

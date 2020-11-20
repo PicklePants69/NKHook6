@@ -1,5 +1,4 @@
 ﻿using MelonLoader;
-using NKHook6.Api;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
